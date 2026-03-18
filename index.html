@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HM Pinnacle Consulting | People &amp; HR Solutions | Ferndale, WA</title>
+    <title>HM Pinnacle Consulting | Leadership &amp; People Systems | Ferndale, WA</title>
+    <meta name="description" content="Integrated leadership and people operating systems for manufacturing, aerospace, and construction organizations navigating growth, cross-border expansion, and workforce transitions.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -49,8 +50,8 @@
 
         body {
             font-family: var(--font-body);
-            color: var(--text-dark);
-            background: var(--white);
+            color: var(--gray-light);
+            background: var(--navy-darkest);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
@@ -154,18 +155,45 @@
             gap: 2rem;
             align-items: center;
         }
-        .nav-links a {
+        .nav-links > a,
+        .nav-links > .nav-item > .nav-parent {
             color: var(--white);
             font-size: 0.8rem;
             font-weight: 500;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             position: relative;
-            opacity: 0;
-            transform: translateY(-10px);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
             padding: 0.25rem 0;
         }
-        .nav-links a::after {
+        .nav-links > .nav-item > .nav-parent {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .nav-links > a {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        .nav-links > .nav-item {
+            position: relative;
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        .nav-links > .nav-item::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 18px;
+        }
+        .nav-links > a::after,
+        .nav-links > .nav-item > .nav-parent::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -175,16 +203,76 @@
             background: var(--accent-ice);
             transition: width 0.3s var(--ease-out);
         }
-        .nav-links a:hover::after {
+        .nav-links > a:hover::after,
+        .nav-links > .nav-item > .nav-parent:hover::after,
+        .nav-links > .nav-item:focus-within > .nav-parent::after {
             width: 100%;
         }
-        .nav-links a:nth-child(1) { animation: fadeSlideDown 0.6s var(--ease-out) 0.6s forwards; }
-        .nav-links a:nth-child(2) { animation: fadeSlideDown 0.6s var(--ease-out) 0.65s forwards; }
-        .nav-links a:nth-child(3) { animation: fadeSlideDown 0.6s var(--ease-out) 0.7s forwards; }
-        .nav-links a:nth-child(4) { animation: fadeSlideDown 0.6s var(--ease-out) 0.75s forwards; }
-        .nav-links a:nth-child(5) { animation: fadeSlideDown 0.6s var(--ease-out) 0.8s forwards; }
-        .nav-links a:nth-child(6) { animation: fadeSlideDown 0.6s var(--ease-out) 0.85s forwards; }
-        .nav-links a:nth-child(7) { animation: fadeSlideDown 0.6s var(--ease-out) 0.9s forwards; }
+        .nav-links > :nth-child(1) { animation: fadeSlideDown 0.6s var(--ease-out) 0.6s forwards; }
+        .nav-links > :nth-child(2) { animation: fadeSlideDown 0.6s var(--ease-out) 0.65s forwards; }
+        .nav-links > :nth-child(3) { animation: fadeSlideDown 0.6s var(--ease-out) 0.7s forwards; }
+        .nav-links > :nth-child(4) { animation: fadeSlideDown 0.6s var(--ease-out) 0.75s forwards; }
+        .nav-links > :nth-child(5) { animation: fadeSlideDown 0.6s var(--ease-out) 0.8s forwards; }
+        .nav-links > :nth-child(6) { animation: fadeSlideDown 0.6s var(--ease-out) 0.85s forwards; }
+        .nav-links > :nth-child(7) { animation: fadeSlideDown 0.6s var(--ease-out) 0.9s forwards; }
+        .nav-caret {
+            font-size: 0.62rem;
+            line-height: 1;
+            transition: transform 0.3s var(--ease-out);
+        }
+        .nav-item:hover .nav-caret,
+        .nav-item:focus-within .nav-caret,
+        .nav-item.is-open .nav-caret {
+            transform: rotate(180deg);
+        }
+        .nav-submenu {
+            position: absolute;
+            top: calc(100% + 0.35rem);
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            padding: 0.75rem;
+            border-radius: 18px;
+            border: 1px solid rgba(168,212,240,0.12);
+            background: rgba(6,20,37,0.98);
+            box-shadow: 0 22px 55px rgba(0,0,0,0.24);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.25s var(--ease-out), transform 0.25s var(--ease-out), visibility 0.25s var(--ease-out);
+        }
+        .nav-item:hover .nav-submenu,
+        .nav-item:focus-within .nav-submenu,
+        .nav-item.is-open .nav-submenu {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+        }
+        .nav-submenu a {
+            display: block;
+            padding: 0.9rem 0.95rem;
+            border-radius: 12px;
+            color: var(--white);
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            text-transform: none;
+            line-height: 1.4;
+            opacity: 1;
+            transform: none;
+            animation: none;
+        }
+        .nav-submenu a::after {
+            display: none;
+        }
+        .nav-submenu a:hover {
+            background: rgba(168,212,240,0.08);
+            color: var(--accent-ice);
+        }
 
         .nav-cta {
             background: transparent !important;
@@ -232,16 +320,56 @@
                 height: 100vh;
                 background: var(--navy-darkest);
                 flex-direction: column;
-                justify-content: center;
-                padding: 2rem;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 1rem;
+                padding: 6rem 2rem 2rem;
+                overflow-y: auto;
                 transition: right 0.4s var(--ease-out);
             }
             .nav-links.open { right: 0; }
-            .nav-links a {
-                font-size: 1rem;
+            .nav-links > a,
+            .nav-links > .nav-item {
+                width: 100%;
                 opacity: 1;
                 transform: none;
                 animation: none;
+            }
+            .nav-links > a,
+            .nav-links > .nav-item > .nav-parent {
+                font-size: 1rem;
+                justify-content: space-between;
+            }
+            .nav-item {
+                width: 100%;
+            }
+            .nav-links > .nav-item::after {
+                display: none;
+            }
+            .nav-submenu {
+                position: static;
+                left: auto;
+                top: auto;
+                transform: none;
+                min-width: 0;
+                width: 100%;
+                margin-top: 0.7rem;
+                padding: 0.5rem 0 0 1rem;
+                border: none;
+                border-radius: 0;
+                background: transparent;
+                box-shadow: none;
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+            }
+            .nav-submenu a {
+                padding: 0.45rem 0;
+                color: rgba(255,255,255,0.76);
+                font-size: 0.88rem;
+            }
+            .nav-submenu a:hover {
+                background: transparent;
             }
         }
 
@@ -265,54 +393,6 @@
                 radial-gradient(ellipse at 80% 20%, rgba(168, 212, 240, 0.1) 0%, transparent 50%),
                 linear-gradient(180deg, var(--navy-darkest) 0%, var(--navy-dark) 50%, var(--navy) 100%);
             z-index: 1;
-        }
-
-        /* Floating snowflakes */
-        .snowflakes {
-            position: absolute;
-            inset: 0;
-            z-index: 2;
-            pointer-events: none;
-            overflow: hidden;
-        }
-        .snowflake {
-            position: absolute;
-            color: rgba(168, 212, 240, 0.15);
-            font-size: 1.5rem;
-            animation: snowfall linear infinite;
-        }
-        @keyframes snowfall {
-            0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
-        }
-
-        /* Growth bar graph silhouette */
-        .hero-bars {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 3;
-            height: 65vh;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            gap: 0.4vw;
-            pointer-events: none;
-        }
-        .hero-bar {
-            width: 9vw;
-            min-width: 60px;
-            background: linear-gradient(to top, rgba(10,31,59,0.6), rgba(168,212,240,0.04));
-            border-radius: 4px 4px 0 0;
-            transform-origin: bottom;
-            transform: scaleY(0);
-            animation: heroBarGrow 1.2s var(--ease-out) forwards;
-        }
-        @keyframes heroBarGrow {
-            to { transform: scaleY(1); }
         }
 
         .hero-content {
@@ -344,7 +424,7 @@
         }
         .hero-title {
             font-family: var(--font-heading);
-            font-size: clamp(3.2rem, 10vw, 8.5rem);
+            font-size: clamp(3rem, 8vw, 7rem);
             font-weight: 700;
             color: var(--white);
             line-height: 0.95;
@@ -354,23 +434,32 @@
             animation: fadeSlideUp 0.8s var(--ease-out) 0.6s forwards;
             letter-spacing: -0.02em;
         }
+        .hero-title-line {
+            display: block;
+            white-space: nowrap;
+            font-size: 0.78em;
+        }
         .hero-title em {
             font-style: italic;
             color: var(--accent-ice);
-            font-size: 1.35em;
-            line-height: 0.85;
+            font-size: 1.18em;
+            line-height: 0.88;
             display: inline-block;
         }
         .hero-subtitle {
-            font-size: 1.45rem;
+            font-size: 1.22rem;
             font-weight: 300;
             color: var(--gray-light);
-            line-height: 1.75;
-            max-width: 860px;
+            line-height: 1.55;
+            max-width: 1180px;
             margin: 0 auto 2.5rem;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeSlideUp 0.8s var(--ease-out) 0.8s forwards;
+        }
+        .hero-subtitle-line {
+            display: block;
+            white-space: nowrap;
         }
         .hero-buttons {
             display: flex;
@@ -380,6 +469,57 @@
             opacity: 0;
             transform: translateY(20px);
             animation: fadeSlideUp 0.8s var(--ease-out) 1s forwards;
+        }
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            max-width: 1100px;
+            margin: 2.25rem auto 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeSlideUp 0.8s var(--ease-out) 1.15s forwards;
+        }
+        .hero-metric {
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            padding: 0.35rem 0.5rem;
+            text-align: center;
+            backdrop-filter: none;
+        }
+        .hero-metric-value {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.03em;
+        }
+        .hero-metric-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1.45;
+            color: rgba(255,255,255,0.62);
+        }
+        @media (max-width: 900px) {
+            .hero-title-line {
+                white-space: normal;
+                font-size: 1em;
+            }
+            .hero-title em {
+                font-size: 1.12em;
+            }
+            .hero-subtitle-line {
+                white-space: normal;
+            }
+            .hero-metrics {
+                grid-template-columns: 1fr;
+                max-width: 520px;
+            }
         }
         .btn-primary {
             display: inline-flex;
@@ -862,16 +1002,205 @@
            SERVICES SECTION
            ======================================== */
         .services {
-            background: var(--white);
+            background: var(--navy-darkest);
+        }
+        #services .section-container {
+            width: min(80vw, 1360px);
+            max-width: 1360px;
+        }
+        .services-spotlight {
+            position: relative;
+            display: grid;
+            grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.88fr);
+            gap: clamp(2rem, 3.8vw, 4.5rem);
+            align-items: stretch;
+            margin-bottom: 1.85rem;
+        }
+        .services-spotlight-media {
+            position: relative;
+            width: 100%;
+            max-width: none;
+            min-height: 100%;
+            justify-self: end;
+            border-radius: 28px;
+            overflow: hidden;
+            aspect-ratio: 0.92 / 1;
+            background: var(--navy);
+            border: 1px solid rgba(168,212,240,0.18);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.28);
+        }
+        .services-spotlight-media::before {
+            content: '';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 120px;
+            height: 120px;
+            border-top: 1px solid rgba(168,212,240,0.35);
+            border-right: 1px solid rgba(168,212,240,0.35);
+            border-radius: 0 26px 0 0;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .services-spotlight-media::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(6, 20, 37, 0.02) 0%, rgba(6, 20, 37, 0.28) 100%);
+            pointer-events: none;
+        }
+        .services-spotlight-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 42% center;
+        }
+        .services-spotlight-copy {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-width: 0;
+            padding: clamp(0.75rem, 1.5vw, 1.5rem) 0;
+        }
+        .services-kicker {
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-ice);
+            margin-bottom: 1rem;
+        }
+        .services-spotlight-title {
+            font-family: var(--font-heading);
+            font-size: clamp(3.25rem, 5.4vw, 5.2rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 0.94;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            max-width: 11.4ch;
+        }
+        .services-spotlight-title-line {
+            display: block;
+        }
+        .services-spotlight-text {
+            font-size: clamp(1.02rem, 1.45vw, 1.16rem);
+            color: rgba(255,255,255,0.68);
+            line-height: 1.8;
+            max-width: 46ch;
+            margin-bottom: 0;
+        }
+        .services-engagement-board {
+            display: grid;
+            grid-template-columns: minmax(250px, 0.44fr) minmax(0, 1fr);
+            gap: clamp(1.5rem, 2.5vw, 2.5rem);
+            align-items: start;
+            padding: clamp(1.6rem, 2.6vw, 2.5rem);
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(168,212,240,0.08) 100%);
+            border: 1px solid rgba(168,212,240,0.14);
+            border-radius: 28px;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+            margin-bottom: 0;
+        }
+        .services-engagement-copy {
+            min-width: 0;
+        }
+        .services-chip-meta {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .services-chip-question {
+            font-family: var(--font-heading);
+            font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.05;
+        }
+        .services-chip-step {
+            font-size: 0.98rem;
+            line-height: 1.75;
+            color: rgba(255,255,255,0.62);
+            max-width: 28ch;
+        }
+        .services-pill-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+            margin-bottom: 0;
+            align-content: start;
+        }
+        .services-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.95rem 1.15rem;
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(6,20,37,0.46);
+            color: var(--white);
+            font-size: 0.92rem;
+            font-weight: 600;
+            line-height: 1.35;
+            box-shadow: none;
+            transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
+        }
+        .services-pill:hover {
+            transform: translateY(-2px);
+            background: rgba(168,212,240,0.12);
+            border-color: rgba(168,212,240,0.35);
+            box-shadow: 0 16px 30px rgba(0,0,0,0.16);
+        }
+        .services-spotlight-note {
+            font-size: 0.96rem;
+            color: rgba(255,255,255,0.65);
+            line-height: 1.8;
+            max-width: 34ch;
+        }
+        .services-detail-header {
+            max-width: 760px;
+            margin: 0 0 2.25rem;
+            text-align: left;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(168,212,240,0.1);
+        }
+        .services-detail-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-ice);
+            margin-bottom: 0.9rem;
+        }
+        .services-detail-copy {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.62);
+            line-height: 1.8;
         }
         .services-header {
             text-align: center;
             max-width: 700px;
             margin: 0 auto 4rem;
         }
+        .services .section-title,
+        .team .section-title,
+        .blog .section-title,
+        .faq-section .section-title {
+            color: var(--white);
+        }
+        #partner-model {
+            background: var(--navy-dark) !important;
+        }
+        .team .section-container > div > p,
+        .blog .section-container > div > p {
+            color: rgba(255,255,255,0.68) !important;
+        }
         .services-header p {
             font-size: 1.05rem;
-            color: var(--gray);
+            color: rgba(255,255,255,0.68);
             line-height: 1.8;
         }
         .services-grid {
@@ -880,13 +1209,13 @@
             gap: 2rem;
         }
         .service-card {
-            background: var(--off-white);
+            background: rgba(255,255,255,0.04);
             padding: 2.5rem 2rem;
             border-radius: 4px;
             position: relative;
             overflow: hidden;
             transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
-            border: 1px solid rgba(10, 31, 59, 0.06);
+            border: 1px solid rgba(255,255,255,0.08);
         }
         .service-card::before {
             content: '';
@@ -902,7 +1231,7 @@
         }
         .service-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(10, 31, 59, 0.1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.24);
         }
         .service-card:hover::before {
             transform: scaleX(1);
@@ -910,7 +1239,7 @@
         .service-icon {
             width: 56px;
             height: 56px;
-            background: var(--white);
+            background: rgba(255,255,255,0.08);
             border-radius: 4px;
             display: flex;
             align-items: center;
@@ -919,31 +1248,78 @@
             transition: background 0.3s var(--ease-out);
         }
         .service-card:hover .service-icon {
-            background: var(--navy-dark);
+            background: var(--accent-ice);
         }
         .service-icon svg {
             width: 28px;
             height: 28px;
-            color: var(--navy-dark);
+            color: var(--accent-ice);
             transition: color 0.3s var(--ease-out);
         }
         .service-card:hover .service-icon svg {
-            color: var(--accent-ice);
+            color: var(--navy-darkest);
         }
         .service-card h3 {
             font-family: var(--font-heading);
             font-size: 1.3rem;
             font-weight: 600;
-            color: var(--text-dark);
+            color: var(--white);
             margin-bottom: 1rem;
         }
         .service-card p {
             font-size: 0.9rem;
-            color: var(--gray);
+            color: rgba(255,255,255,0.68);
             line-height: 1.75;
+        }
+        .tier-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            margin-top: 1.15rem;
+            color: var(--accent-ice);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: gap 0.3s var(--ease-out), color 0.3s var(--ease-out);
+        }
+        .tier-link:hover {
+            gap: 0.7rem;
+            color: var(--accent-frost);
         }
 
         @media (max-width: 900px) {
+            #services .section-container {
+                width: 100%;
+            }
+            .services-spotlight {
+                grid-template-columns: 1fr;
+                gap: 1.75rem;
+                margin-bottom: 1.5rem;
+            }
+            .services-spotlight-copy {
+                padding: 0;
+            }
+            .services-spotlight-title {
+                max-width: 12ch;
+            }
+            .services-spotlight-media {
+                justify-self: stretch;
+                aspect-ratio: 1.06 / 1;
+                border-radius: 20px;
+            }
+            .services-engagement-board {
+                grid-template-columns: 1fr;
+                border-radius: 20px;
+                margin-bottom: 3rem;
+            }
+            .services-chip-question {
+                font-size: 1.08rem;
+            }
+            .services-chip-step,
+            .services-spotlight-note {
+                max-width: none;
+            }
             .services-grid { grid-template-columns: 1fr; }
         }
 
@@ -1650,7 +2026,7 @@
            CONTACT FORM
            ======================================== */
         .contact-section {
-            background: var(--off-white);
+            background: var(--navy-dark);
             padding: 6rem 2rem;
         }
         .contact-container {
@@ -1665,17 +2041,17 @@
             font-family: var(--font-heading);
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 700;
-            color: var(--text-dark);
+            color: var(--white);
             line-height: 1.2;
             margin-bottom: 1.5rem;
         }
         .contact-info h2 em {
             font-style: italic;
-            color: var(--navy-light);
+            color: var(--accent-ice);
         }
         .contact-info > p {
             font-size: 1.05rem;
-            color: var(--gray);
+            color: rgba(255,255,255,0.68);
             line-height: 1.8;
             margin-bottom: 2.5rem;
         }
@@ -1702,7 +2078,7 @@
         }
         .contact-detail-text {
             font-size: 0.95rem;
-            color: var(--text-dark);
+            color: var(--white);
             line-height: 1.5;
         }
         .contact-detail-text span {
@@ -1711,22 +2087,25 @@
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: var(--gray);
+            color: rgba(255,255,255,0.5);
             margin-bottom: 0.15rem;
         }
         .contact-form {
-            background: var(--white);
+            background: rgba(255,255,255,0.05);
             padding: 2.5rem;
             border-radius: 8px;
-            box-shadow: 0 10px 40px rgba(10, 31, 59, 0.08);
-            border: 1px solid rgba(10, 31, 59, 0.05);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.22);
+            border: 1px solid rgba(255,255,255,0.08);
         }
         .contact-form h3 {
             font-family: var(--font-heading);
             font-size: 1.5rem;
             font-weight: 600;
-            color: var(--text-dark);
+            color: var(--white);
             margin-bottom: 1.5rem;
+        }
+        .contact-detail-text a {
+            color: inherit;
         }
         .form-group {
             margin-bottom: 1.25rem;
@@ -1737,7 +2116,7 @@
             font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
-            color: var(--text-dark);
+            color: rgba(255,255,255,0.78);
             margin-bottom: 0.5rem;
         }
         .form-group input,
@@ -1745,20 +2124,20 @@
         .form-group select {
             width: 100%;
             padding: 0.85rem 1rem;
-            border: 1px solid var(--gray-light);
+            border: 1px solid rgba(255,255,255,0.12);
             border-radius: 4px;
             font-family: var(--font-body);
             font-size: 0.9rem;
-            color: var(--text-dark);
+            color: var(--white);
             transition: border-color 0.3s var(--ease-out);
-            background: var(--white);
+            background: rgba(6,20,37,0.48);
         }
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
             outline: none;
-            border-color: var(--navy-light);
-            box-shadow: 0 0 0 3px rgba(30, 80, 144, 0.1);
+            border-color: rgba(168,212,240,0.55);
+            box-shadow: 0 0 0 3px rgba(168,212,240,0.12);
         }
         .form-group textarea {
             resize: vertical;
@@ -1774,8 +2153,8 @@
             align-items: center;
             gap: 0.5rem;
             padding: 1rem 2.5rem;
-            background: var(--navy-darkest);
-            color: var(--white);
+            background: var(--accent-ice);
+            color: var(--navy-darkest);
             font-family: var(--font-body);
             font-size: 0.8rem;
             font-weight: 600;
@@ -1790,8 +2169,12 @@
             margin-top: 0.5rem;
         }
         .form-submit:hover {
-            background: var(--navy-mid);
+            background: #90c6e8;
             transform: translateY(-2px);
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.42);
         }
         @media (max-width: 900px) {
             .contact-container { grid-template-columns: 1fr; }
@@ -1802,7 +2185,7 @@
            FAQ SECTION
            ======================================== */
         .faq-section {
-            background: var(--white);
+            background: var(--navy-darkest);
             padding: 6rem 2rem;
         }
         .faq-container {
@@ -1814,7 +2197,7 @@
             margin-bottom: 3.5rem;
         }
         .faq-item {
-            border-bottom: 1px solid rgba(10, 31, 59, 0.08);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         .faq-question {
             display: flex;
@@ -1826,20 +2209,21 @@
             transition: color 0.3s var(--ease-out);
         }
         .faq-question:hover {
-            color: var(--navy-light);
+            color: var(--accent-ice);
         }
         .faq-question h4 {
             font-family: var(--font-heading);
             font-size: 1.15rem;
             font-weight: 600;
             line-height: 1.4;
+            color: var(--white);
         }
         .faq-toggle {
             flex-shrink: 0;
             width: 28px;
             height: 28px;
             border-radius: 50%;
-            border: 1.5px solid var(--gray-light);
+            border: 1.5px solid rgba(255,255,255,0.22);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1848,12 +2232,13 @@
         .faq-toggle svg {
             width: 14px;
             height: 14px;
+            color: var(--accent-ice);
             transition: transform 0.3s var(--ease-out);
         }
         .faq-item.active .faq-toggle {
-            background: var(--navy-darkest);
-            border-color: var(--navy-darkest);
-            color: var(--white);
+            background: var(--accent-ice);
+            border-color: var(--accent-ice);
+            color: var(--navy-darkest);
         }
         .faq-item.active .faq-toggle svg {
             transform: rotate(45deg);
@@ -1869,7 +2254,7 @@
         .faq-answer p {
             padding-bottom: 1.5rem;
             font-size: 0.95rem;
-            color: var(--gray);
+            color: rgba(255,255,255,0.68);
             line-height: 1.8;
         }
 
@@ -2258,6 +2643,142 @@
             border-radius: 100px;
         }
 
+        .industry-switcher {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(7, 24, 45, 0.98) 0%, rgba(5, 17, 31, 1) 100%);
+            border-top: 1px solid rgba(168,212,240,0.08);
+            padding: 4rem 2rem 1.5rem;
+            scroll-margin-top: 120px;
+        }
+        .industry-switcher::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at top left, rgba(168,212,240,0.12), transparent 38%),
+                linear-gradient(90deg, rgba(168,212,240,0.03) 1px, transparent 1px),
+                linear-gradient(rgba(168,212,240,0.03) 1px, transparent 1px);
+            background-size: auto, 60px 60px, 60px 60px;
+            mask-image: linear-gradient(180deg, black 0%, rgba(0,0,0,0.6) 72%, transparent 100%);
+            -webkit-mask-image: linear-gradient(180deg, black 0%, rgba(0,0,0,0.6) 72%, transparent 100%);
+            pointer-events: none;
+        }
+        .industry-switcher-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .industry-switcher-label {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(168,212,240,0.72);
+            margin-bottom: 1rem;
+        }
+        .industry-switcher-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.2rem, 4vw, 3.4rem);
+            font-weight: 700;
+            line-height: 1.08;
+            letter-spacing: -0.03em;
+            color: var(--white);
+            max-width: 760px;
+            margin-bottom: 1rem;
+        }
+        .industry-switcher-text {
+            font-size: 1rem;
+            line-height: 1.85;
+            color: rgba(255,255,255,0.62);
+            max-width: 760px;
+            margin-bottom: 2rem;
+        }
+        .industry-switcher-tabs {
+            display: inline-grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.35rem;
+            padding: 0.4rem;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(168,212,240,0.14);
+            border-radius: 999px;
+            max-width: 760px;
+            width: 100%;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+        }
+        .industry-switcher-tab {
+            appearance: none;
+            width: 100%;
+            border: 0;
+            background: transparent;
+            color: var(--white);
+            border-radius: 999px;
+            padding: 0.95rem 1.25rem;
+            text-align: center;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100%;
+            transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+        }
+        .industry-switcher-tab:hover,
+        .industry-switcher-tab:focus-visible {
+            background: rgba(168,212,240,0.08);
+            outline: none;
+        }
+        .industry-switcher-tab.is-active {
+            background: linear-gradient(135deg, rgba(168,212,240,0.22), rgba(168,212,240,0.07));
+            box-shadow: inset 0 0 0 1px rgba(168,212,240,0.22), 0 10px 24px rgba(0,0,0,0.18);
+        }
+        .industry-switcher-tab-title {
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+            color: rgba(255,255,255,0.72);
+        }
+        .industry-switcher-tab.is-active .industry-switcher-tab-title {
+            color: var(--white);
+        }
+        .industry-switcher-copy {
+            max-width: 760px;
+            min-height: 3.4rem;
+            margin-top: 1.1rem;
+            padding-left: 0.2rem;
+        }
+        .industry-switcher-copy-panel {
+            display: none;
+            margin: 0;
+            font-size: 0.96rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.64);
+        }
+        .industry-switcher-copy-panel.is-active {
+            display: block;
+            animation: industryPanelFade 240ms ease;
+        }
+        .industry-panel {
+            display: none;
+        }
+        .industry-panel.is-active {
+            display: block;
+            animation: industryPanelFade 320ms ease;
+        }
+        @keyframes industryPanelFade {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Manufacturing Banner — Calculator Design */
         .mfg-section {
             position: relative;
@@ -2280,7 +2801,7 @@
             z-index: 2;
             max-width: 1400px;
             margin: 0 auto;
-            padding: 7rem 2rem 6rem;
+            padding: 4.75rem 2rem 6rem;
         }
         /* Chapter label + title */
         .ch-label {
@@ -2678,6 +3199,29 @@
         }
         /* Manufacturing responsive */
         @media (max-width: 700px) {
+            .industry-switcher {
+                padding: 3rem 1.5rem 1rem;
+            }
+            .industry-switcher-title {
+                font-size: clamp(2rem, 8vw, 2.7rem);
+            }
+            .industry-switcher-text {
+                font-size: 0.95rem;
+            }
+            .industry-switcher-tabs {
+                gap: 0.3rem;
+                padding: 0.3rem;
+            }
+            .industry-switcher-tab {
+                padding: 0.9rem 1rem;
+            }
+            .industry-switcher-tab-title {
+                font-size: 0.92rem;
+            }
+            .industry-switcher-copy {
+                min-height: 4.6rem;
+                margin-top: 0.95rem;
+            }
             .mfg-inner { padding: 4rem 1.5rem; }
             .ch-title { font-size: clamp(2.5rem, 10vw, 3.5rem); }
             .ch-tags { flex-wrap: wrap; }
@@ -2974,7 +3518,7 @@
             z-index: 2;
             max-width: 1400px;
             margin: 0 auto;
-            padding: 7rem 2rem 6rem;
+            padding: 4.75rem 2rem 6rem;
         }
         @media (max-width: 700px) {
             .aero-inner { padding: 4rem 1.5rem; }
@@ -4418,23 +4962,24 @@
            TEAM
            ======================================== */
         .team {
-            background: var(--white);
+            background: var(--navy-dark);
         }
         .team-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
+            gap: clamp(2.75rem, 3vw, 3.4rem) clamp(2rem, 2.4vw, 2.8rem);
         }
         .team-card {
             text-align: center;
             transition: transform 0.4s var(--ease-out);
+            padding: 0 0.35rem;
         }
         .team-card:hover { transform: translateY(-6px); }
         .team-photo {
             width: 100%; aspect-ratio: 1;
             border-radius: 4px;
             overflow: hidden;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.5rem;
             position: relative;
         }
         .team-photo-inner {
@@ -4476,29 +5021,29 @@
         .team-name {
             font-family: var(--font-heading);
             font-size: 1.1rem; font-weight: 600;
-            color: var(--text-dark); margin-bottom: 0.25rem;
+            color: var(--white); margin-bottom: 0.45rem;
         }
         .team-role {
             font-size: 0.72rem; font-weight: 500;
             letter-spacing: 1.5px; text-transform: uppercase;
-            color: var(--navy-light); margin-bottom: 0.5rem;
+            color: var(--accent-ice); margin-bottom: 0.85rem;
         }
         .team-bio {
-            font-size: 0.82rem; color: var(--gray);
+            font-size: 0.82rem; color: rgba(255,255,255,0.68);
             line-height: 1.6; max-width: 260px; margin: 0 auto;
         }
         @media (max-width: 1000px) {
-            .team-grid { grid-template-columns: 1fr 1fr; }
+            .team-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem 2rem; }
         }
         @media (max-width: 600px) {
-            .team-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
+            .team-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; gap: 2.5rem; }
         }
 
         /* ========================================
            BLOG
            ======================================== */
         .blog {
-            background: var(--off-white);
+            background: var(--navy-darkest);
         }
         .blog .section-title {
             font-size: clamp(3.25rem, 8vw, 5.9rem);
@@ -4513,16 +5058,16 @@
             gap: 2rem;
         }
         .blog-card {
-            background: var(--white);
+            background: rgba(255,255,255,0.05);
             border-radius: 4px;
             overflow: hidden;
-            border: 1px solid rgba(10, 31, 59, 0.05);
+            border: 1px solid rgba(255,255,255,0.08);
             transition: all 0.4s var(--ease-out);
             cursor: pointer;
         }
         .blog-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 15px 40px rgba(10, 31, 59, 0.1);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.24);
         }
         .blog-card-img {
             width: 100%; height: 200px;
@@ -4565,25 +5110,25 @@
         }
         .blog-card-date {
             font-size: 0.65rem; font-weight: 500;
-            color: var(--gray); letter-spacing: 1px;
+            color: rgba(255,255,255,0.52); letter-spacing: 1px;
             text-transform: uppercase; margin-bottom: 0.6rem;
         }
         .blog-card-title {
             font-family: var(--font-heading);
             font-size: 1.15rem; font-weight: 600;
-            color: var(--text-dark); line-height: 1.35;
+            color: var(--white); line-height: 1.35;
             margin-bottom: 0.75rem;
             transition: color 0.3s;
         }
-        .blog-card:hover .blog-card-title { color: var(--navy-light); }
+        .blog-card:hover .blog-card-title { color: var(--accent-ice); }
         .blog-card-excerpt {
-            font-size: 0.82rem; color: var(--gray);
+            font-size: 0.82rem; color: rgba(255,255,255,0.68);
             line-height: 1.7; margin-bottom: 1rem;
         }
         .blog-card-link {
             font-size: 0.7rem; font-weight: 600;
             letter-spacing: 1.5px; text-transform: uppercase;
-            color: var(--navy-light);
+            color: var(--accent-ice);
             display: inline-flex; align-items: center; gap: 0.4rem;
             transition: gap 0.3s var(--ease-out);
         }
@@ -4810,24 +5355,26 @@
 
     <!-- NAVIGATION -->
     <nav class="nav" id="nav">
-        <a href="#" class="nav-logo">
-            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 85V35L35 15L50 35V60L35 45V85H20Z" fill="white"/>
-                <path d="M50 35L65 15L80 35V85H65V45L50 60V35Z" fill="white"/>
-                <path d="M35 15L50 0L65 15L50 35L35 15Z" fill="white" opacity="0.8"/>
-            </svg>
+        <a href="#hero" class="nav-logo">
             <div class="nav-logo-text">
                 HM Pinnacle
                 <span>Consulting</span>
             </div>
         </a>
         <div class="nav-links" id="navLinks">
-            <a href="#benefits">What We Do</a>
+            <div class="nav-item">
+                <button type="button" class="nav-parent" id="servicesNavToggle" aria-expanded="false" aria-controls="servicesNavMenu">Services <span class="nav-caret">&#9662;</span></button>
+                <div class="nav-submenu" id="servicesNavMenu">
+                    <a href="services/leadership-foundation.html">Leadership Foundation</a>
+                    <a href="services/leadership-plus-hr-box.html">Leadership + HR Box</a>
+                    <a href="services/full-hmp-leadership-ecosystem.html">Full HMP Leadership Ecosystem</a>
+                </div>
+            </div>
             <a href="#team">Team</a>
-            <a href="#ind-mfg">Industries</a>
+            <a href="#roi-calculator">Industries</a>
             <a href="#roi-calculator">ROI Calculator</a>
             <a href="#case-studies">Case Studies</a>
-            <a href="#blog">Blog</a>
+            <a href="blog/index.html">Blog</a>
             <a href="#contact" class="nav-cta">Schedule a Conversation</a>
         </div>
         <div class="hamburger" id="hamburger">
@@ -4839,37 +5386,31 @@
     <section class="hero" id="hero">
         <div class="hero-bg"></div>
 
-        <!-- Snowflakes -->
-        <div class="snowflakes" id="snowflakes"></div>
-
-        <!-- Growth bar graph silhouette -->
-        <div class="hero-bars">
-            <div class="hero-bar" style="height:8%;animation-delay:0.3s"></div>
-            <div class="hero-bar" style="height:14%;animation-delay:0.38s"></div>
-            <div class="hero-bar" style="height:20%;animation-delay:0.46s"></div>
-            <div class="hero-bar" style="height:27%;animation-delay:0.54s"></div>
-            <div class="hero-bar" style="height:34%;animation-delay:0.62s"></div>
-            <div class="hero-bar" style="height:42%;animation-delay:0.7s"></div>
-            <div class="hero-bar" style="height:50%;animation-delay:0.78s"></div>
-            <div class="hero-bar" style="height:58%;animation-delay:0.86s"></div>
-            <div class="hero-bar" style="height:66%;animation-delay:0.94s"></div>
-            <div class="hero-bar" style="height:74%;animation-delay:1.02s"></div>
-            <div class="hero-bar" style="height:82%;animation-delay:1.1s"></div>
-            <div class="hero-bar" style="height:90%;animation-delay:1.18s"></div>
-            <div class="hero-bar" style="height:100%;animation-delay:1.26s"></div>
-        </div>
-
         <div class="hero-content">
             <p class="hero-tagline">People-Centered Leadership<span class="tm">&trade;</span></p>
-            <h1 class="hero-title">HR as a Strategic<br><em>Growth Lever.</em></h1>
-            <p class="hero-subtitle">Engineered HR infrastructure for scaling manufacturing and aerospace companies. We stabilize turnover, mitigate compliance risk, and build leadership systems that protect your margins.</p>
+            <h1 class="hero-title"><span class="hero-title-line">Leadership + People Systems</span><em style="display:block;">Built for Growth.</em></h1>
+            <p class="hero-subtitle"><span class="hero-subtitle-line">Integrated leadership and people systems for manufacturing, aerospace, and construction organizations.</span><span class="hero-subtitle-line">We reduce turnover, modernize HR, and align leadership to protect margin as you scale.</span></p>
             <div class="hero-buttons">
                 <a href="#contact" class="btn-primary">
-                    Schedule a CEO Growth Conversation <span class="arrow">&rarr;</span>
+                    Schedule a Strategic Conversation <span class="arrow">&rarr;</span>
                 </a>
                 <a href="#how-we-work" class="btn-secondary">
                     See How We Work
                 </a>
+            </div>
+            <div class="hero-metrics">
+                <div class="hero-metric">
+                    <div class="hero-metric-value">40%+</div>
+                    <div class="hero-metric-label">Average Turnover Reduction</div>
+                </div>
+                <div class="hero-metric">
+                    <div class="hero-metric-value">&gt;99%</div>
+                    <div class="hero-metric-label">Compliance Risk Reduction</div>
+                </div>
+                <div class="hero-metric">
+                    <div class="hero-metric-value">5+ Years</div>
+                    <div class="hero-metric-label">Sustained Performance</div>
+                </div>
             </div>
         </div>
 
@@ -4878,66 +5419,13 @@
         </div>
     </section>
 
-    <!-- BENEFITS SECTION -->
-    <!-- BENEFITS — BAR CHART -->
-    <section id="benefits" style="display:flex; flex-direction:column; min-height:100vh; background:var(--off-white); color:var(--navy-darkest);">
-        <div style="text-align:right; padding:3.5rem 3rem 2rem 2rem; flex-shrink:0;">
-            <h2 style="font-family:var(--font-heading); font-size:clamp(2rem, 4.5vw, 3.6rem); font-weight:700; line-height:1.15; color:var(--navy-darkest); margin-bottom:0.8rem;">
-                Build the People Ops to Meet<br><em style="font-style:italic; color:var(--navy-mid);">Your Next Growth Target</em><span style="color:var(--accent-ice);">.</span>
-            </h2>
-            <p style="font-family:var(--font-body); font-size:clamp(0.85rem, 1.5vw, 1.05rem); font-weight:400; color:var(--gray); max-width:550px; margin-left:auto; line-height:1.6;">Your people systems are either driving growth or constraining it. There is no neutral.</p>
-        </div>
-
-        <div style="flex:1; position:relative; display:flex; width:100%;">
-            <!-- Col 1 — 40%+ -->
-            <div style="flex:1; position:relative;">
-                <div style="position:absolute; bottom:35%; left:0; padding:0 0 1.5rem 2rem; z-index:2;">
-                    <div style="font-family:var(--font-heading); font-size:clamp(2.2rem, 4.5vw, 4rem); font-weight:700; color:var(--navy-darkest); line-height:1; margin-bottom:0.5rem;">40%+</div>
-                    <div style="font-family:var(--font-body); font-size:0.7rem; font-weight:500; color:var(--gray); white-space:nowrap;">Average Turnover Reduction</div>
-                </div>
-                <div class="benefit-bar" style="position:absolute; bottom:0; left:0; width:100%; height:35%; background:var(--accent-snow); transform-origin:bottom center;"></div>
-            </div>
-            <!-- Col 2 — >99% -->
-            <div style="flex:1; position:relative;">
-                <div style="position:absolute; bottom:58%; left:0; padding:0 0 1.5rem 2rem; z-index:2;">
-                    <div style="font-family:var(--font-heading); font-size:clamp(2.2rem, 4.5vw, 4rem); font-weight:700; color:var(--navy-darkest); line-height:1; margin-bottom:0.5rem;">&gt;99%</div>
-                    <div style="font-family:var(--font-body); font-size:0.7rem; font-weight:500; color:var(--gray); white-space:nowrap;">Compliance Risk Reduction</div>
-                </div>
-                <div class="benefit-bar" style="position:absolute; bottom:0; left:0; width:100%; height:58%; background:rgba(168,212,240,0.2); transform-origin:bottom center;"></div>
-            </div>
-            <!-- Col 3 — 5+ Years -->
-            <div style="flex:1; position:relative;">
-                <div style="position:absolute; bottom:82%; left:0; padding:0 0 1.5rem 2rem; z-index:2;">
-                    <div style="font-family:var(--font-heading); font-size:clamp(2.2rem, 4.5vw, 4rem); font-weight:700; color:var(--navy-darkest); line-height:1; margin-bottom:0.5rem;">5+ Years</div>
-                    <div style="font-family:var(--font-body); font-size:0.7rem; font-weight:500; color:var(--gray); white-space:nowrap;">Sustained Performance</div>
-                </div>
-                <div class="benefit-bar" style="position:absolute; bottom:0; left:0; width:100%; height:82%; background:linear-gradient(180deg, rgba(168,212,240,0.35), var(--accent-snow)); transform-origin:bottom center;"></div>
-            </div>
-        </div>
-
-        <div style="display:flex; width:100%; flex-shrink:0;">
-            <div style="flex:1; padding:1.2rem 2rem 2.5rem;">
-                <div style="font-family:var(--font-body); font-size:clamp(0.9rem, 1.5vw, 1.2rem); font-weight:600; color:var(--navy-darkest); margin-bottom:0.3rem;">Operational Stability</div>
-                <p style="font-family:var(--font-body); font-size:0.78rem; font-weight:400; line-height:1.55; color:var(--gray);">We stop the drain on your margins by stabilizing your front-line leadership and technical talent within 12–18 months.</p>
-            </div>
-            <div style="flex:1; padding:1.2rem 2rem 2.5rem;">
-                <div style="font-family:var(--font-body); font-size:clamp(0.9rem, 1.5vw, 1.2rem); font-weight:600; color:var(--navy-darkest); margin-bottom:0.3rem;">Risk Mitigation</div>
-                <p style="font-family:var(--font-body); font-size:0.78rem; font-weight:400; line-height:1.55; color:var(--gray);">Zero lawsuits, zero WARN Act fines, and zero regulatory failures across every engagement.</p>
-            </div>
-            <div style="flex:1; padding:1.2rem 2rem 2.5rem;">
-                <div style="font-family:var(--font-body); font-size:clamp(0.9rem, 1.5vw, 1.2rem); font-weight:600; color:var(--navy-darkest); margin-bottom:0.3rem;">Cultural Legacy</div>
-                <p style="font-family:var(--font-body); font-size:0.78rem; font-weight:400; line-height:1.55; color:var(--gray);">We don't create consultant dependency. We install the Leadership Toolbox™—a framework that drives results years after we transition out.</p>
-            </div>
-        </div>
-    </section>
-
     <!-- TEAM -->
     <section class="section team" id="team">
         <div class="section-container">
             <div style="text-align:center; margin-bottom:4rem;">
-                <h2 class="section-title reveal stagger-1">Meet Our Leadership Experts</h2>
+                <h2 class="section-title reveal stagger-1">Meet the Team</h2>
                 <div class="section-divider center reveal stagger-2"></div>
-                <p class="reveal stagger-3" style="font-size:1.05rem; color:var(--gray); max-width:720px; margin:0 auto; line-height:1.8;">20+ years of direct operational experience. We implement scalable HR frameworks across plant floors, cross-border expansions, and M&amp;A integrations.</p>
+                <p class="reveal stagger-3" style="font-size:1.05rem; color:var(--gray); max-width:720px; margin:0 auto; line-height:1.8;">50+ years of operational and HR experience. We implement modernized leadership and people infrastructure across plant floors, cross-border expansions, and growth transitions.</p>
             </div>
             <div class="team-grid">
                 <!-- CO-FOUNDER 1: HEATHER -->
@@ -4949,8 +5437,8 @@
                         </div>
                     </div>
                     <h4 class="team-name">Heather MacKay-Mencheski</h4>
-                    <p class="team-role">Founder &amp; CEO</p>
-                    <p class="team-bio">HR infrastructure for scaling manufacturing &amp; aerospace. Cross-border US/Canada expertise. Speaker &amp; podcast host.</p>
+                    <p class="team-role">Founder &amp; CEO, CCL</p>
+                    <p class="team-bio">20+ years of executive HR and people operations experience. Specializes in cross-border U.S./Canada expansion, leadership alignment, and modern HR infrastructure built to support growth.</p>
                 </div>
                 <!-- CO-FOUNDER 2: JOHN -->
                 <div class="team-card reveal stagger-2">
@@ -4962,19 +5450,19 @@
                     </div>
                     <h4 class="team-name">John D. Mencheski</h4>
                     <p class="team-role">Executive Director of Vision &amp; Growth, CCL</p>
-                    <p class="team-bio">25+ years leading teams and managing complex operations. Specializes in cross-functional teams, financial planning, and continuous improvement. Co-founder of HM Pinnacle Consulting.</p>
+                    <p class="team-bio">25+ years leading teams and managing complex operations. Helps organizations align leadership behavior, accountability, financial discipline, and continuous improvement through one shared operating language.</p>
                 </div>
                 <!-- EXEC TEAM 1 -->
                 <div class="team-card reveal stagger-3">
                     <div class="team-photo">
-                        <div class="team-photo-inner"><img src="images/kara.jpg" alt="Kara" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=team-photo-initials>K</span>';"></div>
+                        <div class="team-photo-inner"><img src="images/kara.jpg" alt="Kara Stanasel" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=team-photo-initials>K</span>';"></div>
                         <div class="team-photo-overlay">
                             <a href="https://www.linkedin.com/in/karamaestanasel/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
                         </div>
                     </div>
                     <h4 class="team-name">Kara Stanasel</h4>
                     <p class="team-role">Chief Operating Officer &amp; HR Consultant, CCL</p>
-                    <p class="team-bio">Helps organizations build the people and operational foundations needed to scale. A decade of experience across the entire employee life cycle, bringing strategic structure and a human-centered approach to leadership.</p>
+                    <p class="team-bio">10+ years building the people and operational foundations organizations need to scale. Focused on hiring, onboarding, employee development, and practical leadership support across the employee lifecycle.</p>
                 </div>
                 <!-- EXEC TEAM 2 -->
                 <div class="team-card reveal stagger-4">
@@ -4986,7 +5474,7 @@
                     </div>
                     <h4 class="team-name">Brian MacKay</h4>
                     <p class="team-role">Executive Director of Technology, Systems &amp; Cybersecurity, CCL</p>
-                    <p class="team-bio">20+ years in fast-paced digital environments. Specializes in cybersecurity, digital defense, and maintaining reliable technology systems with a security-first mindset.</p>
+                    <p class="team-bio">20+ years building reliable technology, systems, and cybersecurity environments. Supports the digital backbone required to modernize HR and leadership operations with confidence.</p>
                 </div>
             </div>
         </div>
@@ -4995,53 +5483,75 @@
     <!-- WHAT WE DO / SERVICES -->
     <section class="section services" id="services">
         <div class="section-container">
+            <div class="services-spotlight">
+                <div class="services-spotlight-copy">
+                    <p class="services-kicker reveal stagger-1">Integrated Leadership + People System</p>
+                    <h2 class="services-spotlight-title reveal stagger-2"><span class="services-spotlight-title-line">People-Centered Systems</span><span class="services-spotlight-title-line">That Drive Performance</span></h2>
+                    <p class="services-spotlight-text reveal stagger-3">HMP is not just consulting or training. We build the integrated leadership and people operating system that supports execution through consulting engagements, project-based implementation, HR Box, and the Leadership Toolbox.</p>
+                </div>
+                <div class="services-spotlight-media reveal reveal-right">
+                    <img src="images/svc-leadership.jpg" alt="Leadership and operations team walking together on a manufacturing floor">
+                </div>
+            </div>
+            <div class="services-engagement-board">
+                <div class="services-engagement-copy reveal stagger-4">
+                    <div class="services-chip-meta">
+                        <span class="services-chip-question">How organizations engage</span>
+                        <span class="services-chip-step">Built to work together or stand alone.</span>
+                    </div>
+                    <p class="services-spotlight-note">Start with the entry point your organization needs now, then layer in the rest as the operating system matures. Every part of the system is designed to strengthen leadership behavior, people execution, and day-to-day accountability.</p>
+                </div>
+                <div class="services-pill-grid reveal stagger-5">
+                    <a class="services-pill" href="services/consulting-engagements.html">Consulting Engagements</a>
+                    <a class="services-pill" href="services/project-based-implementation.html">Project-Based Implementation</a>
+                    <a class="services-pill" href="services/leadership-operating-system.html">Leadership Operating System</a>
+                    <a class="services-pill" href="services/hr-box-infrastructure.html">HR Box Infrastructure</a>
+                    <a class="services-pill" href="services/leadership-toolbox.html">Leadership Toolbox</a>
+                    <a class="services-pill" href="services/cross-border-support.html">Cross-Border Support</a>
+                    <a class="services-pill" href="services/workforce-stability-systems.html">Workforce Stability Systems</a>
+                    <a class="services-pill" href="services/modern-hr-infrastructure.html">Modern HR Infrastructure</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section services" id="partner-model" style="background:var(--off-white);">
+        <div class="section-container">
             <div class="services-header">
-                <h2 class="section-title reveal stagger-1">Core People Systems<br>We Implement</h2>
+                <h2 class="section-title reveal stagger-1">How Organizations<br>Partner With HMP</h2>
                 <div class="section-divider center reveal stagger-2"></div>
-                <p class="reveal stagger-3">We design and install HR frameworks engineered for operational reliability. Our focus is driving measurable business outcomes, not just managing risk.</p>
+                <p class="reveal stagger-3">We can engage through consulting, project-based implementation, or as a layered system. Smaller organizations often start with the foundation. More complex operations expand into the full ecosystem as they scale.</p>
             </div>
             <div class="services-grid">
                 <div class="service-card reveal stagger-1">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
-                    <h3>Leadership Infrastructure</h3>
-                    <p>Your frontline supervisors are the single highest-leverage investment in your operation. We build development systems, performance management tied to real operational KPIs, and accountability structures that transform promoted operators into leaders who drive results.</p>
+                    <div style="font-size:0.7rem; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--navy-light); margin-bottom:0.85rem;">Tier 1</div>
+                    <h3>Leadership Foundation</h3>
+                    <p>Build the HMP Leadership System, Leadership Toolbox, and core leadership resources that create one shared language across the company. Ideal for organizations that need the leadership foundation in place before scaling.</p>
+                    <p style="margin-top:1rem; font-size:0.8rem; color:var(--navy-light);">Includes: Leadership System, Leadership Toolbox, core leadership resources</p>
+                    <a class="tier-link" href="services/leadership-foundation.html">View Service Page <span>&rarr;</span></a>
                 </div>
                 <div class="service-card reveal stagger-2">
                     <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
                     </div>
-                    <h3>Organizational Architecture</h3>
-                    <p>Your org structure wasn't designed &mdash; it evolved. We map critical roles, optimize reporting structures, build succession depth, and design organizational architecture that supports where you're going. When you open the next facility or absorb an acquisition, the org design is already built.</p>
+                    <div style="font-size:0.7rem; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--navy-light); margin-bottom:0.85rem;">Tier 2</div>
+                    <h3>Leadership + HR Box</h3>
+                    <p>Add HR Box to connect leadership expectations with hiring, onboarding, accountability, and people development systems. Best for organizations stabilizing growth, improving manager consistency, or formalizing people operations.</p>
+                    <p style="margin-top:1rem; font-size:0.8rem; color:var(--navy-light);">Includes: Leadership System, Leadership Toolbox, HR Box</p>
+                    <a class="tier-link" href="services/leadership-plus-hr-box.html">View Service Page <span>&rarr;</span></a>
                 </div>
                 <div class="service-card reveal stagger-3">
                     <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
                     </div>
-                    <h3>Workforce Stability Systems</h3>
-                    <p>We build predictive attrition analysis so you know who's at risk before they give notice. Career pathways that give operators and technicians a reason to stay. Targeted retention strategies focused on the roles where a single departure costs months of productivity.</p>
-                </div>
-                <div class="service-card reveal stagger-4">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                    </div>
-                    <h3>Cross-Border HR (Canada &rarr; USA)</h3>
-                    <p>For manufacturers entering the U.S. from Canada or Mexico, we build people systems that work across different legal frameworks, management cultures, and labor markets. This isn't a compliance checklist &mdash; it's operational and cultural translation.</p>
-                </div>
-                <div class="service-card reveal stagger-5">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                    </div>
-                    <h3>Compliance &amp; Risk Architecture</h3>
-                    <p>Compliance risk scales faster than most CEOs realize as headcount grows. We build compliance into the people infrastructure from day one &mdash; OSHA exposure, wage and hour, multi-state complexity &mdash; so you never choose between growth speed and risk management.</p>
-                </div>
-                <div class="service-card reveal stagger-6">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M20 8v6"/><path d="M23 11h-6"/></svg>
-                    </div>
-                    <h3>CHRO Development</h3>
-                    <p>This is what separates us. We don't just build systems &mdash; we build the leader who runs them. We work alongside your CHRO through the entire engagement so by the time we transition out, they own the infrastructure independently. Most consultants would never build toward that moment because it ends the engagement. For us, it's the entire point.</p>
+                    <div style="font-size:0.7rem; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--navy-light); margin-bottom:0.85rem;">Tier 3</div>
+                    <h3>Full HMP Leadership Ecosystem</h3>
+                    <p>Deploy the full ecosystem: leadership system, HR Box, Leadership Toolbox, and We Leadership Academy pathways that develop leaders at multiple levels of the organization. Built for multi-site growth, succession, and long-range culture sustainability.</p>
+                    <p style="margin-top:1rem; font-size:0.8rem; color:var(--navy-light);">Includes: Leadership System, Leadership Toolbox, HR Box, We Leadership Academy</p>
+                    <a class="tier-link" href="services/full-hmp-leadership-ecosystem.html">View Service Page <span>&rarr;</span></a>
                 </div>
             </div>
         </div>
@@ -5058,7 +5568,7 @@
             <div style="text-align:center; margin-bottom:3rem; position:relative; z-index:1;">
                 <h2 class="section-title light reveal stagger-1">CEOs Call Us During<br>Critical Points of Growth</h2>
                 <div class="section-divider center reveal stagger-2"></div>
-                <p class="reveal stagger-3" style="font-size:1.05rem; color:rgba(255,255,255,0.6); max-width:650px; margin:0 auto; line-height:1.8;">Standard HR functions fail under the stress of rapid change. We deploy strategic people systems specifically designed to support major operational transitions.</p>
+                <p class="reveal stagger-3" style="font-size:1.05rem; color:rgba(255,255,255,0.6); max-width:650px; margin:0 auto; line-height:1.8;">Disconnected HR functions and one-off leadership training fail under the stress of rapid change. We deploy integrated leadership and people systems designed to support major operational transitions.</p>
             </div>
             <div class="engage-scenarios" style="display:flex; flex-direction:column; gap:2rem; position:relative; z-index:1;">
                 <div class="reveal stagger-1 engage-card is-active" style="background:rgba(255,255,255,0.04); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.08); padding:2rem 2.5rem; border-radius:4px;">
@@ -5084,14 +5594,40 @@
             </div>
             <div class="reveal" style="text-align:center; margin-top:3rem; position:relative; z-index:1;">
                 <a href="#contact" class="btn-primary" style="display:inline-flex;">
-                    Schedule a CEO Growth Conversation <span class="arrow">&rarr;</span>
+                    Schedule a Strategic Conversation <span class="arrow">&rarr;</span>
                 </a>
             </div>
         </div>
     </section>
 
+    <section class="industry-switcher" id="roi-calculator">
+        <div class="industry-switcher-inner">
+            <span class="industry-switcher-label">Industry Calculators</span>
+            <h2 class="industry-switcher-title">Calculate the ROI of Prioritizing Your People</h2>
+            <p class="industry-switcher-text">
+                Choose the environment that best matches your organization, then use the calculator built for that reality.
+            </p>
+            <div class="industry-switcher-tabs" role="tablist" aria-label="Industry calculator selector">
+                <button class="industry-switcher-tab is-active" id="industry-tab-mfg" type="button" role="tab" aria-selected="true" tabindex="0" aria-controls="ind-mfg" data-industry-target="ind-mfg">
+                    <span class="industry-switcher-tab-title">Industrial Manufacturing</span>
+                </button>
+                <button class="industry-switcher-tab" id="industry-tab-aero" type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="ind-aero" data-industry-target="ind-aero">
+                    <span class="industry-switcher-tab-title">Aerospace &amp; Aviation</span>
+                </button>
+            </div>
+            <div class="industry-switcher-copy" aria-live="polite">
+                <p class="industry-switcher-copy-panel is-active" data-industry-copy-panel="ind-mfg">
+                    Built for production leaders managing throughput, frontline turnover, and supervisor capability.
+                </p>
+                <p class="industry-switcher-copy-panel" data-industry-copy-panel="ind-aero" hidden>
+                    Built for teams protecting certified talent, compliance readiness, and program execution under rapid growth.
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- INDUSTRY BANNER: MANUFACTURING (Interactive Calculator) -->
-    <section class="mfg-section" id="ind-mfg">
+    <section class="mfg-section industry-panel is-active" id="ind-mfg" role="tabpanel" aria-labelledby="industry-tab-mfg" aria-hidden="false">
         <div class="mfg-inner">
             <!-- CHAPTER 1: WHO WE SERVE -->
             <h2 class="ch-title">Industrial <em>Manufacturing</em></h2>
@@ -5139,7 +5675,7 @@
             </div>
             <div class="mfg-spacer"></div>
             <!-- CHAPTER 4: THE CALCULATOR -->
-            <div class="calc-section calc-immersive" id="roi-calculator">
+            <div class="calc-section calc-immersive" id="mfg-roi-calculator">
                 <div class="calc-lead">
                     <p class="calc-lead-text">
                         Now drag the slider.<br>
@@ -5213,7 +5749,7 @@
     </section>
 
     <!-- INDUSTRY: AEROSPACE (Interactive Calculator) -->
-    <section class="aero-section" id="ind-aero">
+    <section class="aero-section industry-panel" id="ind-aero" role="tabpanel" aria-labelledby="industry-tab-aero" aria-hidden="true">
         <div class="aero-bg-elements">
             <div class="aero-bg-plane"></div>
             <div class="aero-bg-plane"></div>
@@ -5361,17 +5897,17 @@
                 <div class="approach-step">
                     <div class="step-number">02</div>
                     <h3>Make It Visible</h3>
-                    <p>Most organizations have no idea why people are leaving because nobody asked. We install the measurement systems &mdash; exit interviews, KPIs, accountability metrics &mdash; that make the invisible visible. We restructure HR from a compliance function into a strategic partner that operations actually wants in the room.</p>
+                    <p>Most organizations have no idea why people are leaving because nobody asked. We install the measurement systems and the HR Box foundation &mdash; exit interviews, hiring flows, onboarding standards, KPIs, and accountability metrics &mdash; that make the invisible visible and keep people operations connected to execution.</p>
                 </div>
                 <div class="approach-step">
                     <div class="step-number">03</div>
                     <h3>Build the Leaders</h3>
-                    <p>We equip every supervisor and manager with a shared behavioral framework &mdash; the Leadership Toolbox&trade;. Look in the mirror first. Unblock your people. Be intentional with time. Do the work alongside your team. This isn't a training program that lives in a binder. It's a language that becomes culture.</p>
+                    <p>We equip every supervisor and manager with a shared behavioral framework inside the HMP Leadership System &mdash; the Leadership Toolbox&trade;. Look in the mirror first. Unblock your people. Be intentional with time. Do the work alongside your team. This isn't a training program that lives in a binder. It's the leadership language of the culture.</p>
                 </div>
                 <div class="approach-step">
                     <div class="step-number">04</div>
                     <h3>Apply Pressure &amp; Align</h3>
-                    <p>We put process and expectations in place. People either rise to the occasion or self-select out. Career paths are created so your best engineers and technicians don't have to become managers to advance. The right people step into leadership. The wrong ones move on. The organization gets stronger.</p>
+                    <p>We put process, expectations, and accountability in place across both leadership and HR Box. People either rise to the occasion or self-select out. Career paths are created so your best engineers and technicians don't have to become managers to advance. The right people step into leadership. The wrong ones move on. The organization gets stronger.</p>
                 </div>
                 <div class="approach-step">
                     <div class="step-number">05</div>
@@ -5380,7 +5916,7 @@
                 </div>
             </div>
             <div class="reveal" style="text-align:center; margin-top:3rem; position:relative; z-index:1;">
-                <p style="font-family:var(--font-heading); font-size:clamp(1.1rem, 2vw, 1.4rem); font-weight:500; color:rgba(255,255,255,0.85); font-style:italic; max-width:700px; margin:0 auto;">A standardized methodology designed to identify operational gaps, implement infrastructure, train your leadership, and transition full ownership back to your internal team.</p>
+                <p style="font-family:var(--font-heading); font-size:clamp(1.1rem, 2vw, 1.4rem); font-weight:500; color:rgba(255,255,255,0.85); font-style:italic; max-width:700px; margin:0 auto;">A standardized implementation model that aligns leadership behavior, HR Box infrastructure, and internal ownership so your team can run the system without long-term consultant dependency.</p>
             </div>
         </div>
     </section>
@@ -5491,65 +6027,12 @@
         </div>
     </section>
 
-    <!-- THE VIDEO BLOG -->
-    <section class="section blog" id="blog">
-        <div class="section-container">
-            <div style="text-align:center; margin-bottom:4rem;">
-                <h2 class="section-title reveal stagger-1">Executive Briefs</h2>
-                <div class="section-divider center reveal stagger-2"></div>
-                <p class="reveal stagger-3" style="font-size:1.05rem; color:var(--gray); max-width:700px; margin:0 auto; line-height:1.8;">Tactical analysis and strategic frameworks for CEOs managing workforce scale, M&amp;A integration, and operational transitions.</p>
-            </div>
-            <div class="blog-grid">
-                <div class="blog-card reveal stagger-1">
-                    <div class="blog-card-img">
-                        <img src="images/blog-thumbnail-people-ops-blueprint.jpg" alt="The People Ops Blueprint thumbnail">
-                        <span class="blog-card-category">Leadership</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
-                    </div>
-                    <div class="blog-card-body">
-                        <p class="blog-card-date">February 23, 2026</p>
-                        <h4 class="blog-card-title">Manufacturing CEOs: Get Out of the Office During Growth Transitions</h4>
-                        <p class="blog-card-excerpt">Why floor-level leadership during transition, M&amp;A, and scale is one of the fastest ways to protect throughput, quality, safety, and retention.</p>
-                        <a href="blog/manufacturing-ceos-get-out-of-the-office.html" class="blog-card-link">Read Article <span>&rarr;</span></a>
-                    </div>
-                </div>
-                <div class="blog-card reveal stagger-2">
-                    <div class="blog-card-img">
-                        <img src="images/blog-thumbnail-people-ops-blueprint.jpg" alt="The People Ops Blueprint thumbnail">
-                        <span class="blog-card-category">People Ops</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                    </div>
-                    <div class="blog-card-body">
-                        <p class="blog-card-date">February 9, 2026</p>
-                        <h4 class="blog-card-title">HR Is a Growth Lever: Build People Systems Before Growth Breaks You</h4>
-                        <p class="blog-card-excerpt">A practical framework for scaling from 100 to 250 employees without breaking execution, quality, safety, or retention.</p>
-                        <a href="blog/hr-is-a-growth-lever-build-people-systems-before-growth-breaks-you.html" class="blog-card-link">Read Article <span>&rarr;</span></a>
-                    </div>
-                </div>
-                <div class="blog-card reveal stagger-3">
-                    <div class="blog-card-img">
-                        <img src="images/blog-thumbnail-people-ops-blueprint.jpg" alt="The People Ops Blueprint thumbnail">
-                        <span class="blog-card-category">M&amp;A</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-                    </div>
-                    <div class="blog-card-body">
-                        <p class="blog-card-date">November 2024</p>
-                        <h4 class="blog-card-title">How M&amp;A Fails When People Integration Is an Afterthought</h4>
-                        <p class="blog-card-excerpt">The deal thesis assumed you'd retain key talent. But no one built an integration plan for the workforce. Here's what that costs and how to prevent it.</p>
-                        <a href="#" class="blog-card-link">Watch Now <span>&rarr;</span></a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
     <!-- CONTACT FORM -->
     <section class="contact-section" id="contact">
         <div class="contact-container">
             <div class="contact-info reveal">
-                <h2>Schedule Your Strategic<br><em>Growth Consultation</em></h2>
-                <p>A direct, 30-minute operational review of your growth trajectory and the people infrastructure required to support it.</p>
+                <h2>Schedule Your Leadership &amp;<br><em>People Systems Consultation</em></h2>
+                <p>A direct 30-minute conversation about your growth trajectory, leadership challenges, and the people infrastructure required to support what comes next.</p>
                 <div class="contact-detail">
                     <div class="contact-detail-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -5561,11 +6044,11 @@
                 </div>
                 <div class="contact-detail">
                     <div class="contact-detail-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>
                     </div>
                     <div class="contact-detail-text">
-                        <span>Website</span>
-                        hmpinnacleconsulting.com
+                        <span>Questions? Email</span>
+                        <a href="mailto:support@hmpinnacle.com">support@hmpinnacle.com</a>
                     </div>
                 </div>
                 <div class="contact-detail">
@@ -5579,7 +6062,7 @@
                 </div>
             </div>
             <div class="contact-form reveal stagger-2">
-                <h3>Schedule a CEO Growth Conversation</h3>
+                <h3>Schedule a Strategic Conversation</h3>
                 <form id="consultationForm" onsubmit="return false;">
                     <div class="form-row">
                         <div class="form-group">
@@ -5614,27 +6097,13 @@
                             <label for="employees">Company Size</label>
                             <select id="employees" name="employees">
                                 <option value="">Select range</option>
+                                <option value="25-50">25 &ndash; 50 employees</option>
                                 <option value="50-100">50 &ndash; 100 employees</option>
                                 <option value="100-200">100 &ndash; 200 employees</option>
                                 <option value="200-500">200 &ndash; 500 employees</option>
                                 <option value="500+">500+ employees</option>
                             </select>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="service">What Can We Help With? *</label>
-                        <select id="service" name="service" required>
-                            <option value="">What's driving this conversation?</option>
-                            <option value="new-facility">Opening a New Facility</option>
-                            <option value="ma-integration">M&amp;A People Integration</option>
-                            <option value="ceo-transition">New CEO Transition</option>
-                            <option value="us-market">Entering the U.S. Market</option>
-                            <option value="scaling">Scaling Past a Growth Threshold</option>
-                            <option value="leadership">Leadership Infrastructure</option>
-                            <option value="chro-dev">CHRO Development</option>
-                            <option value="stability">Workforce Stability</option>
-                            <option value="other">Other</option>
-                        </select>
                     </div>
                     <div class="form-group">
                         <label for="message">Tell Us About Your Biggest Challenge</label>
@@ -5663,7 +6132,7 @@
                         </select>
                     </div>
                     <button type="submit" class="form-submit">
-                        Schedule a CEO Growth Conversation <span>&rarr;</span>
+                        Schedule a Strategic Conversation <span>&rarr;</span>
                     </button>
                 </form>
             </div>
@@ -5683,7 +6152,7 @@
                     <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
                 </div>
                 <div class="faq-answer">
-                    <p>Manufacturing and aerospace companies between $20M and $250M in revenue, typically 50 to 500 employees, who are in or approaching a significant growth inflection &mdash; adding locations, acquiring businesses, entering new markets, or scaling past the point where the founder can hold the people side together.</p>
+                    <p>We most often support manufacturing, aerospace, construction, and other industrial organizations from roughly 25 to 500 employees. Smaller organizations usually start with leadership foundation or project-based work when they need structure before scaling. Larger multi-site teams engage us when growth, integration, or cross-border complexity starts straining execution.</p>
                 </div>
             </div>
             <div class="faq-item reveal stagger-2">
@@ -5692,7 +6161,7 @@
                     <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
                 </div>
                 <div class="faq-answer">
-                    <p>Initial engagements typically run six to twelve months depending on complexity. M&amp;A integrations and cross-border expansions may run on different timelines. Every engagement has a defined transition point where your team takes full ownership. We'll scope it precisely after understanding what you're facing.</p>
+                    <p>Project-based work can move faster. Full system engagements typically run six to twelve months depending on complexity. M&amp;A integrations and cross-border expansions may run on different timelines. Every engagement has a defined transition point where your team takes full ownership.</p>
                 </div>
             </div>
             <div class="faq-item reveal stagger-3">
@@ -5701,10 +6170,19 @@
                     <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
                 </div>
                 <div class="faq-answer">
-                    <p>Most consultants create dependency. We do the opposite. We build the people infrastructure your growth requires, develop your CHRO to own and operate it, and transition out. Our success is measured by the day your team doesn't need us anymore. Then we come back when the next growth inflection demands it. We're not selling hours &mdash; we're building capability.</p>
+                    <p>Most firms sell disconnected consulting or one-off training. We do the opposite. We build one integrated leadership and people operating system: leadership language through the HMP Leadership System, practical leader behaviors through the Leadership Toolbox, and HR Box infrastructure that supports hiring, onboarding, accountability, and employee development. We're not selling hours &mdash; we're building capability your team can run.</p>
                 </div>
             </div>
             <div class="faq-item reveal stagger-4">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    <h4>How do the HMP Leadership System and HR Box work together?</h4>
+                    <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+                </div>
+                <div class="faq-answer">
+                    <p>The HMP Leadership System builds the leadership language and behavioral expectations. HR Box builds the people systems that support it &mdash; hiring, onboarding, accountability, and employee development. Together they create one integrated leadership and people operating system.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal stagger-5">
                 <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
                     <h4>Do you work on-site or remotely?</h4>
                     <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
@@ -5713,22 +6191,22 @@
                     <p>We start on-site. Always. You can't diagnose people system failures from a conference call. We spend time on your plant floor, with your supervisors, in your facilities. After the build and transition phases, ongoing growth partnership may operate remotely, but the foundational work happens where the work happens.</p>
                 </div>
             </div>
-            <div class="faq-item reveal stagger-5">
+            <div class="faq-item reveal stagger-6">
                 <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
                     <h4>What does the initial consultation look like?</h4>
                     <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
                 </div>
                 <div class="faq-answer">
-                    <p>A focused 30-minute conversation between our team and the CEO. We learn where your business is headed, what's creating friction on the people side, and whether our model is the right fit. No pitch deck. No pressure. Just a direct conversation about what's ahead and what it would take to get the people infrastructure ready.</p>
+                    <p>A focused 30-minute conversation with the CEO, founder, or operational leader. We learn where your business is headed, what's creating friction on the people side, and whether our model is the right fit. No pitch deck. No pressure. Just a direct conversation about what's ahead and what it would take to get the leadership and people system ready.</p>
                 </div>
             </div>
-            <div class="faq-item reveal stagger-6">
+            <div class="faq-item reveal">
                 <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
                     <h4>What industries do you specialize in?</h4>
                     <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
                 </div>
                 <div class="faq-answer">
-                    <p>Manufacturing and aerospace. We understand shift structures, skilled trades shortages, union and non-union dynamics, safety-critical environments, capital-intensive expansion cycles, and the specific leadership challenges of running a manufacturing workforce. That's our world.</p>
+                    <p>Manufacturing, aerospace, construction, and other operationally intensive environments where frontline leadership, safety, compliance, and workforce stability directly impact output. We understand shift structures, skilled labor shortages, cross-functional coordination, and the leadership challenges of scaling real operations.</p>
                 </div>
             </div>
         </div>
@@ -5738,46 +6216,42 @@
     <footer class="footer">
         <div class="footer-grid">
             <div class="footer-brand">
-                <a href="#" class="nav-logo" style="opacity:1; transform:none; animation:none;">
-                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:36px;height:36px;">
-                        <path d="M20 85V35L35 15L50 35V60L35 45V85H20Z" fill="white"/>
-                        <path d="M50 35L65 15L80 35V85H65V45L50 60V35Z" fill="white"/>
-                        <path d="M35 15L50 0L65 15L50 35L35 15Z" fill="white" opacity="0.8"/>
-                    </svg>
+                <a href="#hero" class="nav-logo" style="opacity:1; transform:none; animation:none;">
                     <div class="nav-logo-text">
                         HM Pinnacle
                         <span>Consulting</span>
                     </div>
                 </a>
-                <p>People infrastructure for growing manufacturing and aerospace companies. We build the systems that make scale possible &mdash; then develop your team to run them.</p>
+                <p>Integrated leadership and people systems for growing manufacturing, aerospace, and construction organizations. We build the system, then help your team run it with confidence.</p>
             </div>
             <div>
                 <h4 class="footer-heading">Services</h4>
                 <div class="footer-links">
-                    <a href="#services">Leadership Infrastructure</a>
-                    <a href="#services">Organizational Architecture</a>
+                    <a href="#services">Leadership Operating System</a>
+                    <a href="#services">HR Box Infrastructure</a>
                     <a href="#services">Workforce Stability</a>
-                    <a href="#services">Cross-Border HR</a>
-                    <a href="#services">Compliance &amp; Risk</a>
-                    <a href="#services">CHRO Development</a>
+                    <a href="#services">Cross-Border Support</a>
+                    <a href="#services">Project-Based Builds</a>
+                    <a href="#services">Modern HR Infrastructure</a>
                 </div>
             </div>
             <div>
                 <h4 class="footer-heading">Company</h4>
                 <div class="footer-links">
-                    <a href="#benefits">What We Do</a>
+                    <a href="#partner-model">Services</a>
                     <a href="#team">Our Team</a>
-                    <a href="#ind-mfg">Industries</a>
+                    <a href="#roi-calculator">Industries</a>
                     <a href="#roi-calculator">ROI Calculator</a>
                     <a href="#case-studies">Case Studies</a>
-                    <a href="#blog">Blog</a>
+                    <a href="blog/index.html">Blog</a>
                 </div>
             </div>
             <div>
                 <h4 class="footer-heading">Connect</h4>
                 <div class="footer-links">
-                    <a href="https://www.hmpinnacleconsulting.com/" target="_blank">hmpinnacleconsulting.com</a>
-                    <a href="#">Ferndale, WA 98248</a>
+                    <a href="mailto:support@hmpinnacle.com">support@hmpinnacle.com</a>
+                    <a href="https://www.hmpinnacleconsulting.com/podcasts" target="_blank" rel="noopener noreferrer">Podcast Library</a>
+                    <a href="#contact">Ferndale, WA 98248</a>
                     <a href="#contact">Schedule a Conversation</a>
                 </div>
             </div>
@@ -5785,11 +6259,11 @@
         <div class="footer-bottom">
             <p>&copy; 2026 HM Pinnacle Consulting. All rights reserved.</p>
             <div class="footer-social">
-                <a href="https://www.linkedin.com/company/hm-pinnacle-consulting-people-hr-solutions" target="_blank" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/company/hm-pinnacle-consulting-people-hr-solutions" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                 </a>
-                <a href="#" aria-label="Twitter">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                <a href="mailto:support@hmpinnacle.com" aria-label="Email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>
                 </a>
             </div>
         </div>
@@ -5814,27 +6288,7 @@
         });
 
         /* ============================================
-           2. SNOWFLAKES
-           ============================================ */
-        (function() {
-            const container = document.getElementById('snowflakes');
-            if (!container) return;
-            const symbols = ['&#10052;', '&#10053;', '&#10054;'];
-            for (let i = 0; i < 20; i++) {
-                const flake = document.createElement('div');
-                flake.className = 'snowflake';
-                flake.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
-                flake.style.left = Math.random() * 100 + '%';
-                flake.style.fontSize = (0.8 + Math.random() * 1.2) + 'rem';
-                flake.style.animationDuration = (10 + Math.random() * 20) + 's';
-                flake.style.animationDelay = (Math.random() * 15) + 's';
-                flake.style.opacity = 0;
-                container.appendChild(flake);
-            }
-        })();
-
-        /* ============================================
-           3. NAVIGATION — scroll hide/show
+           2. NAVIGATION — scroll hide/show
            ============================================ */
         const nav = document.getElementById('nav');
         let lastScroll = 0;
@@ -5846,7 +6300,7 @@
         }, { passive: true });
 
         /* ============================================
-           4. HAMBURGER MENU
+           3. HAMBURGER MENU
            ============================================ */
         const hamburger = document.getElementById('hamburger');
         const navLinksEl = document.getElementById('navLinks');
@@ -5863,8 +6317,32 @@
             });
         }
 
+        const servicesNavToggle = document.getElementById('servicesNavToggle');
+        const servicesNavItem = servicesNavToggle ? servicesNavToggle.closest('.nav-item') : null;
+        if (servicesNavToggle && servicesNavItem) {
+            servicesNavToggle.addEventListener('click', (event) => {
+                event.preventDefault();
+                const isOpen = servicesNavItem.classList.toggle('is-open');
+                servicesNavToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!servicesNavItem.contains(event.target)) {
+                    servicesNavItem.classList.remove('is-open');
+                    servicesNavToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            servicesNavItem.querySelectorAll('.nav-submenu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    servicesNavItem.classList.remove('is-open');
+                    servicesNavToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+
         /* ============================================
-           5. SMOOTH SCROLL — anchor links
+           4. SMOOTH SCROLL — anchor links
            ============================================ */
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -6089,7 +6567,86 @@
         })();
 
         /* ============================================
-           13. MANUFACTURING CALCULATOR
+           13. INDUSTRY CALCULATOR SELECTOR
+           ============================================ */
+        (function() {
+            const tabs = Array.from(document.querySelectorAll('[data-industry-target]'));
+            const panels = Array.from(document.querySelectorAll('.industry-panel'));
+            const copyPanels = Array.from(document.querySelectorAll('[data-industry-copy-panel]'));
+            if (!tabs.length || !panels.length) return;
+
+            const aeroPanel = document.getElementById('ind-aero');
+            const aeroBackground = aeroPanel ? aeroPanel.querySelectorAll('.aero-bg-plane, .aero-bg-contrail') : [];
+
+            function revealAeroBackground() {
+                aeroBackground.forEach((el, index) => {
+                    setTimeout(() => el.classList.add('visible'), index * 150);
+                });
+            }
+
+            function setActive(panelId, options = {}) {
+                const targetPanel = document.getElementById(panelId);
+                if (!targetPanel) return;
+
+                tabs.forEach(tab => {
+                    const isActive = tab.dataset.industryTarget === panelId;
+                    tab.classList.toggle('is-active', isActive);
+                    tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+                    tab.setAttribute('tabindex', isActive ? '0' : '-1');
+                });
+
+                copyPanels.forEach(copyPanel => {
+                    const isActive = copyPanel.dataset.industryCopyPanel === panelId;
+                    copyPanel.classList.toggle('is-active', isActive);
+                    copyPanel.hidden = !isActive;
+                });
+
+                panels.forEach(panel => {
+                    const isActive = panel.id === panelId;
+                    panel.classList.toggle('is-active', isActive);
+                    panel.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+                });
+
+                if (panelId === 'ind-aero') {
+                    revealAeroBackground();
+                }
+
+                if (options.syncHash) {
+                    history.replaceState(null, '', '#' + panelId);
+                }
+            }
+
+            tabs.forEach((tab, index) => {
+                tab.addEventListener('click', () => {
+                    setActive(tab.dataset.industryTarget, { syncHash: true });
+                });
+
+                tab.addEventListener('keydown', (event) => {
+                    let nextIndex = null;
+                    if (event.key === 'ArrowRight' || event.key === 'ArrowDown') nextIndex = (index + 1) % tabs.length;
+                    if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') nextIndex = (index - 1 + tabs.length) % tabs.length;
+                    if (event.key === 'Home') nextIndex = 0;
+                    if (event.key === 'End') nextIndex = tabs.length - 1;
+                    if (nextIndex === null) return;
+                    event.preventDefault();
+                    tabs[nextIndex].focus();
+                    setActive(tabs[nextIndex].dataset.industryTarget, { syncHash: true });
+                });
+            });
+
+            const startingPanel = window.location.hash === '#ind-aero' ? 'ind-aero' : 'ind-mfg';
+            setActive(startingPanel);
+
+            window.addEventListener('hashchange', () => {
+                const hash = window.location.hash.replace('#', '');
+                if (hash === 'ind-mfg' || hash === 'ind-aero') {
+                    setActive(hash);
+                }
+            });
+        })();
+
+        /* ============================================
+           14. MANUFACTURING CALCULATOR
            ============================================ */
         (function() {
             const slider = document.getElementById('calcSlider');
@@ -6150,7 +6707,7 @@
         })();
 
         /* ============================================
-           14. AEROSPACE CALCULATOR
+           15. AEROSPACE CALCULATOR
            ============================================ */
         (function() {
             const slider = document.getElementById('aeroCalcSlider');
@@ -6207,7 +6764,7 @@
         })();
 
         /* ============================================
-           15. CASE STUDIES TABS + STAT PROPAGATION
+           16. CASE STUDIES TABS + STAT PROPAGATION
            ============================================ */
         (function() {
             const tabs = Array.from(document.querySelectorAll('[data-case-tab]'));
@@ -6348,15 +6905,6 @@
 
 
     })();
-    </script>
-    <script>
-    document.querySelectorAll('.blog-card').forEach(card => {
-        card.addEventListener('click', function(e) {
-            if (e.target.closest('a')) return;
-            const link = card.querySelector('.blog-card-link');
-            if (link) window.location.href = link.href;
-        });
-    });
     </script>
 </body>
 </html>
