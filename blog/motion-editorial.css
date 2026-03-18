@@ -1,0 +1,320 @@
+:root {
+    --mono: "IBM Plex Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+html.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+html.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.hero,
+main {
+    position: relative;
+    z-index: 2;
+}
+main.has-footer-reveal {
+    margin-bottom: 100vh;
+    background:
+        radial-gradient(120% 90% at 88% -5%, rgba(30, 80, 144, 0.24), transparent 58%),
+        radial-gradient(90% 80% at 5% 14%, rgba(22, 61, 110, 0.34), transparent 52%),
+        linear-gradient(180deg, #061425 0%, #081a31 48%, #050f1f 100%);
+}
+
+.home-link,
+.cta,
+.faq-trigger,
+.toc a {
+    transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), color 0.15s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.home-link:hover,
+.cta:hover {
+    background: rgba(12, 38, 68, 0.82);
+}
+
+.hero-headline-wrap {
+    position: relative;
+    display: inline-block;
+    will-change: transform;
+}
+.hero-float {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    will-change: transform;
+    border-radius: 3px;
+    border: 1px solid rgba(168, 212, 240, 0.3);
+    background: linear-gradient(145deg, rgba(12, 38, 68, 0.85), rgba(8, 24, 45, 0.65));
+    box-shadow: 0 20px 44px rgba(2, 8, 18, 0.32);
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(214, 236, 251, 0.9);
+    padding: 0 10px;
+    min-height: 26px;
+}
+.hero-float::before {
+    content: attr(data-label);
+    position: relative;
+    z-index: 1;
+}
+.hero-float::after {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 5px;
+    bottom: 5px;
+    width: 2px;
+    background: linear-gradient(180deg, rgba(168, 212, 240, 0.85), rgba(168, 212, 240, 0.2));
+}
+.hero-float.float-a {
+    width: 92px;
+    left: -0.75%;
+    top: 18%;
+}
+.hero-float.float-b {
+    width: 98px;
+    right: 3%;
+    top: 6%;
+}
+.hero-float.float-c {
+    width: 116px;
+    right: -1.2%;
+    bottom: -5%;
+}
+
+.scene-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.scene-container::before {
+    content: "";
+    position: absolute;
+    inset: 10% 5%;
+    border-radius: 10px;
+    background:
+        repeating-linear-gradient(90deg, rgba(168, 212, 240, 0.06) 0 1px, transparent 1px 84px),
+        linear-gradient(130deg, rgba(168, 212, 240, 0.08), transparent 62%);
+    pointer-events: none;
+}
+.scene-container canvas {
+    width: min(100%, 1132px);
+    height: auto;
+    aspect-ratio: 1 / 1;
+    display: block;
+    border-radius: 12px;
+    border: 1px solid rgba(168, 212, 240, 0.22);
+    background: linear-gradient(180deg, rgba(12, 38, 68, 0.3), rgba(6, 20, 37, 0.06));
+}
+.scene-caption {
+    position: absolute;
+    left: 4%;
+    bottom: 5%;
+    margin: 0;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid rgba(168, 212, 240, 0.26);
+    background: rgba(8, 24, 45, 0.74);
+    color: rgba(214, 236, 251, 0.9);
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.faq {
+    background: transparent;
+}
+.faq-list {
+    margin-top: 1rem;
+}
+.faq-item {
+    border-bottom: 1px solid rgba(168, 212, 240, 0.5);
+}
+.faq-item:last-child {
+    border-bottom: none;
+}
+.faq-trigger {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    text-align: left;
+    padding: 30px 0;
+    font-size: 17.5px;
+    font-weight: 500;
+    font-family: var(--mono);
+    letter-spacing: -0.01em;
+    cursor: pointer;
+}
+.faq-trigger:hover {
+    background: rgba(51, 51, 52, 0.02);
+}
+.faq-icon {
+    display: inline-grid;
+    place-items: center;
+    min-width: 1.4rem;
+    font-size: 1.2rem;
+    color: var(--accent-frost);
+    transform-origin: center;
+}
+.faq-item[data-state="open"] .faq-icon {
+    transform: rotate(180deg);
+}
+.faq-panel {
+    overflow: hidden;
+}
+.faq-panel p {
+    margin: 0;
+    padding: 0 0 24px;
+    color: var(--text-soft);
+}
+.faq-item[data-state="open"] .faq-panel {
+    animation: accordion-down 0.24s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.faq-item[data-state="closed"] .faq-panel {
+    animation: accordion-up 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--accordion-content-height); }
+}
+@keyframes accordion-up {
+    from { height: var(--accordion-content-height); }
+    to { height: 0; }
+}
+
+.footer-reveal {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px var(--padding-h);
+    background:
+        radial-gradient(120% 100% at 50% 10%, rgba(168, 212, 240, 0.1), transparent 55%),
+        linear-gradient(180deg, #050f1f 0%, #040b16 100%);
+}
+.footer-inner {
+    width: 100%;
+    max-width: var(--container-max);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+}
+.footer-brand-art {
+    width: min(74vw, 560px);
+    aspect-ratio: 1.25 / 1;
+    position: relative;
+    border-radius: 12px;
+    background:
+        linear-gradient(180deg, rgba(15, 45, 82, 0.66), rgba(4, 12, 23, 0.96)),
+        repeating-linear-gradient(90deg, rgba(168, 212, 240, 0.08) 0 1px, transparent 1px 72px);
+    border: 1px solid rgba(168, 212, 240, 0.2);
+    box-shadow: 0 44px 120px rgba(1, 4, 11, 0.68), inset 0 -16px 42px rgba(6, 20, 37, 0.35);
+    overflow: hidden;
+}
+.footer-brand-art::before,
+.footer-brand-art::after {
+    content: "";
+    position: absolute;
+    border-radius: 8px;
+}
+.footer-brand-art::before {
+    inset: 18% 9%;
+    background:
+        linear-gradient(90deg, rgba(168, 212, 240, 0.12) 0 24%, transparent 24% 28%, rgba(168, 212, 240, 0.16) 28% 49%, transparent 49% 53%, rgba(168, 212, 240, 0.11) 53% 73%, transparent 73% 77%, rgba(168, 212, 240, 0.18) 77% 100%),
+        linear-gradient(180deg, transparent 0 66%, rgba(168, 212, 240, 0.23) 66% 68%, transparent 68% 100%);
+    border: 1px solid rgba(168, 212, 240, 0.18);
+}
+.footer-brand-art::after {
+    width: 14px;
+    height: 14px;
+    left: 16%;
+    bottom: 22%;
+    border-radius: 50%;
+    border: 2px solid rgba(168, 212, 240, 0.65);
+    box-shadow:
+        120px -42px 0 -3px rgba(168, 212, 240, 0.45),
+        246px -18px 0 -4px rgba(168, 212, 240, 0.4),
+        334px -60px 0 -2px rgba(168, 212, 240, 0.48),
+        418px -28px 0 -3px rgba(168, 212, 240, 0.42);
+}
+.footer-rule {
+    width: 100%;
+    border: 0;
+    border-top: 1px solid rgba(168, 212, 240, 0.26);
+    margin: 0;
+}
+.footer-meta {
+    font-family: var(--mono);
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    color: rgba(214, 236, 251, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 26px;
+}
+.footer-meta a {
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+.footer-meta a:hover {
+    color: #ffffff;
+    border-bottom-color: rgba(168, 212, 240, 0.65);
+}
+
+@media (max-width: 900px) {
+    .hero-float {
+        display: none;
+    }
+    .scene-caption {
+        font-size: 11px;
+        left: 5%;
+        right: 5%;
+        bottom: 4%;
+    }
+    .faq-trigger {
+        font-size: 16.25px;
+    }
+    .footer-meta {
+        font-size: 16px;
+        gap: 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-float,
+    .scene-container canvas,
+    .footer-brand-art {
+        animation: none !important;
+    }
+}

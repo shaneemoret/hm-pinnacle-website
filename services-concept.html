@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HM Pinnacle — Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy-darkest: #061425;
+    --navy-dark: #0a1f3b;
+    --navy: #0f2d52;
+    --accent-ice: #a8d4f0;
+    --accent-frost: #c9e4f7;
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Montserrat', 'Segoe UI', sans-serif;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 100%; margin: 0; padding: 0;
+    background: var(--navy-darkest);
+    font-family: var(--font-body);
+    color: #F5F5F5;
+    overflow-x: hidden;
+  }
+
+  .section {
+    padding: 6rem 3rem 4rem;
+  }
+
+  /* ── Header ── */
+  .header {
+    max-width: 100%;
+    margin-bottom: 4rem;
+  }
+
+  .header h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+  }
+
+  .header h2 span {
+    color: rgba(255,255,255,0.45);
+  }
+
+  .header a {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent-ice);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: gap 0.3s ease;
+  }
+
+  .header a:hover { gap: 0.7rem; }
+
+  /* ── Pipeline / Step Flow ── */
+  .pipeline {
+    position: relative;
+    padding-top: 1rem;
+  }
+
+  /* Top border line */
+  .pipeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(168,212,240,0.15);
+  }
+
+  /* Step labels row */
+  .step-labels {
+    display: flex;
+    padding: 1.5rem 0 1.2rem;
+  }
+
+  .step-label {
+    flex: 1;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* Full vertical panels */
+  .step-icons {
+    display: flex;
+    width: 100%;
+    height: 64vh;
+    position: relative;
+  }
+
+  .step-icon {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    height: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: stepIn 0.6s var(--step-del, 0s) cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  @keyframes stepIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Vertical dashed connector lines between icons */
+  .step-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(168,212,240,0.1) 0px,
+      rgba(168,212,240,0.1) 4px,
+      transparent 4px,
+      transparent 8px
+    );
+  }
+
+  .step-icon:first-child::before { display: none; }
+
+  .step-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+    opacity: 0.45;
+    transition: all 0.4s ease;
+    filter: saturate(0.6);
+  }
+
+  .step-icon.active img {
+    opacity: 1;
+    filter: saturate(1);
+  }
+
+  .step-icon:hover img {
+    opacity: 1;
+    filter: saturate(1);
+  }
+
+  .step-icon .svc-label {
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+    padding: 1.5rem;
+    line-height: 1.15;
+  }
+
+  /* ── Description area — single slot, swaps on hover ── */
+  .desc-area {
+    padding: 2rem 0 0;
+    min-height: 100px;
+  }
+
+  .desc-area h4 {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-ice);
+    opacity: 0.6;
+    margin-bottom: 0.5rem;
+  }
+
+  .desc-area p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.4);
+    max-width: 500px;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .step-labels, .step-icons, .step-descs {
+      flex-wrap: wrap;
+    }
+    .step-label, .step-icon, .step-desc {
+      flex: 0 0 33.33%;
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .step-label, .step-icon, .step-desc {
+      flex: 0 0 50%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<section class="section">
+
+  <div class="header">
+    <h2>Core People Systems We Implement. <span>The infrastructure that makes scale possible.</span></h2>
+    <a href="#contact">Schedule a conversation →</a>
+  </div>
+
+  <div class="pipeline">
+
+    <!-- labels are now on the images -->
+
+    <div class="step-icons">
+      <div class="step-icon active" style="--step-del: 0.1s;">
+        <img src="images/svc-leadership.jpg" alt="Leadership Pipeline Readiness">
+        <span class="svc-label">Leadership Pipeline Readiness</span>
+      </div>
+      <div class="step-icon" style="--step-del: 0.2s;">
+        <img src="images/svc-org-design.png" alt="Organizational Architecture">
+        <span class="svc-label">Organizational Architecture</span>
+      </div>
+      <div class="step-icon" style="--step-del: 0.3s;">
+        <img src="images/svc-retention.png" alt="Workforce Stability & Continuity">
+        <span class="svc-label">Workforce Stability & Continuity</span>
+      </div>
+      <div class="step-icon" style="--step-del: 0.4s;">
+        <img src="images/svc-cross-border.png" alt="Global Operating Capability">
+        <span class="svc-label">Global Operating Capability</span>
+      </div>
+      <div class="step-icon" style="--step-del: 0.5s;">
+        <img src="images/svc-compliance.png" alt="Enterprise Safeguarding">
+        <span class="svc-label">Enterprise Safeguarding</span>
+      </div>
+      <div class="step-icon" style="--step-del: 0.6s;">
+        <img src="images/svc-chro.png" alt="Strategic Talent Partnership">
+        <span class="svc-label">Strategic Talent Partnership</span>
+      </div>
+    </div>
+
+    <div class="desc-area" id="descArea" style="display:none;">
+      <h4 id="descTitle"></h4>
+      <p id="descText"></p>
+    </div>
+
+    <script>
+      const descriptions = [
+        { title: 'Leadership Pipeline Readiness', text: 'We build development systems and accountability structures that transform promoted operators into leaders who drive results.' },
+        { title: 'Organizational Architecture', text: 'We map critical roles, optimize reporting structures, and design org architecture that supports where you\'re going.' },
+        { title: 'Workforce Stability & Continuity', text: 'Predictive attrition analysis, career pathways, and targeted retention for roles where a single departure costs months.' },
+        { title: 'Global Operating Capability', text: 'For manufacturers entering the U.S. from Canada or Mexico — operational and cultural translation, not just compliance.' },
+        { title: 'Enterprise Safeguarding', text: 'We build compliance into the people infrastructure from day one — OSHA, wage and hour, multi-state complexity.' },
+        { title: 'Strategic Talent Partnership', text: 'We build the leader who runs the systems. By transition, your CHRO owns everything independently.' }
+      ];
+      const area = document.getElementById('descArea');
+      const icons = document.querySelectorAll('.step-icon');
+      icons.forEach((icon, i) => {
+        icon.addEventListener('mouseenter', () => {
+          icons.forEach(ic => ic.classList.remove('active'));
+          icon.classList.add('active');
+          document.getElementById('descTitle').textContent = descriptions[i].title;
+          document.getElementById('descText').textContent = descriptions[i].text;
+          area.style.display = 'block';
+        });
+      });
+      document.querySelector('.step-icons').addEventListener('mouseleave', () => {
+        icons.forEach(ic => ic.classList.remove('active'));
+        icons[0].classList.add('active');
+        area.style.display = 'none';
+      });
+    </script>
+
+  </div>
+
+</section>
+
+</body>
+</html>

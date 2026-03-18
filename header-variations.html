@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HM Pinnacle — Header Variations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-darkest: #061425;
+            --navy-dark: #0a1f3b;
+            --navy: #0f2d52;
+            --navy-mid: #163d6e;
+            --navy-light: #1e5090;
+            --accent-ice: #a8d4f0;
+            --accent-frost: #c9e4f7;
+            --accent-snow: #e8f3fc;
+            --white: #ffffff;
+            --off-white: #f4f7fa;
+            --gray-light: #d1d9e6;
+            --gray: #8a96a8;
+            --text-dark: #1a2a3f;
+            --gold: #c8a96e;
+            --gold-light: #dcc48f;
+            --font-heading: 'Playfair Display', Georgia, serif;
+            --font-body: 'Montserrat', 'Segoe UI', sans-serif;
+            --font-clean: 'DM Sans', sans-serif;
+            --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background: #050d17;
+            color: var(--white);
+        }
+        a { text-decoration: none; color: inherit; }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* ============================================
+           SELECTOR BAR
+           ============================================ */
+        .selector-bar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 9999;
+            background: rgba(6,20,37,0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(168,212,240,0.12);
+            padding: 0.6rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .selector-bar .label {
+            font-size: 0.6rem; font-weight: 600; letter-spacing: 3px;
+            text-transform: uppercase; color: var(--accent-ice); white-space: nowrap;
+        }
+        .selector-bar a {
+            font-size: 0.65rem; font-weight: 500; letter-spacing: 1px; color: var(--gray);
+            padding: 0.45rem 0.9rem; border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 2px; transition: all 0.3s ease; white-space: nowrap;
+            cursor: pointer; user-select: none;
+        }
+        .selector-bar a:hover {
+            color: var(--white); border-color: var(--accent-ice);
+            background: rgba(168,212,240,0.08);
+        }
+        .selector-bar a.active {
+            color: var(--navy-darkest); background: var(--accent-ice);
+            border-color: var(--accent-ice); font-weight: 700;
+        }
+
+        /* ============================================
+           VARIATION PANEL (show/hide)
+           ============================================ */
+        .variation-panel {
+            display: none;
+            animation: panelFadeIn 0.5s ease forwards;
+        }
+        .variation-panel.active {
+            display: block;
+        }
+        @keyframes panelFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* ============================================
+           SEPARATOR BETWEEN VARIATIONS
+           ============================================ */
+        .variation-sep {
+            display: none;
+        }
+
+        /* ============================================
+           SHARED NAV
+           ============================================ */
+        .demo-nav {
+            position: absolute; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 1.25rem 3rem;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .demo-nav-logo { display: flex; align-items: center; gap: 0.65rem; }
+        .demo-nav-logo svg { width: 34px; height: 34px; }
+        .demo-nav-logo-text {
+            font-family: var(--font-body); font-weight: 700; font-size: 0.8rem;
+            color: var(--white); letter-spacing: 2px; text-transform: uppercase; line-height: 1.2;
+        }
+        .demo-nav-logo-text span {
+            display: block; font-weight: 300; font-size: 0.5rem;
+            letter-spacing: 3px; color: var(--accent-ice);
+        }
+        .demo-nav-links { display: flex; gap: 1.75rem; align-items: center; }
+        .demo-nav-links a {
+            font-size: 0.7rem; font-weight: 500; letter-spacing: 1.5px;
+            text-transform: uppercase; color: rgba(255,255,255,0.6); transition: color 0.3s;
+        }
+        .demo-nav-links a:hover { color: var(--white); }
+        .demo-nav-cta {
+            border: 1.5px solid var(--accent-ice) !important;
+            color: var(--accent-ice) !important;
+            padding: 0.5rem 1.25rem; border-radius: 2px;
+            font-size: 0.65rem !important; letter-spacing: 2px !important;
+            transition: all 0.3s !important;
+        }
+        .demo-nav-cta:hover {
+            background: var(--accent-ice) !important; color: var(--navy-darkest) !important;
+        }
+        /* Logo SVG shorthand */
+        .hmp-logo { fill: white; }
+
+        /* ============================================
+           ELEVATED CONTACT FORM — HMP BRANDED COLORS
+           ============================================ */
+        .elevated-form {
+            position: relative; z-index: 20;
+            background: linear-gradient(180deg, var(--navy) 0%, var(--navy-dark) 100%);
+            border-radius: 14px; padding: 4px;
+            box-shadow:
+                0 30px 70px rgba(0,0,0,0.5),
+                0 12px 28px rgba(0,0,0,0.35),
+                0 4px 10px rgba(0,0,0,0.2),
+                inset 0 1px 0 rgba(168,212,240,0.1);
+            transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+        }
+        .elevated-form:hover {
+            transform: translateY(-4px);
+            box-shadow:
+                0 40px 90px rgba(0,0,0,0.55),
+                0 18px 40px rgba(0,0,0,0.4),
+                0 8px 18px rgba(0,0,0,0.25),
+                inset 0 1px 0 rgba(168,212,240,0.15);
+        }
+        .elevated-form-inner {
+            display: flex; align-items: stretch;
+            background: linear-gradient(180deg, var(--navy-mid) 0%, var(--navy) 100%);
+            border-radius: 11px; overflow: hidden;
+            border: 1px solid rgba(168,212,240,0.08);
+        }
+        .elevated-form-field {
+            flex: 1; position: relative; display: flex; align-items: center;
+        }
+        .elevated-form-field + .elevated-form-field::before {
+            content: ''; position: absolute; left: 0; top: 18%; height: 64%; width: 1px;
+            background: rgba(168,212,240,0.12);
+        }
+        .elevated-form-field input {
+            width: 100%; padding: 1.1rem 1rem 1.1rem 2.75rem;
+            background: transparent; border: none; outline: none;
+            font-family: var(--font-body); font-size: 0.85rem; font-weight: 400;
+            color: rgba(255,255,255,0.9); letter-spacing: 0.3px;
+        }
+        .elevated-form-field input::placeholder {
+            color: rgba(168,212,240,0.4); font-weight: 400;
+        }
+        .elevated-form-field input:focus::placeholder {
+            color: rgba(168,212,240,0.2);
+        }
+        .elevated-form-icon {
+            position: absolute; left: 0.9rem; top: 50%; transform: translateY(-50%);
+            width: 18px; height: 18px; color: rgba(168,212,240,0.4); pointer-events: none;
+        }
+        .elevated-form-submit {
+            flex-shrink: 0; padding: 1.1rem 2rem;
+            background: var(--navy-darkest); color: var(--accent-ice);
+            font-family: var(--font-body); font-size: 0.75rem; font-weight: 600;
+            letter-spacing: 1.5px; text-transform: uppercase;
+            border: none; cursor: pointer; transition: all 0.3s var(--ease-out);
+            display: flex; align-items: center; gap: 0.5rem;
+            border-left: 1px solid rgba(168,212,240,0.08); white-space: nowrap;
+        }
+        .elevated-form-submit:hover {
+            background: var(--accent-ice); color: var(--navy-darkest);
+        }
+        .elevated-form-submit .arrow-icon {
+            transition: transform 0.3s var(--ease-out);
+        }
+        .elevated-form-submit:hover .arrow-icon {
+            transform: translateX(4px);
+        }
+        .form-helper {
+            text-align: center; margin-top: 0.75rem;
+            font-size: 0.65rem; color: rgba(168,212,240,0.35); letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 700px) {
+            .elevated-form-inner { flex-direction: column; }
+            .elevated-form-field + .elevated-form-field::before {
+                top: 0; left: 10%; width: 80%; height: 1px;
+            }
+            .elevated-form-submit {
+                justify-content: center; border-left: none;
+                border-top: 1px solid rgba(168,212,240,0.08);
+            }
+        }
+
+        /* ============================================
+           SHARED BUTTON STYLES
+           ============================================ */
+        .btn-p {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.9rem 2rem; background: var(--accent-ice); color: var(--navy-darkest);
+            font-family: var(--font-body); font-size: 0.72rem; font-weight: 600;
+            letter-spacing: 2px; text-transform: uppercase; border: none;
+            border-radius: 2px; cursor: pointer; transition: all 0.3s var(--ease-out);
+        }
+        .btn-p:hover {
+            background: var(--white); transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(168,212,240,0.3);
+        }
+        .btn-s {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.9rem 2rem; background: transparent; color: var(--white);
+            font-family: var(--font-body); font-size: 0.72rem; font-weight: 500;
+            letter-spacing: 2px; text-transform: uppercase;
+            border: 1.5px solid rgba(255,255,255,0.2); border-radius: 2px;
+            cursor: pointer; transition: all 0.3s var(--ease-out);
+        }
+        .btn-s:hover { border-color: var(--white); background: rgba(255,255,255,0.04); }
+
+        /* ============================================
+           FLOATING 3D OBJECTS
+           ============================================ */
+        .float-obj {
+            position: absolute; z-index: 15; pointer-events: none;
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4));
+        }
+        .float-obj svg { width: 100%; height: 100%; }
+
+        @keyframes floatA { 0%,100%{transform:translate(0,0) rotate(0deg)} 50%{transform:translate(8px,-18px) rotate(5deg)} }
+        @keyframes floatB { 0%,100%{transform:translate(0,0) rotate(0deg)} 50%{transform:translate(-12px,14px) rotate(-8deg)} }
+        @keyframes floatC { 0%,100%{transform:translate(0,0) rotate(0deg)} 50%{transform:translate(15px,10px) rotate(12deg)} }
+        @keyframes floatD { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-8px,-22px)} }
+
+        /* =============================================
+           VARIATION 1: THE LEVER — FULL VIEWPORT
+           ============================================= */
+        .v1-hero {
+            position: relative; height: 100vh; min-height: 700px;
+            overflow: hidden; background: var(--navy-darkest);
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+        }
+        .v1-hero-bg {
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse at 60% 40%, rgba(30,80,144,0.2) 0%, transparent 55%),
+                radial-gradient(ellipse at 20% 80%, rgba(168,212,240,0.06) 0%, transparent 45%);
+        }
+        .v1-hero-grid {
+            position: absolute; inset: 0; opacity: 0.025;
+            background-image:
+                linear-gradient(rgba(168,212,240,1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(168,212,240,1) 1px, transparent 1px);
+            background-size: 80px 80px;
+        }
+        .v1-hero-content {
+            position: relative; z-index: 10;
+            text-align: center; max-width: 1000px; padding: 0 2rem;
+        }
+        .v1-hero-eyebrow {
+            font-size: 0.6rem; font-weight: 600; letter-spacing: 5px;
+            text-transform: uppercase; color: var(--accent-ice);
+            margin-bottom: 2rem;
+            display: inline-flex; align-items: center; gap: 0.75rem;
+        }
+        .v1-hero-eyebrow-line { width: 30px; height: 1px; background: var(--accent-ice); }
+        .v1-hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(3.5rem, 8vw, 7.5rem);
+            font-weight: 700; line-height: 0.95;
+            color: var(--white); margin-bottom: 1.5rem;
+        }
+        .v1-hero-title .hl {
+            color: var(--accent-ice); position: relative; display: inline-block;
+        }
+        .v1-hero-title .hl::after {
+            content: ''; position: absolute; bottom: 4px; left: 0; right: 0;
+            height: 4px; background: var(--accent-ice); opacity: 0.35; border-radius: 2px;
+        }
+        .v1-hero-sub {
+            font-size: 1.1rem; font-weight: 300; color: var(--gray-light);
+            line-height: 1.8; max-width: 600px; margin: 0 auto 2rem;
+        }
+        /* Floating lever objects */
+        .v1-obj-1 { width: 60px; top: 18%; left: 8%; animation: floatA 7s ease-in-out infinite; }
+        .v1-obj-2 { width: 90px; top: 25%; right: 10%; animation: floatB 9s ease-in-out infinite; }
+        .v1-obj-3 { width: 50px; bottom: 25%; left: 12%; animation: floatC 8s ease-in-out infinite; }
+        .v1-obj-4 { width: 70px; bottom: 20%; right: 8%; animation: floatD 6s ease-in-out infinite; }
+        /* Form */
+        .v1-form-wrap {
+            position: absolute; bottom: 5vh; left: 50%;
+            transform: translateX(-50%); z-index: 20;
+            width: 90%; max-width: 680px;
+        }
+
+        /* =============================================
+           VARIATION 2: PEOPLE CONSTELLATION
+           ============================================= */
+        .v2-hero {
+            position: relative; height: 100vh; min-height: 700px;
+            overflow: hidden;
+            background: linear-gradient(160deg, #030a14 0%, var(--navy-dark) 40%, #0d2844 100%);
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+        }
+        .v2-hero-canvas { position: absolute; inset: 0; z-index: 1; }
+        .v2-hero-content {
+            position: relative; z-index: 10;
+            text-align: center; max-width: 950px; padding: 0 2rem;
+        }
+        .v2-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(168,212,240,0.06); border: 1px solid rgba(168,212,240,0.12);
+            padding: 0.45rem 1.1rem; border-radius: 100px; margin-bottom: 2.5rem;
+        }
+        .v2-badge svg { width: 20px; height: 20px; }
+        .v2-badge span {
+            font-size: 0.6rem; font-weight: 600; letter-spacing: 3px;
+            text-transform: uppercase; color: var(--accent-ice);
+        }
+        .v2-hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(3.2rem, 8vw, 7rem);
+            font-weight: 700; line-height: 0.95;
+            color: var(--white); margin-bottom: 1.5rem;
+        }
+        .v2-hero-title .people-hl {
+            position: relative; display: inline-block;
+        }
+        .v2-hero-title .people-hl::before {
+            content: ''; position: absolute; bottom: 6px; left: -4px; right: -4px;
+            height: 14px; background: rgba(168,212,240,0.15); border-radius: 2px; z-index: -1;
+        }
+        .v2-hero-title .growth-hl { color: var(--accent-ice); font-style: italic; }
+        .v2-hero-sub {
+            font-size: 1.05rem; font-weight: 300; color: var(--gray-light);
+            line-height: 1.8; max-width: 580px; margin: 0 auto 2rem;
+        }
+        /* People icons row */
+        .v2-people-row {
+            display: flex; justify-content: center; gap: 0.25rem;
+            margin-bottom: 1rem;
+        }
+        .v2-dot {
+            width: 38px; height: 38px; border-radius: 50%;
+            background: var(--navy-mid); border: 2px solid var(--accent-ice);
+            display: flex; align-items: center; justify-content: center;
+            animation: v2pop 0.5s var(--ease-out) forwards;
+            opacity: 0; transform: scale(0.5);
+        }
+        .v2-dot:nth-child(1){animation-delay:.1s} .v2-dot:nth-child(3){animation-delay:.2s}
+        .v2-dot:nth-child(5){animation-delay:.3s;background:var(--accent-ice)}
+        .v2-dot:nth-child(7){animation-delay:.4s} .v2-dot:nth-child(9){animation-delay:.5s}
+        .v2-dot svg { width: 16px; height: 16px; color: var(--accent-ice); }
+        .v2-dot:nth-child(5) svg { color: var(--navy-darkest); }
+        @keyframes v2pop { to { opacity:1; transform:scale(1); } }
+        .v2-conn { width: 16px; height: 1px; background: rgba(168,212,240,0.25); align-self: center; }
+        /* Floating objects */
+        .v2-obj-1 { width: 55px; top: 15%; left: 10%; animation: floatB 8s ease-in-out infinite; }
+        .v2-obj-2 { width: 80px; top: 20%; right: 8%; animation: floatA 10s ease-in-out infinite; }
+        .v2-obj-3 { width: 45px; bottom: 22%; left: 15%; animation: floatD 7s ease-in-out infinite; }
+        .v2-obj-4 { width: 65px; bottom: 18%; right: 12%; animation: floatC 9s ease-in-out infinite; }
+        /* Form */
+        .v2-form-wrap {
+            position: absolute; bottom: 5vh; left: 50%;
+            transform: translateX(-50%); z-index: 20;
+            width: 90%; max-width: 720px;
+        }
+
+        /* =============================================
+           VARIATION 3: GROWTH BARS
+           ============================================= */
+        .v3-hero {
+            position: relative; height: 100vh; min-height: 700px;
+            overflow: hidden; background: var(--navy-darkest);
+            display: flex; align-items: center;
+        }
+        .v3-hero-gradient {
+            position: absolute; inset: 0;
+            background: linear-gradient(180deg, rgba(6,20,37,1) 0%, rgba(15,45,82,0.5) 100%);
+        }
+        .v3-bars-bg {
+            position: absolute; bottom: 0; left: 0; right: 0; height: 80%;
+            display: flex; align-items: flex-end; justify-content: center;
+            gap: 2.5vw; padding: 0 4%; z-index: 1; opacity: 0.07;
+        }
+        .v3-bar {
+            width: 4.5vw; max-width: 55px;
+            background: linear-gradient(to top, var(--accent-ice), rgba(168,212,240,0.2));
+            border-radius: 4px 4px 0 0;
+            animation: growBar 1.5s var(--ease-out) forwards;
+            transform-origin: bottom; transform: scaleY(0);
+        }
+        .v3-bar:nth-child(1){height:15%;animation-delay:.1s}
+        .v3-bar:nth-child(2){height:28%;animation-delay:.15s}
+        .v3-bar:nth-child(3){height:22%;animation-delay:.2s}
+        .v3-bar:nth-child(4){height:42%;animation-delay:.25s}
+        .v3-bar:nth-child(5){height:35%;animation-delay:.3s}
+        .v3-bar:nth-child(6){height:55%;animation-delay:.35s}
+        .v3-bar:nth-child(7){height:48%;animation-delay:.4s}
+        .v3-bar:nth-child(8){height:70%;animation-delay:.45s}
+        .v3-bar:nth-child(9){height:62%;animation-delay:.5s}
+        .v3-bar:nth-child(10){height:85%;animation-delay:.55s}
+        .v3-bar:nth-child(11){height:78%;animation-delay:.6s}
+        .v3-bar:nth-child(12){height:95%;animation-delay:.65s}
+        @keyframes growBar { to { transform: scaleY(1); } }
+        .v3-hero-content {
+            position: relative; z-index: 10;
+            max-width: 1300px; margin: 0 auto; padding: 0 3rem;
+            width: 100%;
+        }
+        .v3-hero-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-size: 0.6rem; font-weight: 700; letter-spacing: 3px;
+            text-transform: uppercase; color: var(--navy-darkest);
+            background: var(--accent-ice); padding: 0.4rem 1rem;
+            border-radius: 2px; margin-bottom: 2rem;
+        }
+        .v3-hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 7.5vw, 7rem);
+            font-weight: 800; line-height: 0.95;
+            color: var(--white); margin-bottom: 1.5rem;
+            max-width: 900px;
+        }
+        .v3-hero-title .strike { text-decoration: line-through; color: var(--gray); opacity: 0.45; }
+        .v3-hero-title .replace { color: var(--accent-ice); font-style: italic; }
+        .v3-hero-sub {
+            font-size: 1rem; font-weight: 300; color: var(--gray-light);
+            line-height: 1.8; max-width: 520px; margin-bottom: 2rem;
+        }
+        /* Form */
+        .v3-form-wrap {
+            position: absolute; bottom: 5vh; left: 50%;
+            transform: translateX(-50%); z-index: 20;
+            width: 90%; max-width: 700px;
+        }
+
+        /* =============================================
+           VARIATION 4: FULCRUM / BALANCE
+           ============================================= */
+        .v4-hero {
+            position: relative; height: 100vh; min-height: 700px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #030a14 0%, var(--navy-dark) 100%);
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+        }
+        .v4-hero-radial {
+            position: absolute; inset: 0;
+            background: radial-gradient(circle at 50% 45%, rgba(30,80,144,0.2) 0%, transparent 55%);
+        }
+        .v4-hero-content {
+            position: relative; z-index: 10;
+            text-align: center; max-width: 1000px; padding: 0 2rem;
+        }
+        .v4-fulcrum-art {
+            margin: 0 auto 2.5rem; width: 340px; height: 180px;
+        }
+        .v4-fulcrum-svg { width: 100%; height: 100%; }
+        .v4-seesaw {
+            animation: seesawTilt 5s ease-in-out infinite;
+            transform-origin: 170px 130px;
+        }
+        @keyframes seesawTilt { 0%,100%{transform:rotate(-5deg)} 50%{transform:rotate(5deg)} }
+        .v4-hero-eyebrow {
+            font-size: 0.65rem; font-weight: 600; letter-spacing: 4px;
+            text-transform: uppercase; color: var(--accent-ice); margin-bottom: 1.5rem;
+        }
+        .v4-hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 7vw, 6.5rem);
+            font-weight: 700; line-height: 0.95;
+            color: var(--white); margin-bottom: 1rem;
+        }
+        .v4-hero-title em { color: var(--accent-ice); font-style: italic; }
+        .v4-divider-row {
+            display: flex; align-items: center; justify-content: center;
+            gap: 1rem; margin: 1.25rem 0;
+        }
+        .v4-div-line { width: 60px; height: 1px; background: var(--accent-ice); opacity: 0.35; }
+        .v4-div-icon { color: var(--accent-ice); font-size: 0.85rem; }
+        .v4-hero-sub {
+            font-size: 1.05rem; font-weight: 300; color: var(--gray-light);
+            line-height: 1.8; max-width: 580px; margin: 0 auto 2rem;
+        }
+        .v4-pillars {
+            display: flex; justify-content: center; gap: 2.5rem; margin-bottom: 1rem; flex-wrap: wrap;
+        }
+        .v4-pillar { text-align: center; transition: transform 0.3s var(--ease-out); }
+        .v4-pillar:hover { transform: translateY(-4px); }
+        .v4-pillar-icon {
+            width: 56px; height: 56px; border-radius: 50%;
+            background: rgba(168,212,240,0.06); border: 1px solid rgba(168,212,240,0.12);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 0.6rem;
+        }
+        .v4-pillar-icon svg { width: 22px; height: 22px; color: var(--accent-ice); }
+        .v4-pillar-label {
+            font-size: 0.6rem; font-weight: 600; letter-spacing: 2px;
+            text-transform: uppercase; color: var(--gray-light);
+        }
+        .v4-form-wrap {
+            position: absolute; bottom: 4vh; left: 50%;
+            transform: translateX(-50%); z-index: 20;
+            width: 90%; max-width: 700px;
+        }
+
+        /* =============================================
+           VARIATION 5: PEOPLE NETWORK (SPLIT)
+           ============================================= */
+        .v5-hero {
+            position: relative; height: 100vh; min-height: 700px;
+            overflow: hidden; background: var(--navy-darkest);
+            display: grid; grid-template-columns: 1fr 1fr;
+        }
+        .v5-left {
+            display: flex; flex-direction: column; justify-content: center;
+            padding: 6rem 4rem 5rem 5rem; position: relative; z-index: 10;
+        }
+        .v5-eyebrow {
+            font-size: 0.6rem; font-weight: 600; letter-spacing: 4px;
+            text-transform: uppercase; color: var(--accent-ice); margin-bottom: 2rem;
+            display: flex; align-items: center; gap: 0.6rem;
+        }
+        .v5-eyebrow-dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: var(--accent-ice); animation: dotPulse 2s ease-in-out infinite;
+        }
+        @keyframes dotPulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.7)} }
+        .v5-hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 4.5vw, 3.8rem);
+            font-weight: 700; line-height: 1.1;
+            color: var(--white); margin-bottom: 1.25rem;
+        }
+        .v5-hero-title .accent { color: var(--accent-ice); }
+        .v5-hero-title .uline {
+            position: relative; display: inline-block;
+        }
+        .v5-hero-title .uline::after {
+            content:''; position: absolute; bottom: 2px; left: 0;
+            width: 100%; height: 3px; background: var(--gold); opacity: 0.55;
+            animation: uGrow 1.5s var(--ease-out) forwards;
+            transform: scaleX(0); transform-origin: left;
+        }
+        @keyframes uGrow { to { transform:scaleX(1); } }
+        .v5-hero-sub {
+            font-size: 0.95rem; font-weight: 300; color: var(--gray-light);
+            line-height: 1.8; max-width: 440px; margin-bottom: 2rem;
+        }
+        .v5-trust-row {
+            display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;
+        }
+        .v5-trust-avatars { display: flex; }
+        .v5-trust-av {
+            width: 34px; height: 34px; border-radius: 50%;
+            border: 2px solid var(--navy-darkest); margin-left: -8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.5rem; font-weight: 700; color: var(--white);
+        }
+        .v5-trust-av:first-child{margin-left:0}
+        .v5-trust-av:nth-child(1){background:#3a6b9f}
+        .v5-trust-av:nth-child(2){background:#4a8bc0}
+        .v5-trust-av:nth-child(3){background:#2d5a8e}
+        .v5-trust-av:nth-child(4){background:var(--navy-mid)}
+        .v5-trust-text { font-size: 0.7rem; color: var(--gray); line-height: 1.4; }
+        .v5-trust-text strong { color: var(--white); font-weight: 600; }
+        .v5-btns { display: flex; gap: 1rem; margin-bottom: 2rem; }
+        .v5-form-wrap { max-width: 460px; }
+
+        .v5-right { position: relative; overflow: hidden; }
+        .v5-net-bg {
+            position: absolute; inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(30,80,144,0.25) 0%, transparent 65%);
+        }
+        .v5-node {
+            position: absolute; border-radius: 50%;
+            background: rgba(168,212,240,0.06); border: 1.5px solid rgba(168,212,240,0.15);
+            display: flex; align-items: center; justify-content: center;
+            animation: nodeFloat 8s ease-in-out infinite;
+        }
+        .v5-node svg { color: var(--accent-ice); }
+        .v5-node:nth-child(1){width:50px;height:50px;top:18%;left:22%;animation-delay:0s}
+        .v5-node:nth-child(2){width:65px;height:65px;top:12%;right:28%;animation-delay:-2s;background:rgba(168,212,240,0.1)}
+        .v5-node:nth-child(3){width:75px;height:75px;top:42%;left:38%;animation-delay:-4s;background:var(--accent-ice);border:none}
+        .v5-node:nth-child(3) svg{color:var(--navy-darkest);width:30px;height:30px}
+        .v5-node:nth-child(4){width:50px;height:50px;top:38%;right:18%;animation-delay:-1s}
+        .v5-node:nth-child(5){width:55px;height:55px;bottom:28%;left:18%;animation-delay:-3s}
+        .v5-node:nth-child(6){width:55px;height:55px;bottom:22%;right:32%;animation-delay:-5s}
+        .v5-node svg { width: 20px; height: 20px; }
+        @keyframes nodeFloat {
+            0%,100%{transform:translate(0,0)} 25%{transform:translate(10px,-15px)}
+            50%{transform:translate(-8px,10px)} 75%{transform:translate(12px,5px)}
+        }
+        .v5-conn-line {
+            position: absolute; height: 1px; background: rgba(168,212,240,0.1);
+            transform-origin: left center;
+        }
+        .v5-conn-line:nth-child(7){top:30%;left:30%;width:160px;transform:rotate(-18deg)}
+        .v5-conn-line:nth-child(8){top:26%;left:48%;width:130px;transform:rotate(28deg)}
+        .v5-conn-line:nth-child(9){top:48%;left:23%;width:190px;transform:rotate(4deg)}
+        .v5-conn-line:nth-child(10){bottom:32%;left:28%;width:170px;transform:rotate(18deg)}
+
+        @media (max-width: 900px) {
+            .v5-hero { grid-template-columns: 1fr; }
+            .v5-left { padding: 7rem 2rem 3rem; }
+            .v5-right { min-height: 350px; }
+        }
+
+        /* =============================================
+           VARIATION 6: BOLD TYPOGRAPHIC
+           ============================================= */
+        .v6-hero {
+            position: relative; height: 100vh; min-height: 700px;
+            overflow: hidden; background: var(--navy-darkest);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .v6-huge-bg {
+            position: absolute; z-index: 1;
+            font-family: var(--font-heading);
+            font-size: clamp(12rem, 22vw, 28rem);
+            font-weight: 800; color: rgba(168,212,240,0.025);
+            white-space: nowrap; left: -5%; top: 50%;
+            transform: translateY(-50%); line-height: 1; user-select: none;
+        }
+        .v6-hero-content {
+            position: relative; z-index: 10;
+            max-width: 1100px; padding: 0 3rem; margin: 0 auto; width: 100%;
+        }
+        .v6-top-row {
+            display: flex; align-items: flex-end; justify-content: space-between;
+            margin-bottom: 2rem; gap: 2rem;
+        }
+        .v6-logo-col { display: flex; align-items: center; gap: 0.75rem; }
+        .v6-logo-col svg { width: 44px; height: 44px; }
+        .v6-logo-block {
+            font-family: var(--font-body); font-weight: 700; font-size: 0.95rem;
+            letter-spacing: 2px; text-transform: uppercase; color: var(--white); line-height: 1.2;
+        }
+        .v6-logo-block span {
+            display: block; font-weight: 300; font-size: 0.5rem;
+            letter-spacing: 3px; color: var(--accent-ice);
+        }
+        .v6-right-tag {
+            font-size: 0.55rem; font-weight: 500; letter-spacing: 2px;
+            text-transform: uppercase; color: var(--gray); text-align: right;
+        }
+        .v6-divider {
+            width: 100%; height: 1px;
+            background: linear-gradient(90deg, var(--accent-ice), rgba(168,212,240,0.05));
+            margin-bottom: 3rem;
+        }
+        .v6-hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(3.5rem, 8.5vw, 8rem);
+            font-weight: 800; line-height: 0.9;
+            color: var(--white); margin-bottom: 2.5rem;
+        }
+        .v6-hero-title .outline {
+            -webkit-text-stroke: 1.5px var(--accent-ice); color: transparent;
+        }
+        .v6-hero-title .solid { color: var(--accent-ice); }
+        .v6-bottom-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: end;
+        }
+        .v6-bottom-row p {
+            font-size: 0.95rem; font-weight: 300; color: var(--gray-light); line-height: 1.8;
+        }
+        .v6-pills { display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+        .v6-pill {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            background: rgba(168,212,240,0.05); border: 1px solid rgba(168,212,240,0.08);
+            padding: 0.5rem 1.1rem; border-radius: 100px;
+            transition: all 0.3s var(--ease-out);
+        }
+        .v6-pill:hover {
+            background: rgba(168,212,240,0.1); border-color: rgba(168,212,240,0.2);
+        }
+        .v6-pill .n {
+            font-family: var(--font-heading); font-size: 1.1rem;
+            font-weight: 700; color: var(--accent-ice);
+        }
+        .v6-pill .t {
+            font-size: 0.65rem; font-weight: 500; color: var(--gray-light);
+            letter-spacing: 1px; text-transform: uppercase;
+        }
+        .v6-form-wrap {
+            position: absolute; bottom: 4vh; left: 50%;
+            transform: translateX(-50%); z-index: 20;
+            width: 92%; max-width: 900px;
+        }
+
+        @media (max-width: 900px) {
+            .v6-top-row { flex-direction: column; align-items: flex-start; }
+            .v6-bottom-row { grid-template-columns: 1fr; gap: 2rem; }
+        }
+
+        /* =============================================
+           VARIATION 7: ASCENDING STEPS
+           ============================================= */
+        .v7-hero {
+            position: relative; height: 100vh; min-height: 700px;
+            overflow: hidden;
+            background: linear-gradient(180deg, #030a14 0%, var(--navy-dark) 60%, var(--navy) 100%);
+            display: flex; align-items: center;
+        }
+        .v7-steps-bg {
+            position: absolute; bottom: 0; right: 0; width: 55%; height: 75%;
+            z-index: 1; opacity: 0.06;
+        }
+        .v7-step {
+            position: absolute; bottom: 0; background: var(--accent-ice);
+            border-radius: 4px 4px 0 0;
+            animation: growBar 1s var(--ease-out) forwards;
+            transform-origin: bottom; transform: scaleY(0);
+        }
+        .v7-step:nth-child(1){right:80%;width:18%;height:15%;animation-delay:.2s}
+        .v7-step:nth-child(2){right:60%;width:18%;height:30%;animation-delay:.4s}
+        .v7-step:nth-child(3){right:40%;width:18%;height:50%;animation-delay:.6s}
+        .v7-step:nth-child(4){right:20%;width:18%;height:70%;animation-delay:.8s}
+        .v7-step:nth-child(5){right:0%;width:18%;height:95%;animation-delay:1.0s}
+        .v7-person-sil { position: absolute; z-index: 2; opacity: 0.1; }
+        .v7-person-sil svg { fill: var(--accent-ice); }
+        .v7-person-sil:nth-child(6){right:73%;bottom:16%}
+        .v7-person-sil:nth-child(7){right:52%;bottom:32%}
+        .v7-person-sil:nth-child(8){right:32%;bottom:52%}
+        .v7-person-sil:nth-child(9){right:12%;bottom:72%}
+        .v7-hero-content {
+            position: relative; z-index: 10;
+            padding: 0 5rem; max-width: 750px;
+        }
+        .v7-logo-row {
+            display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2.5rem;
+        }
+        .v7-logo-row svg { width: 40px; height: 40px; }
+        .v7-logo-row .brand {
+            font-family: var(--font-body); font-weight: 700; font-size: 0.85rem;
+            letter-spacing: 2px; text-transform: uppercase; color: var(--white);
+        }
+        .v7-logo-row .brand span {
+            display: block; font-weight: 300; font-size: 0.5rem;
+            letter-spacing: 3px; color: var(--accent-ice);
+        }
+        .v7-hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-weight: 700; line-height: 1.0;
+            color: var(--white); margin-bottom: 1.5rem;
+        }
+        .v7-hero-title .rising {
+            display: inline-block; color: var(--accent-ice);
+            animation: riseText 2s var(--ease-out) 0.5s forwards;
+            opacity: 0; transform: translateY(15px);
+        }
+        @keyframes riseText { to { opacity:1; transform:translateY(0); } }
+        .v7-hero-sub {
+            font-size: 1rem; font-weight: 300; color: var(--gray-light);
+            line-height: 1.8; margin-bottom: 2rem;
+        }
+        .v7-kpis { display: flex; gap: 2.5rem; margin-bottom: 2rem; }
+        .v7-kpi-num {
+            font-family: var(--font-heading); font-size: 2.2rem;
+            font-weight: 700; color: var(--accent-ice); line-height: 1; margin-bottom: 0.25rem;
+        }
+        .v7-kpi-label {
+            font-size: 0.6rem; font-weight: 500; letter-spacing: 1.5px;
+            text-transform: uppercase; color: var(--gray);
+        }
+        .v7-form-wrap {
+            position: absolute; bottom: 5vh; left: 50%;
+            transform: translateX(-50%); z-index: 20;
+            width: 90%; max-width: 650px;
+        }
+
+        @media (max-width: 900px) {
+            .v7-hero-content { padding: 0 2rem; }
+            .v7-steps-bg { opacity: 0.04; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SELECTOR BAR -->
+    <div class="selector-bar">
+        <span class="label">Headers</span>
+        <a data-target="v1" class="active">1 — Lever</a>
+        <a data-target="v2">2 — Constellation</a>
+        <a data-target="v3">3 — Growth Bars</a>
+        <a data-target="v4">4 — Fulcrum</a>
+        <a data-target="v5">5 — Network</a>
+        <a data-target="v6">6 — Typographic</a>
+        <a data-target="v7">7 — Steps</a>
+    </div>
+
+    <!-- ====================================================================
+         VARIATION 1 — THE STRATEGIC LEVER (FULL VIEWPORT)
+         ==================================================================== -->
+    <div class="variation-panel active" id="v1">
+    <section class="v1-hero">
+        <div class="v1-hero-bg"></div>
+        <div class="v1-hero-grid"></div>
+        <nav class="demo-nav">
+            <div class="demo-nav-logo">
+                <svg viewBox="0 0 100 100" fill="none"><path d="M20 85V35L35 15L50 35V60L35 45V85H20Z" fill="white"/><path d="M50 35L65 15L80 35V85H65V45L50 60V35Z" fill="white"/><path d="M35 15L50 0L65 15L50 35L35 15Z" fill="white" opacity="0.8"/></svg>
+                <div class="demo-nav-logo-text">HM Pinnacle<span>Consulting</span></div>
+            </div>
+            <div class="demo-nav-links">
+                <a href="#">About</a><a href="#">Services</a><a href="#">Approach</a><a href="#">Results</a>
+                <a href="#" class="demo-nav-cta">Get Started</a>
+            </div>
+        </nav>
+        <!-- Floating objects -->
+        <div class="float-obj v1-obj-1">
+            <svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="28" fill="rgba(168,212,240,0.12)" stroke="rgba(168,212,240,0.25)" stroke-width="1.5"/><circle cx="30" cy="24" r="8" fill="none" stroke="rgba(168,212,240,0.4)" stroke-width="1.5"/><path d="M18 46 Q30 52 42 46" fill="none" stroke="rgba(168,212,240,0.4)" stroke-width="1.5"/></svg>
+        </div>
+        <div class="float-obj v1-obj-2">
+            <svg viewBox="0 0 90 90" fill="none"><rect x="10" y="50" width="12" height="30" rx="2" fill="rgba(168,212,240,0.15)"/><rect x="28" y="35" width="12" height="45" rx="2" fill="rgba(168,212,240,0.2)"/><rect x="46" y="20" width="12" height="60" rx="2" fill="rgba(168,212,240,0.25)"/><rect x="64" y="8" width="12" height="72" rx="2" fill="rgba(168,212,240,0.35)"/><path d="M16 48 L34 33 L52 18 L70 6" fill="none" stroke="var(--accent-ice)" stroke-width="1.5" opacity="0.5"/></svg>
+        </div>
+        <div class="float-obj v1-obj-3">
+            <svg viewBox="0 0 50 50" fill="none"><polygon points="25,5 45,40 5,40" fill="rgba(168,212,240,0.1)" stroke="rgba(168,212,240,0.25)" stroke-width="1.5"/></svg>
+        </div>
+        <div class="float-obj v1-obj-4">
+            <svg viewBox="0 0 70 70" fill="none"><line x1="35" y1="55" x2="35" y2="15" stroke="var(--accent-ice)" stroke-width="2" opacity="0.3"/><polyline points="22,25 35,10 48,25" fill="none" stroke="var(--accent-ice)" stroke-width="2" opacity="0.4"/></svg>
+        </div>
+        <!-- Content -->
+        <div class="v1-hero-content">
+            <div class="v1-hero-eyebrow">
+                <span class="v1-hero-eyebrow-line"></span>
+                People-First Leadership
+                <span class="v1-hero-eyebrow-line"></span>
+            </div>
+            <h1 class="v1-hero-title">Your People Are<br>the <span class="hl">Lever</span> That<br>Moves Everything</h1>
+            <p class="v1-hero-sub">We transform HR from a back-office function into the strategic engine that drives retention, performance, and sustainable growth.</p>
+        </div>
+        <!-- Bottom-anchored form -->
+        <div class="v1-form-wrap">
+            <div class="elevated-form">
+                <div class="elevated-form-inner">
+                    <div class="elevated-form-field">
+                        <svg class="elevated-form-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        <input type="text" placeholder="Your name">
+                    </div>
+                    <div class="elevated-form-field">
+                        <svg class="elevated-form-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <input type="email" placeholder="Work email">
+                    </div>
+                    <button class="elevated-form-submit">Get Started <span class="arrow-icon">&rarr;</span></button>
+                </div>
+            </div>
+            <p class="form-helper">Free HR assessment &middot; No commitment &middot; Results in 48 hours</p>
+        </div>
+    </section>
+
+    </div><!-- /variation-panel v1 -->
+
+    <!-- ====================================================================
+         VARIATION 2 — PEOPLE CONSTELLATION (FULL VIEWPORT)
+         ==================================================================== -->
+    <div class="variation-panel" id="v2">
+    <section class="v2-hero">
+        <canvas class="v2-hero-canvas" id="constellationCanvas"></canvas>
+        <nav class="demo-nav">
+            <div class="demo-nav-logo">
+                <svg viewBox="0 0 100 100" fill="none"><path d="M20 85V35L35 15L50 35V60L35 45V85H20Z" fill="white"/><path d="M50 35L65 15L80 35V85H65V45L50 60V35Z" fill="white"/><path d="M35 15L50 0L65 15L50 35L35 15Z" fill="white" opacity="0.8"/></svg>
+                <div class="demo-nav-logo-text">HM Pinnacle<span>Consulting</span></div>
+            </div>
+            <div class="demo-nav-links">
+                <a href="#">About</a><a href="#">Services</a><a href="#">Approach</a><a href="#">Results</a>
+                <a href="#" class="demo-nav-cta">Get Started</a>
+            </div>
+        </nav>
+        <!-- Floating objects -->
+        <div class="float-obj v2-obj-1">
+            <svg viewBox="0 0 55 55" fill="none"><circle cx="28" cy="28" r="26" fill="rgba(168,212,240,0.08)" stroke="rgba(168,212,240,0.2)" stroke-width="1.5"/><circle cx="28" cy="22" r="7" fill="none" stroke="rgba(168,212,240,0.35)" stroke-width="1.2"/><path d="M17 42 Q28 48 39 42" fill="none" stroke="rgba(168,212,240,0.35)" stroke-width="1.2"/></svg>
+        </div>
+        <div class="float-obj v2-obj-2">
+            <svg viewBox="0 0 80 80" fill="none"><circle cx="25" cy="28" r="12" fill="rgba(168,212,240,0.1)" stroke="rgba(168,212,240,0.2)" stroke-width="1"/><circle cx="55" cy="28" r="12" fill="rgba(168,212,240,0.1)" stroke="rgba(168,212,240,0.2)" stroke-width="1"/><circle cx="40" cy="55" r="12" fill="rgba(168,212,240,0.1)" stroke="rgba(168,212,240,0.2)" stroke-width="1"/><line x1="25" y1="28" x2="55" y2="28" stroke="rgba(168,212,240,0.15)" stroke-width="1"/><line x1="25" y1="28" x2="40" y2="55" stroke="rgba(168,212,240,0.15)" stroke-width="1"/><line x1="55" y1="28" x2="40" y2="55" stroke="rgba(168,212,240,0.15)" stroke-width="1"/></svg>
+        </div>
+        <div class="float-obj v2-obj-3">
+            <svg viewBox="0 0 45 45" fill="none"><rect x="5" y="5" width="35" height="35" rx="8" fill="rgba(168,212,240,0.08)" stroke="rgba(168,212,240,0.18)" stroke-width="1.5"/></svg>
+        </div>
+        <div class="float-obj v2-obj-4">
+            <svg viewBox="0 0 65 65" fill="none"><path d="M32 5 L55 55 L10 55 Z" fill="rgba(168,212,240,0.06)" stroke="rgba(168,212,240,0.15)" stroke-width="1.5"/></svg>
+        </div>
+        <div class="v2-hero-content">
+            <div class="v2-badge">
+                <svg viewBox="0 0 100 100" fill="none"><path d="M20 85V35L35 15L50 35V60L35 45V85H20Z" fill="currentColor" style="color:var(--accent-ice)"/><path d="M50 35L65 15L80 35V85H65V45L50 60V35Z" fill="currentColor" style="color:var(--accent-ice)"/><path d="M35 15L50 0L65 15L50 35L35 15Z" fill="currentColor" style="color:var(--accent-ice)" opacity="0.7"/></svg>
+                <span>HM Pinnacle Consulting</span>
+            </div>
+            <h1 class="v2-hero-title">Elevate Your<br><span class="people-hl">People</span>, Accelerate<br>Your <span class="growth-hl">Growth</span></h1>
+            <p class="v2-hero-sub">Strategic HR solutions that transform how mid-size organizations attract, develop, and retain talent that drives competitive advantage.</p>
+            <div class="v2-people-row">
+                <div class="v2-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div class="v2-conn"></div>
+                <div class="v2-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div class="v2-conn"></div>
+                <div class="v2-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div class="v2-conn"></div>
+                <div class="v2-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div class="v2-conn"></div>
+                <div class="v2-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+            </div>
+        </div>
+        <div class="v2-form-wrap">
+            <div class="elevated-form">
+                <div class="elevated-form-inner">
+                    <div class="elevated-form-field">
+                        <svg class="elevated-form-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        <input type="text" placeholder="Full name">
+                    </div>
+                    <div class="elevated-form-field">
+                        <svg class="elevated-form-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <input type="email" placeholder="Work email">
+                    </div>
+                    <div class="elevated-form-field">
+                        <svg class="elevated-form-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        <input type="text" placeholder="Team size (e.g. 50-200)">
+                    </div>
+                    <button class="elevated-form-submit">Book Call <span class="arrow-icon">&rarr;</span></button>
+                </div>
+            </div>
+            <p class="form-helper">Join 100+ organizations who transformed their people strategy</p>
+        </div>
+    </section>
+
+    </div><!-- /variation-panel v2 -->
+
+    <!-- ====================================================================
+         VARIATION 3 — GROWTH BARS (FULL VIEWPORT)
+         ==================================================================== -->
+    <div class="variation-panel" id="v3">
+    <section class="v3-hero">
+        <div class="v3-hero-gradient"></div>
+        <div class="v3-bars-bg">
+            <div class="v3-bar"></div><div class="v3-bar"></div><div class="v3-bar"></div>
+            <div class="v3-bar"></div><div class="v3-bar"></div><div class="v3-bar"></div>
+            <div class="v3-bar"></div><div class="v3-bar"></div><div class="v3-bar"></div>
+            <div class="v3-bar"></div><div class="v3-bar"></div><div class="v3-bar"></div>
+        </div>
+        <nav class="demo-nav">
+            <div class="demo-nav-logo">
+                <svg viewBox="0 0 100 100" fill="none"><path d="M20 85V35L35 15L50 35V60L35 45V85H20Z" fill="white"/><path d="M50 35L65 15L80 35V85H65V45L50 60V35Z" fill="white"/><path d="M35 15L50 0L65 15L50 35L35 15Z" fill="white" opacity="0.8"/></svg>
+                <div class="demo-nav-logo-text">HM Pinnacle<span>Consulting</span></div>
+            </div>
+            <div class="demo-nav-links">
+                <a href="#">About</a><a href="#">Services</a><a href="#">Approach</a><a href="#">Results</a>
+                <a href="#" class="demo-nav-cta">Get Started</a>
+            </div>
+        </nav>
+        <div class="v3-hero-content">
+            <div class="v3-hero-badge">&#9650; Strategic HR Partners</div>
+            <h1 class="v3-hero-title">HR Is Not a<br><span class="strike">Cost Center</span>.<br>It's Your Greatest<br><span class="replace">Growth Lever</span>.</h1>
+            <p class="v3-hero-sub">We help mid-size organizations turn their people strategy into their competitive advantage.</p>
+        </div>
+        <div class="v3-form-wrap">
+            <div class="elevated-form">
+                <div class="elevated-form-inner">
+                    <div class="elevated-form-field">
+                        <svg class="elevated-form-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        <input type="email" placeholder="Enter your work email to get started...">
+                    </div>
+                    <button class="elevated-form-submit">Free Assessment <span class="arrow-icon">&rarr;</span></button>
+                </div>
+            </div>
+            <p class="form-helper">40% average turnover reduction &middot; 3x ROI &middot; 87% client retention</p>
+        </div>
+    </section>
+
+    </div><!-- /variation-panel v3 -->
+
+    <!-- ====================================================================
+         VARIATION 4 — FULCRUM / BALANCE (FULL VIEWPORT)
+         ==================================================================== -->
+    <div class="variation-panel" id="v4">
+    <section class="v4-hero">
+        <div class="v4-hero-radial"></div>
+        <nav class="demo-nav">
+            <div class="demo-nav-logo">
+                <svg viewBox="0 0 100 100" fill="none"><path d="M20 85V35L35 15L50 35V60L35 45V85H20Z" fill="white"/><path d="M50 35L65 15L80 35V85H65V45L50 60V35Z" fill="white"/><path d="M35 15L50 0L65 15L50 35L35 15Z" fill="white" opacity="0.8"/></svg>
+                <div class="demo-nav-logo-text">HM Pinnacle<span>Consulting</span></div>
+            </div>
+            <div class="demo-nav-links">
+                <a href="#">About</a><a href="#">Services</a><a href="#">Approach</a><a href="#">Results</a>
+                <a href="#" class="demo-nav-cta">Get Started</a>
+            </div>
+        </nav>
+        <div class="v4-hero-content">
+            <div class="v4-fulcrum-art">
+                <svg class="v4-fulcrum-svg" viewBox="0 0 340 180" fill="none">
+                    <path d="M155 155 L170 125 L185 155 Z" fill="rgba(168,212,240,0.12)" stroke="rgba(168,212,240,0.35)" stroke-width="1.5"/>
+                    <text x="143" y="170" fill="rgba(168,212,240,0.4)" font-family="Montserrat" font-size="7" font-weight="700" letter-spacing="2">STRATEGY</text>
+                    <g class="v4-seesaw">
+                        <line x1="40" y1="125" x2="300" y2="125" stroke="rgba(168,212,240,0.4)" stroke-width="2.5" stroke-linecap="round"/>
+                        <circle cx="85" cy="100" r="15" fill="rgba(168,212,240,0.08)" stroke="rgba(168,212,240,0.25)" stroke-width="1.5"/>
+                        <circle cx="85" cy="93" r="5" fill="none" stroke="rgba(168,212,240,0.4)" stroke-width="1.2"/>
+                        <path d="M77 107 Q85 113 93 107" fill="none" stroke="rgba(168,212,240,0.4)" stroke-width="1.2"/>
+                        <text x="65" y="84" fill="rgba(168,212,240,0.5)" font-family="Montserrat" font-size="7" font-weight="600" letter-spacing="1">PEOPLE</text>
+                        <rect x="240" y="108" width="8" height="17" rx="1" fill="rgba(168,212,240,0.15)"/>
+                        <rect x="252" y="100" width="8" height="25" rx="1" fill="rgba(168,212,240,0.25)"/>
+                        <rect x="264" y="90" width="8" height="35" rx="1" fill="var(--accent-ice)" opacity="0.4"/>
+                        <text x="233" y="84" fill="rgba(168,212,240,0.5)" font-family="Montserrat" font-size="7" font-weight="600" letter-spacing="1">GROWTH</text>
+                    </g>
+                </svg>
+            </div>
+            <p class="v4-hero-eyebrow">People-First Leadership & HR Solutions</p>
+            <h1 class="v4-hero-title">Where People Strategy<br>Meets <em>Business Performance</em></h1>
+            <div class="v4-divider-row">
+                <div class="v4-div-line"></div>
+                <div class="v4-div-icon">&#10052;</div>
+                <div class="v4-div-line"></div>
+            </div>
+            <p class="v4-hero-sub">We architect the balance between investing in your people and accelerating your bottom line.</p>
+            <div class="v4-pillars">
+                <div class="v4-pillar"><div class="v4-pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="v4-pillar-label">Leadership</div></div>
+                <div class="v4-pillar"><div class="v4-pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="v4-pillar-label">Strategy</div></div>
+                <div class="v4-pillar"><div class="v4-pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div><div class="v4-pillar-label">Culture</div></div>
+                <div class="v4-pillar"><div class="v4-pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div class="v4-pillar-label">Performance</div></div>
+            </div>
+        </div>
+        <div class="v4-form-wrap">
+            <div class="elevated-form">
+                <div class="elevated-form-inner">
+                    <div class="elevated-form-field">
+                        <svg class="elevated-form-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        <input type="text" placeholder="Your name">
+                    </div>
+                    <div class="elevated-form-field">
+                        <svg class="elevated-form-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <input type="email" placeholder="Work email">
+                    </div>
+                    <div class="elevated-form-field">
+                        <svg class="elevated-form-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        <input type="text" placeholder="Preferred time">
+                    </div>
+                    <button class="elevated-form-submit">Book Now <span class="arrow-icon">&rarr;</span></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </div><!-- /variation-panel v4 -->
+
+    <!-- ====================================================================
+         VARIATION 5 — PEOPLE NETWORK (FULL VIEWPORT SPLIT)
+         ==================================================================== -->
+    <div class="variation-panel" id="v5">
+    <section class="v5-hero">
+        <nav class="demo-nav">
+            <div class="demo-nav-logo">
+                <svg viewBox="0 0 100 100" fill="none"><path d="M20 85V35L35 15L50 35V60L35 45V85H20Z" fill="white"/><path d="M50 35L65 15L80 35V85H65V45L50 60V35Z" fill="white"/><path d="M35 15L50 0L65 15L50 35L35 15Z" fill="white" opacity="0.8"/></svg>
+                <div class="demo-nav-logo-text">HM Pinnacle<span>Consulting</span></div>
+            </div>
+            <div class="demo-nav-links">
+                <a href="#">About</a><a href="#">Services</a><a href="#">Approach</a><a href="#">Results</a>
+                <a href="#" class="demo-nav-cta">Get Started</a>
+            </div>
+        </nav>
+        <div class="v5-left">
+            <div class="v5-eyebrow"><span class="v5-eyebrow-dot"></span> People-First HR Solutions</div>
+            <h1 class="v5-hero-title">Build <span class="uline">Strategic</span> Teams That <span class="accent">Drive Growth</span></h1>
+            <p class="v5-hero-sub">Mid-size organizations deserve HR that moves at the speed of business. We turn your workforce into your most powerful competitive lever.</p>
+            <div class="v5-trust-row">
+                <div class="v5-trust-avatars">
+                    <div class="v5-trust-av">SM</div><div class="v5-trust-av">JD</div>
+                    <div class="v5-trust-av">RL</div><div class="v5-trust-av">MT</div>
+                </div>
+                <div class="v5-trust-text"><strong>100+</strong> leaders trust HM Pinnacle<br>to transform their organizations</div>
+            </div>
+            <div class="v5-btns">
+                <button class="btn-p">Free Assessment <span>&rarr;</span></button>
+                <button class="btn-s">Our Approach</button>
+            </div>
+            <div class="v5-form-wrap">
+                <div class="elevated-form">
+                    <div class="elevated-form-inner">
+                        <div class="elevated-form-field">
+                            <svg class="elevated-form-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <input type="email" placeholder="Work email address">
+                        </div>
+                        <button class="elevated-form-submit">Request Consult <span class="arrow-icon">&rarr;</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="v5-right">
+            <div class="v5-net-bg"></div>
+            <div class="v5-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+            <div class="v5-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+            <div class="v5-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <div class="v5-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+            <div class="v5-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg></div>
+            <div class="v5-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+            <div class="v5-conn-line"></div><div class="v5-conn-line"></div>
+            <div class="v5-conn-line"></div><div class="v5-conn-line"></div>
+        </div>
+    </section>
+
+    </div><!-- /variation-panel v5 -->
+
+    <!-- ====================================================================
+         VARIATION 6 — BOLD TYPOGRAPHIC (FULL VIEWPORT)
+         ==================================================================== -->
+    <div class="variation-panel" id="v6">
+    <section class="v6-hero">
+        <div class="v6-huge-bg">GROWTH</div>
+        <nav class="demo-nav">
+            <div class="demo-nav-logo">
+                <svg viewBox="0 0 100 100" fill="none"><path d="M20 85V35L35 15L50 35V60L35 45V85H20Z" fill="white"/><path d="M50 35L65 15L80 35V85H65V45L50 60V35Z" fill="white"/><path d="M35 15L50 0L65 15L50 35L35 15Z" fill="white" opacity="0.8"/></svg>
+                <div class="demo-nav-logo-text">HM Pinnacle<span>Consulting</span></div>
+            </div>
+            <div class="demo-nav-links">
+                <a href="#">About</a><a href="#">Services</a><a href="#">Approach</a><a href="#">Results</a>
+                <a href="#" class="demo-nav-cta">Get Started</a>
+            </div>
+        </nav>
+        <div class="v6-hero-content">
+            <div class="v6-top-row">
+                <div class="v6-logo-col">
+                    <svg viewBox="0 0 100 100" fill="none" style="width:44px;height:44px;"><path d="M20 85V35L35 15L50 35V60L35 45V85H20Z" fill="white"/><path d="M50 35L65 15L80 35V85H65V45L50 60V35Z" fill="white"/><path d="M35 15L50 0L65 15L50 35L35 15Z" fill="white" opacity="0.8"/></svg>
+                    <div class="v6-logo-block">HM Pinnacle<span>Consulting</span></div>
+                </div>
+                <div class="v6-right-tag">People-First Leadership<br>& HR Solutions</div>
+            </div>
+            <div class="v6-divider"></div>
+            <h1 class="v6-hero-title">Your <span class="outline">People</span> Are<br>Your <span class="solid">Growth</span> Lever</h1>
+            <div class="v6-bottom-row">
+                <p>We partner with mid-size organizations to architect people strategies that compound growth, reduce turnover, and build cultures that become genuine competitive moats.</p>
+                <div class="v6-pills">
+                    <div class="v6-pill"><span class="n">40%</span><span class="t">Turnover Reduction</span></div>
+                    <div class="v6-pill"><span class="n">3x</span><span class="t">ROI on Engagements</span></div>
+                    <div class="v6-pill"><span class="n">87%</span><span class="t">Client Retention Rate</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="v6-form-wrap">
+            <div class="elevated-form">
+                <div class="elevated-form-inner">
+                    <div class="elevated-form-field">
+                        <svg class="elevated-form-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        <input type="text" placeholder="Your name">
+                    </div>
+                    <div class="elevated-form-field">
+                        <svg class="elevated-form-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <input type="email" placeholder="Work email">
+                    </div>
+                    <div class="elevated-form-field">
+                        <svg class="elevated-form-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                        <input type="text" placeholder="Company size">
+                    </div>
+                    <button class="elevated-form-submit">Schedule a Call <span class="arrow-icon">&rarr;</span></button>
+                </div>
+            </div>
+            <p class="form-helper">Complimentary 30-minute strategy session &middot; No commitment required</p>
+        </div>
+    </section>
+
+    </div><!-- /variation-panel v6 -->
+
+    <!-- ====================================================================
+         VARIATION 7 — ASCENDING STEPS (FULL VIEWPORT)
+         ==================================================================== -->
+    <div class="variation-panel" id="v7">
+    <section class="v7-hero">
+        <div class="v7-steps-bg">
+            <div class="v7-step"></div><div class="v7-step"></div><div class="v7-step"></div>
+            <div class="v7-step"></div><div class="v7-step"></div>
+            <div class="v7-person-sil"><svg width="30" height="40" viewBox="0 0 30 40"><circle cx="15" cy="8" r="6"/><path d="M5 40V25Q5 18 15 18Q25 18 25 25V40Z"/></svg></div>
+            <div class="v7-person-sil"><svg width="30" height="40" viewBox="0 0 30 40"><circle cx="15" cy="8" r="6"/><path d="M5 40V25Q5 18 15 18Q25 18 25 25V40Z"/></svg></div>
+            <div class="v7-person-sil"><svg width="30" height="40" viewBox="0 0 30 40"><circle cx="15" cy="8" r="6"/><path d="M5 40V25Q5 18 15 18Q25 18 25 25V40Z"/></svg></div>
+            <div class="v7-person-sil"><svg width="30" height="40" viewBox="0 0 30 40"><circle cx="15" cy="8" r="6"/><path d="M5 40V25Q5 18 15 18Q25 18 25 25V40Z"/></svg></div>
+        </div>
+        <nav class="demo-nav">
+            <div class="demo-nav-logo">
+                <svg viewBox="0 0 100 100" fill="none"><path d="M20 85V35L35 15L50 35V60L35 45V85H20Z" fill="white"/><path d="M50 35L65 15L80 35V85H65V45L50 60V35Z" fill="white"/><path d="M35 15L50 0L65 15L50 35L35 15Z" fill="white" opacity="0.8"/></svg>
+                <div class="demo-nav-logo-text">HM Pinnacle<span>Consulting</span></div>
+            </div>
+            <div class="demo-nav-links">
+                <a href="#">About</a><a href="#">Services</a><a href="#">Approach</a><a href="#">Results</a>
+                <a href="#" class="demo-nav-cta">Get Started</a>
+            </div>
+        </nav>
+        <div class="v7-hero-content">
+            <div class="v7-logo-row">
+                <svg viewBox="0 0 100 100" fill="none"><path d="M20 85V35L35 15L50 35V60L35 45V85H20Z" fill="white"/><path d="M50 35L65 15L80 35V85H65V45L50 60V35Z" fill="white"/><path d="M35 15L50 0L65 15L50 35L35 15Z" fill="white" opacity="0.8"/></svg>
+                <div class="brand">HM Pinnacle<span>Consulting</span></div>
+            </div>
+            <h1 class="v7-hero-title">Every Step Up<br>Starts with<br><span class="rising">Your People</span></h1>
+            <p class="v7-hero-sub">We build the leadership, culture, and systems that take mid-size companies from where they are to where they need to be.</p>
+            <div class="v7-kpis">
+                <div><div class="v7-kpi-num">40%</div><div class="v7-kpi-label">Less Turnover</div></div>
+                <div><div class="v7-kpi-num">3x</div><div class="v7-kpi-label">ROI Delivered</div></div>
+                <div><div class="v7-kpi-num">87%</div><div class="v7-kpi-label">Clients Stay</div></div>
+            </div>
+        </div>
+        <div class="v7-form-wrap">
+            <div class="elevated-form">
+                <div class="elevated-form-inner">
+                    <div class="elevated-form-field">
+                        <svg class="elevated-form-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <input type="email" placeholder="Your work email">
+                    </div>
+                    <button class="elevated-form-submit">Start Climbing <span class="arrow-icon">&rarr;</span></button>
+                </div>
+            </div>
+            <p class="form-helper">Take the first step &middot; Free consultation &middot; Results in 48 hours</p>
+        </div>
+    </section>
+
+    </div><!-- /variation-panel v7 -->
+
+    <script>
+        // ============================
+        // TAB SWITCHER
+        // ============================
+        const tabs = document.querySelectorAll('.selector-bar a[data-target]');
+        const panels = document.querySelectorAll('.variation-panel');
+        let constellationInited = false;
+
+        function switchTo(targetId) {
+            // Deactivate all tabs
+            tabs.forEach(t => t.classList.remove('active'));
+            // Deactivate all panels
+            panels.forEach(p => {
+                p.classList.remove('active');
+                p.style.animation = 'none';
+            });
+            // Activate target tab
+            const targetTab = document.querySelector(`.selector-bar a[data-target="${targetId}"]`);
+            if (targetTab) targetTab.classList.add('active');
+            // Activate target panel
+            const targetPanel = document.getElementById(targetId);
+            if (targetPanel) {
+                targetPanel.classList.add('active');
+                // Re-trigger fade animation
+                void targetPanel.offsetWidth;
+                targetPanel.style.animation = 'panelFadeIn 0.5s ease forwards';
+            }
+            // Init constellation canvas if v2 becomes active
+            if (targetId === 'v2' && !constellationInited) {
+                initConstellation();
+                constellationInited = true;
+            }
+            // Re-trigger bar animations for v3
+            if (targetId === 'v3') {
+                document.querySelectorAll('.v3-bar').forEach(bar => {
+                    bar.style.animation = 'none';
+                    void bar.offsetWidth;
+                    bar.style.animation = '';
+                });
+            }
+            // Re-trigger step animations for v7
+            if (targetId === 'v7') {
+                document.querySelectorAll('.v7-step').forEach(step => {
+                    step.style.animation = 'none';
+                    void step.offsetWidth;
+                    step.style.animation = '';
+                });
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function(e) {
+                e.preventDefault();
+                switchTo(this.dataset.target);
+            });
+        });
+
+        // Keyboard nav: left/right arrows cycle through variations
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                const current = document.querySelector('.selector-bar a.active');
+                const allTabs = Array.from(tabs);
+                const idx = allTabs.indexOf(current);
+                let next;
+                if (e.key === 'ArrowRight') {
+                    next = allTabs[(idx + 1) % allTabs.length];
+                } else {
+                    next = allTabs[(idx - 1 + allTabs.length) % allTabs.length];
+                }
+                switchTo(next.dataset.target);
+            }
+        });
+
+        // ============================
+        // Constellation Canvas (V2)
+        // ============================
+        function initConstellation() {
+            const canvas = document.getElementById('constellationCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let w, h, particles = [];
+            function resize() {
+                const s = canvas.parentElement;
+                w = canvas.width = s.offsetWidth;
+                h = canvas.height = s.offsetHeight;
+            }
+            function create() {
+                particles = [];
+                const count = Math.min(55, Math.floor((w * h) / 18000));
+                for (let i = 0; i < count; i++) {
+                    particles.push({
+                        x: Math.random()*w, y: Math.random()*h,
+                        vx: (Math.random()-0.5)*0.35, vy: (Math.random()-0.5)*0.35,
+                        r: 2+Math.random()*2, person: Math.random()>0.72
+                    });
+                }
+            }
+            function draw() {
+                ctx.clearRect(0,0,w,h);
+                for (let i=0;i<particles.length;i++) {
+                    for (let j=i+1;j<particles.length;j++) {
+                        const dx=particles[i].x-particles[j].x, dy=particles[i].y-particles[j].y;
+                        const d=Math.sqrt(dx*dx+dy*dy);
+                        if (d<140) {
+                            ctx.beginPath(); ctx.moveTo(particles[i].x,particles[i].y);
+                            ctx.lineTo(particles[j].x,particles[j].y);
+                            ctx.strokeStyle=`rgba(168,212,240,${0.07*(1-d/140)})`;
+                            ctx.lineWidth=0.5; ctx.stroke();
+                        }
+                    }
+                }
+                particles.forEach(p=>{
+                    if(p.person){
+                        ctx.beginPath(); ctx.arc(p.x,p.y-3,3,0,Math.PI*2);
+                        ctx.fillStyle='rgba(168,212,240,0.25)'; ctx.fill();
+                        ctx.beginPath(); ctx.arc(p.x,p.y+4,5,Math.PI,0);
+                        ctx.fillStyle='rgba(168,212,240,0.15)'; ctx.fill();
+                    } else {
+                        ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+                        ctx.fillStyle=`rgba(168,212,240,${0.12+p.r*0.04})`; ctx.fill();
+                    }
+                    p.x+=p.vx; p.y+=p.vy;
+                    if(p.x<0||p.x>w)p.vx*=-1;
+                    if(p.y<0||p.y>h)p.vy*=-1;
+                });
+                requestAnimationFrame(draw);
+            }
+            resize(); create(); draw();
+            window.addEventListener('resize',()=>{resize();create();});
+        }
+    </script>
+</body>
+</html>

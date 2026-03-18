@@ -1,0 +1,1812 @@
+<!DOCTYPE html>
+<html lang="en" class="lenis lenis-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero Walkouts: How a Nonprofit Healthcare Organization Closed a Facility and Kept Every Employee</title>
+    <meta name="description" content="Case study: How HM Pinnacle designed a workforce transition that achieved zero early departures, rehomed 102 residents, and placed 65% of laid-off employees during a COVID facility closure.">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+    <meta name="author" content="Heather MacKay-Mencheski">
+    <link rel="canonical" href="/blog/case-study-healthcare-workforce-transition.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Zero Walkouts: How a Nonprofit Healthcare Organization Closed a Facility and Kept Every Employee">
+    <meta property="og:description" content="Case study: How HM Pinnacle designed a workforce transition that achieved zero early departures, rehomed 102 residents, and placed 65% of laid-off employees.">
+    <meta property="og:url" content="/blog/case-study-healthcare-workforce-transition.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Zero Walkouts: How a Nonprofit Healthcare Organization Closed a Facility and Kept Every Employee">
+    <meta name="twitter:description" content="Case study: How HM Pinnacle designed a workforce transition that achieved zero early departures, rehomed 102 residents, and placed 65% of laid-off employees.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-darkest: #061425;
+            --navy-dark: #0a1f3b;
+            --navy-deep: #081a31;
+            --navy: #0f2d52;
+            --navy-soft: #112f55;
+            --navy-mid: #163d6e;
+            --navy-light: #1e5090;
+            --accent-ice: #a8d4f0;
+            --accent-frost: #c9e4f7;
+            --accent-snow: #e8f3fc;
+            --white: #ffffff;
+            --off-white: #f4f7fa;
+            --gray-light: #d1d9e6;
+            --gray: #8a96a8;
+            --gold: #c8a96e;
+
+            --surface-1: #061425;
+            --surface-2: #0a1f3b;
+            --surface-3: #0f2d52;
+            --surface-footer: #040b16;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.75);
+            --text-muted: rgba(255, 255, 255, 0.45);
+            --border-subtle: rgba(168, 212, 240, 0.1);
+            --border-medium: rgba(168, 212, 240, 0.2);
+
+            --font-heading: 'Playfair Display', Georgia, serif;
+            --font-body: 'Montserrat', 'Segoe UI', sans-serif;
+
+            --container-max: 1024px;
+            --padding-h: 50px;
+            --padding-v: 100px;
+
+            --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html { scroll-behavior: smooth; }
+        html.lenis, html.lenis body { height: auto; }
+        html.lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-primary);
+            background: var(--surface-1);
+            line-height: 1.75;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: inherit; text-decoration: none; transition: color 0.15s cubic-bezier(0.4, 0, 0.2, 1); }
+        img { max-width: 100%; display: block; }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* ========================================
+           NAV
+           ======================================== */
+        .site-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 0 var(--padding-h);
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to bottom, var(--surface-1), transparent);
+            transition: background 0.3s ease;
+        }
+        .site-nav.scrolled {
+            background: rgba(6, 20, 37, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 1px 0 rgba(168, 212, 240, 0.1);
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .nav-logo svg {
+            width: 32px;
+            height: 32px;
+        }
+        .nav-logo-text {
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: var(--text-primary);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+        .nav-logo-text span {
+            display: block;
+            font-weight: 300;
+            font-size: 0.55rem;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+        }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .nav-actions a {
+            font-family: var(--font-body);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            letter-spacing: -0.01em;
+        }
+        .nav-actions a:hover { color: var(--white); }
+        .nav-cta-btn {
+            font-size: 0.8125rem;
+            font-weight: 500;
+            padding: 0 1.25rem;
+            height: 36px;
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid rgba(168, 212, 240, 0.4);
+            border-radius: 2px;
+            color: var(--accent-ice);
+            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .nav-cta-btn:hover {
+            background: var(--accent-ice);
+            color: var(--navy-darkest);
+        }
+
+        /* ========================================
+           HERO
+           ======================================== */
+        .hero {
+            position: relative;
+            z-index: 2;
+            padding: 12vh var(--padding-h) calc(var(--padding-v) * 1.5);
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(120% 90% at 88% -5%, rgba(30, 80, 144, 0.24), transparent 58%), linear-gradient(180deg, #0a1f3b 0%, #081a31 100%);
+            border-radius: 0 0 12px 12px;
+            z-index: -1;
+        }
+        .hero-inner {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            position: relative;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2.5rem;
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: -0.025em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+        .back-link:hover { color: var(--accent-ice); }
+        .kicker {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: -0.025em;
+            text-transform: uppercase;
+            color: var(--accent-ice);
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 5.5vw, 5.875rem);
+            font-weight: 400;
+            line-height: 0.92;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            max-width: 900px;
+            margin-bottom: 2rem;
+            text-wrap: balance;
+        }
+        .hero h1 em {
+            font-style: italic;
+            color: var(--accent-ice);
+            display: inline-block;
+            margin-right: 0.15em;
+        }
+        .hero-meta {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: -0.025em;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+        }
+        .hero-meta span { margin: 0 0.75rem; opacity: 0.4; }
+        .hero-thumbnail {
+            width: 100%;
+            max-width: 900px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 45px rgba(2, 8, 18, 0.4);
+        }
+        .hero-thumbnail img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ========================================
+           MAIN CONTENT
+           ======================================== */
+        main {
+            position: relative;
+            z-index: 2;
+            background:
+                radial-gradient(120% 90% at 88% -5%, rgba(30, 80, 144, 0.24), transparent 58%),
+                radial-gradient(90% 80% at 5% 14%, rgba(22, 61, 110, 0.34), transparent 52%),
+                linear-gradient(180deg, #061425 0%, #081a31 48%, #050f1f 100%);
+        }
+        main.has-footer-reveal {
+            margin-bottom: 100vh;
+        }
+        .content {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--padding-h);
+        }
+
+        /* Answer box */
+        .answer-box {
+            margin-top: calc(var(--padding-v) * 1);
+            padding: 2rem 2.5rem;
+            background: var(--surface-2);
+            border-radius: 12px;
+            border-left: 3px solid var(--accent-ice);
+        }
+        .answer-box strong {
+            font-family: var(--font-body);
+            font-size: 0.6875rem;
+            font-weight: 500;
+            letter-spacing: -0.025em;
+            text-transform: uppercase;
+            color: var(--accent-ice);
+        }
+        .answer-box p, .answer-box {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        /* Sections */
+        .content > section,
+        .content > nav,
+        .content > h2,
+        .content > p,
+        .content > div {
+            margin: 0;
+        }
+
+        /* H2 section headings */
+        .content h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.75rem, 3.5vw, 2.625rem);
+            font-weight: 400;
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin-top: 150px;
+            margin-bottom: 1.5rem;
+            text-wrap: balance;
+        }
+        /* Word-level fade styling */
+        .content h2 .word {
+            display: inline-block;
+            color: rgba(255, 255, 255, 0.2);
+            transition: color 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .content h2 .word.active {
+            color: var(--text-primary);
+        }
+
+        .content h3 {
+            font-family: var(--font-body);
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .content p {
+            font-size: 1.125rem;
+            line-height: 1.85;
+            color: var(--text-secondary);
+            margin: 1rem 0;
+            font-weight: 300;
+        }
+        .content p strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        ul, ol {
+            margin: 0.75rem 0 1rem 1.5rem;
+            padding: 0;
+        }
+        li {
+            margin: 0.6rem 0;
+            font-size: 1.0625rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+        li strong { color: var(--text-primary); font-weight: 600; }
+        li::marker { color: var(--accent-ice); }
+
+        /* TOC */
+        .toc {
+            margin-top: calc(var(--padding-v) * 0.8);
+            padding: 2rem 2.5rem;
+            background: var(--surface-2);
+            border-radius: 12px;
+        }
+        .toc-label {
+            font-family: var(--font-body);
+            font-size: 0.6875rem;
+            font-weight: 500;
+            letter-spacing: -0.025em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .toc ul { margin: 0; list-style: none; }
+        .toc li { margin: 0; padding: 0; }
+        .toc a {
+            display: block;
+            padding: 0.6rem 0;
+            font-size: 0.9375rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: color 0.15s cubic-bezier(0.4, 0, 0.2, 1), background 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .toc li:last-child a { border-bottom: none; }
+        .toc a:hover {
+            color: var(--accent-ice);
+            background: rgba(168, 212, 240, 0.05);
+        }
+
+        /* Takeaways / Executive Summary */
+        .takeaways {
+            margin-top: calc(var(--padding-v) * 0.75);
+            padding: 2.5rem 3rem;
+            background: var(--surface-2);
+            border-radius: 12px;
+        }
+        .takeaways h2 {
+            margin-top: 0 !important;
+            margin-bottom: 1.25rem;
+            font-size: clamp(1.5rem, 3vw, 2.125rem);
+        }
+
+        /* Snapshot */
+        .snapshot {
+            margin-top: calc(var(--padding-v) * 0.6);
+            padding: 2rem 2.5rem;
+            background: var(--surface-2);
+            border-radius: 12px;
+        }
+        .snapshot h2 {
+            margin-top: 0 !important;
+            font-size: clamp(1.5rem, 3vw, 2.125rem);
+            margin-bottom: 0.75rem;
+        }
+
+        /* Entity block callout */
+        .entity-block {
+            margin-top: 2rem;
+            padding: 2rem 2.5rem;
+            background: var(--surface-2);
+            border-radius: 12px;
+            border-left: 3px solid var(--accent-ice);
+        }
+        .entity-block h3 {
+            margin-top: 0;
+            font-family: var(--font-body);
+            font-size: 0.6875rem;
+            font-weight: 500;
+            letter-spacing: -0.025em;
+            text-transform: uppercase;
+            color: var(--accent-ice);
+        }
+
+        /* Checklist sections */
+        .checklist {
+            margin-top: 2.5rem;
+            padding: 2.5rem 3rem;
+            background: var(--surface-2);
+            border-radius: 12px 12px 12px 12px;
+            position: relative;
+        }
+        .checklist::before {
+            content: '';
+            position: absolute;
+            top: 12px;
+            bottom: 12px;
+            left: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--accent-ice), transparent);
+            border-radius: 2px;
+        }
+        .checklist h3 {
+            margin-top: 0;
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        .checklist ol {
+            margin: 0;
+            list-style: none;
+            counter-reset: checklist-step;
+        }
+        .checklist li {
+            position: relative;
+            margin: 0;
+            padding: 0.9rem 0 0.9rem 3rem;
+            border-bottom: 1px solid var(--border-subtle);
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+        .checklist li:last-child { border-bottom: none; }
+        .checklist li::before {
+            counter-increment: checklist-step;
+            content: counter(checklist-step, decimal-leading-zero);
+            position: absolute;
+            left: 0;
+            top: 0.95rem;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--accent-ice);
+            letter-spacing: -0.025em;
+        }
+
+        /* Pitfalls */
+        .pitfalls {
+            margin-top: calc(var(--padding-v) * 0.8);
+            padding: 2.5rem 3rem;
+            background: var(--surface-2);
+            border-radius: 12px;
+        }
+        .pitfalls h2 { margin-top: 0 !important; margin-bottom: 1rem; font-size: 1.375rem; }
+        .pitfalls ul { list-style: none; margin: 0; }
+        .pitfalls li {
+            padding: 0.65rem 0 0.65rem 1.75rem;
+            border-bottom: 1px solid rgba(168, 212, 240, 0.08);
+            position: relative;
+            font-size: 1rem;
+        }
+        .pitfalls li:last-child { border-bottom: none; }
+        .pitfalls li::before {
+            content: '\2715';
+            position: absolute;
+            left: 0;
+            top: 0.7rem;
+            font-size: 0.7rem;
+            color: #e05555;
+        }
+
+        /* CTA callout */
+        .cta-block {
+            margin-top: calc(var(--padding-v) * 0.8);
+            padding: 3.5rem 3rem;
+            background: transparent;
+            border-radius: 0;
+            border-top: 1px solid rgba(168, 212, 240, 0.12);
+            border-bottom: 1px solid rgba(168, 212, 240, 0.12);
+            color: #fff;
+        }
+        .cta-block strong {
+            font-family: var(--font-body);
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent-ice);
+            display: block;
+            margin-bottom: 1rem;
+        }
+        .cta-block p {
+            font-family: var(--font-heading);
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            font-weight: 400;
+            line-height: 1.3;
+            color: var(--white);
+            margin: 0;
+            max-width: 720px;
+        }
+        .cta-sub {
+            font-family: var(--font-body) !important;
+            font-size: 1rem !important;
+            font-weight: 300 !important;
+            color: var(--text-secondary) !important;
+            line-height: 1.75 !important;
+            margin-top: 1rem !important;
+            max-width: 640px;
+        }
+        .cta-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            padding: 0 2rem;
+            height: 50px;
+            font-family: var(--font-body);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--navy-darkest);
+            background: var(--accent-ice);
+            border: none;
+            border-radius: 2px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .cta-link:hover {
+            background: var(--white);
+            color: var(--navy-darkest);
+            box-shadow: 0 8px 32px rgba(168, 212, 240, 0.2);
+        }
+
+        /* Email capture — raised box */
+        .email-capture {
+            margin-top: calc(var(--padding-v) * 0.6);
+            padding: 3.5rem 4rem;
+            background: var(--navy-darkest);
+            border: 1px solid rgba(168,212,240,0.08);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .email-capture h3 {
+            font-family: var(--font-body);
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-ice);
+            margin: 0 0 1rem;
+        }
+        .email-capture p {
+            font-family: var(--font-heading);
+            font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+            font-weight: 400;
+            color: var(--white);
+            margin: 0 0 2.5rem;
+            line-height: 1.35;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .email-form {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            gap: 0;
+            max-width: 720px;
+            margin: 0 auto;
+            border: none;
+            border-radius: 0;
+            overflow: hidden;
+        }
+        .email-form:focus-within .email-form-input-wrap {
+            border-color: rgba(168,212,240,0.3);
+        }
+        .email-form input[type="email"] {
+            flex: 1 1 0%;
+            min-width: 0;
+            height: 56px;
+            padding: 0 1.5rem;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--white);
+            background: rgba(255,255,255,0.04);
+            border: none;
+            border-bottom: 1px solid rgba(168,212,240,0.15);
+            outline: none;
+            transition: border-color 0.15s ease;
+        }
+        .email-form input[type="email"]:focus {
+            border-bottom-color: var(--accent-ice);
+        }
+        .email-form input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.25);
+        }
+        .email-form button {
+            height: 56px;
+            padding: 0 2.5rem;
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--white);
+            background: var(--navy);
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+        .email-form button:hover {
+            background: var(--accent-ice);
+            color: var(--navy-darkest);
+        }
+
+        /* FAQ */
+        .faq {
+            margin-top: calc(var(--padding-v) * 0.8);
+            padding: 2.5rem 3rem calc(var(--padding-v) * 0.8);
+            background: var(--surface-2);
+            border-radius: 12px;
+        }
+        .faq h2 {
+            margin-top: 0 !important;
+            margin-bottom: 0.5rem;
+            font-size: clamp(1.5rem, 3vw, 2.125rem);
+        }
+        .faq-list { margin-top: 1rem; }
+        .faq-item {
+            border-bottom: 1px solid rgba(168, 212, 240, 0.15);
+        }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-trigger {
+            width: 100%;
+            border: 0;
+            background: transparent;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            text-align: left;
+            padding: 30px 0;
+            font-size: 1.0625rem;
+            font-weight: 500;
+            font-family: var(--font-body);
+            letter-spacing: -0.01em;
+            cursor: pointer;
+            transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .faq-trigger:hover { background: rgba(168, 212, 240, 0.05); }
+        .faq-icon {
+            display: inline-grid;
+            place-items: center;
+            min-width: 1.4rem;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            transform-origin: center;
+            transition: transform 0.2s ease;
+        }
+        .faq-item[data-state="open"] .faq-icon { transform: rotate(45deg); }
+        .faq-panel { overflow: hidden; }
+        .faq-panel p {
+            margin: 0;
+            padding: 0 0 24px;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+        .faq-item[data-state="open"] .faq-panel {
+            animation: accordion-down 0.24s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .faq-item[data-state="closed"] .faq-panel {
+            animation: accordion-up 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @keyframes accordion-down {
+            from { height: 0; }
+            to { height: var(--accordion-content-height); }
+        }
+        @keyframes accordion-up {
+            from { height: var(--accordion-content-height); }
+            to { height: 0; }
+        }
+
+        /* Author */
+        .author-section {
+            margin-top: calc(var(--padding-v) * 0.8);
+            padding: 3rem 0;
+            border-top: 1px solid rgba(168, 212, 240, 0.15);
+        }
+        .author-inner {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--padding-h);
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+        .author-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: var(--surface-2);
+            border: 2px solid rgba(168, 212, 240, 0.2);
+        }
+        .author-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+        .author-label {
+            font-family: var(--font-body);
+            font-size: 0.6875rem;
+            font-weight: 500;
+            letter-spacing: -0.025em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+        .author-name {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        .author-bio {
+            font-size: 0.9375rem;
+            font-weight: 300;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+        .author-link {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: -0.025em;
+            color: var(--accent-ice);
+        }
+        .author-link:hover { color: var(--white); }
+
+        /* Footer reveal */
+        .footer-reveal {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 100vh;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px var(--padding-h);
+            background:
+                radial-gradient(120% 100% at 50% 10%, rgba(168, 212, 240, 0.06), transparent 55%),
+                linear-gradient(180deg, #050f1f 0%, #040b16 100%);
+        }
+        .footer-inner {
+            width: 100%;
+            max-width: var(--container-max);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 2.5rem;
+        }
+        .footer-brand-mark {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .footer-brand-mark svg {
+            width: 80px;
+            height: 80px;
+            opacity: 0.8;
+        }
+        .footer-brand-name {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: -0.02em;
+        }
+        .footer-brand-name span {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+            margin-top: 0.5rem;
+        }
+        .footer-rule {
+            width: 100%;
+            border: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 0;
+        }
+        .footer-meta {
+            font-family: var(--font-body);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 26px;
+        }
+        .footer-meta a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.15s ease;
+        }
+        .footer-meta a:hover {
+            color: #ffffff;
+            border-bottom-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* ========================================
+           CASE STUDY COMPONENTS
+           ======================================== */
+
+        /* Hero Stats Bar */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border-subtle);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 3rem;
+        }
+        .hero-stat {
+            background: var(--surface-2);
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+        .hero-stat-number {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            color: var(--accent-ice);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .hero-stat-label {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Data Callout */
+        .data-callout {
+            margin: 2.5rem 0;
+            padding: 2rem 2.5rem;
+            background: var(--surface-2);
+            border-radius: 12px;
+            border-left: 3px solid var(--accent-ice);
+            display: flex;
+            align-items: baseline;
+            gap: 1.5rem;
+        }
+        .data-callout-number {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 400;
+            color: var(--accent-ice);
+            line-height: 1;
+            white-space: nowrap;
+        }
+        .data-callout-text {
+            font-family: var(--font-body);
+            font-size: 1.0625rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Pull Quote */
+        .pull-quote {
+            margin: 3rem 0;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+        .pull-quote::before,
+        .pull-quote::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 1px;
+            background: var(--accent-ice);
+            margin: 0 auto;
+        }
+        .pull-quote::before { margin-bottom: 2rem; }
+        .pull-quote::after { margin-top: 2rem; }
+        .pull-quote blockquote {
+            font-family: var(--font-heading);
+            font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+            font-weight: 400;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.5;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .pull-quote cite {
+            display: block;
+            margin-top: 1.25rem;
+            font-family: var(--font-body);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            font-style: normal;
+            color: var(--text-muted);
+            letter-spacing: 0.02em;
+        }
+
+        /* Timeline */
+        .timeline {
+            margin: 2.5rem 0;
+            display: flex;
+            gap: 0;
+            position: relative;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 28px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--border-medium);
+        }
+        .timeline-phase {
+            flex: 1;
+            text-align: center;
+            padding: 0 1rem;
+            position: relative;
+        }
+        .timeline-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--accent-ice);
+            margin: 22px auto 1.25rem;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 0 0 4px var(--surface-1);
+        }
+        .timeline-phase-label {
+            font-family: var(--font-body);
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--accent-ice);
+            margin-bottom: 0.5rem;
+        }
+        .timeline-phase-title {
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        .timeline-phase-desc {
+            font-family: var(--font-body);
+            font-size: 0.8125rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Before/After Comparison */
+        .before-after {
+            margin: 2.5rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--border-subtle);
+        }
+        .before-after-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+        }
+        .before-after-header span {
+            background: var(--surface-2);
+            padding: 1rem 1.5rem;
+            font-family: var(--font-body);
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+        .before-after-header span:last-child {
+            color: var(--accent-ice);
+        }
+        .before-after-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+        }
+        .before-after-row > div {
+            background: var(--surface-1);
+            padding: 1rem 1.5rem;
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .before-after-row > div:last-child {
+            color: var(--text-primary);
+            font-weight: 400;
+        }
+
+        /* Download Gate */
+        .download-cta {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0 2.5rem;
+            height: 56px;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--navy-darkest);
+            background: var(--accent-ice);
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .download-btn:hover {
+            background: var(--white);
+            box-shadow: 0 8px 32px rgba(168, 212, 240, 0.2);
+        }
+        .download-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Gate Overlay Modal */
+        .gate-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background: rgba(4, 11, 22, 0.85);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .gate-overlay.active {
+            display: flex;
+        }
+        .gate-card {
+            background: var(--surface-2);
+            border-radius: 12px;
+            padding: 3rem;
+            max-width: 480px;
+            width: 100%;
+            position: relative;
+            border: 1px solid var(--border-medium);
+        }
+        .gate-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 36px;
+            height: 36px;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 1.25rem;
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            transition: background 0.15s ease;
+        }
+        .gate-close:hover {
+            background: rgba(168, 212, 240, 0.1);
+            color: var(--text-primary);
+        }
+        .gate-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin: 0 0 0.75rem;
+        }
+        .gate-card p {
+            font-size: 0.9375rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin: 0 0 1.5rem;
+            line-height: 1.6;
+        }
+        .gate-form {
+            display: flex;
+            gap: 0;
+            border: 1px solid rgba(168, 212, 240, 0.25);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .gate-form input[type="email"] {
+            flex: 1;
+            min-width: 0;
+            height: 48px;
+            padding: 0 1.25rem;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            color: var(--white);
+            background: transparent;
+            border: none;
+            outline: none;
+        }
+        .gate-form input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+        .gate-form button {
+            height: 48px;
+            padding: 0 1.75rem;
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--navy-darkest);
+            background: var(--accent-ice);
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.15s ease;
+        }
+        .gate-form button:hover {
+            background: var(--white);
+        }
+
+        /* ========================================
+           RESPONSIVE
+           ======================================== */
+        @media (max-width: 1060px) {
+            :root { --padding-h: 24px; }
+        }
+        @media (max-width: 768px) {
+            .site-nav { padding: 0 24px; height: 60px; }
+            .nav-actions a:not(.nav-cta-btn) { display: none; }
+            .hero h1 { font-size: clamp(2rem, 7vw, 3.5rem); line-height: 1.04; }
+            .content h2 { margin-top: 100px; font-size: clamp(1.5rem, 4vw, 2rem); }
+            .checklist { padding: 2rem 1.5rem; }
+            .cta-block { padding: 2rem 1.5rem; }
+            .pitfalls { padding: 2rem 1.5rem; }
+            .email-capture { padding: 2.5rem 1.5rem; box-shadow: 0 12px 24px rgba(0,0,0,0.25); }
+            .email-form { flex-direction: column; }
+            .email-form input[type="email"] { border-bottom: 1px solid rgba(168,212,240,0.12); }
+            .email-form button { width: 100%; }
+            .faq { padding: 2rem 1.5rem calc(var(--padding-v) * 0.6); }
+            .author-inner {
+                grid-template-columns: 80px 1fr;
+                gap: 1.25rem;
+            }
+            .author-photo { width: 80px; height: 80px; }
+            .footer-meta { font-size: 0.6875rem; gap: 16px; }
+            .hero-stats { grid-template-columns: repeat(2, 1fr); }
+            .timeline { flex-direction: column; gap: 0; }
+            .timeline::before { top: 0; bottom: 0; left: 28px; right: auto; width: 2px; height: auto; }
+            .timeline-phase { text-align: left; padding: 0 0 2rem 3.5rem; }
+            .timeline-dot { margin: 0; position: absolute; left: 0; top: 0; }
+            .timeline-phase { position: relative; }
+            .before-after-header, .before-after-row { grid-template-columns: 1fr; }
+            .data-callout { flex-direction: column; gap: 0.75rem; }
+            .pull-quote blockquote { font-size: 1.125rem; }
+        }
+        @media (max-width: 480px) {
+            .author-inner { grid-template-columns: 1fr; }
+            .author-photo { margin: 0 auto; }
+            .email-form { flex-direction: column; }
+            .email-form button { width: 100%; }
+            .hero-stats { grid-template-columns: 1fr; }
+            .gate-card { padding: 2rem 1.5rem; }
+            .gate-form { flex-direction: column; }
+            .gate-form button { width: 100%; }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Zero Walkouts: How a Nonprofit Healthcare Organization Closed a Facility, Rehomed 102 Residents, and Kept Every Employee Through the End",
+      "description": "Case study: How HM Pinnacle designed a workforce transition that achieved zero early departures, rehomed 102 residents, and placed 65% of laid-off employees during a COVID facility closure.",
+      "datePublished": "2026-02-25",
+      "dateModified": "2026-02-25",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/blog/case-study-healthcare-workforce-transition.html"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Heather MacKay-Mencheski",
+        "jobTitle": "Founder and CEO",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "HM Pinnacle Consulting"
+        },
+        "sameAs": "https://www.linkedin.com/in/heather-mackay-mencheski/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HM Pinnacle Consulting"
+      },
+      "keywords": [
+        "workforce transition",
+        "facility closure",
+        "WARN Act compliance",
+        "healthcare workforce management",
+        "employee retention during layoffs",
+        "nonprofit healthcare",
+        "change management",
+        "people operations"
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the WARN Act and when does it apply?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Worker Adjustment and Retraining Notification Act requires employers with 100+ employees to provide 60 days' advance notice of mass layoffs or plant closings. Non-compliance carries penalties of $500 per employee per day."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you keep employees from leaving after a closure announcement?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The key is immediate, individual communication combined with tangible transition support. When employees see that the organization is actively helping them find new positions, they have a reason to stay through the end."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does HM Pinnacle handle WARN Act compliance directly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "HM Pinnacle builds and manages the compliance framework — notification timelines, documentation, required meetings, and communication protocols. Legal review is coordinated with the organization's counsel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What industries does this workforce transition approach apply to?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "While this case study focuses on healthcare, the transition framework applies to any industry facing facility closures, workforce reductions, or organizational restructuring — including manufacturing, retail, and professional services."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How far in advance should we engage a workforce transition partner?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ideally, as soon as a closure or major reduction decision is made — and before any announcements to staff. Early engagement ensures WARN Act compliance timelines are met and transition resources are in place when employees first learn the news."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav class="site-nav" id="siteNav">
+        <a class="nav-logo" href="../index.html">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 85V35L35 15L50 35V60L35 45V85H20Z" fill="white" opacity="0.9"/>
+                <path d="M50 35L65 15L80 35V85H65V45L50 60V35Z" fill="white" opacity="0.9"/>
+                <path d="M35 15L50 0L65 15L50 35L35 15Z" fill="#a8d4f0" opacity="0.7"/>
+            </svg>
+            <div class="nav-logo-text">
+                HM Pinnacle
+                <span>Consulting</span>
+            </div>
+        </a>
+        <div class="nav-actions">
+            <a href="../index.html#blog">Insights</a>
+            <a href="../index.html#services">Services</a>
+            <a href="../index.html#contact" class="nav-cta-btn">Schedule a Conversation</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-inner">
+            <a class="back-link" href="../index.html#blog">&larr; Back to Insights</a>
+            <p class="kicker">Case Study &middot; Healthcare &amp; Nonprofit</p>
+            <h1>Zero Walkouts: How a Nonprofit Healthcare Organization Closed a Facility, Rehomed 102 Residents, and Kept <em>Every</em> Employee Through the End</h1>
+            <p class="hero-meta">Heather MacKay-Mencheski<span>|</span>February 2026<span>|</span>8 min read</p>
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number">0</div>
+                    <div class="hero-stat-label">Employees Who Left Before Closure Date</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">102</div>
+                    <div class="hero-stat-label">Residents Successfully Rehomed</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">65%</div>
+                    <div class="hero-stat-label">Laid-Off Employees Placed in New Jobs</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">250</div>
+                    <div class="hero-stat-label">Employees Across 5 Sites</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+        <article class="content">
+
+            <!-- Executive Summary -->
+            <section class="answer-box" aria-label="Executive summary">
+                <strong>Executive Summary</strong>
+                <p>When COVID forced a nonprofit healthcare organization to close an entire facility, leadership faced a seemingly impossible challenge: comply with the WARN Act's complex requirements, retain 175 affected employees for six months after telling them they would lose their jobs, and safely rehome 102 residents &mdash; all with a multicultural, multilingual workforce. HM Pinnacle designed and executed a comprehensive workforce transition that achieved what the organization's leadership thought was impossible. Not a single employee left before the closure date. All 102 residents were placed in appropriate care facilities. And 65% of laid-off employees were connected with new positions. The engagement earned recognition from Leading Age, the national nonprofit healthcare organization.</p>
+            </section>
+
+            <!-- Challenge -->
+            <h2 id="challenge">Close the Facility, Keep the Staff, Break No Laws &mdash; During a Pandemic</h2>
+
+            <p>The client &mdash; a nonprofit healthcare organization operating 5 sites with approximately 250 total employees &mdash; was forced by COVID to close an entire facility. The closure would affect 175 employees and displace 102 residents who depended on daily care.</p>
+
+            <p>The challenges were compounded at every turn:</p>
+
+            <ul>
+                <li><strong>WARN Act compliance</strong> required precise execution. Non-compliance carries penalties of $500 per employee per day &mdash; a financial exposure that could have devastated the nonprofit.</li>
+                <li><strong>Staff retention was critical.</strong> Residents needed continuous care through the closure. If staff began leaving early, patient safety would be compromised.</li>
+                <li><strong>Multicultural workforce</strong> with many non-English speakers meant that communication about layoffs, transition resources, and legal rights had to be delivered in multiple languages with cultural sensitivity.</li>
+                <li><strong>Timeline pressure.</strong> The organization needed every one of those 175 employees to stay for a full six months after being told their jobs were ending.</li>
+            </ul>
+
+            <div class="data-callout">
+                <div class="data-callout-number">$87,500</div>
+                <div class="data-callout-text">WARN Act non-compliance penalties of $500 per employee per day meant that procedural errors for a 175-person workforce could cost the organization $87,500 per day in fines.</div>
+            </div>
+
+            <div class="pull-quote">
+                <blockquote>&ldquo;We had to tell 175 people they were losing their jobs &mdash; and then ask them to stay for six more months. Everyone said it couldn't be done.&rdquo;</blockquote>
+                <cite>&mdash; Heather MacKay-Mencheski</cite>
+            </div>
+
+            <!-- Approach -->
+            <h2 id="approach">Turning a Layoff into a Transition That Protected Everyone</h2>
+
+            <p>HM Pinnacle approached the closure not as a termination event, but as a workforce transition. Every element was designed to maintain dignity, ensure legal compliance, and protect both employees and residents.</p>
+
+            <p>Key interventions:</p>
+
+            <ul>
+                <li><strong>WARN Act compliance framework:</strong> Built a complete regulatory compliance timeline ensuring every notification, meeting, and documentation requirement was met precisely and on schedule</li>
+                <li><strong>Individual transition meetings:</strong> Met with every affected employee one-on-one to discuss their situation, concerns, and career goals</li>
+                <li><strong>Multilingual support:</strong> Brought in interpreters for every language represented in the workforce, ensuring no one was left without understanding</li>
+                <li><strong>Regional job placement:</strong> Called healthcare facilities within a 250-mile radius to identify open positions matching employee skills and qualifications</li>
+                <li><strong>On-site job fairs:</strong> Organized hiring events at the facility, bringing potential employers directly to the affected workforce</li>
+                <li><strong>Resume writing and career support:</strong> Provided hands-on help with resume preparation, interview skills, and job applications</li>
+                <li><strong>Resident transition planning:</strong> Coordinated with receiving facilities to ensure every resident was placed in appropriate care without gaps in service</li>
+            </ul>
+
+            <div class="timeline">
+                <div class="timeline-phase">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-phase-label">Phase 1 (Month 1)</div>
+                    <div class="timeline-phase-title">Compliance &amp; Communication</div>
+                    <div class="timeline-phase-desc">WARN Act notifications delivered, individual meetings with all 175 employees, interpreter services arranged, transition plan communicated</div>
+                </div>
+                <div class="timeline-phase">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-phase-label">Phase 2 (Months 2&ndash;4)</div>
+                    <div class="timeline-phase-title">Active Transition Support</div>
+                    <div class="timeline-phase-desc">Job fairs organized, regional employer outreach (250-mile radius), resume workshops, career counseling, resident placement coordination</div>
+                </div>
+                <div class="timeline-phase">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-phase-label">Phase 3 (Months 5&ndash;6)</div>
+                    <div class="timeline-phase-title">Closure Execution</div>
+                    <div class="timeline-phase-desc">Final placements for remaining staff, resident transfers completed, facility closure executed with full WARN Act compliance, zero early departures</div>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <h2 id="results">Every Employee Stayed, Every Resident Was Placed, and the Organization Avoided Catastrophic Fines</h2>
+
+            <div class="before-after">
+                <div class="before-after-header">
+                    <span>Before</span>
+                    <span>After</span>
+                </div>
+                <div class="before-after-row">
+                    <div>Facility closure threatening patient safety</div>
+                    <div>All 102 residents safely rehomed</div>
+                </div>
+                <div class="before-after-row">
+                    <div>175 employees facing layoff with no support</div>
+                    <div>65% of employees placed in new positions</div>
+                </div>
+                <div class="before-after-row">
+                    <div>WARN Act exposure of $87,500/day in fines</div>
+                    <div>Full regulatory compliance, zero penalties</div>
+                </div>
+                <div class="before-after-row">
+                    <div>Multilingual workforce with no translated resources</div>
+                    <div>Interpreter services for every language represented</div>
+                </div>
+                <div class="before-after-row">
+                    <div>No workforce transition infrastructure</div>
+                    <div>Complete transition framework (job fairs, career support, placement)</div>
+                </div>
+                <div class="before-after-row">
+                    <div>Expected mass early departures</div>
+                    <div>Zero employees left before closure date</div>
+                </div>
+            </div>
+
+            <div class="data-callout">
+                <div class="data-callout-number">65%</div>
+                <div class="data-callout-text">65% of 175 laid-off employees were connected with new positions before the facility closed &mdash; through direct outreach to healthcare facilities within a 250-mile radius.</div>
+            </div>
+
+            <div class="pull-quote">
+                <blockquote>&ldquo;We didn't just close a facility. We moved 102 people who needed daily care to new homes, and we found jobs for most of the people who took care of them. That's what people operations is supposed to do.&rdquo;</blockquote>
+                <cite>&mdash; Heather MacKay-Mencheski</cite>
+            </div>
+
+            <!-- Key Takeaways -->
+            <h2 id="takeaways">What Leaders Can Learn from This Workforce Transition</h2>
+
+            <section class="checklist">
+                <h3>Key Takeaways</h3>
+                <ol>
+                    <li><strong>Treat closures as transitions, not terminations.</strong> When you frame a layoff as a workforce transition, you change the emotional dynamic. Employees who feel supported will stay through the end.</li>
+                    <li><strong>WARN Act compliance is non-negotiable infrastructure.</strong> The penalties are severe and the requirements are precise. Build a compliance timeline from day one and treat it as seriously as the operational plan.</li>
+                    <li><strong>Meet every affected person individually.</strong> Group announcements create panic. Individual meetings create trust. This was the single most important retention factor in the engagement.</li>
+                    <li><strong>Language access is a safety issue.</strong> In a multilingual workforce, providing interpreters is not a nice-to-have &mdash; it is essential for legal compliance, emotional support, and operational continuity.</li>
+                    <li><strong>Outreach within 250 miles changes placement rates.</strong> Most organizations limit job placement efforts to the immediate area. Expanding the radius dramatically increased the number of positions found for affected staff.</li>
+                    <li><strong>Dignified transitions earn industry recognition.</strong> The organization received kudos from Leading Age &mdash; the national nonprofit healthcare association &mdash; for how the closure was handled.</li>
+                </ol>
+            </section>
+
+            <!-- Download Gate -->
+            <div class="download-cta">
+                <button class="download-btn" type="button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Download Full Case Study (PDF)
+                </button>
+            </div>
+
+            <!-- CTA Block -->
+            <section class="cta-block">
+                <strong>Facing a difficult workforce transition?</strong>
+                <p>Schedule a CEO Growth Conversation</p>
+                <p class="cta-sub">Learn how HM Pinnacle helps organizations navigate facility closures, WARN Act compliance, workforce reductions, and complex transitions with dignity and precision.</p>
+                <a href="../index.html#contact" class="cta-link">Schedule a Conversation &rarr;</a>
+            </section>
+
+            <!-- FAQ -->
+            <section class="faq" id="faq">
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>What is the WARN Act and when does it apply?</h3>
+                <p>The Worker Adjustment and Retraining Notification Act requires employers with 100+ employees to provide 60 days' advance notice of mass layoffs or plant closings. Non-compliance carries penalties of $500 per employee per day.</p>
+
+                <h3>How do you keep employees from leaving after a closure announcement?</h3>
+                <p>The key is immediate, individual communication combined with tangible transition support. When employees see that the organization is actively helping them find new positions, they have a reason to stay through the end.</p>
+
+                <h3>Does HM Pinnacle handle WARN Act compliance directly?</h3>
+                <p>HM Pinnacle builds and manages the compliance framework &mdash; notification timelines, documentation, required meetings, and communication protocols. Legal review is coordinated with the organization's counsel.</p>
+
+                <h3>What industries does this workforce transition approach apply to?</h3>
+                <p>While this case study focuses on healthcare, the transition framework applies to any industry facing facility closures, workforce reductions, or organizational restructuring &mdash; including manufacturing, retail, and professional services.</p>
+
+                <h3>How far in advance should we engage a workforce transition partner?</h3>
+                <p>Ideally, as soon as a closure or major reduction decision is made &mdash; and before any announcements to staff. Early engagement ensures WARN Act compliance timelines are met and transition resources are in place when employees first learn the news.</p>
+            </section>
+        </article>
+
+        <!-- Email Capture -->
+        <div class="content">
+            <section class="email-capture">
+                <h3>Stay ahead of people ops challenges</h3>
+                <p>Get case studies and insights delivered to your inbox</p>
+                <form class="email-form" onsubmit="return false;">
+                    <input type="email" placeholder="you@company.com" aria-label="Email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </section>
+        </div>
+
+        <!-- Author -->
+        <aside class="author-section" aria-label="Author">
+            <div class="author-inner">
+                <div class="author-photo">
+                    <img src="../images/heather.jpg" alt="Heather MacKay-Mencheski" loading="lazy">
+                </div>
+                <div>
+                    <p class="author-label">About the Author</p>
+                    <p class="author-name">Heather MacKay-Mencheski</p>
+                    <p class="author-bio">Founder and CEO of HM Pinnacle Consulting. With over two decades in people operations leadership, Heather has guided organizations through some of their most complex workforce transitions &mdash; from high-growth scaling to facility closures &mdash; with a focus on compliance, dignity, and measurable outcomes.</p>
+                    <a class="author-link" href="https://www.linkedin.com/in/heather-mackay-mencheski/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn &rarr;</a>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Gate Overlay Modal -->
+    <div class="gate-overlay" id="gateOverlay">
+        <div class="gate-card">
+            <button class="gate-close" type="button" aria-label="Close">&times;</button>
+            <h3>Download the Full Case Study</h3>
+            <p>Enter your email to receive the complete case study as a PDF &mdash; including detailed methodology, compliance checklists, and transition timeline.</p>
+            <form class="gate-form" onsubmit="return false;">
+                <input type="email" placeholder="you@company.com" aria-label="Email address" required>
+                <button type="submit">Send PDF</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        // Smooth scroll via Lenis
+        var root = document.documentElement;
+        root.classList.add('lenis', 'lenis-smooth');
+
+        function initLenis() {
+            if (!window.Lenis) return;
+            var lenis = new window.Lenis({
+                duration: 1.15,
+                smoothWheel: true,
+                smoothTouch: false,
+                lerp: 0.08
+            });
+            function raf(time) {
+                lenis.raf(time);
+                window.requestAnimationFrame(raf);
+            }
+            window.requestAnimationFrame(raf);
+        }
+
+        function loadLenis() {
+            if (window.Lenis) { initLenis(); return; }
+            var script = document.createElement('script');
+            script.src = 'https://unpkg.com/@studio-freight/lenis@1.0.42/bundled/lenis.min.js';
+            script.async = true;
+            script.onload = initLenis;
+            script.onerror = function() { root.classList.remove('lenis', 'lenis-smooth'); };
+            document.head.appendChild(script);
+        }
+
+        // Nav scroll state
+        var nav = document.getElementById('siteNav');
+        if (nav) {
+            var scrolled = false;
+            window.addEventListener('scroll', function() {
+                var y = window.scrollY || window.pageYOffset;
+                if (y > 50 && !scrolled) { nav.classList.add('scrolled'); scrolled = true; }
+                else if (y <= 50 && scrolled) { nav.classList.remove('scrolled'); scrolled = false; }
+            }, { passive: true });
+        }
+
+        // Word-level fade scroll animation on H2s
+        function initWordFade() {
+            var headings = document.querySelectorAll('.content h2');
+            headings.forEach(function(h2) {
+                var text = h2.textContent.trim();
+                var words = text.split(/\s+/);
+                h2.innerHTML = words.map(function(word) {
+                    return '<span class="word">' + word + '</span>';
+                }).join(' ');
+            });
+
+            function checkWords() {
+                var viewportCenter = window.innerHeight * 0.65;
+                document.querySelectorAll('.content h2 .word').forEach(function(word) {
+                    var rect = word.getBoundingClientRect();
+                    if (rect.top < viewportCenter) {
+                        word.classList.add('active');
+                    }
+                });
+            }
+            checkWords();
+            window.addEventListener('scroll', checkWords, { passive: true });
+        }
+
+        // FAQ accordion
+        function toFaqAccordion(section) {
+            if (!section || section.querySelector('.faq-list')) return;
+            var heading = section.querySelector('h2');
+            var pairs = [];
+            var node = heading ? heading.nextElementSibling : section.firstElementChild;
+            while (node) {
+                if (node.tagName === 'H3') {
+                    var answerNode = node.nextElementSibling;
+                    if (answerNode && answerNode.tagName === 'P') {
+                        pairs.push({ q: node.textContent.trim(), a: answerNode.innerHTML });
+                        node = answerNode;
+                    }
+                }
+                node = node.nextElementSibling;
+            }
+            if (!pairs.length) return;
+            section.querySelectorAll(':scope > h3, :scope > p').forEach(function(el) { el.remove(); });
+            var list = document.createElement('div');
+            list.className = 'faq-list';
+            pairs.forEach(function(item) {
+                var row = document.createElement('div');
+                row.className = 'faq-item';
+                row.dataset.state = 'closed';
+                var trigger = document.createElement('button');
+                trigger.type = 'button';
+                trigger.className = 'faq-trigger';
+                trigger.setAttribute('aria-expanded', 'false');
+                trigger.innerHTML = '<span>' + item.q + '</span><span class="faq-icon">+</span>';
+                var panel = document.createElement('div');
+                panel.className = 'faq-panel';
+                panel.hidden = true;
+                panel.innerHTML = '<p>' + item.a + '</p>';
+                row.appendChild(trigger);
+                row.appendChild(panel);
+                list.appendChild(row);
+            });
+            section.appendChild(list);
+        }
+
+        function initAccordion() {
+            document.querySelectorAll('.faq').forEach(toFaqAccordion);
+            document.querySelectorAll('.faq-item').forEach(function(item) {
+                var trigger = item.querySelector('.faq-trigger');
+                var panel = item.querySelector('.faq-panel');
+                var icon = item.querySelector('.faq-icon');
+                if (!trigger || !panel || !icon) return;
+                trigger.addEventListener('click', function() {
+                    var open = item.dataset.state === 'open';
+                    if (open) {
+                        panel.style.setProperty('--accordion-content-height', panel.scrollHeight + 'px');
+                        item.dataset.state = 'closed';
+                        trigger.setAttribute('aria-expanded', 'false');
+                        icon.textContent = '+';
+                        panel.addEventListener('animationend', function handleClose() {
+                            panel.hidden = true;
+                            panel.removeEventListener('animationend', handleClose);
+                        });
+                        return;
+                    }
+                    panel.hidden = false;
+                    panel.style.setProperty('--accordion-content-height', panel.scrollHeight + 'px');
+                    item.dataset.state = 'open';
+                    trigger.setAttribute('aria-expanded', 'true');
+                    icon.textContent = '\u2212';
+                });
+            });
+        }
+
+        // Download gate modal
+        function initDownloadGate() {
+            var btn = document.querySelector('.download-btn');
+            var overlay = document.querySelector('.gate-overlay');
+            var closeBtn = overlay ? overlay.querySelector('.gate-close') : null;
+            if (!btn || !overlay) return;
+            btn.addEventListener('click', function() {
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function() {
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            }
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) {
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
+        // Footer reveal
+        function injectFooter() {
+            if (document.querySelector('.footer-reveal')) return;
+            var footer = document.createElement('footer');
+            footer.className = 'footer-reveal';
+            footer.innerHTML = [
+                '<div class="footer-inner">',
+                '  <div class="footer-brand-mark">',
+                '    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">',
+                '      <path d="M20 85V35L35 15L50 35V60L35 45V85H20Z" fill="white" opacity="0.8"/>',
+                '      <path d="M50 35L65 15L80 35V85H65V45L50 60V35Z" fill="white" opacity="0.8"/>',
+                '      <path d="M35 15L50 0L65 15L50 35L35 15Z" fill="white" opacity="0.6"/>',
+                '    </svg>',
+                '    <div class="footer-brand-name">HM Pinnacle<span>People Infrastructure for Growth</span></div>',
+                '  </div>',
+                '  <hr class="footer-rule">',
+                '  <div class="footer-meta">',
+                '    <span>&copy; 2026 HM Pinnacle Consulting</span>',
+                '    <a href="../index.html#contact">Contact</a>',
+                '    <a href="../index.html#blog">Insights</a>',
+                '    <a href="https://www.linkedin.com/company/hm-pinnacle-consulting-people-hr-solutions" target="_blank" rel="noopener">LinkedIn</a>',
+                '  </div>',
+                '</div>'
+            ].join('');
+            document.body.appendChild(footer);
+            var main = document.querySelector('main');
+            if (main) main.classList.add('has-footer-reveal');
+        }
+
+        function init() {
+            loadLenis();
+            initWordFade();
+            initAccordion();
+            initDownloadGate();
+            injectFooter();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    })();
+    </script>
+</body>
+</html>
