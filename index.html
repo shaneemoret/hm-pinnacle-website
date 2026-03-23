@@ -267,18 +267,22 @@
         }
 
         .nav-cta {
-            background: transparent !important;
+            background: var(--accent-ice) !important;
             border: 1.5px solid var(--accent-ice) !important;
-            color: var(--accent-ice) !important;
+            color: var(--navy-darkest) !important;
             padding: 0.6rem 1.5rem !important;
             border-radius: 2px;
+            box-shadow: 0 10px 24px rgba(168,212,240,0.2);
             transition: all 0.3s var(--ease-out) !important;
             font-size: 0.75rem !important;
             letter-spacing: 2px !important;
         }
         .nav-cta:hover {
-            background: var(--accent-ice) !important;
+            background: var(--accent-frost) !important;
+            border-color: var(--accent-frost) !important;
             color: var(--navy-darkest) !important;
+            transform: translateY(-1px);
+            box-shadow: 0 14px 28px rgba(168,212,240,0.24);
         }
         .nav-cta::after { display: none !important; }
 
@@ -604,40 +608,36 @@
            ANIMATED ELEMENTS (Scroll-triggered)
            ======================================== */
         .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            will-change: opacity, transform;
+            opacity: 1;
+            transform: none;
+            transition: opacity 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
         .reveal-left {
-            opacity: 0;
-            transform: translateX(-60px);
-            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            will-change: opacity, transform;
+            opacity: 1;
+            transform: none;
+            transition: opacity 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .reveal-left.visible {
             opacity: 1;
             transform: translateX(0);
         }
         .reveal-right {
-            opacity: 0;
-            transform: translateX(60px);
-            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            will-change: opacity, transform;
+            opacity: 1;
+            transform: none;
+            transition: opacity 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .reveal-right.visible {
             opacity: 1;
             transform: translateX(0);
         }
         .reveal-scale {
-            opacity: 0;
-            transform: scale(0.85);
-            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            will-change: opacity, transform;
+            opacity: 1;
+            transform: none;
+            transition: opacity 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .reveal-scale.visible {
             opacity: 1;
@@ -657,10 +657,9 @@
         }
         /* Section blur-in on scroll */
         [data-blur-in] {
-            filter: blur(6px);
-            opacity: 0;
-            transition: filter 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            will-change: filter, opacity;
+            filter: none;
+            opacity: 1;
+            transition: filter 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         [data-blur-in].in-view {
             filter: blur(0);
@@ -668,10 +667,9 @@
         }
         /* Progressive list reveal */
         [data-stagger-list] > * {
-            opacity: 0;
-            transform: translateX(-20px);
-            transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            will-change: opacity, transform;
+            opacity: 1;
+            transform: none;
+            transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         [data-stagger-list].in-view > * {
             opacity: 1;
@@ -719,8 +717,8 @@
         }
         /* POV cascade item reveal */
         .pov-cascade-item {
-            opacity: 0;
-            transform: translateX(-15px);
+            opacity: 1;
+            transform: none;
             transition: opacity 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .pov-cascade.in-view .pov-cascade-item { opacity: 1; transform: translateX(0); }
@@ -732,15 +730,15 @@
         .pov-cascade.in-view .pov-cascade-item:nth-child(6) { transition-delay: 0.4s; }
         /* POV callout slide-in */
         .pov-callout {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
+            opacity: 1;
+            transform: none;
+            transition: opacity 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .pov-callout.in-view { opacity: 1; transform: translateY(0); }
         /* Serve stats counter animation */
         .serve-stat {
-            opacity: 0;
-            transform: translateY(25px);
+            opacity: 1;
+            transform: none;
             transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .serve-stats.in-view .serve-stat { opacity: 1; transform: translateY(0); }
@@ -750,8 +748,8 @@
         .serve-stats.in-view .serve-stat:nth-child(4) { transition-delay: 0.3s; }
         /* Serve tags stagger */
         .serve-tag {
-            opacity: 0;
-            transform: translateY(10px);
+            opacity: 1;
+            transform: none;
             transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.25s ease, color 0.25s ease;
         }
         .serve-tags.in-view .serve-tag { opacity: 1; transform: translateY(0); }
@@ -763,8 +761,8 @@
         .serve-tags.in-view .serve-tag:nth-child(6) { transition-delay: 0.6s; }
         /* Big stat row reveal */
         .big-stat {
-            opacity: 0;
-            transform: translateY(30px);
+            opacity: 1;
+            transform: none;
             transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), padding 0s, border 0s;
         }
         .big-stat-stack.in-view .big-stat { opacity: 1; transform: translateY(0); }
@@ -773,8 +771,8 @@
         .big-stat-stack.in-view .big-stat:nth-child(3) { transition-delay: 0.3s; }
         /* Chapter tag reveal */
         .ch-tag {
-            opacity: 0;
-            transform: translateY(8px);
+            opacity: 1;
+            transform: none;
             transition: opacity 0.4s ease, transform 0.4s ease;
         }
         .ch-tags.in-view .ch-tag { opacity: 1; transform: translateY(0); }
@@ -789,8 +787,8 @@
         }
         /* Approach steps progressive reveal */
         .approach-step {
-            opacity: 0;
-            transform: translateY(30px);
+            opacity: 1;
+            transform: none;
         }
         .approach-steps.in-view .approach-step { opacity: 1; transform: translateY(0); }
         .approach-steps.in-view .approach-step:nth-child(1) { transition-delay: 0s; }
@@ -1012,8 +1010,8 @@
             background: var(--navy-darkest);
         }
         #services .section-container {
-            width: min(80vw, 1360px);
-            max-width: 1360px;
+            width: 100%;
+            max-width: 1200px;
         }
         .services-spotlight {
             position: relative;
@@ -1072,18 +1070,18 @@
         .services-kicker {
             font-family: var(--font-body);
             font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 3px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: var(--accent-ice);
+            color: var(--gray);
             margin-bottom: 1rem;
         }
         .services-spotlight-title {
             font-family: var(--font-heading);
-            font-size: clamp(3.25rem, 5.4vw, 5.2rem);
-            font-weight: 700;
+            font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+            font-weight: 800;
             letter-spacing: -0.03em;
-            line-height: 0.94;
+            line-height: 1.05;
             color: var(--white);
             margin-bottom: 1.5rem;
             max-width: 11.4ch;
@@ -2131,13 +2129,17 @@
         .form-group select {
             width: 100%;
             padding: 0.85rem 1rem;
-            border: 1px solid rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.32);
             border-radius: 4px;
             font-family: var(--font-body);
             font-size: 0.9rem;
             color: var(--white);
             transition: border-color 0.3s var(--ease-out);
             background: rgba(6,20,37,0.48);
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.48);
         }
         .form-group input:focus,
         .form-group textarea:focus,
@@ -2808,7 +2810,7 @@
             z-index: 2;
             max-width: 1400px;
             margin: 0 auto;
-            padding: 4.75rem 2rem 6rem;
+            padding: 3.5rem 2rem 4.5rem;
         }
         /* Chapter label + title */
         .ch-label {
@@ -2827,7 +2829,7 @@
             color: var(--white);
             line-height: 1.0;
             text-align: center;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             width: 100%;
             max-width: 1400px;
             letter-spacing: -0.02em;
@@ -2837,10 +2839,10 @@
             font-size: 1.15rem;
             font-weight: 300;
             color: rgba(255,255,255,0.55);
-            line-height: 1.9;
+            line-height: 1.75;
             text-align: center;
             max-width: 960px;
-            margin: 0 auto 2.5rem;
+            margin: 0 auto 2rem;
         }
         .ch-intro strong { color: rgba(255,255,255,0.9); font-weight: 600; }
         .ch-tags {
@@ -2848,7 +2850,7 @@
             flex-wrap: nowrap;
             justify-content: center;
             gap: 0.75rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
         .ch-tag {
             font-size: 0.55rem;
@@ -2863,14 +2865,14 @@
         /* Spacer */
         .mfg-spacer {
             width: 1px;
-            height: 80px;
+            height: 40px;
             background: linear-gradient(to bottom, transparent, rgba(168,212,240,0.15), transparent);
             margin: 0 auto;
         }
         /* Problem lead */
         .problem-lead {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 2.5rem;
         }
         .problem-lead-text {
             font-family: var(--font-heading);
@@ -2886,7 +2888,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: center;
-            padding: 3.5rem 0;
+            padding: 2.25rem 0;
             border-bottom: 1px solid rgba(168,212,240,0.06);
         }
         .big-stat:first-child { border-top: 1px solid rgba(168,212,240,0.06); }
@@ -2923,7 +2925,7 @@
         .calc-section { margin-top: 0; }
         .calc-lead {
             text-align: center;
-            margin-bottom: 3.5rem;
+            margin-bottom: 2.25rem;
         }
         .calc-lead-text {
             font-family: var(--font-heading);
@@ -2938,7 +2940,7 @@
         .calc-input-card {
             background: rgba(168,212,240,0.03);
             border: 1px solid rgba(168,212,240,0.08);
-            padding: 2.5rem 3rem;
+            padding: 1.75rem 2rem;
         }
         .calc-input-top {
             display: flex;
@@ -2998,7 +3000,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.25rem;
         }
         .calc-slider-value {
             font-family: var(--font-heading);
@@ -3083,7 +3085,7 @@
         .calc-result-hero {
             background: rgba(168,212,240,0.04);
             border: 1px solid rgba(168,212,240,0.1);
-            padding: 3.5rem;
+            padding: 2.75rem 2.25rem;
             text-align: center;
             margin-bottom: 1.5rem;
             position: relative;
@@ -3132,13 +3134,13 @@
         .calc-breakdown {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.25rem;
+            gap: 1rem;
             margin-bottom: 1.5rem;
         }
         .calc-break-card {
             background: rgba(168,212,240,0.03);
             border: 1px solid rgba(168,212,240,0.07);
-            padding: 2.25rem 2rem;
+            padding: 1.6rem 1.5rem;
             transition: all 0.3s ease;
         }
         .calc-break-card:hover {
@@ -3170,10 +3172,10 @@
             grid-column: 1 / -1;
             background: rgba(168,212,240,0.03);
             border: 1px solid rgba(168,212,240,0.07);
-            padding: 2.25rem 2rem;
+            padding: 1.6rem 1.5rem;
             display: grid;
             grid-template-columns: auto 1fr;
-            gap: 2.5rem;
+            gap: 1.5rem;
             align-items: center;
             transition: all 0.3s ease;
         }
@@ -3261,7 +3263,7 @@
                 text-align: center;
                 gap: 1rem;
             }
-            .mfg-spacer { height: 50px; }
+            .mfg-spacer { height: 32px; }
         }
 
         /* Aerospace Banner */
@@ -3531,7 +3533,7 @@
             z-index: 2;
             max-width: 1400px;
             margin: 0 auto;
-            padding: 4.75rem 2rem 6rem;
+            padding: 3.5rem 2rem 4.5rem;
         }
         @media (max-width: 700px) {
             .aero-inner { padding: 4rem 1.5rem; }
@@ -4870,7 +4872,7 @@
         /* 3. Oversized Calculator */
         .calc-immersive {
             position: relative;
-            padding: 4rem 0;
+            padding: 2rem 0;
         }
         .calc-immersive .calc-lead-text {
             font-size: clamp(1.5rem, 3vw, 2.2rem);
@@ -4900,8 +4902,8 @@
             height: 6px;
         }
         .calc-immersive .calc-result-hero {
-            padding: 5rem 3rem;
-            margin-top: 1rem;
+            padding: 3.25rem 2rem;
+            margin-top: 0.5rem;
             background: rgba(168,212,240,0.03);
             border: 1px solid rgba(168,212,240,0.08);
         }
@@ -5393,7 +5395,7 @@
                 </div>
             </div>
             <a href="#team">Team</a>
-            <a href="#roi-calculator">Industries</a>
+            <a href="#industries">Industries</a>
             <a href="#roi-calculator">ROI Calculator</a>
             <a href="#case-studies">Case Studies</a>
             <a href="blog/index.html">Blog</a>
@@ -5509,7 +5511,8 @@
                 <div class="services-spotlight-copy">
                     <p class="services-kicker reveal stagger-1">Integrated Leadership + People System</p>
                     <h2 class="services-spotlight-title reveal stagger-2"><span class="services-spotlight-title-line">People-Centered Systems</span><span class="services-spotlight-title-line">That Drive Performance</span></h2>
-                    <p class="services-spotlight-text reveal stagger-3">HMP is not just consulting or training. We build the integrated leadership and people operating system that supports execution through consulting engagements, project-based implementation, HR Box, and the Leadership Toolbox.</p>
+                    <div class="section-divider reveal stagger-3 visible"></div>
+                    <p class="services-spotlight-text reveal stagger-4">HMP is not just consulting or training. We build the integrated leadership and people operating system that supports execution through consulting engagements, project-based implementation, HR Box, and the Leadership Toolbox.</p>
                 </div>
                 <div class="services-spotlight-media reveal reveal-right">
                     <img src="images/svc-leadership.jpg" alt="Leadership and operations team walking together on a manufacturing floor" width="1280" height="698" loading="lazy" decoding="async">
@@ -5622,8 +5625,8 @@
         </div>
     </section>
 
-    <section class="industry-switcher" id="roi-calculator">
-        <div class="industry-switcher-inner">
+    <section class="industry-switcher" id="industries">
+        <div class="industry-switcher-inner" id="roi-calculator">
             <span class="industry-switcher-label">Industry Calculators</span>
             <h2 class="industry-switcher-title">Calculate the ROI of Prioritizing Your People</h2>
             <p class="industry-switcher-text">
@@ -6070,7 +6073,7 @@
                     </div>
                     <div class="contact-detail-text">
                         <span>Questions? Email</span>
-                        <a href="mailto:support@hmpinnacle.com">support@hmpinnacle.com</a>
+                        <a href="mailto:support@hmpinnacleconsulting.com">support@hmpinnacleconsulting.com</a>
                     </div>
                 </div>
                 <div class="contact-detail">
@@ -6278,7 +6281,7 @@
                 <div class="footer-links">
                     <a href="#partner-model">Services</a>
                     <a href="#team">Our Team</a>
-                    <a href="#roi-calculator">Industries</a>
+                    <a href="#industries">Industries</a>
                     <a href="#roi-calculator">ROI Calculator</a>
                     <a href="#case-studies">Case Studies</a>
                     <a href="blog/index.html">Blog</a>
@@ -6287,7 +6290,7 @@
             <div>
                 <h4 class="footer-heading">Connect</h4>
                 <div class="footer-links">
-                    <a href="mailto:support@hmpinnacle.com">support@hmpinnacle.com</a>
+                    <a href="mailto:support@hmpinnacleconsulting.com">support@hmpinnacleconsulting.com</a>
                     <a href="https://www.hmpinnacleconsulting.com/podcasts" target="_blank" rel="noopener noreferrer">Podcast Library</a>
                     <a href="#contact">Ferndale, WA 98248</a>
                     <a href="#contact">Schedule a Conversation</a>
@@ -6300,7 +6303,7 @@
                 <a href="https://www.linkedin.com/company/hm-pinnacle-consulting-people-hr-solutions" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                 </a>
-                <a href="mailto:support@hmpinnacle.com" aria-label="Email">
+                <a href="mailto:support@hmpinnacleconsulting.com" aria-label="Email">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>
                 </a>
             </div>
