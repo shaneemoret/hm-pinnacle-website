@@ -72,35 +72,6 @@
         }
 
         /* ========================================
-           LOADING SCREEN
-           ======================================== */
-        .loader {
-            position: fixed;
-            inset: 0;
-            background: var(--navy-darkest);
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.6s var(--ease-smooth), visibility 0.6s;
-        }
-        .loader.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-        .loader-content {
-            text-align: center;
-        }
-        .loader-snowflake {
-            font-size: 2.5rem;
-            color: var(--accent-ice);
-            animation: spinSlow 3s linear infinite;
-        }
-        @keyframes spinSlow {
-            to { transform: rotate(360deg); }
-        }
-
-        /* ========================================
            NAVIGATION
            ======================================== */
         .nav {
@@ -3446,7 +3417,13 @@
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: url('images/aerospace-schematic.jpg') center center / cover no-repeat;
+            background:
+                radial-gradient(circle at 18% 22%, rgba(168, 212, 240, 0.14), transparent 30%),
+                radial-gradient(circle at 78% 18%, rgba(255, 255, 255, 0.06), transparent 24%),
+                linear-gradient(130deg, rgba(255, 255, 255, 0.04), transparent 42%),
+                linear-gradient(rgba(168, 212, 240, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(168, 212, 240, 0.05) 1px, transparent 1px);
+            background-size: auto, auto, auto, 120px 120px, 120px 120px;
             opacity: 0.1;
             transform: scale(1.15);
             z-index: 0;
@@ -5346,13 +5323,6 @@
 </head>
 <body>
 
-    <!-- LOADER -->
-    <div class="loader" id="loader">
-        <div class="loader-content">
-            <div class="loader-snowflake">&#10052;</div>
-        </div>
-    </div>
-
     <!-- NAVIGATION -->
     <nav class="nav" id="nav">
         <a href="#hero" class="nav-logo">
@@ -5431,7 +5401,7 @@
                 <!-- CO-FOUNDER 1: HEATHER -->
                 <div class="team-card reveal stagger-1">
                     <div class="team-photo">
-                        <div class="team-photo-inner"><img src="images/heather.jpg" alt="Heather MacKay-Mencheski" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=team-photo-initials>HM</span>';"></div>
+                        <div class="team-photo-inner"><img src="images/heather.jpg" alt="Heather MacKay-Mencheski" width="1080" height="1080" loading="lazy" decoding="async" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=team-photo-initials>HM</span>';"></div>
                         <div class="team-photo-overlay">
                             <a href="https://www.linkedin.com/in/heather-mackay-mencheski-22a08510/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
                         </div>
@@ -5443,7 +5413,7 @@
                 <!-- CO-FOUNDER 2: JOHN -->
                 <div class="team-card reveal stagger-2">
                     <div class="team-photo">
-                        <div class="team-photo-inner"><img src="images/john.jpg" alt="John Mencheski" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=team-photo-initials>JM</span>';"></div>
+                        <div class="team-photo-inner"><img src="images/john.jpg" alt="John Mencheski" width="1024" height="1024" loading="lazy" decoding="async" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=team-photo-initials>JM</span>';"></div>
                         <div class="team-photo-overlay">
                             <a href="https://www.linkedin.com/in/johnmencheski/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
                         </div>
@@ -5455,7 +5425,7 @@
                 <!-- EXEC TEAM 1 -->
                 <div class="team-card reveal stagger-3">
                     <div class="team-photo">
-                        <div class="team-photo-inner"><img src="images/kara.jpg" alt="Kara Stanasel" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=team-photo-initials>K</span>';"></div>
+                        <div class="team-photo-inner"><img src="images/kara.jpg" alt="Kara Stanasel" width="1280" height="1280" loading="lazy" decoding="async" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=team-photo-initials>K</span>';"></div>
                         <div class="team-photo-overlay">
                             <a href="https://www.linkedin.com/in/karamaestanasel/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
                         </div>
@@ -5467,7 +5437,7 @@
                 <!-- EXEC TEAM 2 -->
                 <div class="team-card reveal stagger-4">
                     <div class="team-photo">
-                        <div class="team-photo-inner"><img src="images/brian.jpg" alt="Brian MacKay" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=team-photo-initials>BM</span>';"></div>
+                        <div class="team-photo-inner"><img src="images/brian.jpg" alt="Brian MacKay" width="2368" height="1792" loading="lazy" decoding="async" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=team-photo-initials>BM</span>';"></div>
                         <div class="team-photo-overlay">
                             <a href="https://www.linkedin.com/in/brian-mackay-55003135b/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
                         </div>
@@ -5490,7 +5460,7 @@
                     <p class="services-spotlight-text reveal stagger-3">HMP is not just consulting or training. We build the integrated leadership and people operating system that supports execution through consulting engagements, project-based implementation, HR Box, and the Leadership Toolbox.</p>
                 </div>
                 <div class="services-spotlight-media reveal reveal-right">
-                    <img src="images/svc-leadership.jpg" alt="Leadership and operations team walking together on a manufacturing floor">
+                    <img src="images/svc-leadership.jpg" alt="Leadership and operations team walking together on a manufacturing floor" width="1280" height="698" loading="lazy" decoding="async">
                 </div>
             </div>
             <div class="services-engagement-board">
@@ -6279,16 +6249,7 @@
         const IS_DESKTOP = window.matchMedia('(min-width: 900px)').matches;
 
         /* ============================================
-           1. LOADER
-           ============================================ */
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loader').classList.add('hidden');
-            }, 600);
-        });
-
-        /* ============================================
-           2. NAVIGATION — scroll hide/show
+           1. NAVIGATION — scroll hide/show
            ============================================ */
         const nav = document.getElementById('nav');
         let lastScroll = 0;
@@ -6300,7 +6261,7 @@
         }, { passive: true });
 
         /* ============================================
-           3. HAMBURGER MENU
+           2. HAMBURGER MENU
            ============================================ */
         const hamburger = document.getElementById('hamburger');
         const navLinksEl = document.getElementById('navLinks');
