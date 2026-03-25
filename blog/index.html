@@ -50,341 +50,473 @@
             --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        * , *::before, *::after { box-sizing: border-box; }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            margin: 0;
             font-family: var(--font-body);
-            color: var(--gray-light);
-            background:
-                radial-gradient(circle at top right, rgba(168,212,240,0.1), transparent 26%),
-                linear-gradient(180deg, var(--navy-dark) 0%, var(--navy-darkest) 100%);
+            color: rgba(255,255,255,0.55);
+            background: var(--navy-darkest);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         a { color: inherit; text-decoration: none; }
-        img { max-width: 100%; display: block; }
 
-        .page-shell {
-            width: min(92vw, 1240px);
-            margin: 0 auto;
-            padding: 2rem 0 6rem;
+        /* ── NAV ── */
+        .site-nav {
+            position: relative;
+            width: 100%;
+            padding: 1.6rem 0;
+            border-bottom: 1px solid rgba(168,212,240,0.08);
         }
 
-        .page-nav {
+        .site-nav-inner {
+            width: min(92vw, 1200px);
+            margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 1rem;
-            margin-bottom: 2.5rem;
+            gap: 1.5rem;
         }
 
-        .page-logo {
+        .nav-logo {
             display: inline-flex;
             flex-direction: column;
-            gap: 0.2rem;
+            gap: 0.15rem;
         }
 
-        .page-logo-mark {
+        .nav-logo-mark {
             color: var(--white);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 2.5px;
             text-transform: uppercase;
         }
 
-        .page-logo-sub {
+        .nav-logo-sub {
             color: var(--accent-ice);
-            font-size: 0.6rem;
+            font-size: 0.56rem;
             font-weight: 400;
-            letter-spacing: 3px;
+            letter-spacing: 3.5px;
             text-transform: uppercase;
         }
 
-        .page-nav-links {
+        .nav-links {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: flex-end;
+            gap: 2rem;
         }
 
-        .page-nav-link {
-            color: rgba(255,255,255,0.76);
-            font-size: 0.76rem;
+        .nav-link {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.7rem;
             font-weight: 600;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             text-transform: uppercase;
+            transition: color 0.3s ease;
         }
 
-        .page-nav-cta {
+        .nav-link:hover {
+            color: var(--white);
+        }
+
+        .nav-cta {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 0.8rem 1.2rem;
-            border-radius: 999px;
+            padding: 0.75rem 1.4rem;
+            border-radius: 0;
+            border: 1px solid var(--accent-ice);
+            background: transparent;
+            color: var(--accent-ice);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-cta:hover {
             background: var(--accent-ice);
             color: var(--navy-darkest);
-            font-size: 0.74rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            transition: transform 0.3s var(--ease-out);
         }
 
-        .page-nav-cta:hover,
-        .blog-card:hover {
-            transform: translateY(-2px);
-        }
-
+        /* ── HERO ── */
         .hero {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(280px, 0.78fr);
-            gap: clamp(1.75rem, 4vw, 4rem);
-            align-items: stretch;
-            padding: clamp(2rem, 4vw, 3rem);
-            border-radius: 30px;
-            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(168,212,240,0.08) 100%);
-            border: 1px solid rgba(168,212,240,0.14);
-            box-shadow: 0 28px 80px rgba(0,0,0,0.2);
+            position: relative;
+            width: min(92vw, 1200px);
+            margin: 0 auto;
+            padding: 8rem 0 6rem;
+            overflow: hidden;
+        }
+
+        .hero-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .hero:hover .hero-glow {
+            opacity: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
         }
 
         .hero-kicker {
             color: var(--accent-ice);
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 3px;
+            font-family: var(--font-body);
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
         }
 
         .hero-title {
-            margin: 0 0 1rem;
             color: var(--white);
             font-family: var(--font-heading);
-            font-size: clamp(3rem, 5.2vw, 5.2rem);
+            font-size: clamp(3.2rem, 5.5vw, 5.4rem);
             font-weight: 700;
-            line-height: 0.94;
+            line-height: 0.95;
             letter-spacing: -0.03em;
+            margin-bottom: 2rem;
         }
 
-        .hero-copy {
-            max-width: 48ch;
-            margin: 0;
-            color: rgba(255,255,255,0.72);
-            font-size: 1.03rem;
+        .hero-subtitle {
+            color: rgba(255,255,255,0.5);
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            font-weight: 300;
             line-height: 1.85;
+            max-width: 55ch;
         }
 
-        .hero-panel {
-            padding: 1.75rem;
-            border-radius: 24px;
-            border: 1px solid rgba(255,255,255,0.1);
-            background: rgba(6,20,37,0.45);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 0.75rem;
+        .hero-rule {
+            width: 60px;
+            height: 1px;
+            background: var(--accent-ice);
+            margin-top: 3.5rem;
+            opacity: 0.4;
         }
 
-        .hero-panel-label {
-            color: var(--accent-ice);
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .hero-panel-copy {
-            margin: 0;
-            color: rgba(255,255,255,0.68);
-            line-height: 1.8;
-            font-size: 0.95rem;
-        }
-
+        /* ── SECTION ── */
         .blog-section {
-            padding-top: 3.5rem;
-        }
-
-        .section-heading {
-            max-width: 780px;
-            margin-bottom: 1.75rem;
+            width: min(92vw, 1200px);
+            margin: 0 auto;
+            padding-bottom: 8rem;
         }
 
         .section-label {
             color: var(--accent-ice);
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 3px;
+            font-family: var(--font-body);
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1.2rem;
         }
 
         .section-title {
-            margin: 0 0 1rem;
             color: var(--white);
             font-family: var(--font-heading);
-            font-size: clamp(2rem, 3vw, 3rem);
+            font-size: clamp(2rem, 3vw, 2.8rem);
             font-weight: 700;
-            line-height: 1.08;
+            line-height: 1.1;
+            margin-bottom: 1rem;
         }
 
         .section-copy {
-            margin: 0;
-            color: rgba(255,255,255,0.68);
-            font-size: 1rem;
+            color: rgba(255,255,255,0.45);
+            font-size: 0.95rem;
+            font-weight: 300;
             line-height: 1.85;
+            max-width: 60ch;
+            margin-bottom: 3rem;
         }
 
+        /* ── BLOG GRID ── */
         .blog-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 1.25rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
         }
 
         .blog-card {
             display: flex;
             flex-direction: column;
-            padding: 1.5rem;
-            border-radius: 24px;
-            border: 1px solid rgba(255,255,255,0.08);
-            background: rgba(255,255,255,0.04);
-            box-shadow: 0 18px 40px rgba(0,0,0,0.12);
-            transition: transform 0.3s var(--ease-out), border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+            padding: 2.2rem 2rem;
+            border: 1px solid rgba(168,212,240,0.08);
+            border-radius: 0;
+            background: transparent;
+            transition: border-color 0.4s ease, transform 0.4s var(--ease-out), background 0.4s ease;
+            /* Collapse borders so adjacent cards share a single line */
+            margin-top: -1px;
+            margin-left: -1px;
         }
 
         .blog-card:hover {
             border-color: rgba(168,212,240,0.22);
-            box-shadow: 0 24px 50px rgba(0,0,0,0.16);
+            transform: translateY(-3px);
+            background: rgba(168,212,240,0.03);
+            z-index: 2;
         }
 
         .blog-card-meta {
             color: var(--accent-ice);
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 2px;
+            font-family: var(--font-body);
+            font-size: 0.64rem;
+            font-weight: 600;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            margin-bottom: 0.9rem;
+            margin-bottom: 1rem;
         }
 
         .blog-card-title {
-            margin: 0 0 0.8rem;
             color: var(--white);
             font-family: var(--font-heading);
-            font-size: 1.7rem;
+            font-size: 1.5rem;
             font-weight: 600;
-            line-height: 1.1;
+            line-height: 1.15;
+            margin-bottom: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .blog-card:hover .blog-card-title {
+            color: var(--accent-frost);
         }
 
         .blog-card-copy {
-            margin: 0 0 1.2rem;
-            color: rgba(255,255,255,0.68);
-            font-size: 0.96rem;
+            color: rgba(255,255,255,0.45);
+            font-size: 0.9rem;
+            font-weight: 300;
             line-height: 1.8;
+            margin-bottom: 1.5rem;
+            flex: 1;
         }
 
         .blog-card-link {
-            margin-top: auto;
             display: inline-flex;
             align-items: center;
-            gap: 0.45rem;
+            gap: 0.5rem;
             color: var(--accent-ice);
-            font-size: 0.78rem;
+            font-size: 0.7rem;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: gap 0.3s ease;
+        }
+
+        .blog-card:hover .blog-card-link {
+            gap: 0.8rem;
+        }
+
+        .blog-card-link .arrow {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover .blog-card-link .arrow {
+            transform: translateX(4px);
+        }
+
+        /* ── FOOTER ── */
+        .site-footer {
+            border-top: 1px solid rgba(168,212,240,0.08);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .site-footer p {
+            color: rgba(255,255,255,0.3);
+            font-size: 0.72rem;
+            font-weight: 400;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
         }
 
+        /* ── SCROLL REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered delays for grid cards */
+        .blog-card.reveal:nth-child(1) { transition-delay: 0s; }
+        .blog-card.reveal:nth-child(2) { transition-delay: 0.08s; }
+        .blog-card.reveal:nth-child(3) { transition-delay: 0.16s; }
+        .blog-card.reveal:nth-child(4) { transition-delay: 0.24s; }
+        .blog-card.reveal:nth-child(5) { transition-delay: 0.32s; }
+        .blog-card.reveal:nth-child(6) { transition-delay: 0.4s; }
+
+        /* ── RESPONSIVE ── */
         @media (max-width: 900px) {
-            .page-nav {
-                flex-direction: column;
-                align-items: flex-start;
+            .nav-links {
+                gap: 1.2rem;
+                flex-wrap: wrap;
+                justify-content: flex-end;
             }
 
-            .hero,
+            .hero {
+                padding: 5rem 0 4rem;
+            }
+
+            .hero-title {
+                font-size: clamp(2.4rem, 8vw, 3.4rem);
+            }
+
             .blog-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .blog-card {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .site-nav-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 0.8rem;
+            }
+
+            .hero {
+                padding: 3.5rem 0 3rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="page-shell">
-        <nav class="page-nav">
-            <a href="../index.html" class="page-logo">
-                <span class="page-logo-mark">HM Pinnacle</span>
-                <span class="page-logo-sub">Consulting</span>
+
+    <!-- NAV -->
+    <nav class="site-nav">
+        <div class="site-nav-inner">
+            <a href="../index.html" class="nav-logo">
+                <span class="nav-logo-mark">HM Pinnacle</span>
+                <span class="nav-logo-sub">Consulting</span>
             </a>
-            <div class="page-nav-links">
-                <a class="page-nav-link" href="../index.html#services">Services</a>
-                <a class="page-nav-link" href="../index.html#case-studies">Case Studies</a>
-                <a class="page-nav-link" href="../index.html#contact">Contact</a>
-                <a class="page-nav-cta" href="../index.html#contact">Schedule a Conversation</a>
+            <div class="nav-links">
+                <a class="nav-link" href="../index.html#services">Services</a>
+                <a class="nav-link" href="../index.html#case-studies">Case Studies</a>
+                <a class="nav-link" href="../index.html#contact">Contact</a>
+                <a class="nav-cta" href="../index.html#contact">Schedule a Conversation</a>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        <header class="hero">
-            <div>
-                <p class="hero-kicker">People Operations Insights</p>
-                <h1 class="hero-title">People operations, leadership systems, and real-world growth decisions.</h1>
-                <p class="hero-copy">A single place to explore HM Pinnacle articles, case insights, and conversations on people operations, people ops strategy, workforce stability, and operational growth transitions.</p>
-            </div>
-            <div class="hero-panel">
-                <span class="hero-panel-label">Inside the Library</span>
-                <p class="hero-panel-copy">Explore written articles, case studies, and podcast conversations from Heather and John on people operations, hiring systems, leadership language, and growth-stage execution.</p>
-            </div>
-        </header>
+    <!-- HERO -->
+    <header class="hero" id="hero">
+        <div class="hero-glow" id="heroGlow"></div>
+        <div class="hero-content reveal">
+            <p class="hero-kicker">People Operations Insights</p>
+            <h1 class="hero-title">Articles, case studies,<br>and leadership conversations.</h1>
+            <p class="hero-subtitle">A single place to explore HM Pinnacle thinking on people operations strategy, workforce stability, and operational growth transitions.</p>
+            <div class="hero-rule"></div>
+        </div>
+    </header>
 
-        <section class="blog-section">
-            <div class="section-heading">
-                <p class="section-label">Browse</p>
-                <h2 class="section-title">Available articles and conversations</h2>
-                <p class="section-copy">These are the current pieces available in the site library now. The homepage no longer carries this block, but the content still lives here.</p>
-            </div>
+    <!-- BLOG SECTION -->
+    <section class="blog-section">
+        <div class="reveal">
+            <p class="section-label">Browse the Library</p>
+            <h2 class="section-title">Available articles and conversations</h2>
+            <p class="section-copy">Written articles, case studies, and podcast conversations from Heather and John on people operations, hiring systems, leadership language, and growth-stage execution.</p>
+        </div>
 
-            <div class="blog-grid">
-                <a class="blog-card" href="ghosting-in-the-hiring-process-what-it-says-about-culture-and-trust.html">
-                    <div class="blog-card-meta">Article</div>
-                    <h3 class="blog-card-title">Ghosting in the Hiring Process: What It Says About Culture and Trust</h3>
-                    <p class="blog-card-copy">Candidate ghosting is more than bad manners. It signals conflict avoidance, broken trust, and hiring systems that may be losing clarity and momentum.</p>
-                    <span class="blog-card-link">Read Article <span>&rarr;</span></span>
-                </a>
+        <div class="blog-grid">
+            <a class="blog-card reveal" href="ghosting-in-the-hiring-process-what-it-says-about-culture-and-trust.html">
+                <div class="blog-card-meta">Article</div>
+                <h3 class="blog-card-title">Ghosting in the Hiring Process: What It Says About Culture and Trust</h3>
+                <p class="blog-card-copy">Candidate ghosting is more than bad manners. It signals conflict avoidance, broken trust, and hiring systems that may be losing clarity and momentum.</p>
+                <span class="blog-card-link">Read Article <span class="arrow">&rarr;</span></span>
+            </a>
 
-                <a class="blog-card" href="manufacturing-ceos-get-out-of-the-office.html">
-                    <div class="blog-card-meta">Article</div>
-                    <h3 class="blog-card-title">Manufacturing CEOs: Get Out of the Office During Growth Transitions</h3>
-                    <p class="blog-card-copy">Why floor-level leadership during transition, M&amp;A, and scale is one of the fastest ways to protect throughput, quality, safety, and retention.</p>
-                    <span class="blog-card-link">Read Article <span>&rarr;</span></span>
-                </a>
+            <a class="blog-card reveal" href="manufacturing-ceos-get-out-of-the-office.html">
+                <div class="blog-card-meta">Article</div>
+                <h3 class="blog-card-title">Manufacturing CEOs: Get Out of the Office During Growth Transitions</h3>
+                <p class="blog-card-copy">Why floor-level leadership during transition, M&amp;A, and scale is one of the fastest ways to protect throughput, quality, safety, and retention.</p>
+                <span class="blog-card-link">Read Article <span class="arrow">&rarr;</span></span>
+            </a>
 
-                <a class="blog-card" href="hr-is-a-growth-lever-build-people-systems-before-growth-breaks-you.html">
-                    <div class="blog-card-meta">Article</div>
-                    <h3 class="blog-card-title">HR Is a Growth Lever: Build People Systems Before Growth Breaks You</h3>
-                    <p class="blog-card-copy">An early warning signal for growing manufacturing, aerospace, and industrial services companies whose people systems are lagging behind scale.</p>
-                    <span class="blog-card-link">Read Article <span>&rarr;</span></span>
-                </a>
+            <a class="blog-card reveal" href="hr-is-a-growth-lever-build-people-systems-before-growth-breaks-you.html">
+                <div class="blog-card-meta">Article</div>
+                <h3 class="blog-card-title">HR Is a Growth Lever: Build People Systems Before Growth Breaks You</h3>
+                <p class="blog-card-copy">An early warning signal for growing manufacturing, aerospace, and industrial services companies whose people systems are lagging behind scale.</p>
+                <span class="blog-card-link">Read Article <span class="arrow">&rarr;</span></span>
+            </a>
 
-                <a class="blog-card" href="case-study-seasonal-operations-culture-rebuild.html">
-                    <div class="blog-card-meta">Case Study</div>
-                    <h3 class="blog-card-title">Seasonal Operations Culture Rebuild</h3>
-                    <p class="blog-card-copy">A case-based look at rebuilding stability and culture in a seasonal operating environment under real workforce pressure.</p>
-                    <span class="blog-card-link">Read Case Study <span>&rarr;</span></span>
-                </a>
+            <a class="blog-card reveal" href="case-study-seasonal-operations-culture-rebuild.html">
+                <div class="blog-card-meta">Case Study</div>
+                <h3 class="blog-card-title">Seasonal Operations Culture Rebuild</h3>
+                <p class="blog-card-copy">A case-based look at rebuilding stability and culture in a seasonal operating environment under real workforce pressure.</p>
+                <span class="blog-card-link">Read Case Study <span class="arrow">&rarr;</span></span>
+            </a>
 
-                <a class="blog-card" href="case-study-healthcare-workforce-transition.html">
-                    <div class="blog-card-meta">Case Study</div>
-                    <h3 class="blog-card-title">Healthcare Workforce Transition</h3>
-                    <p class="blog-card-copy">An example of navigating workforce transition, continuity, and people-system pressure in a regulated care environment.</p>
-                    <span class="blog-card-link">Read Case Study <span>&rarr;</span></span>
-                </a>
+            <a class="blog-card reveal" href="case-study-healthcare-workforce-transition.html">
+                <div class="blog-card-meta">Case Study</div>
+                <h3 class="blog-card-title">Healthcare Workforce Transition</h3>
+                <p class="blog-card-copy">An example of navigating workforce transition, continuity, and people-system pressure in a regulated care environment.</p>
+                <span class="blog-card-link">Read Case Study <span class="arrow">&rarr;</span></span>
+            </a>
 
-                <a class="blog-card" href="https://www.hmpinnacleconsulting.com/podcasts" target="_blank" rel="noopener noreferrer">
-                    <div class="blog-card-meta">Podcast Library</div>
-                    <h3 class="blog-card-title">Leadership Conversations from Heather &amp; John</h3>
-                    <p class="blog-card-copy">A single place to explore podcast conversations on leadership language, people systems, culture, and the realities of scaling teams well.</p>
-                    <span class="blog-card-link">Listen Now <span>&rarr;</span></span>
-                </a>
-            </div>
-        </section>
-    </div>
+            <a class="blog-card reveal" href="https://www.hmpinnacleconsulting.com/podcasts" target="_blank" rel="noopener noreferrer">
+                <div class="blog-card-meta">Podcast Library</div>
+                <h3 class="blog-card-title">Leadership Conversations from Heather &amp; John</h3>
+                <p class="blog-card-copy">A single place to explore podcast conversations on leadership language, people systems, culture, and the realities of scaling teams well.</p>
+                <span class="blog-card-link">Listen Now <span class="arrow">&rarr;</span></span>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <p>&copy; 2025 HM Pinnacle Consulting. All rights reserved.</p>
+    </footer>
+
+    <script>
+        /* ── Scroll Reveal ── */
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        /* ── Cursor-follow glow on hero ── */
+        const hero = document.getElementById('hero');
+        const glow = document.getElementById('heroGlow');
+
+        hero.addEventListener('mousemove', (e) => {
+            const rect = hero.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            glow.style.background = `radial-gradient(600px circle at ${x}px ${y}px, rgba(168,212,240,0.06), transparent 60%)`;
+        });
+    </script>
+
 </body>
 </html>
