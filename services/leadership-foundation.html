@@ -63,7 +63,7 @@
 
         <!-- WHAT IT IS -->
         <section class="service-section">
-            <div class="service-section-heading">
+            <div class="service-section-heading reveal">
                 <p class="service-section-label">What It Is</p>
                 <h2 class="service-section-title">One shared operating language for leadership across the entire organization.</h2>
                 <p class="service-section-copy">Leadership Foundation is the right starting point when the business needs clearer leadership expectations before it adds more systems, more managers, or more complexity. We put the HMP Leadership System in place, give leaders practical tools to use it, and build the core resources that turn leadership into a repeatable operating standard &mdash; not a personality-dependent variable.</p>
@@ -72,20 +72,20 @@
 
         <!-- WHAT'S INCLUDED -->
         <section class="service-section">
-            <div class="service-section-heading">
+            <div class="service-section-heading reveal">
                 <p class="service-section-label">What&rsquo;s Included</p>
                 <h2 class="service-section-title">Three integrated components that build the leadership layer.</h2>
             </div>
             <div class="service-grid">
-                <div class="service-card">
+                <div class="service-card reveal">
                     <h3>HMP Leadership System</h3>
                     <p>The behavioral framework that defines how leaders operate. Look in the mirror first. Unblock your people. Be intentional with time. Do the work alongside your team. This becomes the shared language of leadership across every level of the organization.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card reveal">
                     <h3>Leadership Toolbox&trade;</h3>
                     <p>Practical tools that turn leadership philosophy into daily behavior. Communication frameworks, feedback models, accountability rhythms, and decision-making structures that supervisors and managers use in real time &mdash; not in a binder on a shelf.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card reveal">
                     <h3>Core Leadership Resources</h3>
                     <p>The foundational documents, guides, and reference materials that give every leader in the organization access to the same standards. Role clarity, expectation-setting frameworks, and the leadership playbook that scales as the organization grows.</p>
                 </div>
@@ -94,7 +94,7 @@
 
         <!-- WHO IT'S FOR / NOT FOR -->
         <section class="service-section service-split">
-            <div class="service-panel">
+            <div class="service-panel reveal">
                 <p class="service-section-label">Who It&rsquo;s For</p>
                 <h2 class="service-section-title">Organizations that need the leadership foundation first.</h2>
                 <ul class="service-list">
@@ -104,7 +104,7 @@
                     <li>Founders transitioning from doing everything themselves to trusting a leadership team to execute.</li>
                 </ul>
             </div>
-            <div class="service-panel">
+            <div class="service-panel reveal">
                 <p class="service-section-label">Not the Right Fit</p>
                 <h2 class="service-section-title">When the ask is a one-off training event or only tactical HR.</h2>
                 <ul class="service-list">
@@ -117,7 +117,7 @@
         </section>
 
         <!-- CTA -->
-        <section class="service-cta">
+        <section class="service-cta reveal">
             <p class="service-section-label">Next Step</p>
             <h2 class="service-section-title">Start with a strategic conversation.</h2>
             <p class="service-section-copy">We&rsquo;ll talk through where leadership inconsistency is creating friction today, what needs to be put in place first, and whether Leadership Foundation is the right entry point for your organization.</p>
@@ -128,5 +128,68 @@
         </section>
 
     </div>
+<script>
+(function() {
+    // ── Cursor-follow light on hero ──
+    const hero = document.querySelector('.service-hero');
+    if (hero) {
+        const light = document.createElement('div');
+        light.className = 'service-hero-light';
+        hero.appendChild(light);
+        hero.addEventListener('mousemove', (e) => {
+            const rect = hero.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            light.style.background =
+                'radial-gradient(circle at '+x+'% '+y+'%, rgba(168,212,240,0.12) 0%, transparent 35%)';
+        });
+        hero.addEventListener('mouseleave', () => {
+            light.style.background = 'none';
+        });
+    }
+
+    // ── Scroll reveal with IntersectionObserver ──
+    const reveals = document.querySelectorAll('.reveal, .service-section, .service-step');
+    if (reveals.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        reveals.forEach(el => observer.observe(el));
+    } else {
+        reveals.forEach(el => el.classList.add('visible'));
+    }
+
+    // ── Button glow tracking ──
+    document.querySelectorAll('.service-btn-primary, .service-nav-cta').forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            btn.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width * 100) + '%');
+            btn.style.setProperty('--my', ((e.clientY - rect.top) / rect.height * 100) + '%');
+        });
+    });
+
+    // ── Parallax on hero image ──
+    const heroImg = document.querySelector('.service-hero-bg');
+    if (heroImg && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        window.addEventListener('scroll', () => {
+            const scroll = window.pageYOffset;
+            heroImg.style.transform = 'scale(1.08) translateY(' + (scroll * 0.15) + 'px)';
+        }, { passive: true });
+    }
+
+    // ── Nav background on scroll ──
+    const nav = document.querySelector('.service-nav');
+    if (nav) {
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
+    }
+})();
+</script>
 </body>
 </html>
