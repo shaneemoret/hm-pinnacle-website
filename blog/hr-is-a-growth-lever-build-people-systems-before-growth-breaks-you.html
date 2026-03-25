@@ -513,43 +513,6 @@
             color: #e05555;
         }
 
-        /* Growth Readiness Curve table */
-        .curve {
-            margin-top: 2.5rem;
-            padding: 2.5rem 3rem;
-            background: var(--surface-2);
-            border-radius: 12px;
-            border-left: 3px solid var(--accent-ice);
-        }
-        .curve table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9375rem;
-        }
-        .curve th,
-        .curve td {
-            text-align: left;
-            vertical-align: top;
-            padding: 0.75rem 0.75rem;
-            border-bottom: 1px solid var(--border-subtle);
-            color: var(--text-secondary);
-            font-weight: 300;
-        }
-        .curve th {
-            color: var(--text-muted);
-            font-family: var(--font-body);
-            font-size: 0.6875rem;
-            font-weight: 500;
-            letter-spacing: -0.025em;
-            text-transform: uppercase;
-            padding-bottom: 1rem;
-        }
-        .curve tbody tr:last-child td { border-bottom: none; }
-        .curve td strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
         /* CTA callout */
         .cta-block {
             margin-top: calc(var(--padding-v) * 0.8);
@@ -577,6 +540,15 @@
             line-height: 1.3;
             color: var(--white);
             margin: 0;
+            max-width: 720px;
+        }
+        .cta-block .cta-subtext {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-top: 1rem;
             max-width: 720px;
         }
         .cta-link {
@@ -905,31 +877,343 @@
         }
 
         /* ========================================
+           CASE STUDY COMPONENTS
+           ======================================== */
+
+        /* Hero Stats Bar */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border-subtle);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 3rem;
+        }
+        .hero-stat {
+            background: var(--surface-2);
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+        .hero-stat-number {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            color: var(--accent-ice);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .hero-stat-label {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Data Callout */
+        .data-callout {
+            margin: 2.5rem 0;
+            padding: 2rem 2.5rem;
+            background: var(--surface-2);
+            border-radius: 12px;
+            border-left: 3px solid var(--accent-ice);
+            display: flex;
+            align-items: baseline;
+            gap: 1.5rem;
+        }
+        .data-callout-number {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 400;
+            color: var(--accent-ice);
+            line-height: 1;
+            white-space: nowrap;
+        }
+        .data-callout-text {
+            font-family: var(--font-body);
+            font-size: 1.0625rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Pull Quote */
+        .pull-quote {
+            margin: 3rem 0;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+        .pull-quote::before,
+        .pull-quote::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 1px;
+            background: var(--accent-ice);
+            margin: 0 auto;
+        }
+        .pull-quote::before { margin-bottom: 2rem; }
+        .pull-quote::after { margin-top: 2rem; }
+        .pull-quote blockquote {
+            font-family: var(--font-heading);
+            font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+            font-weight: 400;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.5;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .pull-quote cite {
+            display: block;
+            margin-top: 1.25rem;
+            font-family: var(--font-body);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            font-style: normal;
+            color: var(--text-muted);
+            letter-spacing: 0.02em;
+        }
+
+        /* Timeline */
+        .timeline {
+            margin: 2.5rem 0;
+            display: flex;
+            gap: 0;
+            position: relative;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 28px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--border-medium);
+        }
+        .timeline-phase {
+            flex: 1;
+            text-align: center;
+            padding: 0 1rem;
+            position: relative;
+        }
+        .timeline-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--accent-ice);
+            margin: 22px auto 1.25rem;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 0 0 4px var(--surface-1);
+        }
+        .timeline-phase-label {
+            font-family: var(--font-body);
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--accent-ice);
+            margin-bottom: 0.5rem;
+        }
+        .timeline-phase-title {
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        .timeline-phase-desc {
+            font-family: var(--font-body);
+            font-size: 0.8125rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Before/After Comparison */
+        .before-after {
+            margin: 2.5rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--border-subtle);
+        }
+        .before-after-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+        }
+        .before-after-header span {
+            background: var(--surface-2);
+            padding: 1rem 1.5rem;
+            font-family: var(--font-body);
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+        .before-after-header span:last-child {
+            color: var(--accent-ice);
+        }
+        .before-after-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+        }
+        .before-after-row > div {
+            background: var(--surface-1);
+            padding: 1rem 1.5rem;
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .before-after-row > div:last-child {
+            color: var(--text-primary);
+            font-weight: 400;
+        }
+
+        /* Download Gate */
+        .download-cta {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0 2.5rem;
+            height: 56px;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--navy-darkest);
+            background: var(--accent-ice);
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .download-btn:hover {
+            background: var(--white);
+            box-shadow: 0 8px 32px rgba(168, 212, 240, 0.2);
+        }
+        .download-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Gate Overlay Modal */
+        .gate-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background: rgba(4, 11, 22, 0.85);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .gate-overlay.active {
+            display: flex;
+        }
+        .gate-card {
+            background: var(--surface-2);
+            border-radius: 12px;
+            padding: 3rem;
+            max-width: 480px;
+            width: 100%;
+            position: relative;
+            border: 1px solid var(--border-medium);
+        }
+        .gate-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 36px;
+            height: 36px;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 1.25rem;
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            transition: background 0.15s ease;
+        }
+        .gate-close:hover {
+            background: rgba(168, 212, 240, 0.1);
+            color: var(--text-primary);
+        }
+        .gate-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin: 0 0 0.75rem;
+        }
+        .gate-card p {
+            font-size: 0.9375rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin: 0 0 1.5rem;
+            line-height: 1.6;
+        }
+        .gate-form {
+            display: flex;
+            gap: 0;
+            border: 1px solid rgba(168, 212, 240, 0.25);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .gate-form input[type="email"] {
+            flex: 1;
+            min-width: 0;
+            height: 48px;
+            padding: 0 1.25rem;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            color: var(--white);
+            background: transparent;
+            border: none;
+            outline: none;
+        }
+        .gate-form input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+        .gate-form button {
+            height: 48px;
+            padding: 0 1.75rem;
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--navy-darkest);
+            background: var(--accent-ice);
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.15s ease;
+        }
+        .gate-form button:hover {
+            background: var(--white);
+        }
+
+        /* ========================================
            RESPONSIVE
            ======================================== */
         @media (max-width: 1060px) {
             :root { --padding-h: 24px; }
-        }
-        @media (max-width: 800px) {
-            .curve table,
-            .curve thead,
-            .curve tbody,
-            .curve th,
-            .curve td,
-            .curve tr {
-                display: block;
-                width: 100%;
-            }
-            .curve thead { display: none; }
-            .curve tr {
-                margin-bottom: 0.8rem;
-                border-bottom: 1px solid rgba(168, 212, 240, 0.18);
-                padding-bottom: 0.55rem;
-            }
-            .curve td {
-                border: none;
-                padding: 0.25rem 0;
-            }
         }
         @media (max-width: 768px) {
             .site-nav { padding: 0 24px; height: 60px; }
@@ -939,7 +1223,6 @@
             .checklist { padding: 2rem 1.5rem; }
             .cta-block { padding: 2rem 1.5rem; }
             .pitfalls { padding: 2rem 1.5rem; }
-            .curve { padding: 2rem 1.5rem; }
             .email-capture { padding: 2.5rem 1.5rem; box-shadow: 0 12px 24px rgba(0,0,0,0.25); }
             .email-form { flex-direction: column; }
             .email-form input[type="email"] { border-bottom: 1px solid rgba(168,212,240,0.12); }
@@ -951,12 +1234,25 @@
             }
             .author-photo { width: 80px; height: 80px; }
             .footer-meta { font-size: 0.6875rem; gap: 16px; }
+            .hero-stats { grid-template-columns: repeat(2, 1fr); }
+            .timeline { flex-direction: column; gap: 0; }
+            .timeline::before { top: 0; bottom: 0; left: 28px; right: auto; width: 2px; height: auto; }
+            .timeline-phase { text-align: left; padding: 0 0 2rem 3.5rem; }
+            .timeline-dot { margin: 0; position: absolute; left: 0; top: 0; }
+            .timeline-phase { position: relative; }
+            .before-after-header, .before-after-row { grid-template-columns: 1fr; }
+            .data-callout { flex-direction: column; gap: 0.75rem; }
+            .pull-quote blockquote { font-size: 1.125rem; }
         }
         @media (max-width: 480px) {
             .author-inner { grid-template-columns: 1fr; }
             .author-photo { margin: 0 auto; }
             .email-form { flex-direction: column; }
             .email-form button { width: 100%; }
+            .hero-stats { grid-template-columns: 1fr; }
+            .gate-card { padding: 2rem 1.5rem; }
+            .gate-form { flex-direction: column; }
+            .gate-form button { width: 100%; }
         }
     </style>
 
@@ -1077,8 +1373,24 @@
             <p class="kicker">People Operations Strategy</p>
             <h1>HR Is a Growth Lever: Build People Systems Before <em>Growth</em> Breaks You</h1>
             <p class="hero-meta">Heather MacKay-Mencheski<span>|</span>February 9, 2026<span>|</span>6 min read</p>
-            <div class="hero-thumbnail">
-                <img src="../images/blog-thumbnail-people-ops-blueprint.jpg" alt="The People Ops Blueprint - Heather MacKay-Mencheski" width="1456" height="816" loading="eager">
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number">100 &rarr; 250</div>
+                    <div class="hero-stat-label">Employee Growth Band That Exposes System Strain</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">37%</div>
+                    <div class="hero-stat-label">Turnover Spike After Adding a Second Shift</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">$1.4M</div>
+                    <div class="hero-stat-label">Rework, Overtime, and Lost Contracts</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">4</div>
+                    <div class="hero-stat-label">Core System Priorities to Build Before Scale Breaks</div>
+                </div>
             </div>
         </div>
     </header>
@@ -1086,12 +1398,13 @@
     <!-- MAIN -->
     <main>
         <article class="content">
-            <section class="answer-box" aria-label="Short answer">
-                <strong>Early warning signal</strong>
+
+            <section class="answer-box" aria-label="Executive summary">
+                <strong>Executive Summary</strong>
                 <p>In growing organizations, especially in manufacturing, aerospace, and industrial services, revenue growth often outpaces leadership infrastructure. If you are scaling from 100 to 250 employees, this article is your early warning signal.</p>
             </section>
 
-            <section class="takeaways" aria-label="Executive summary">
+            <section class="takeaways" aria-label="Executive summary takeaways">
                 <h2>Executive Summary</h2>
                 <ul>
                     <li><strong>Growth adds complexity faster than most teams expect.</strong> More facilities, more shifts, and more headcount put pressure on leadership systems immediately.</li>
@@ -1121,7 +1434,7 @@
                     <li><a href="#hidden-cost">The hidden cost of delayed systems</a></li>
                     <li><a href="#curve">The growth readiness curve</a></li>
                     <li><a href="#systems">What scalable people systems look like</a></li>
-                    <li><a href="#actions">What to do now</a></li>
+                    <li><a href="#actions">What growing companies can do now</a></li>
                     <li><a href="#faq">Frequently asked questions</a></li>
                 </ul>
             </nav>
@@ -1129,6 +1442,7 @@
             <h2 id="outpaced">When Growth Outpaces Infrastructure</h2>
             <p>In the early stages, transactional HR works well enough. People get hired. Payroll runs. Compliance is covered.</p>
             <p>But once your business starts scaling through new facilities, additional shifts, and expanded teams, that same HR model quickly runs out of road. Without systems built for scale, leadership starts firefighting. Onboarding loses consistency. Communication breaks down. Turnover rises in roles that were once stable.</p>
+
             <div class="entity-block">
                 <h3>What growing companies start to see</h3>
                 <ul>
@@ -1138,50 +1452,52 @@
                     <li>High turnover in skilled roles, not from disengagement, but from confusion</li>
                 </ul>
             </div>
+
             <p>These are not just HR problems. They are business problems that affect output, quality, and customer trust.</p>
 
             <h2 id="hidden-cost">The Hidden Cost of Delayed People Systems</h2>
             <p>One industrial company we worked with experienced a <strong>37% spike in turnover</strong> within nine months of adding a second shift. Productivity dropped, safety incidents increased, and they missed multiple delivery deadlines, not because of market forces, but because their internal systems had not scaled.</p>
             <p>The cost exceeded <strong>$1.4 million</strong> in rework, overtime, and lost contracts. What failed them was not strategy. It was execution and the people systems that support it.</p>
 
+            <div class="data-callout">
+                <div class="data-callout-number">37%</div>
+                <div class="data-callout-text">A turnover spike that hit within nine months of expansion, followed by productivity drops, higher safety incidents, and missed delivery deadlines because the internal people systems had not scaled.</div>
+            </div>
+
+            <div class="pull-quote">
+                <blockquote>&ldquo;When your company starts growing fast, you find out very quickly whether your systems are built to scale or held together by effort and heroics.&rdquo;</blockquote>
+                <cite>&mdash; Heather MacKay-Mencheski</cite>
+            </div>
+
             <h2 id="curve">The Growth Readiness Curve</h2>
             <p>If you are not sure whether your current systems can scale, this framework can help you evaluate where you are.</p>
-            <section class="curve" aria-label="Growth readiness curve">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Stage</th>
-                            <th>HR Focus</th>
-                            <th>What You See</th>
-                            <th>What You Risk</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Transactional</strong></td>
-                            <td>Hiring, payroll, compliance</td>
-                            <td>Things mostly work, but just barely</td>
-                            <td>Turnover, inconsistent execution</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Foundational</strong></td>
-                            <td>Defined roles, onboarding, site-level leadership</td>
-                            <td>Some consistency, but gaps show as growth accelerates</td>
-                            <td>Supervisor overload, training delays</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Strategic</strong></td>
-                            <td>HR involved in planning, scalable systems built</td>
-                            <td>Predictable performance, low turnover, better decision-making</td>
-                            <td>Reduced people risk, faster execution</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
+
+            <div class="timeline">
+                <div class="timeline-phase">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-phase-label">Stage 1</div>
+                    <div class="timeline-phase-title">Transactional</div>
+                    <div class="timeline-phase-desc">Hiring, payroll, and compliance mostly work, but only barely. Risk concentrates in turnover and inconsistent execution.</div>
+                </div>
+                <div class="timeline-phase">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-phase-label">Stage 2</div>
+                    <div class="timeline-phase-title">Foundational</div>
+                    <div class="timeline-phase-desc">Defined roles, onboarding, and site-level leadership bring some consistency, but gaps widen as growth accelerates.</div>
+                </div>
+                <div class="timeline-phase">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-phase-label">Stage 3</div>
+                    <div class="timeline-phase-title">Strategic</div>
+                    <div class="timeline-phase-desc">HR is involved in planning, systems are scalable, and performance becomes more predictable with less people risk.</div>
+                </div>
+            </div>
+
             <p>If you are seeing cracks, fatigue in leadership, turnover in key roles, or safety slips, it is a sign you are crossing into the next stage. Waiting too long to evolve your systems makes those issues more expensive to fix.</p>
 
             <h2 id="systems">What Scalable People Systems Look Like</h2>
             <p>You do not need a complete overhaul to prepare for growth. But you do need to be intentional about system-building. Here is where to focus.</p>
+
             <section class="checklist">
                 <h3>Core System Priorities</h3>
                 <ol>
@@ -1193,14 +1509,28 @@
             </section>
 
             <h2 id="actions">What Growing Companies Can Do Now</h2>
-            <section class="checklist">
-                <h3>Start Here</h3>
-                <ol>
-                    <li>Bring HR into planning conversations early.</li>
-                    <li>Measure HR by business outcomes, not just activities.</li>
-                    <li>Build now, before growth forces your hand.</li>
-                </ol>
-            </section>
+            <div class="before-after">
+                <div class="before-after-header">
+                    <span>Reactive</span>
+                    <span>Strategic</span>
+                </div>
+                <div class="before-after-row">
+                    <div>HR is asked to catch up after the cracks have already formed.</div>
+                    <div>Bring HR into planning conversations early.</div>
+                </div>
+                <div class="before-after-row">
+                    <div>Onboarding and role expectations vary by site, shift, or leader.</div>
+                    <div>Standardize the systems that shape execution across locations.</div>
+                </div>
+                <div class="before-after-row">
+                    <div>Supervisor promotions happen without the support to lead well.</div>
+                    <div>Build frontline leadership development before overload hits.</div>
+                </div>
+                <div class="before-after-row">
+                    <div>HR is measured by activity and administrative throughput.</div>
+                    <div>Measure HR by business outcomes, not just activities.</div>
+                </div>
+            </div>
 
             <section class="pitfalls">
                 <h2>Pitfalls to Avoid</h2>
@@ -1219,8 +1549,18 @@
 
             <section class="cta-block">
                 <strong>PS</strong>
-                <p>I help growing manufacturing, aerospace, and industrial services companies build scalable people systems that support expansion, not slow it down. If your growth is outpacing your infrastructure, let&rsquo;s talk about what needs to be built next.</p>
+                <p>I help growing manufacturing, aerospace, and industrial services companies build scalable people systems that support expansion, not slow it down.</p>
+                <p class="cta-subtext">If your growth is outpacing your infrastructure, let&rsquo;s talk about what needs to be built next.</p>
                 <a href="../index.html#contact" class="cta-link">Schedule a Conversation &rarr;</a>
+            </section>
+
+            <section class="email-capture">
+                <h3>Stay sharp</h3>
+                <p>Get frameworks for manufacturing CEOs navigating growth, people ops, and workforce scaling challenges.</p>
+                <form class="email-form" onsubmit="return false;">
+                    <input type="email" placeholder="you@company.com" aria-label="Email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
             </section>
 
             <section class="faq" id="faq">
@@ -1236,23 +1576,12 @@
                 <p>Use business outcomes: throughput reliability, quality consistency, safety performance, and critical-role retention.</p>
 
                 <h3>What should organizations build first?</h3>
-                <p>Start with frontline leadership systems, clear role design, standardized onboarding/training, and succession planning for critical positions.</p>
+                <p>Start with frontline leadership systems, clear role design, standardized onboarding and training, and succession planning for critical positions.</p>
 
                 <h3>Do we need a complete overhaul to improve?</h3>
                 <p>No. Most companies improve faster by implementing targeted systems in sequence and bringing HR into planning earlier.</p>
             </section>
         </article>
-
-        <div class="content">
-            <section class="email-capture">
-                <h3>Stay sharp</h3>
-                <p>Get frameworks for manufacturing CEOs navigating growth, People Ops, and workforce scaling challenges.</p>
-                <form class="email-form" onsubmit="return false;">
-                    <input type="email" placeholder="you@company.com" aria-label="Email address" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-            </section>
-        </div>
 
         <aside class="author-section" aria-label="Author">
             <div class="author-inner">
@@ -1404,6 +1733,32 @@
             });
         }
 
+        // Download gate modal
+        function initDownloadGate() {
+            var btns = document.querySelectorAll('.download-btn');
+            var overlay = document.getElementById('gateOverlay');
+            var closeBtn = overlay ? overlay.querySelector('.gate-close') : null;
+            if (!btns.length || !overlay) return;
+            btns.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    overlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function() {
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            }
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) {
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
         // Footer reveal
         function injectFooter() {
             if (document.querySelector('.footer-reveal')) return;
@@ -1437,6 +1792,7 @@
             loadLenis();
             initWordFade();
             initAccordion();
+            initDownloadGate();
             injectFooter();
         }
 

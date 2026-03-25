@@ -513,43 +513,6 @@
             color: #e05555;
         }
 
-        /* Growth Readiness Curve table */
-        .curve {
-            margin-top: 2.5rem;
-            padding: 2.5rem 3rem;
-            background: var(--surface-2);
-            border-radius: 12px;
-            border-left: 3px solid var(--accent-ice);
-        }
-        .curve table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9375rem;
-        }
-        .curve th,
-        .curve td {
-            text-align: left;
-            vertical-align: top;
-            padding: 0.75rem 0.75rem;
-            border-bottom: 1px solid var(--border-subtle);
-            color: var(--text-secondary);
-            font-weight: 300;
-        }
-        .curve th {
-            color: var(--text-muted);
-            font-family: var(--font-body);
-            font-size: 0.6875rem;
-            font-weight: 500;
-            letter-spacing: -0.025em;
-            text-transform: uppercase;
-            padding-bottom: 1rem;
-        }
-        .curve tbody tr:last-child td { border-bottom: none; }
-        .curve td strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
         /* CTA callout */
         .cta-block {
             margin-top: calc(var(--padding-v) * 0.8);
@@ -577,6 +540,15 @@
             line-height: 1.3;
             color: var(--white);
             margin: 0;
+            max-width: 720px;
+        }
+        .cta-block .cta-subtext {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-top: 1rem;
             max-width: 720px;
         }
         .cta-link {
@@ -905,31 +877,343 @@
         }
 
         /* ========================================
+           CASE STUDY COMPONENTS
+           ======================================== */
+
+        /* Hero Stats Bar */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border-subtle);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 3rem;
+        }
+        .hero-stat {
+            background: var(--surface-2);
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+        .hero-stat-number {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            color: var(--accent-ice);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .hero-stat-label {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Data Callout */
+        .data-callout {
+            margin: 2.5rem 0;
+            padding: 2rem 2.5rem;
+            background: var(--surface-2);
+            border-radius: 12px;
+            border-left: 3px solid var(--accent-ice);
+            display: flex;
+            align-items: baseline;
+            gap: 1.5rem;
+        }
+        .data-callout-number {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 400;
+            color: var(--accent-ice);
+            line-height: 1;
+            white-space: nowrap;
+        }
+        .data-callout-text {
+            font-family: var(--font-body);
+            font-size: 1.0625rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Pull Quote */
+        .pull-quote {
+            margin: 3rem 0;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+        .pull-quote::before,
+        .pull-quote::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 1px;
+            background: var(--accent-ice);
+            margin: 0 auto;
+        }
+        .pull-quote::before { margin-bottom: 2rem; }
+        .pull-quote::after { margin-top: 2rem; }
+        .pull-quote blockquote {
+            font-family: var(--font-heading);
+            font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+            font-weight: 400;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.5;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .pull-quote cite {
+            display: block;
+            margin-top: 1.25rem;
+            font-family: var(--font-body);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            font-style: normal;
+            color: var(--text-muted);
+            letter-spacing: 0.02em;
+        }
+
+        /* Timeline */
+        .timeline {
+            margin: 2.5rem 0;
+            display: flex;
+            gap: 0;
+            position: relative;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 28px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--border-medium);
+        }
+        .timeline-phase {
+            flex: 1;
+            text-align: center;
+            padding: 0 1rem;
+            position: relative;
+        }
+        .timeline-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--accent-ice);
+            margin: 22px auto 1.25rem;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 0 0 4px var(--surface-1);
+        }
+        .timeline-phase-label {
+            font-family: var(--font-body);
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--accent-ice);
+            margin-bottom: 0.5rem;
+        }
+        .timeline-phase-title {
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        .timeline-phase-desc {
+            font-family: var(--font-body);
+            font-size: 0.8125rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Before/After Comparison */
+        .before-after {
+            margin: 2.5rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--border-subtle);
+        }
+        .before-after-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+        }
+        .before-after-header span {
+            background: var(--surface-2);
+            padding: 1rem 1.5rem;
+            font-family: var(--font-body);
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+        .before-after-header span:last-child {
+            color: var(--accent-ice);
+        }
+        .before-after-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+        }
+        .before-after-row > div {
+            background: var(--surface-1);
+            padding: 1rem 1.5rem;
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .before-after-row > div:last-child {
+            color: var(--text-primary);
+            font-weight: 400;
+        }
+
+        /* Download Gate */
+        .download-cta {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0 2.5rem;
+            height: 56px;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--navy-darkest);
+            background: var(--accent-ice);
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .download-btn:hover {
+            background: var(--white);
+            box-shadow: 0 8px 32px rgba(168, 212, 240, 0.2);
+        }
+        .download-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Gate Overlay Modal */
+        .gate-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background: rgba(4, 11, 22, 0.85);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .gate-overlay.active {
+            display: flex;
+        }
+        .gate-card {
+            background: var(--surface-2);
+            border-radius: 12px;
+            padding: 3rem;
+            max-width: 480px;
+            width: 100%;
+            position: relative;
+            border: 1px solid var(--border-medium);
+        }
+        .gate-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 36px;
+            height: 36px;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 1.25rem;
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            transition: background 0.15s ease;
+        }
+        .gate-close:hover {
+            background: rgba(168, 212, 240, 0.1);
+            color: var(--text-primary);
+        }
+        .gate-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin: 0 0 0.75rem;
+        }
+        .gate-card p {
+            font-size: 0.9375rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin: 0 0 1.5rem;
+            line-height: 1.6;
+        }
+        .gate-form {
+            display: flex;
+            gap: 0;
+            border: 1px solid rgba(168, 212, 240, 0.25);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .gate-form input[type="email"] {
+            flex: 1;
+            min-width: 0;
+            height: 48px;
+            padding: 0 1.25rem;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            color: var(--white);
+            background: transparent;
+            border: none;
+            outline: none;
+        }
+        .gate-form input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+        .gate-form button {
+            height: 48px;
+            padding: 0 1.75rem;
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--navy-darkest);
+            background: var(--accent-ice);
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.15s ease;
+        }
+        .gate-form button:hover {
+            background: var(--white);
+        }
+
+        /* ========================================
            RESPONSIVE
            ======================================== */
         @media (max-width: 1060px) {
             :root { --padding-h: 24px; }
-        }
-        @media (max-width: 800px) {
-            .curve table,
-            .curve thead,
-            .curve tbody,
-            .curve th,
-            .curve td,
-            .curve tr {
-                display: block;
-                width: 100%;
-            }
-            .curve thead { display: none; }
-            .curve tr {
-                margin-bottom: 0.8rem;
-                border-bottom: 1px solid rgba(168, 212, 240, 0.18);
-                padding-bottom: 0.55rem;
-            }
-            .curve td {
-                border: none;
-                padding: 0.25rem 0;
-            }
         }
         @media (max-width: 768px) {
             .site-nav { padding: 0 24px; height: 60px; }
@@ -939,7 +1223,6 @@
             .checklist { padding: 2rem 1.5rem; }
             .cta-block { padding: 2rem 1.5rem; }
             .pitfalls { padding: 2rem 1.5rem; }
-            .curve { padding: 2rem 1.5rem; }
             .email-capture { padding: 2.5rem 1.5rem; box-shadow: 0 12px 24px rgba(0,0,0,0.25); }
             .email-form { flex-direction: column; }
             .email-form input[type="email"] { border-bottom: 1px solid rgba(168,212,240,0.12); }
@@ -951,12 +1234,25 @@
             }
             .author-photo { width: 80px; height: 80px; }
             .footer-meta { font-size: 0.6875rem; gap: 16px; }
+            .hero-stats { grid-template-columns: repeat(2, 1fr); }
+            .timeline { flex-direction: column; gap: 0; }
+            .timeline::before { top: 0; bottom: 0; left: 28px; right: auto; width: 2px; height: auto; }
+            .timeline-phase { text-align: left; padding: 0 0 2rem 3.5rem; }
+            .timeline-dot { margin: 0; position: absolute; left: 0; top: 0; }
+            .timeline-phase { position: relative; }
+            .before-after-header, .before-after-row { grid-template-columns: 1fr; }
+            .data-callout { flex-direction: column; gap: 0.75rem; }
+            .pull-quote blockquote { font-size: 1.125rem; }
         }
         @media (max-width: 480px) {
             .author-inner { grid-template-columns: 1fr; }
             .author-photo { margin: 0 auto; }
             .email-form { flex-direction: column; }
             .email-form button { width: 100%; }
+            .hero-stats { grid-template-columns: 1fr; }
+            .gate-card { padding: 2rem 1.5rem; }
+            .gate-form { flex-direction: column; }
+            .gate-form button { width: 100%; }
         }
     </style>
 
@@ -1077,8 +1373,24 @@
             <p class="kicker">Manufacturing Leadership</p>
             <h1>Manufacturing CEOs: Get Out of the <em>Office</em> During Growth Transitions</h1>
             <p class="hero-meta">Heather MacKay-Mencheski<span>|</span>February 23, 2026<span>|</span>7 min read</p>
-            <div class="hero-thumbnail">
-                <img src="../images/blog-thumbnail-people-ops-blueprint.jpg" alt="Manufacturing leadership during growth transitions" width="1456" height="816" loading="eager">
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number">Weekly</div>
+                    <div class="hero-stat-label">Floor Immersion Cadence During Major Change</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">90&ndash;180</div>
+                    <div class="hero-stat-label">Days Where CEO Observation Matters Most</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">100 &rarr; 250</div>
+                    <div class="hero-stat-label">Employee Growth Range Where Structure Starts to Crack</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">5</div>
+                    <div class="hero-stat-label">Structural Moves CEOs Should Start With</div>
+                </div>
             </div>
         </div>
     </header>
@@ -1086,12 +1398,13 @@
     <!-- MAIN -->
     <main>
         <article class="content">
-            <section class="answer-box" aria-label="Short answer">
-                <strong>Operational reality</strong>
+
+            <section class="answer-box" aria-label="Executive summary">
+                <strong>Executive Summary</strong>
                 <p>In manufacturing, CEOs who stay on dashboards during transition often misdiagnose structural problems. Weekly floor-level observation, paired with structural follow-through, is one of the fastest ways to protect throughput, quality, safety, and retention.</p>
             </section>
 
-            <section class="takeaways" aria-label="Executive summary">
+            <section class="takeaways" aria-label="Executive summary takeaways">
                 <h2>Executive Summary</h2>
                 <ul>
                     <li><strong>People operations is production infrastructure.</strong> If spans of control and decision rights are unclear, output and retention degrade quickly.</li>
@@ -1129,14 +1442,26 @@
             <h2 id="why-floor-presence-matters">Why Floor Presence Matters in Manufacturing</h2>
             <p>In manufacturing, ambiguity is expensive. When supervisory authority is unclear, decision rights are muddy, or accountability lines are overloaded, the impact shows up fast in <strong>throughput delays, quality drift, safety exposure, and avoidable turnover</strong>.</p>
             <p>For companies between 100 and 250 employees, these structural weaknesses can ripple across lines in weeks. That is why floor-level observation matters: it surfaces operational truth before quarterly reporting catches up.</p>
+
             <div class="entity-block">
                 <h3>Core operating reality</h3>
                 <p><strong>People Ops is not an admin layer in manufacturing.</strong> It is a production system that carries output standards, supervisor capability, escalation speed, and execution reliability.</p>
             </div>
 
+            <div class="data-callout">
+                <div class="data-callout-number">90&ndash;180</div>
+                <div class="data-callout-text">During the first 90 to 180 days of a transition or integration, weekly floor presence gives CEOs better structural data than dashboards alone.</div>
+            </div>
+
+            <div class="pull-quote">
+                <blockquote>&ldquo;People Ops is not an admin layer in manufacturing. It is a production system that carries output standards, supervisor capability, escalation speed, and execution reliability.&rdquo;</blockquote>
+                <cite>&mdash; Heather MacKay-Mencheski</cite>
+            </div>
+
             <h2 id="new-ceo">When a New CEO Takes the Helm</h2>
             <p>New leaders face one major risk early: <strong>misdiagnosis</strong>. Executive briefings summarize the business, but they rarely expose where escalation stalls, where informal leadership overrides formal structure, or where spans of control are no longer sustainable.</p>
             <p>In industrial environments, credibility is built through operational fluency. Structural changes made without first-hand floor context can create unnecessary resistance and instability.</p>
+
             <section class="checklist">
                 <h3>First 90-Day Action Checklist for New CEOs</h3>
                 <ol>
@@ -1151,34 +1476,65 @@
             <h2 id="ma-integration">During M&amp;A Integration</h2>
             <p>In integrations, uncertainty is immediate. Teams need clarity on reporting lines, decision authority, and standards. If the CEO remains isolated in executive integration sessions, the interpretation of strategy gets delegated to inconsistent middle-management narratives.</p>
             <p>On plant floors, rumor cycles move faster than official updates. A few key supervisor departures can destabilize production and reduce deal value realization.</p>
-            <section class="checklist">
-                <h3>First 60-Day M&amp;A Integration Actions</h3>
-                <ol>
-                    <li>Visit both legacy and acquired sites within 30 days post-close.</li>
-                    <li>Host supervisor roundtables focused specifically on integration friction.</li>
-                    <li>Compare decision-right frameworks and standardize early.</li>
-                    <li>Publish reporting lines and escalation pathways in writing.</li>
-                    <li>Review retention risk for critical supervisors and technical leads within 60 days.</li>
-                </ol>
-            </section>
+
+            <div class="timeline">
+                <div class="timeline-phase">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-phase-label">Step 1</div>
+                    <div class="timeline-phase-title">Observe</div>
+                    <div class="timeline-phase-desc">Visit both legacy and acquired sites within the first 30 days to see how work actually flows.</div>
+                </div>
+                <div class="timeline-phase">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-phase-label">Step 2</div>
+                    <div class="timeline-phase-title">Clarify</div>
+                    <div class="timeline-phase-desc">Host supervisor roundtables and compare decision-right frameworks before informal narratives set in.</div>
+                </div>
+                <div class="timeline-phase">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-phase-label">Step 3</div>
+                    <div class="timeline-phase-title">Redesign</div>
+                    <div class="timeline-phase-desc">Publish reporting lines, escalation paths, and early retention priorities for critical supervisors and leads.</div>
+                </div>
+                <div class="timeline-phase">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-phase-label">Step 4</div>
+                    <div class="timeline-phase-title">Review</div>
+                    <div class="timeline-phase-desc">Check the impact after 60 to 90 days and adjust structure quickly before instability compounds.</div>
+                </div>
+            </div>
 
             <h2 id="growth-inflection">At Growth Inflection Points</h2>
             <p>Manufacturing scale phases often expose system limits. Structures that worked at 120 employees frequently fail at 200 unless redesigned. Common patterns include executive bottlenecks, supervisor overload, uneven standards across shifts, and creeping attrition.</p>
             <p>Growth does not correct structural weakness. It magnifies it.</p>
-            <section class="checklist">
-                <h3>Scale-Stage Structural Actions</h3>
-                <ol>
-                    <li>Audit supervisory spans of control against sustainable oversight capacity.</li>
-                    <li>Identify approval bottlenecks and redistribute decision authority where feasible.</li>
-                    <li>Standardize performance expectations across shifts.</li>
-                    <li>Analyze turnover by department and supervisor, not only at aggregate company level.</li>
-                    <li>Align incentives to throughput, quality, and safety, not output volume alone.</li>
-                </ol>
-            </section>
+
+            <div class="before-after">
+                <div class="before-after-header">
+                    <span>What Breaks</span>
+                    <span>What Stabilizes</span>
+                </div>
+                <div class="before-after-row">
+                    <div>Dashboards become the sole source of truth during transition.</div>
+                    <div>Floor observation exposes issues before reporting catches up.</div>
+                </div>
+                <div class="before-after-row">
+                    <div>Headcount gets added before authority and spans are redesigned.</div>
+                    <div>Structure is clarified before layers are added.</div>
+                </div>
+                <div class="before-after-row">
+                    <div>Visibility becomes symbolic instead of diagnostic.</div>
+                    <div>Observation is paired with structural follow-through.</div>
+                </div>
+                <div class="before-after-row">
+                    <div>Reporting lines and escalation remain ambiguous.</div>
+                    <div>Leaders publish clear reporting and escalation paths.</div>
+                </div>
+            </div>
 
             <h2 id="engagement-framework">What Effective Floor Engagement Looks Like</h2>
             <p>Effective presence is structured. It includes planned observations, repeated diagnostic questions, and clear follow-through loops. CEOs should observe production planning in context, review quality breakdowns at source, and pressure-test how decisions move in real time.</p>
             <p><strong>Key principle:</strong> observation without action erodes credibility.</p>
+
             <section class="checklist">
                 <h3>Practical Engagement Framework</h3>
                 <ol>
@@ -1206,9 +1562,19 @@
             <p>During leadership transitions, acquisitions, and growth phases, floor-level engagement is not a symbolic leadership behavior. It is a strategic operating discipline that improves diagnosis, strengthens trust, and supports durable performance.</p>
 
             <section class="cta-block">
-                <strong>PS</strong>
-                <p>I help manufacturing, aerospace, and industrial companies build leadership and people systems that hold under pressure. If your organization is in transition, scale, or integration mode, let&rsquo;s talk about what needs to be redesigned before execution slips.</p>
+                <strong>Next step for CEOs in transition</strong>
+                <p>Run a structured operational diagnostic focused on decision rights, supervisory load, and escalation flow before committing to additional headcount or process layers.</p>
+                <p class="cta-subtext">That is often the fastest way to protect throughput, quality, safety, and retention while the business is changing.</p>
                 <a href="../index.html#contact" class="cta-link">Schedule a Conversation &rarr;</a>
+            </section>
+
+            <section class="email-capture">
+                <h3>Stay close to the operation</h3>
+                <p>Get frameworks for manufacturing leaders navigating growth, plant-floor trust, and people ops under pressure.</p>
+                <form class="email-form" onsubmit="return false;">
+                    <input type="email" placeholder="you@company.com" aria-label="Email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
             </section>
 
             <section class="faq" id="faq">
@@ -1230,17 +1596,6 @@
                 <p>Adding headcount or policy layers before redesigning authority distribution and supervisory structure, which increases complexity without improving reliability.</p>
             </section>
         </article>
-
-        <div class="content">
-            <section class="email-capture">
-                <h3>Stay close to the operation</h3>
-                <p>Get frameworks for manufacturing leaders navigating growth, plant-floor trust, and people ops under pressure.</p>
-                <form class="email-form" onsubmit="return false;">
-                    <input type="email" placeholder="you@company.com" aria-label="Email address" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-            </section>
-        </div>
 
         <aside class="author-section" aria-label="Author">
             <div class="author-inner">
@@ -1392,6 +1747,32 @@
             });
         }
 
+        // Download gate modal
+        function initDownloadGate() {
+            var btns = document.querySelectorAll('.download-btn');
+            var overlay = document.getElementById('gateOverlay');
+            var closeBtn = overlay ? overlay.querySelector('.gate-close') : null;
+            if (!btns.length || !overlay) return;
+            btns.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    overlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function() {
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            }
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) {
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
         // Footer reveal
         function injectFooter() {
             if (document.querySelector('.footer-reveal')) return;
@@ -1425,6 +1806,7 @@
             loadLenis();
             initWordFade();
             initAccordion();
+            initDownloadGate();
             injectFooter();
         }
 

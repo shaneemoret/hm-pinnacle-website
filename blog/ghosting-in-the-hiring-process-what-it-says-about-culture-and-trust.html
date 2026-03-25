@@ -513,43 +513,6 @@
             color: #e05555;
         }
 
-        /* Growth Readiness Curve table */
-        .curve {
-            margin-top: 2.5rem;
-            padding: 2.5rem 3rem;
-            background: var(--surface-2);
-            border-radius: 12px;
-            border-left: 3px solid var(--accent-ice);
-        }
-        .curve table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9375rem;
-        }
-        .curve th,
-        .curve td {
-            text-align: left;
-            vertical-align: top;
-            padding: 0.75rem 0.75rem;
-            border-bottom: 1px solid var(--border-subtle);
-            color: var(--text-secondary);
-            font-weight: 300;
-        }
-        .curve th {
-            color: var(--text-muted);
-            font-family: var(--font-body);
-            font-size: 0.6875rem;
-            font-weight: 500;
-            letter-spacing: -0.025em;
-            text-transform: uppercase;
-            padding-bottom: 1rem;
-        }
-        .curve tbody tr:last-child td { border-bottom: none; }
-        .curve td strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
         /* CTA callout */
         .cta-block {
             margin-top: calc(var(--padding-v) * 0.8);
@@ -577,6 +540,15 @@
             line-height: 1.3;
             color: var(--white);
             margin: 0;
+            max-width: 720px;
+        }
+        .cta-block .cta-subtext {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-top: 1rem;
             max-width: 720px;
         }
         .cta-link {
@@ -905,31 +877,343 @@
         }
 
         /* ========================================
+           CASE STUDY COMPONENTS
+           ======================================== */
+
+        /* Hero Stats Bar */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border-subtle);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 3rem;
+        }
+        .hero-stat {
+            background: var(--surface-2);
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+        .hero-stat-number {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            color: var(--accent-ice);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .hero-stat-label {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Data Callout */
+        .data-callout {
+            margin: 2.5rem 0;
+            padding: 2rem 2.5rem;
+            background: var(--surface-2);
+            border-radius: 12px;
+            border-left: 3px solid var(--accent-ice);
+            display: flex;
+            align-items: baseline;
+            gap: 1.5rem;
+        }
+        .data-callout-number {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 400;
+            color: var(--accent-ice);
+            line-height: 1;
+            white-space: nowrap;
+        }
+        .data-callout-text {
+            font-family: var(--font-body);
+            font-size: 1.0625rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Pull Quote */
+        .pull-quote {
+            margin: 3rem 0;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+        .pull-quote::before,
+        .pull-quote::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 1px;
+            background: var(--accent-ice);
+            margin: 0 auto;
+        }
+        .pull-quote::before { margin-bottom: 2rem; }
+        .pull-quote::after { margin-top: 2rem; }
+        .pull-quote blockquote {
+            font-family: var(--font-heading);
+            font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+            font-weight: 400;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.5;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .pull-quote cite {
+            display: block;
+            margin-top: 1.25rem;
+            font-family: var(--font-body);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            font-style: normal;
+            color: var(--text-muted);
+            letter-spacing: 0.02em;
+        }
+
+        /* Timeline */
+        .timeline {
+            margin: 2.5rem 0;
+            display: flex;
+            gap: 0;
+            position: relative;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 28px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--border-medium);
+        }
+        .timeline-phase {
+            flex: 1;
+            text-align: center;
+            padding: 0 1rem;
+            position: relative;
+        }
+        .timeline-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--accent-ice);
+            margin: 22px auto 1.25rem;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 0 0 4px var(--surface-1);
+        }
+        .timeline-phase-label {
+            font-family: var(--font-body);
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--accent-ice);
+            margin-bottom: 0.5rem;
+        }
+        .timeline-phase-title {
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        .timeline-phase-desc {
+            font-family: var(--font-body);
+            font-size: 0.8125rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Before/After Comparison */
+        .before-after {
+            margin: 2.5rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--border-subtle);
+        }
+        .before-after-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+        }
+        .before-after-header span {
+            background: var(--surface-2);
+            padding: 1rem 1.5rem;
+            font-family: var(--font-body);
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+        .before-after-header span:last-child {
+            color: var(--accent-ice);
+        }
+        .before-after-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+        }
+        .before-after-row > div {
+            background: var(--surface-1);
+            padding: 1rem 1.5rem;
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .before-after-row > div:last-child {
+            color: var(--text-primary);
+            font-weight: 400;
+        }
+
+        /* Download Gate */
+        .download-cta {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0 2.5rem;
+            height: 56px;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--navy-darkest);
+            background: var(--accent-ice);
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .download-btn:hover {
+            background: var(--white);
+            box-shadow: 0 8px 32px rgba(168, 212, 240, 0.2);
+        }
+        .download-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Gate Overlay Modal */
+        .gate-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background: rgba(4, 11, 22, 0.85);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .gate-overlay.active {
+            display: flex;
+        }
+        .gate-card {
+            background: var(--surface-2);
+            border-radius: 12px;
+            padding: 3rem;
+            max-width: 480px;
+            width: 100%;
+            position: relative;
+            border: 1px solid var(--border-medium);
+        }
+        .gate-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 36px;
+            height: 36px;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 1.25rem;
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            transition: background 0.15s ease;
+        }
+        .gate-close:hover {
+            background: rgba(168, 212, 240, 0.1);
+            color: var(--text-primary);
+        }
+        .gate-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin: 0 0 0.75rem;
+        }
+        .gate-card p {
+            font-size: 0.9375rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin: 0 0 1.5rem;
+            line-height: 1.6;
+        }
+        .gate-form {
+            display: flex;
+            gap: 0;
+            border: 1px solid rgba(168, 212, 240, 0.25);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .gate-form input[type="email"] {
+            flex: 1;
+            min-width: 0;
+            height: 48px;
+            padding: 0 1.25rem;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            color: var(--white);
+            background: transparent;
+            border: none;
+            outline: none;
+        }
+        .gate-form input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+        .gate-form button {
+            height: 48px;
+            padding: 0 1.75rem;
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--navy-darkest);
+            background: var(--accent-ice);
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.15s ease;
+        }
+        .gate-form button:hover {
+            background: var(--white);
+        }
+
+        /* ========================================
            RESPONSIVE
            ======================================== */
         @media (max-width: 1060px) {
             :root { --padding-h: 24px; }
-        }
-        @media (max-width: 800px) {
-            .curve table,
-            .curve thead,
-            .curve tbody,
-            .curve th,
-            .curve td,
-            .curve tr {
-                display: block;
-                width: 100%;
-            }
-            .curve thead { display: none; }
-            .curve tr {
-                margin-bottom: 0.8rem;
-                border-bottom: 1px solid rgba(168, 212, 240, 0.18);
-                padding-bottom: 0.55rem;
-            }
-            .curve td {
-                border: none;
-                padding: 0.25rem 0;
-            }
         }
         @media (max-width: 768px) {
             .site-nav { padding: 0 24px; height: 60px; }
@@ -939,7 +1223,6 @@
             .checklist { padding: 2rem 1.5rem; }
             .cta-block { padding: 2rem 1.5rem; }
             .pitfalls { padding: 2rem 1.5rem; }
-            .curve { padding: 2rem 1.5rem; }
             .email-capture { padding: 2.5rem 1.5rem; box-shadow: 0 12px 24px rgba(0,0,0,0.25); }
             .email-form { flex-direction: column; }
             .email-form input[type="email"] { border-bottom: 1px solid rgba(168,212,240,0.12); }
@@ -951,12 +1234,25 @@
             }
             .author-photo { width: 80px; height: 80px; }
             .footer-meta { font-size: 0.6875rem; gap: 16px; }
+            .hero-stats { grid-template-columns: repeat(2, 1fr); }
+            .timeline { flex-direction: column; gap: 0; }
+            .timeline::before { top: 0; bottom: 0; left: 28px; right: auto; width: 2px; height: auto; }
+            .timeline-phase { text-align: left; padding: 0 0 2rem 3.5rem; }
+            .timeline-dot { margin: 0; position: absolute; left: 0; top: 0; }
+            .timeline-phase { position: relative; }
+            .before-after-header, .before-after-row { grid-template-columns: 1fr; }
+            .data-callout { flex-direction: column; gap: 0.75rem; }
+            .pull-quote blockquote { font-size: 1.125rem; }
         }
         @media (max-width: 480px) {
             .author-inner { grid-template-columns: 1fr; }
             .author-photo { margin: 0 auto; }
             .email-form { flex-direction: column; }
             .email-form button { width: 100%; }
+            .hero-stats { grid-template-columns: 1fr; }
+            .gate-card { padding: 2rem 1.5rem; }
+            .gate-form { flex-direction: column; }
+            .gate-form button { width: 100%; }
         }
     </style>
 
@@ -1077,8 +1373,24 @@
             <p class="kicker">Hiring &amp; Culture</p>
             <h1>Ghosting in the Hiring Process: What It Says About Culture and <em>Trust</em></h1>
             <p class="hero-meta">Heather MacKay-Mencheski<span>|</span>March 25, 2026<span>|</span>6 min read</p>
-            <div class="hero-thumbnail">
-                <img src="../images/blog-thumbnail-people-ops-blueprint.jpg" alt="Ghosting in the hiring process and what it says about culture and trust" width="1456" height="816" loading="eager">
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number">4</div>
+                    <div class="hero-stat-label">Common Ghosting Behaviors Hiring Teams Are Seeing</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">5</div>
+                    <div class="hero-stat-label">Response Moves Leaders Can Make Right Now</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">1</div>
+                    <div class="hero-stat-label">Root Issue Behind Many Ghosting Patterns: Conflict Avoidance</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">2</div>
+                    <div class="hero-stat-label">Biggest Levers: More Clarity and Faster Hiring Cycles</div>
+                </div>
             </div>
         </div>
     </header>
@@ -1086,12 +1398,13 @@
     <!-- MAIN -->
     <main>
         <article class="content">
-            <section class="answer-box" aria-label="Short answer">
-                <strong>Cultural signal</strong>
+
+            <section class="answer-box" aria-label="Executive summary">
+                <strong>Executive Summary</strong>
                 <p>Ghosting during recruitment is not just frustrating. It is a signal. It often points to conflict avoidance, weak communication norms, and hiring systems that have not created enough clarity or trust to keep people engaged.</p>
             </section>
 
-            <section class="takeaways" aria-label="Executive summary">
+            <section class="takeaways" aria-label="Executive summary takeaways">
                 <h2>Executive Summary</h2>
                 <ul>
                     <li><strong>Ghosting is becoming a pattern.</strong> Early-stage candidate drop-off is no longer rare across recruiting and HR.</li>
@@ -1130,15 +1443,27 @@
             <p>Ghosting during recruitment is one of the most frustrating patterns in hiring today. A candidate replies, seems excited, gets into scheduling or even a first interview, and then suddenly disappears.</p>
             <p>No reply. No explanation. Just silence.</p>
             <p>Across recruiting and HR, more early-stage candidates are backing out without warning. They no-show interviews, disengage mid-conversation, change their minds after accepting an offer without telling anyone, or vanish after multiple rounds of dialogue.</p>
+
             <div class="entity-block">
                 <h3>What this tells us</h3>
                 <p>This is not only a professionalism issue. It is also a signal that communication norms, trust expectations, and hiring culture are shifting.</p>
+            </div>
+
+            <div class="data-callout">
+                <div class="data-callout-number">4</div>
+                <div class="data-callout-text">The pattern often shows up as no-show interviews, mid-process disengagement, offer acceptance without follow-through, or total disappearance after multiple rounds of dialogue.</div>
+            </div>
+
+            <div class="pull-quote">
+                <blockquote>&ldquo;Ghosting is a symptom. Trust is the cure.&rdquo;</blockquote>
+                <cite>&mdash; Heather MacKay-Mencheski</cite>
             </div>
 
             <h2 id="conflict-avoidance">Conflict Avoidance Is the Real Issue</h2>
             <p>Much of this trend comes back to discomfort with confrontation. Many professionals, especially earlier-career candidates, have not been taught how to say, &ldquo;I&rsquo;m no longer interested,&rdquo; or, &ldquo;This is not the right fit for me.&rdquo;</p>
             <p>So instead of a direct but uncomfortable message, they default to silence.</p>
             <p>This dynamic shows up beyond recruiting. We see it in sales calls, workplace relationships, and personal communication too. Ghosting has become a coping mechanism for uncomfortable conversations.</p>
+
             <section class="checklist">
                 <h3>What Leaders Should Notice</h3>
                 <ol>
@@ -1151,18 +1476,60 @@
             <h2 id="cost">It&rsquo;s Costly For Everyone</h2>
             <p>When a candidate ghosts, the damage spreads beyond one missed interview. Teams stall while waiting on a no-show. Recruiters lose time and momentum. Internal credibility takes a hit when hiring timelines slip.</p>
             <p>Most importantly, trust erodes between HR, leadership, and the candidate pool. What looks like a small breakdown in communication becomes a larger breakdown in confidence.</p>
-            <section class="checklist">
-                <h3>What Ghosting Costs</h3>
-                <ol>
-                    <li>Delayed hiring decisions and slower team execution</li>
-                    <li>Lost recruiter capacity and avoidable rework</li>
-                    <li>Missed timelines that weaken leadership confidence in hiring</li>
-                    <li>A weaker trust foundation between candidates and the organization</li>
-                </ol>
-            </section>
+
+            <div class="before-after">
+                <div class="before-after-header">
+                    <span>Low-Trust Hiring</span>
+                    <span>Trust-Building Hiring</span>
+                </div>
+                <div class="before-after-row">
+                    <div>Silent drop-off is treated as inevitable.</div>
+                    <div>Honest exits are normalized and explicitly invited.</div>
+                </div>
+                <div class="before-after-row">
+                    <div>The process is long, slow, and easy to disengage from.</div>
+                    <div>The process is tight, clear, and momentum is protected.</div>
+                </div>
+                <div class="before-after-row">
+                    <div>Recruiters screen mainly for qualification.</div>
+                    <div>Recruiters test motivation and seriousness early.</div>
+                </div>
+                <div class="before-after-row">
+                    <div>Re-engagement is met with frustration first.</div>
+                    <div>Re-engagement becomes a coaching moment about expectations.</div>
+                </div>
+            </div>
 
             <h2 id="response">How We Can Respond Instead of Just Complaining</h2>
             <p>Leaders cannot fix every ghosted interaction. But we can shift the conditions that make it easier for people to disappear.</p>
+
+            <div class="timeline">
+                <div class="timeline-phase">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-phase-label">Move 1</div>
+                    <div class="timeline-phase-title">Normalize Honest Exits</div>
+                    <div class="timeline-phase-desc">Make it clear in job posts and interviews that changing your mind is acceptable as long as it is communicated.</div>
+                </div>
+                <div class="timeline-phase">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-phase-label">Move 2</div>
+                    <div class="timeline-phase-title">Model Directness</div>
+                    <div class="timeline-phase-desc">Recruiters and HR should use clear, respectful messaging even when declining candidates.</div>
+                </div>
+                <div class="timeline-phase">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-phase-label">Move 3</div>
+                    <div class="timeline-phase-title">Shorten the Cycle</div>
+                    <div class="timeline-phase-desc">Faster, cleaner hiring steps reduce the places where disengagement can happen.</div>
+                </div>
+                <div class="timeline-phase">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-phase-label">Move 4</div>
+                    <div class="timeline-phase-title">Coach and Learn</div>
+                    <div class="timeline-phase-desc">If someone ghosts and later re-engages, use it as a respectful conversation about expectations.</div>
+                </div>
+            </div>
+
             <section class="checklist">
                 <h3>Practical Response Playbook</h3>
                 <ol>
@@ -1192,7 +1559,17 @@
             <section class="cta-block">
                 <strong>PS</strong>
                 <p>If your organization is preparing for growth, whether expanding locations, increasing production, or building specialized teams, this is the moment to evaluate whether your hiring approach is protecting or constraining your strategy.</p>
+                <p class="cta-subtext">Hiring culture becomes operating culture faster than most teams realize.</p>
                 <a href="../index.html#contact" class="cta-link">Schedule a Conversation &rarr;</a>
+            </section>
+
+            <section class="email-capture">
+                <h3>Stay ahead</h3>
+                <p>Get practical frameworks for hiring systems, people ops, and leadership communication during growth.</p>
+                <form class="email-form" onsubmit="return false;">
+                    <input type="email" placeholder="you@company.com" aria-label="Email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
             </section>
 
             <section class="faq" id="faq">
@@ -1214,17 +1591,6 @@
                 <p>Use it as a respectful conversation about expectations and trust, then decide whether the fit still makes sense for the role and the team.</p>
             </section>
         </article>
-
-        <div class="content">
-            <section class="email-capture">
-                <h3>Stay ahead</h3>
-                <p>Get practical frameworks for hiring systems, people ops, and leadership communication during growth.</p>
-                <form class="email-form" onsubmit="return false;">
-                    <input type="email" placeholder="you@company.com" aria-label="Email address" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-            </section>
-        </div>
 
         <aside class="author-section" aria-label="Author">
             <div class="author-inner">
@@ -1376,6 +1742,32 @@
             });
         }
 
+        // Download gate modal
+        function initDownloadGate() {
+            var btns = document.querySelectorAll('.download-btn');
+            var overlay = document.getElementById('gateOverlay');
+            var closeBtn = overlay ? overlay.querySelector('.gate-close') : null;
+            if (!btns.length || !overlay) return;
+            btns.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    overlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function() {
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            }
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) {
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
         // Footer reveal
         function injectFooter() {
             if (document.querySelector('.footer-reveal')) return;
@@ -1409,6 +1801,7 @@
             loadLenis();
             initWordFade();
             initAccordion();
+            initDownloadGate();
             injectFooter();
         }
 
