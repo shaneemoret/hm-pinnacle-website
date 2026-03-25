@@ -1,6 +1,7 @@
 /* ========================================
    HMP PINNACLE — SERVICE PAGES
-   Open-flow editorial style matching homepage
+   Cinematic editorial consulting aesthetic
+   McKinsey / BCG inspired
    ======================================== */
 
 :root {
@@ -21,7 +22,7 @@
 html { scroll-behavior: smooth; font-size: 16px; }
 body {
     font-family: var(--font-body);
-    color: rgba(255,255,255,0.68);
+    color: rgba(255,255,255,0.55);
     background: var(--navy-darkest);
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
@@ -29,21 +30,31 @@ body {
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 
-/* ── Shell ── */
+/* ========================================
+   SHELL
+   ======================================== */
 .service-shell {
-    width: min(90vw, 1200px);
+    width: 100%;
     margin: 0 auto;
-    padding: 2rem 0 8rem;
+    padding: 0 0 0;
 }
 
-/* ── Nav ── */
+/* ========================================
+   NAVIGATION
+   ======================================== */
 .service-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1.5rem;
-    margin-bottom: 5rem;
-    padding-bottom: 1.5rem;
+    padding: 1.25rem 3rem;
+    background: rgba(6, 20, 37, 0.92);
+    backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(168,212,240,0.06);
 }
 .service-nav-logo {
@@ -57,10 +68,31 @@ a { color: inherit; text-decoration: none; }
 .service-nav-logo-name { color: var(--white); font-size: 0.94rem; font-weight: 700; letter-spacing: 0.24rem; text-transform: uppercase; line-height: 1; }
 .service-nav-logo-tag { color: var(--accent-ice); font-size: 0.54rem; font-weight: 500; letter-spacing: 0.42rem; text-transform: uppercase; line-height: 1; }
 .service-nav-links { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; justify-content: flex-end; }
-.service-nav-link { color: rgba(255,255,255,0.6); font-size: 0.72rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s ease; }
+.service-nav-link {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    position: relative;
+}
+.service-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent-ice);
+    transition: width 0.3s var(--ease-out);
+}
 .service-nav-link:hover { color: var(--accent-ice); }
+.service-nav-link:hover::after { width: 100%; }
 
-/* ── Buttons ── */
+/* ========================================
+   BUTTONS — Sharp rectangles, editorial
+   ======================================== */
 .service-nav-cta,
 .service-btn-primary,
 .service-btn-secondary {
@@ -72,10 +104,10 @@ a { color: inherit; text-decoration: none; }
     border-radius: 0;
     font-family: var(--font-body);
     cursor: pointer;
-    transition: transform 0.3s var(--ease-out), background 0.3s ease, color 0.3s ease;
+    transition: transform 0.3s var(--ease-out), background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 .service-nav-cta {
-    padding: 0.85rem 1.5rem;
+    padding: 0.75rem 1.5rem;
     color: var(--navy-darkest);
     background: var(--accent-ice);
     font-size: 0.72rem;
@@ -83,9 +115,13 @@ a { color: inherit; text-decoration: none; }
     letter-spacing: 2px;
     text-transform: uppercase;
 }
-.service-nav-cta:hover, .service-btn-primary:hover { transform: translateY(-2px); background: var(--accent-frost); }
+.service-nav-cta:hover {
+    transform: translateY(-1px);
+    background: var(--white);
+    box-shadow: 0 8px 24px rgba(168,212,240,0.2);
+}
 .service-btn-primary {
-    padding: 1.1rem 2.5rem;
+    padding: 1.15rem 2.8rem;
     color: var(--navy-darkest);
     background: var(--accent-ice);
     font-size: 0.76rem;
@@ -93,75 +129,49 @@ a { color: inherit; text-decoration: none; }
     letter-spacing: 2px;
     text-transform: uppercase;
 }
+.service-btn-primary:hover {
+    transform: translateY(-2px);
+    background: var(--white);
+    box-shadow: 0 12px 30px rgba(168,212,240,0.25);
+}
 .service-btn-secondary {
-    padding: 1.1rem 2.5rem;
+    padding: 1.15rem 2.8rem;
     color: rgba(255,255,255,0.7);
-    border: 1px solid rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.18);
     background: transparent;
     font-size: 0.76rem;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
-.service-btn-secondary:hover { transform: translateY(-2px); color: var(--white); border-color: rgba(255,255,255,0.3); }
+.service-btn-secondary:hover {
+    transform: translateY(-2px);
+    color: var(--white);
+    border-color: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.04);
+}
 
-/* ── Hero — NO BOX, open flow ── */
+/* ========================================
+   HERO — Full-width cinematic
+   ======================================== */
 .service-hero {
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
-    gap: clamp(3rem, 6vw, 6rem);
-    align-items: center;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    min-height: 100vh;
     padding: 0;
     background: none;
     border: none;
-    margin-bottom: 6rem;
-}
-.service-kicker {
-    color: var(--accent-ice);
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-}
-.service-title {
-    color: var(--white);
-    font-family: var(--font-heading);
-    font-size: clamp(3rem, 5.5vw, 5.2rem);
-    font-weight: 700;
-    line-height: 0.92;
-    letter-spacing: -0.03em;
-    margin-bottom: 1.5rem;
-}
-.service-summary {
-    max-width: 48ch;
-    color: rgba(255,255,255,0.55);
-    font-size: 1.05rem;
-    line-height: 1.85;
-    margin-bottom: 2.5rem;
-}
-.service-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-}
-.service-tag {
-    padding: 0.5rem 1rem;
-    border: 1px solid rgba(168,212,240,0.1);
-    background: transparent;
-    color: var(--accent-ice);
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    line-height: 1;
-}
-
-/* ── Hero Visual ── */
-.service-visual {
-    position: relative;
+    margin-bottom: 0;
     overflow: hidden;
-    min-height: 480px;
+}
+.service-visual {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    min-height: auto;
     background: var(--navy-dark);
     border: none;
 }
@@ -169,17 +179,104 @@ a { color: inherit; text-decoration: none; }
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, transparent 40%, rgba(6,20,37,0.5) 100%);
+    background:
+        linear-gradient(180deg, rgba(6,20,37,0.3) 0%, rgba(6,20,37,0.15) 40%, rgba(6,20,37,0.7) 75%, rgba(6,20,37,0.95) 100%),
+        linear-gradient(90deg, rgba(6,20,37,0.6) 0%, transparent 60%);
     pointer-events: none;
+    z-index: 1;
 }
-.service-visual img { width: 100%; height: 100%; object-fit: cover; }
+.service-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+}
 
-/* ── Sections — open flow with thin dividers ── */
-.service-section {
-    padding-top: 6rem;
-    border-top: 1px solid rgba(168,212,240,0.06);
+/* Hero text overlay */
+.service-hero > div:first-child {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 3rem 6rem;
 }
+.service-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--accent-ice);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+.service-kicker::before {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    background: var(--accent-ice);
+}
+.service-title {
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-size: clamp(3.5rem, 7vw, 6.5rem);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+    max-width: 14ch;
+}
+.service-summary {
+    max-width: 55ch;
+    color: rgba(255,255,255,0.6);
+    font-size: 1.05rem;
+    line-height: 1.85;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+}
+.service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+}
+.service-tag {
+    padding: 0.5rem 1.1rem;
+    border: 1px solid rgba(168,212,240,0.2);
+    background: transparent;
+    color: var(--accent-ice);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    line-height: 1;
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+.service-tag:hover {
+    border-color: rgba(168,212,240,0.4);
+    background: rgba(168,212,240,0.06);
+}
+
+/* ========================================
+   SECTIONS — generous whitespace, editorial flow
+   ======================================== */
+.service-section {
+    padding: 8rem 3rem 0;
+    border-top: none;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.service-section + .service-section {
+    padding-top: 8rem;
+}
+
+/* Section label with horizontal rule */
 .service-section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
     color: var(--accent-ice);
     font-size: 0.68rem;
     font-weight: 600;
@@ -187,6 +284,15 @@ a { color: inherit; text-decoration: none; }
     text-transform: uppercase;
     margin-bottom: 1.5rem;
 }
+.service-section-label::before {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 1px;
+    background: var(--accent-ice);
+}
+
+/* Section heading */
 .service-section-heading {
     max-width: 780px;
     margin-bottom: 0;
@@ -194,82 +300,150 @@ a { color: inherit; text-decoration: none; }
 .service-section-title {
     color: var(--white);
     font-family: var(--font-heading);
-    font-size: clamp(2rem, 3.5vw, 3.2rem);
-    font-weight: 700;
-    line-height: 1.05;
+    font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+    font-weight: 600;
+    line-height: 1.1;
     letter-spacing: -0.02em;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
 }
 .service-section-copy {
     color: rgba(255,255,255,0.55);
     font-size: 1rem;
     line-height: 1.85;
+    max-width: 65ch;
 }
 
-/* ── Card Grid — NO boxes, just content with dividers ── */
+/* Divider between sections */
+.service-section::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: rgba(168,212,240,0.08);
+    margin-bottom: 5rem;
+}
+.service-section:first-of-type::before {
+    display: none;
+}
+/* The hero is not a section, so the first .service-section gets the divider */
+.service-hero + .service-section::before {
+    display: block;
+}
+
+/* ========================================
+   CARD GRID — No borders, thin vertical dividers
+   ======================================== */
 .service-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0;
+    margin-top: 4rem;
 }
 .service-card {
-    padding: 2.5rem 2rem;
+    padding: 0 3rem;
     background: none;
     border: none;
-    border-right: 1px solid rgba(168,212,240,0.06);
+    border-right: 1px solid rgba(168,212,240,0.08);
+    transition: none;
 }
 .service-card:nth-child(3n) { border-right: none; }
 .service-card:first-child { padding-left: 0; }
+.service-card:last-child { padding-right: 0; }
 .service-card h3 {
     color: var(--white);
     font-family: var(--font-heading);
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     font-weight: 600;
-    line-height: 1.15;
-    margin-bottom: 1rem;
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+    transition: color 0.3s ease;
+}
+.service-card:hover h3 {
+    color: var(--accent-ice);
 }
 .service-card p {
-    color: rgba(255,255,255,0.55);
+    color: rgba(255,255,255,0.5);
     font-size: 0.95rem;
     line-height: 1.85;
 }
 
-/* ── Split Panels — NO boxes, open columns ── */
+/* ========================================
+   SPLIT PANELS — Who it's for / Not for
+   Two columns, thin vertical divider, NO boxes
+   ======================================== */
 .service-split {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 .service-panel {
-    padding: 3rem 2.5rem;
+    padding: 0 3.5rem;
     background: none;
     border: none;
-    border-right: 1px solid rgba(168,212,240,0.06);
+    border-right: 1px solid rgba(168,212,240,0.08);
 }
 .service-panel:last-child { border-right: none; }
 .service-panel:first-child { padding-left: 0; }
+.service-panel:last-child { padding-right: 0; }
+
+/* Bullet list */
 .service-list {
     margin: 0;
-    padding-left: 1.1rem;
+    padding-left: 0;
     color: rgba(255,255,255,0.55);
     display: grid;
-    gap: 1rem;
-    list-style: disc;
+    gap: 1.25rem;
+    list-style: none;
 }
-.service-list li { font-size: 0.95rem; line-height: 1.85; }
-.service-list li::marker { color: var(--accent-ice); }
+.service-list li {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    padding-left: 1.25rem;
+    position: relative;
+}
+.service-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 6px;
+    height: 1px;
+    background: var(--accent-ice);
+}
 
-/* ── CTA — NO box, just centered content with thin top border ── */
+/* ========================================
+   CTA — Centered, thin top border, no box
+   ======================================== */
 .service-cta {
-    margin-top: 6rem;
-    padding: 6rem 0 0;
+    margin-top: 0;
+    padding: 8rem 3rem 8rem;
     background: none;
     border: none;
-    border-top: 1px solid rgba(168,212,240,0.06);
     text-align: center;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.service-cta::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: rgba(168,212,240,0.08);
+    margin-bottom: 5rem;
+}
+.service-cta .service-section-label {
+    justify-content: center;
+}
+.service-cta .service-section-label::before {
+    display: none;
 }
 .service-cta .service-section-copy {
-    max-width: 580px;
+    max-width: 55ch;
     margin: 0 auto;
 }
 .service-cta .service-section-title {
@@ -282,42 +456,177 @@ a { color: inherit; text-decoration: none; }
     justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
-    margin-top: 2.5rem;
+    margin-top: 3rem;
 }
 
-/* ── Responsive — Tablet ── */
+/* ========================================
+   RESPONSIVE — Tablet
+   ======================================== */
 @media (max-width: 900px) {
-    .service-shell { width: min(92vw, 1200px); padding-top: 1.5rem; }
-    .service-nav { flex-direction: column; align-items: flex-start; gap: 1rem; margin-bottom: 3rem; }
+    .service-nav {
+        padding: 1rem 1.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
     .service-nav-logo-icon { width: 38px; height: 38px; }
     .service-nav-logo-name { font-size: 0.82rem; letter-spacing: 0.17rem; }
     .service-nav-logo-tag { font-size: 0.52rem; letter-spacing: 0.26rem; }
-    .service-hero { grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 4rem; }
-    .service-grid { grid-template-columns: 1fr; }
-    .service-card { border-right: none; border-bottom: 1px solid rgba(168,212,240,0.06); padding-left: 0; padding-right: 0; }
-    .service-card:last-child { border-bottom: none; }
-    .service-split { grid-template-columns: 1fr; }
-    .service-panel { border-right: none; border-bottom: 1px solid rgba(168,212,240,0.06); padding-left: 0; padding-right: 0; }
-    .service-panel:last-child { border-bottom: none; }
-    .service-visual { min-height: 320px; }
-    .service-section { padding-top: 4rem; }
+
+    .service-hero {
+        min-height: 80vh;
+    }
+    .service-hero > div:first-child {
+        padding: 0 2rem 4rem;
+    }
+    .service-title {
+        font-size: clamp(2.8rem, 10vw, 4.5rem);
+    }
+
+    .service-section {
+        padding: 5rem 2rem 0;
+    }
+    .service-section + .service-section {
+        padding-top: 5rem;
+    }
+    .service-section::before {
+        margin-bottom: 3.5rem;
+    }
+
+    .service-grid { grid-template-columns: 1fr; margin-top: 3rem; }
+    .service-card {
+        border-right: none;
+        border-bottom: 1px solid rgba(168,212,240,0.06);
+        padding: 2rem 0;
+    }
+    .service-card:first-child { padding-top: 0; }
+    .service-card:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .service-split {
+        grid-template-columns: 1fr;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    .service-panel {
+        border-right: none;
+        border-bottom: 1px solid rgba(168,212,240,0.06);
+        padding: 3rem 0;
+    }
+    .service-panel:first-child { padding-top: 0; }
+    .service-panel:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .service-cta {
+        padding: 5rem 2rem 5rem;
+    }
 }
 
-/* ── Responsive — Mobile ── */
+/* ========================================
+   RESPONSIVE — Mobile
+   ======================================== */
 @media (max-width: 640px) {
-    .service-shell { padding: 1rem 0 5rem; }
-    .service-title { font-size: clamp(2.4rem, 10vw, 3.4rem); }
-    .service-hero { margin-bottom: 3rem; }
-    .service-section-title { font-size: clamp(1.6rem, 6vw, 2.2rem); }
-    .service-card { padding: 2rem 0; }
+    .service-hero {
+        min-height: 90vh;
+    }
+    .service-hero > div:first-child {
+        padding: 0 1.5rem 3rem;
+    }
+    .service-title {
+        font-size: clamp(2.4rem, 12vw, 3.5rem);
+    }
+    .service-summary {
+        font-size: 0.95rem;
+    }
+
+    .service-section {
+        padding: 4rem 1.5rem 0;
+    }
+    .service-section + .service-section {
+        padding-top: 4rem;
+    }
+    .service-section::before {
+        margin-bottom: 3rem;
+    }
+
+    .service-section-title { font-size: clamp(1.8rem, 7vw, 2.4rem); }
+
+    .service-card { padding: 1.5rem 0; }
     .service-panel { padding: 2rem 0; }
-    .service-cta { padding-top: 4rem; margin-top: 4rem; }
-    .service-cta-actions { flex-direction: column; }
-    .service-btn-primary, .service-btn-secondary { width: 100%; justify-content: center; }
-    .service-visual { min-height: 240px; }
+
+    .service-cta {
+        padding: 4rem 1.5rem 5rem;
+    }
+    .service-cta-actions {
+        flex-direction: column;
+    }
+    .service-btn-primary,
+    .service-btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
+/* ========================================
+   REDUCED MOTION
+   ======================================== */
 @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
     html { scroll-behavior: auto; }
+}
+
+/* ── Implementation Steps ── */
+.service-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+.service-step {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 2rem;
+    padding: 3rem 0;
+    border-bottom: 1px solid rgba(168,212,240,0.06);
+    align-items: start;
+}
+.service-step:last-child { border-bottom: none; }
+.service-step-num {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent-ice);
+    opacity: 0.3;
+    line-height: 1;
+}
+.service-step-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+.service-step-content p {
+    color: rgba(255,255,255,0.55);
+    font-size: 1rem;
+    line-height: 1.85;
+    max-width: 65ch;
+}
+.service-steps-summary {
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(168,212,240,0.06);
+    font-family: var(--font-heading);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    font-style: italic;
+    max-width: 700px;
+    line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+    .service-step { grid-template-columns: 1fr; gap: 0.5rem; }
+    .service-step-num { font-size: 2rem; }
 }
