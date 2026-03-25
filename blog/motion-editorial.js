@@ -54,6 +54,15 @@
       };
     }
 
+    if (lower.indexOf('ghosting') > -1 || lower.indexOf('culture and trust') > -1) {
+      return {
+        mode: 'trust',
+        heroBadges: ['TRUST', 'CLARITY', 'CULTURE'],
+        sceneLabels: ['Reach Out', 'Respond', 'Decide', 'Close'],
+        sceneCaption: 'Candidate Trust Flow'
+      };
+    }
+
     return {
       mode: 'default',
       heroBadges: ['STRATEGY', 'OPERATIONS', 'EXECUTION'],
@@ -120,6 +129,7 @@
     var baseProfiles = {
       floor: [0.52, 0.64, 0.56, 0.74],
       growth: [0.46, 0.58, 0.68, 0.78],
+      trust: [0.58, 0.66, 0.51, 0.72],
       default: [0.5, 0.58, 0.62, 0.72]
     };
     var profile = baseProfiles[mode] || baseProfiles.default;
@@ -333,7 +343,7 @@
       '    <span>HM Pinnacle Consulting</span>',
       '    <span>People Ops Blueprint</span>',
       '    <a href="../index.html#contact">Contact</a>',
-      '    <a href="../index.html#blog">Insights</a>',
+      '    <a href="index.html">Insights</a>',
       '  </div>',
       '</div>'
     ].join('');

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en" class="lenis lenis-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghosting in the Hiring Process: What It Says About Culture and Trust</title>
+    <meta name="description" content="Why candidate ghosting is rising in hiring, what it signals about conflict avoidance and trust, and how leaders can build a more transparent recruiting culture.">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+    <meta name="author" content="Heather MacKay-Mencheski">
+    <link rel="canonical" href="/blog/ghosting-in-the-hiring-process-what-it-says-about-culture-and-trust.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Ghosting in the Hiring Process: What It Says About Culture and Trust">
+    <meta property="og:description" content="Candidate ghosting is more than bad manners. It signals conflict avoidance, trust breakdowns, and hiring systems that may be losing clarity and momentum.">
+    <meta property="og:url" content="/blog/ghosting-in-the-hiring-process-what-it-says-about-culture-and-trust.html">
+    <meta property="og:image" content="/images/blog-thumbnail-people-ops-blueprint.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ghosting in the Hiring Process: What It Says About Culture and Trust">
+    <meta name="twitter:description" content="Candidate ghosting is more than bad manners. It signals conflict avoidance, trust breakdowns, and hiring systems that may be losing clarity and momentum.">
+    <meta name="twitter:image" content="/images/blog-thumbnail-people-ops-blueprint.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-darkest: #061425;
+            --navy-dark: #0a1f3b;
+            --navy-deep: #081a31;
+            --navy-soft: #112f55;
+            --navy-mid: #163d6e;
+            --accent-ice: #a8d4f0;
+            --accent-frost: #d6ecfb;
+            --white: #ffffff;
+            --text-main: rgba(233, 244, 255, 0.92);
+            --text-soft: rgba(188, 206, 228, 0.84);
+            --line: rgba(168, 212, 240, 0.22);
+            --line-strong: rgba(168, 212, 240, 0.36);
+            --panel: rgba(9, 28, 52, 0.6);
+            --panel-soft: rgba(8, 24, 45, 0.42);
+            --shadow: 0 32px 68px rgba(2, 8, 18, 0.44);
+            --font-heading: 'Playfair Display', Georgia, serif;
+            --font-body: 'Montserrat', 'Segoe UI', sans-serif;
+            --container-max: 1024px;
+            --padding-h: 50px;
+            --padding-v: 100px;
+        }
+
+        html { scroll-behavior: smooth; }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: var(--font-body);
+            color: var(--text-main);
+            background:
+                radial-gradient(120% 90% at 88% -5%, rgba(30, 80, 144, 0.24), transparent 58%),
+                radial-gradient(90% 80% at 5% 14%, rgba(22, 61, 110, 0.34), transparent 52%),
+                linear-gradient(180deg, var(--navy-darkest) 0%, var(--navy-deep) 48%, #050f1f 100%);
+            line-height: 1.75;
+            min-height: 100vh;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background:
+                repeating-linear-gradient(90deg, rgba(168, 212, 240, 0.05) 0 1px, transparent 1px 86px),
+                linear-gradient(120deg, transparent 0%, rgba(168, 212, 240, 0.05) 36%, transparent 64%);
+            opacity: 0.33;
+            animation: factoryDrift 16s linear infinite;
+            z-index: -1;
+        }
+        a {
+            color: inherit;
+            transition: color 0.24s ease;
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(120% 150% at 82% -10%, rgba(168, 212, 240, 0.15), transparent 48%),
+                linear-gradient(138deg, var(--navy-darkest), var(--navy-dark));
+            color: var(--white);
+            padding: 12vh var(--padding-h) calc(var(--padding-v) * 2);
+            border-bottom: 1px solid var(--line);
+        }
+        .hero::before,
+        .hero::after {
+            content: '';
+            position: absolute;
+            pointer-events: none;
+        }
+        .hero::before {
+            width: 360px;
+            height: 360px;
+            right: -90px;
+            top: -130px;
+            border-radius: 50%;
+            border: 1px solid rgba(168, 212, 240, 0.2);
+            box-shadow: 0 0 0 44px rgba(168, 212, 240, 0.03), 0 0 0 92px rgba(168, 212, 240, 0.02);
+            animation: ringPulse 12s ease-in-out infinite;
+        }
+        .hero::after {
+            inset: 0;
+            background: linear-gradient(104deg, transparent 0%, rgba(168, 212, 240, 0.08) 46%, transparent 74%);
+            opacity: 0.75;
+            animation: sweep 9s linear infinite;
+        }
+        .hero-inner,
+        .content,
+        .author-box {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .home-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.86);
+            text-decoration: none;
+            font-size: 0.92rem;
+            border: 1px solid rgba(168, 212, 240, 0.28);
+            border-radius: 999px;
+            padding: 0.4rem 0.85rem;
+            background: rgba(12, 38, 68, 0.52);
+        }
+        .home-link:hover {
+            color: var(--white);
+            border-color: rgba(168, 212, 240, 0.5);
+        }
+        .kicker {
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            font-size: 0.74rem;
+            color: var(--accent-ice);
+            margin: 0 0 0.8rem;
+            font-weight: 600;
+        }
+        h1 {
+            margin: 0;
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 3.7vw, 3.15rem);
+            line-height: 1.14;
+            max-width: 920px;
+            text-wrap: balance;
+        }
+        .meta {
+            margin-top: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+
+        main {
+            padding: 0 var(--padding-h) var(--padding-v);
+        }
+        .content {
+            margin-top: 0;
+            padding: 0;
+            background: transparent;
+        }
+        .answer-box,
+        .checklist,
+        .toc,
+        .cta {
+            background: linear-gradient(145deg, var(--panel), rgba(10, 31, 59, 0.72));
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 1rem 1.2rem 1.05rem;
+            margin: 0;
+        }
+        .snapshot,
+        .takeaways,
+        .pitfalls,
+        .faq,
+        .entity-block {
+            margin: 0;
+        }
+        .rhythm-standard {
+            padding-top: var(--padding-v);
+            padding-bottom: calc(var(--padding-v) * 0.625);
+        }
+        .rhythm-dense {
+            padding-top: calc(var(--padding-v) * 2.65);
+            padding-bottom: calc(var(--padding-v) * 1.25);
+        }
+        .rhythm-faq {
+            padding-top: calc(var(--padding-v) * 1.2);
+            padding-bottom: calc(var(--padding-v) * 1.2);
+        }
+        .content > section,
+        .content > nav {
+            margin: 0;
+        }
+        .content > h2 {
+            margin-top: 150px;
+        }
+        .entity-block {
+            background: var(--panel-soft);
+            border: 1px solid rgba(168, 212, 240, 0.16);
+            border-left: 3px solid var(--accent-ice);
+            border-radius: 10px;
+            padding: 0.8rem 1rem;
+            margin-top: 1.35rem;
+        }
+        h2 {
+            font-family: var(--font-heading);
+            color: var(--white);
+            margin: 2rem 0 0.7rem;
+            font-size: clamp(1.4rem, 2.6vw, 2rem);
+            line-height: 1.25;
+            text-wrap: balance;
+        }
+        h2::after {
+            content: '';
+            display: block;
+            width: 58px;
+            height: 1px;
+            margin-top: 0.62rem;
+            background: linear-gradient(90deg, var(--accent-ice), transparent);
+        }
+        h3 {
+            color: var(--accent-frost);
+            margin: 1.45rem 0 0.5rem;
+            font-size: 1.08rem;
+            line-height: 1.4;
+        }
+        p {
+            margin: 0.75rem 0;
+            font-size: 1rem;
+            color: var(--text-soft);
+        }
+        ul,
+        ol {
+            margin: 0.7rem 0 0.9rem 1.2rem;
+            padding: 0;
+        }
+        li { margin: 0.35rem 0; }
+        li::marker { color: var(--accent-ice); }
+        strong { color: var(--white); }
+
+        .toc {
+            border-left: 3px solid var(--accent-ice);
+        }
+        .toc strong {
+            color: var(--white);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: 0.74rem;
+            font-weight: 700;
+        }
+        .toc a {
+            color: var(--accent-frost);
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(168, 212, 240, 0.3);
+        }
+        .toc a:hover {
+            color: var(--white);
+            border-bottom-color: rgba(168, 212, 240, 0.7);
+        }
+        .toc ul {
+            margin: 0.5rem 0 0 1rem;
+        }
+
+        .author-box {
+            margin-top: var(--padding-v);
+            background: linear-gradient(145deg, rgba(9, 28, 52, 0.76), rgba(10, 31, 59, 0.92));
+            border: 1px solid var(--line-strong);
+            border-radius: 12px;
+            padding: 1rem 1.2rem 1.15rem;
+            box-shadow: var(--shadow);
+        }
+        .author-box h2 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+        .author-box h2::after { display: none; }
+        .author-box a {
+            color: var(--accent-frost);
+        }
+        .author-box a:hover { color: var(--white); }
+
+        .cta {
+            margin-top: 1.75rem;
+            border-left: 3px solid var(--accent-ice);
+        }
+        .checklist {
+            border-left: 3px solid var(--accent-ice);
+        }
+        .checklist h3 {
+            margin-top: 0;
+            color: var(--white);
+        }
+        .checklist ol {
+            margin: 0.6rem 0 0;
+            list-style: none;
+            counter-reset: process-step;
+        }
+        .checklist li {
+            position: relative;
+            margin: 0.5rem 0;
+            padding-left: 2rem;
+            color: var(--text-main);
+        }
+        .checklist li::before {
+            counter-increment: process-step;
+            content: counter(process-step, decimal-leading-zero);
+            position: absolute;
+            left: 0;
+            top: 0.08rem;
+            font-weight: 700;
+            font-size: 0.78rem;
+            color: var(--accent-ice);
+            letter-spacing: 0.05em;
+        }
+        .faq h3 {
+            padding-top: 1rem;
+            margin-top: 1rem;
+            border-top: 1px solid rgba(168, 212, 240, 0.16);
+        }
+        .faq h3:first-of-type {
+            border-top: none;
+            padding-top: 0;
+        }
+        .content a {
+            color: var(--accent-frost);
+        }
+        .content a:hover {
+            color: var(--white);
+        }
+
+        @keyframes factoryDrift {
+            0% { background-position: 0 0, -280px 0; }
+            100% { background-position: 0 0, 280px 0; }
+        }
+        @keyframes ringPulse {
+            0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.78; }
+            50% { transform: translate3d(0, 6px, 0) scale(1.04); opacity: 1; }
+        }
+        @keyframes sweep {
+            0% { transform: translateX(-32%); }
+            100% { transform: translateX(32%); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        @media (max-width: 1060px) {
+            :root {
+                --padding-h: 24px;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .hero {
+                padding-top: 12vh;
+            }
+            .answer-box,
+            .checklist,
+            .toc,
+            .cta,
+            .author-box {
+                padding: 0.9rem 0.95rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="motion-editorial.css">
+    <script src="motion-editorial.js" defer></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Ghosting in the Hiring Process: What It Says About Culture and Trust",
+      "description": "Why candidate ghosting is rising in hiring, what it signals about conflict avoidance and trust, and how leaders can build a more transparent recruiting culture.",
+      "datePublished": "2026-03-25",
+      "dateModified": "2026-03-25",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/blog/ghosting-in-the-hiring-process-what-it-says-about-culture-and-trust.html"
+      },
+      "image": "/images/blog-thumbnail-people-ops-blueprint.jpg",
+      "author": {
+        "@type": "Person",
+        "name": "Heather MacKay-Mencheski",
+        "jobTitle": "Founder and CEO",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "HM Pinnacle Consulting"
+        },
+        "sameAs": "https://www.linkedin.com/pulse/ghosting-hiring-process-what-says-culture-trust-mackay-mencheski-rtysc"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HM Pinnacle Consulting"
+      },
+      "keywords": [
+        "candidate ghosting",
+        "hiring culture",
+        "recruiting trust",
+        "conflict avoidance in hiring",
+        "recruitment communication"
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why are candidates ghosting more often in hiring?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Many early-stage candidate drop-offs stem from conflict avoidance, weak communication habits, long hiring cycles, and unclear expectations rather than simple rudeness alone."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is ghosting just an unprofessional behavior issue?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ghosting is frustrating, but it also signals a broader communication and trust issue in the hiring environment. Treating it only as bad behavior misses the deeper pattern."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What can employers do to reduce candidate ghosting?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Employers can normalize honest exits, model direct communication, shorten the hiring process, set expectations clearly, and ask better motivation questions earlier."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does a long hiring process increase ghosting risk?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Long, slow processes create more room for disengagement, competing opportunities, and silent changes in candidate intent. Faster cycles preserve momentum and clarity."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How should teams handle a candidate who ghosts and later re-engages?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If a candidate returns, leaders can use it as a respectful coaching moment about communication expectations while still deciding whether the fit and trust are strong enough to continue."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <a class="home-link" href="index.html">&#8592; Back to Insights</a>
+            <p class="kicker">Hiring &amp; Culture</p>
+            <h1>Ghosting in the Hiring Process: What It Says About Culture and Trust</h1>
+            <p class="meta">By Heather MacKay-Mencheski | March 25, 2026 | 6-minute read</p>
+        </div>
+    </header>
+
+    <main>
+        <article class="content">
+            <section class="answer-box rhythm-standard" aria-label="Short answer">
+                <strong>Short answer:</strong> Ghosting during recruitment is not just frustrating. It is a signal. It often points to conflict avoidance, weak communication norms, and hiring systems that have not created enough clarity or trust to keep people engaged.
+            </section>
+
+            <section class="takeaways rhythm-standard" aria-label="Executive summary">
+                <h2>Executive Summary</h2>
+                <ul>
+                    <li><strong>Ghosting is becoming a pattern.</strong> Early-stage candidate drop-off is no longer rare across recruiting and HR.</li>
+                    <li><strong>The deeper issue is usually communication discomfort.</strong> Many candidates are avoiding awkward conversations rather than handling them directly.</li>
+                    <li><strong>Leaders can reduce the pattern.</strong> Clear expectations, direct messaging, shorter hiring cycles, and better early-stage questions all help.</li>
+                </ul>
+            </section>
+
+            <section class="snapshot rhythm-standard" aria-label="Audience snapshot">
+                <h2>Who This Is For</h2>
+                <p>HR leaders, recruiters, and operational executives building teams in growth-stage organizations, especially when hiring timelines, specialized roles, and trust between leadership and the candidate pool all matter.</p>
+            </section>
+
+            <section class="takeaways rhythm-standard" aria-label="Top leverage points">
+                <h2>Top 3 Leverage Points</h2>
+                <ol>
+                    <li><strong>Normalize honest exits:</strong> Make it easier for candidates to say no directly instead of disappearing.</li>
+                    <li><strong>Shorten the cycle:</strong> Long, slow hiring sequences create more room for disengagement.</li>
+                    <li><strong>Ask better motivation questions early:</strong> Understanding intent matters as much as evaluating qualifications.</li>
+                </ol>
+            </section>
+
+            <nav class="toc rhythm-standard" aria-label="Table of contents">
+                <strong>In this article:</strong>
+                <ul>
+                    <li><a href="#signal">Ghosting is a cultural signal</a></li>
+                    <li><a href="#conflict-avoidance">Conflict avoidance is the real issue</a></li>
+                    <li><a href="#cost">Why it is costly for everyone</a></li>
+                    <li><a href="#response">How leaders can respond</a></li>
+                    <li><a href="#trust">Trust is the cure</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+
+            <h2 id="signal">Ghosting Isn&rsquo;t Just Rude. It&rsquo;s a Cultural Signal.</h2>
+            <p>Ghosting during recruitment is one of the most frustrating patterns in hiring today. A candidate replies, seems excited, gets into scheduling or even a first interview, and then suddenly disappears.</p>
+            <p>No reply. No explanation. Just silence.</p>
+            <p>Across recruiting and HR, more early-stage candidates are backing out without warning. They no-show interviews, disengage mid-conversation, change their minds after accepting an offer without telling anyone, or vanish after multiple rounds of dialogue.</p>
+            <div class="entity-block">
+                <h3>What this tells us</h3>
+                <p>This is not only a professionalism issue. It is also a signal that communication norms, trust expectations, and hiring culture are shifting.</p>
+            </div>
+
+            <h2 id="conflict-avoidance">Conflict Avoidance Is the Real Issue</h2>
+            <p>Much of this trend comes back to discomfort with confrontation. Many professionals, especially earlier-career candidates, have not been taught how to say, &ldquo;I&rsquo;m no longer interested,&rdquo; or, &ldquo;This is not the right fit for me.&rdquo;</p>
+            <p>So instead of a direct but uncomfortable message, they default to silence.</p>
+            <p>This dynamic shows up beyond recruiting. We see it in sales calls, workplace relationships, and personal communication too. Ghosting has become a coping mechanism for uncomfortable conversations.</p>
+            <section class="checklist rhythm-standard">
+                <h3>What Leaders Should Notice</h3>
+                <ol>
+                    <li>Candidates may be avoiding discomfort more than making a calculated statement.</li>
+                    <li>Silence is often a symptom of weak communication confidence.</li>
+                    <li>Hiring teams that assume bad intent every time can miss the larger pattern.</li>
+                </ol>
+            </section>
+
+            <h2 id="cost">It&rsquo;s Costly For Everyone</h2>
+            <p>When a candidate ghosts, the damage spreads beyond one missed interview. Teams stall while waiting on a no-show. Recruiters lose time and momentum. Internal credibility takes a hit when hiring timelines slip.</p>
+            <p>Most importantly, trust erodes between HR, leadership, and the candidate pool. What looks like a small breakdown in communication becomes a larger breakdown in confidence.</p>
+            <section class="checklist rhythm-standard">
+                <h3>What Ghosting Costs</h3>
+                <ol>
+                    <li>Delayed hiring decisions and slower team execution</li>
+                    <li>Lost recruiter capacity and avoidable rework</li>
+                    <li>Missed timelines that weaken leadership confidence in hiring</li>
+                    <li>A weaker trust foundation between candidates and the organization</li>
+                </ol>
+            </section>
+
+            <h2 id="response">How We Can Respond Instead of Just Complaining</h2>
+            <p>Leaders cannot fix every ghosted interaction. But we can shift the conditions that make it easier for people to disappear.</p>
+            <section class="checklist rhythm-standard">
+                <h3>Practical Response Playbook</h3>
+                <ol>
+                    <li><strong>Normalize honest exits.</strong> In job posts and interviews, make it clear that changing your mind is acceptable as long as it is communicated.</li>
+                    <li><strong>Model directness.</strong> Recruiters and HR teams should use clear, respectful messaging even when declining candidates. That sets the tone.</li>
+                    <li><strong>Coach on communication.</strong> If someone ghosts and later re-engages, use it as a respectful conversation about expectations.</li>
+                    <li><strong>Shorten the hiring cycle.</strong> Tighter, more efficient steps reduce the number of places where disengagement can happen.</li>
+                    <li><strong>Ask better questions early.</strong> Understand motivation, not just qualification, so you spot weak intent sooner.</li>
+                </ol>
+            </section>
+
+            <section class="pitfalls rhythm-standard">
+                <h2>Pitfalls to Avoid</h2>
+                <ul>
+                    <li>Treating ghosting as only a candidate character issue.</li>
+                    <li>Running a long, slow process that leaks momentum.</li>
+                    <li>Setting unclear expectations around next steps and communication.</li>
+                    <li>Responding to re-engagement with frustration instead of clarity.</li>
+                    <li>Screening only for skill while ignoring motivation and seriousness.</li>
+                </ul>
+            </section>
+
+            <h2 id="trust">Ghosting Is a Symptom. Trust Is the Cure.</h2>
+            <p>We cannot eliminate every ghosted interaction. But we can build a hiring culture that values mutual respect, clear expectations, and healthy communication.</p>
+            <p>That work starts with leadership, recruiting, and HR. If the hiring experience is grounded in clarity and trust, candidates are more likely to respond with the same level of respect.</p>
+
+            <section class="cta rhythm-standard">
+                <strong>PS:</strong> If your organization is preparing for growth, whether expanding locations, increasing production, or building specialized teams, this is the moment to evaluate whether your hiring approach is protecting or constraining your strategy.
+                <p><a href="../index.html#contact">Schedule a conversation</a> if that sounds familiar.</p>
+            </section>
+
+            <section class="faq rhythm-faq" id="faq">
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>Why are candidates ghosting more often now?</h3>
+                <p>In many cases it reflects conflict avoidance, discomfort with awkward conversations, unclear expectations, and hiring processes that take too long to maintain momentum.</p>
+
+                <h3>Is ghosting just bad manners?</h3>
+                <p>It is frustrating and unprofessional, but it is also a signal of a broader communication and trust issue. Looking only at manners misses the deeper pattern.</p>
+
+                <h3>How can employers reduce ghosting?</h3>
+                <p>Normalize honest exits, keep communication direct, shorten the hiring process, and ask better early-stage questions about intent and motivation.</p>
+
+                <h3>Why does a long hiring process make ghosting more likely?</h3>
+                <p>The more steps, delays, and ambiguous gaps in the process, the more chances candidates have to disengage silently.</p>
+
+                <h3>How should teams respond if a ghosted candidate comes back?</h3>
+                <p>Use it as a respectful conversation about expectations and trust, then decide whether the fit still makes sense for the role and the team.</p>
+            </section>
+        </article>
+
+        <aside class="author-box" aria-label="Author">
+            <h2>About Heather MacKay-Mencheski</h2>
+            <p>Heather MacKay-Mencheski is Founder and CEO of HM Pinnacle Consulting. She advises growing organizations on hiring systems, leadership infrastructure, and scalable people operations that support healthy expansion.</p>
+            <p>Original source: <a href="https://www.linkedin.com/pulse/ghosting-hiring-process-what-says-culture-trust-mackay-mencheski-rtysc" target="_blank" rel="noopener noreferrer">LinkedIn article</a></p>
+        </aside>
+    </main>
+</body>
+</html>
