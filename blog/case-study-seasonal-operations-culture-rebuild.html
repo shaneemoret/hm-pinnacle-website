@@ -112,27 +112,48 @@
         .nav-logo {
             display: flex;
             align-items: center;
-            gap: 0.6rem;
+            gap: 0.85rem;
         }
-        .nav-logo svg {
-            width: 32px;
-            height: 32px;
+        .nav-logo-mark {
+            width: 50px;
+            height: 50px;
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
         }
-        .nav-logo-text {
+        .nav-logo-mark svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .nav-logo-wordmark {
+            display: flex;
+            flex-direction: column;
+            gap: 0.18rem;
+            min-width: 0;
+        }
+        .nav-logo-name {
             font-family: var(--font-body);
             font-weight: 700;
-            font-size: 0.8rem;
+            font-size: 0.94rem;
             color: var(--text-primary);
-            letter-spacing: 1.5px;
+            letter-spacing: 0.24rem;
             text-transform: uppercase;
-            line-height: 1.2;
+            line-height: 1;
+            white-space: nowrap;
         }
-        .nav-logo-text span {
+        .nav-logo-tag {
             display: block;
-            font-weight: 300;
-            font-size: 0.55rem;
-            letter-spacing: 2px;
-            color: var(--text-muted);
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.54rem;
+            letter-spacing: 0.42rem;
+            color: var(--accent-ice);
+            text-transform: uppercase;
+            line-height: 1;
+            white-space: nowrap;
         }
         .nav-actions {
             display: flex;
@@ -820,31 +841,33 @@
         }
         .footer-brand-mark {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            gap: 1.5rem;
+            justify-content: center;
+            gap: 1rem;
         }
-        .footer-brand-mark svg {
-            width: 80px;
-            height: 80px;
-            opacity: 0.8;
+        .footer-brand-logo {
+            opacity: 1;
+            transform: none;
+            animation: none;
         }
-        .footer-brand-name {
-            font-family: var(--font-heading);
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.9);
-            letter-spacing: -0.02em;
+        .footer-brand-mark .nav-logo-mark {
+            width: 72px;
+            height: 72px;
+            color: rgba(255, 255, 255, 0.95);
         }
-        .footer-brand-name span {
-            display: block;
-            font-family: var(--font-body);
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.4);
-            margin-top: 0.5rem;
+        .footer-brand-mark .nav-logo-wordmark {
+            align-items: flex-start;
+            gap: 0.22rem;
+        }
+        .footer-brand-mark .nav-logo-name {
+            font-size: clamp(1rem, 2.1vw, 1.25rem);
+            letter-spacing: 0.26rem;
+            color: rgba(255, 255, 255, 0.95);
+        }
+        .footer-brand-mark .nav-logo-tag {
+            font-size: 0.6rem;
+            letter-spacing: 0.36rem;
+            color: var(--accent-ice);
         }
         .footer-rule {
             width: 100%;
@@ -1217,6 +1240,10 @@
         }
         @media (max-width: 768px) {
             .site-nav { padding: 0 24px; height: 60px; }
+            .nav-logo { gap: 0.65rem; }
+            .nav-logo-mark { width: 42px; height: 42px; }
+            .nav-logo-name { font-size: 0.74rem; letter-spacing: 0.16rem; }
+            .nav-logo-tag { font-size: 0.46rem; letter-spacing: 0.28rem; }
             .nav-actions a:not(.nav-cta-btn) { display: none; }
             .hero h1 { font-size: clamp(2rem, 7vw, 3.5rem); line-height: 1.04; }
             .content h2 { margin-top: 100px; font-size: clamp(1.5rem, 4vw, 2rem); }
@@ -1243,6 +1270,13 @@
             .before-after-header, .before-after-row { grid-template-columns: 1fr; }
             .data-callout { flex-direction: column; gap: 0.75rem; }
             .pull-quote blockquote { font-size: 1.125rem; }
+            .footer-brand-mark {
+                flex-direction: column;
+                gap: 0.9rem;
+            }
+            .footer-brand-mark .nav-logo-wordmark {
+                align-items: center;
+            }
         }
         @media (max-width: 480px) {
             .author-inner { grid-template-columns: 1fr; }
@@ -1359,25 +1393,27 @@
 
     <!-- NAV -->
     <nav class="site-nav" id="siteNav">
-        <a class="nav-logo" href="../index.html">
-            <svg viewBox="0 0 64 64" fill="none" role="presentation">
-                <g fill="currentColor" opacity="0.92">
-                    <circle cx="8" cy="32" r="2.3"/>
-                    <circle cx="15" cy="18" r="2.1"/>
-                    <circle cx="15" cy="46" r="2.1"/>
-                    <circle cx="32" cy="11" r="2"/>
-                    <circle cx="49" cy="18" r="2.1"/>
-                    <circle cx="56" cy="32" r="2.3"/>
-                    <circle cx="49" cy="46" r="2.1"/>
-                    <circle cx="32" cy="53" r="2"/>
-                </g>
-                <path d="M14 54V10l18 14L50 10v44" stroke="currentColor" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter"/>
-                <path d="M26 54V34M38 54V34M26 43H38" stroke="currentColor" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter"/>
-            </svg>
-            <div class="nav-logo-text">
-                HM Pinnacle
-                <span>Consulting</span>
-            </div>
+        <a class="nav-logo" href="../index.html#hero" aria-label="HM Pinnacle Consulting">
+            <span class="nav-logo-mark" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none" role="presentation">
+                    <g fill="currentColor" opacity="0.92">
+                        <circle cx="8" cy="32" r="2.3"/>
+                        <circle cx="15" cy="18" r="2.1"/>
+                        <circle cx="15" cy="46" r="2.1"/>
+                        <circle cx="32" cy="11" r="2"/>
+                        <circle cx="49" cy="18" r="2.1"/>
+                        <circle cx="56" cy="32" r="2.3"/>
+                        <circle cx="49" cy="46" r="2.1"/>
+                        <circle cx="32" cy="53" r="2"/>
+                    </g>
+                    <path d="M14 54V10l18 14L50 10v44" stroke="currentColor" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter"/>
+                    <path d="M26 54V34M38 54V34M26 43H38" stroke="currentColor" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter"/>
+                </svg>
+            </span>
+            <span class="nav-logo-wordmark">
+                <span class="nav-logo-name">HM Pinnacle</span>
+                <span class="nav-logo-tag">Consulting</span>
+            </span>
         </a>
         <div class="nav-actions">
             <a href="index.html">Insights</a>
@@ -1814,21 +1850,28 @@
             footer.innerHTML = [
                 '<div class="footer-inner">',
                 '  <div class="footer-brand-mark">',
-                '    <svg viewBox="0 0 64 64" fill="none" role="presentation">',
-                '      <g fill="currentColor" opacity="0.92">',
-                '        <circle cx="8" cy="32" r="2.3"/>',
-                '        <circle cx="15" cy="18" r="2.1"/>',
-                '        <circle cx="15" cy="46" r="2.1"/>',
-                '        <circle cx="32" cy="11" r="2"/>',
-                '        <circle cx="49" cy="18" r="2.1"/>',
-                '        <circle cx="56" cy="32" r="2.3"/>',
-                '        <circle cx="49" cy="46" r="2.1"/>',
-                '        <circle cx="32" cy="53" r="2"/>',
-                '      </g>',
-                '      <path d="M14 54V10l18 14L50 10v44" stroke="currentColor" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter"/>',
-                '      <path d="M26 54V34M38 54V34M26 43H38" stroke="currentColor" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter"/>',
-                '    </svg>',
-                '    <div class="footer-brand-name">HM Pinnacle<span>People Infrastructure for Growth</span></div>',
+                '    <a class="nav-logo footer-brand-logo" href="../index.html#hero" aria-label="HM Pinnacle Consulting">',
+                '      <span class="nav-logo-mark" aria-hidden="true">',
+                '        <svg viewBox="0 0 64 64" fill="none" role="presentation">',
+                '          <g fill="currentColor" opacity="0.92">',
+                '            <circle cx="8" cy="32" r="2.3"/>',
+                '            <circle cx="15" cy="18" r="2.1"/>',
+                '            <circle cx="15" cy="46" r="2.1"/>',
+                '            <circle cx="32" cy="11" r="2"/>',
+                '            <circle cx="49" cy="18" r="2.1"/>',
+                '            <circle cx="56" cy="32" r="2.3"/>',
+                '            <circle cx="49" cy="46" r="2.1"/>',
+                '            <circle cx="32" cy="53" r="2"/>',
+                '          </g>',
+                '          <path d="M14 54V10l18 14L50 10v44" stroke="currentColor" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter"/>',
+                '          <path d="M26 54V34M38 54V34M26 43H38" stroke="currentColor" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter"/>',
+                '        </svg>',
+                '      </span>',
+                '      <span class="nav-logo-wordmark">',
+                '        <span class="nav-logo-name">HM Pinnacle</span>',
+                '        <span class="nav-logo-tag">Consulting</span>',
+                '      </span>',
+                '    </a>',
                 '  </div>',
                 '  <hr class="footer-rule">',
                 '  <div class="footer-meta">',
