@@ -226,43 +226,60 @@ main.has-footer-reveal {
     text-align: center;
     gap: 2rem;
 }
-.footer-brand-art {
-    width: min(74vw, 560px);
-    aspect-ratio: 1.25 / 1;
-    position: relative;
-    border-radius: 12px;
-    background:
-        linear-gradient(180deg, rgba(15, 45, 82, 0.66), rgba(4, 12, 23, 0.96)),
-        repeating-linear-gradient(90deg, rgba(168, 212, 240, 0.08) 0 1px, transparent 1px 72px);
-    border: 1px solid rgba(168, 212, 240, 0.2);
-    box-shadow: 0 44px 120px rgba(1, 4, 11, 0.68), inset 0 -16px 42px rgba(6, 20, 37, 0.35);
-    overflow: hidden;
+.footer-brand-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.footer-brand-art::before,
-.footer-brand-art::after {
-    content: "";
-    position: absolute;
-    border-radius: 8px;
+.footer-brand-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: rgba(214, 236, 251, 0.96);
+    text-decoration: none;
 }
-.footer-brand-art::before {
-    inset: 18% 9%;
-    background:
-        linear-gradient(90deg, rgba(168, 212, 240, 0.12) 0 24%, transparent 24% 28%, rgba(168, 212, 240, 0.16) 28% 49%, transparent 49% 53%, rgba(168, 212, 240, 0.11) 53% 73%, transparent 73% 77%, rgba(168, 212, 240, 0.18) 77% 100%),
-        linear-gradient(180deg, transparent 0 66%, rgba(168, 212, 240, 0.23) 66% 68%, transparent 68% 100%);
-    border: 1px solid rgba(168, 212, 240, 0.18);
+.footer-brand-logo .nav-logo-mark {
+    width: 72px;
+    height: 72px;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.96);
 }
-.footer-brand-art::after {
-    width: 14px;
-    height: 14px;
-    left: 16%;
-    bottom: 22%;
-    border-radius: 50%;
-    border: 2px solid rgba(168, 212, 240, 0.65);
-    box-shadow:
-        120px -42px 0 -3px rgba(168, 212, 240, 0.45),
-        246px -18px 0 -4px rgba(168, 212, 240, 0.4),
-        334px -60px 0 -2px rgba(168, 212, 240, 0.48),
-        418px -28px 0 -3px rgba(168, 212, 240, 0.42);
+.footer-brand-logo .nav-logo-mark svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.footer-brand-logo .nav-logo-wordmark {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.22rem;
+    min-width: 0;
+}
+.footer-brand-logo .nav-logo-name {
+    font-family: var(--font-body, "Montserrat", "Segoe UI", sans-serif);
+    font-weight: 700;
+    font-size: clamp(1rem, 2.1vw, 1.25rem);
+    letter-spacing: 0.26rem;
+    color: rgba(255, 255, 255, 0.96);
+    text-transform: uppercase;
+    line-height: 1;
+    white-space: nowrap;
+}
+.footer-brand-logo .nav-logo-tag {
+    display: block;
+    font-family: var(--font-body, "Montserrat", "Segoe UI", sans-serif);
+    font-weight: 500;
+    font-size: 0.6rem;
+    letter-spacing: 0.36rem;
+    color: var(--accent-ice, #a8d4f0);
+    text-transform: uppercase;
+    line-height: 1;
+    white-space: nowrap;
 }
 .footer-rule {
     width: 100%;
@@ -309,12 +326,19 @@ main.has-footer-reveal {
         font-size: 16px;
         gap: 16px;
     }
+    .footer-brand-logo {
+        flex-direction: column;
+        gap: 0.9rem;
+    }
+    .footer-brand-logo .nav-logo-wordmark {
+        align-items: center;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
     .hero-float,
     .scene-container canvas,
-    .footer-brand-art {
+    .footer-brand-logo {
         animation: none !important;
     }
 }
