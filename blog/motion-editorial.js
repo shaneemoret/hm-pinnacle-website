@@ -23,7 +23,7 @@
       return;
     }
     var script = document.createElement('script');
-    script.src = 'https://unpkg.com/@studio-freight/lenis@1.0.42/bundled/lenis.min.js';
+    script.src = 'lenis.min.js';
     script.async = true;
     script.onload = initLenis;
     script.onerror = function() {
