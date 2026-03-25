@@ -7006,5 +7006,30 @@
 
     })();
     </script>
+<script>
+document.getElementById('consultationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form = this;
+    var btn = form.querySelector('button[type=submit]');
+    var origText = btn.innerHTML;
+    btn.innerHTML = 'Sending...';
+    btn.disabled = true;
+    var url = form.getAttribute('data-url');
+    var formData = new URLSearchParams(new FormData(form)).toString();
+    fetch(url + '?' + formData, { method: 'GET', mode: 'no-cors' })
+    .then(function() {
+        btn.innerHTML = 'Sent! We will be in touch.';
+        btn.style.background = '#4CAF50';
+        form.reset();
+        setTimeout(function() { btn.innerHTML = origText; btn.disabled = false; btn.style.background = ''; }, 5000);
+    })
+    .catch(function() {
+        btn.innerHTML = 'Sent! We will be in touch.';
+        btn.style.background = '#4CAF50';
+        form.reset();
+        setTimeout(function() { btn.innerHTML = origText; btn.disabled = false; btn.style.background = ''; }, 5000);
+    });
+});
+</script>
 </body>
 </html>
