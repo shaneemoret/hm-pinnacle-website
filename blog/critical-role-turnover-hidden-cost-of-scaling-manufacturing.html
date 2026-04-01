@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en" class="lenis lenis-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Roles You Can't Afford to Lose: Why Critical-Role Turnover Is the Hidden Cost of Scaling in Manufacturing</title>
+    <meta name="description" content="Critical-role turnover is the most expensive, least-tracked problem in scaling manufacturing. Learn why general retention programs miss it and what to measure instead.">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+    <meta name="author" content="Heather MacKay-Mencheski">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="canonical" href="https://hmpinnacleconsulting.com/blog/critical-role-turnover-hidden-cost-of-scaling-manufacturing.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The Roles You Can't Afford to Lose: Critical-Role Turnover in Manufacturing">
+    <meta property="og:description" content="When manufacturers scale, turnover concentrates in the roles that hurt the most. Most companies aren't tracking the number that actually predicts whether growth will hold.">
+    <meta property="og:url" content="https://hmpinnacleconsulting.com/blog/critical-role-turnover-hidden-cost-of-scaling-manufacturing.html">
+    <meta property="og:image" content="https://hmpinnacleconsulting.com/images/blog-thumbnail-people-ops-blueprint.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Roles You Can't Afford to Lose: Critical-Role Turnover in Manufacturing">
+    <meta name="twitter:description" content="When manufacturers scale, turnover concentrates in the roles that hurt the most. Most companies aren't tracking the number that actually predicts whether growth will hold.">
+    <meta name="twitter:image" content="https://hmpinnacleconsulting.com/images/blog-thumbnail-people-ops-blueprint.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://hmpinnacleconsulting.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://hmpinnacleconsulting.com/blog/index.html" },
+        { "@type": "ListItem", "position": 3, "name": "Critical-Role Turnover in Manufacturing", "item": "https://hmpinnacleconsulting.com/blog/critical-role-turnover-hidden-cost-of-scaling-manufacturing.html" }
+      ]
+    }
+    </script>
+    <style>
+        :root {
+            --navy-darkest: #061425;
+            --navy-dark: #0a1f3b;
+            --navy-deep: #081a31;
+            --navy: #0f2d52;
+            --navy-soft: #112f55;
+            --navy-mid: #163d6e;
+            --navy-light: #1e5090;
+            --accent-ice: #a8d4f0;
+            --accent-frost: #c9e4f7;
+            --accent-snow: #e8f3fc;
+            --white: #ffffff;
+            --off-white: #f4f7fa;
+            --gray-light: #d1d9e6;
+            --gray: #8a96a8;
+            --gold: #c8a96e;
+
+            --surface-1: #061425;
+            --surface-2: #0a1f3b;
+            --surface-3: #0f2d52;
+            --surface-footer: #040b16;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.75);
+            --text-muted: rgba(255, 255, 255, 0.45);
+            --border-subtle: rgba(168, 212, 240, 0.1);
+            --border-medium: rgba(168, 212, 240, 0.2);
+
+            --font-heading: 'Playfair Display', Georgia, serif;
+            --font-body: 'Montserrat', 'Segoe UI', sans-serif;
+
+            --container-max: 1024px;
+            --padding-h: 50px;
+            --padding-v: 100px;
+
+            --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html { scroll-behavior: smooth; }
+        html.lenis, html.lenis body { height: auto; }
+        html.lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-primary);
+            background: var(--surface-1);
+            line-height: 1.75;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: inherit; text-decoration: none; transition: color 0.15s cubic-bezier(0.4, 0, 0.2, 1); }
+        img { max-width: 100%; display: block; }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* NAV */
+        .site-nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 0 var(--padding-h); height: 72px;
+            display: flex; align-items: center; justify-content: space-between;
+            background: linear-gradient(to bottom, var(--surface-1), transparent);
+            transition: background 0.3s ease;
+        }
+        .site-nav.scrolled {
+            background: rgba(6, 20, 37, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 1px 0 rgba(168, 212, 240, 0.1);
+        }
+        .nav-logo { display: flex; align-items: center; gap: 0.85rem; }
+        .nav-logo-mark { width: 50px; height: 50px; flex: 0 0 auto; display: flex; align-items: center; justify-content: center; color: var(--text-primary); }
+        .nav-logo-mark svg { width: 100%; height: 100%; display: block; }
+        .nav-logo-wordmark { display: flex; flex-direction: column; gap: 0.18rem; min-width: 0; }
+        .nav-logo-name { font-family: var(--font-body); font-weight: 700; font-size: 0.94rem; color: var(--text-primary); letter-spacing: 0.24rem; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+        .nav-logo-tag { display: block; font-family: var(--font-body); font-weight: 500; font-size: 0.54rem; letter-spacing: 0.42rem; color: var(--accent-ice); text-transform: uppercase; line-height: 1; white-space: nowrap; }
+        .nav-actions { display: flex; align-items: center; gap: 1.5rem; }
+        .nav-actions a { font-family: var(--font-body); font-size: 0.8125rem; font-weight: 500; color: var(--text-secondary); letter-spacing: -0.01em; }
+        .nav-actions a:hover { color: var(--white); }
+        .nav-cta-btn { font-size: 0.8125rem; font-weight: 500; padding: 0 1.25rem; height: 36px; display: inline-flex; align-items: center; border: 1px solid rgba(168, 212, 240, 0.4); border-radius: 2px; color: var(--accent-ice); transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1); }
+        .nav-cta-btn:hover { background: var(--accent-ice); color: var(--navy-darkest); }
+
+        /* HERO */
+        .hero { position: relative; z-index: 2; padding: 12vh var(--padding-h) calc(var(--padding-v) * 1.5); overflow: hidden; }
+        .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(120% 90% at 88% -5%, rgba(30, 80, 144, 0.24), transparent 58%), linear-gradient(180deg, #0a1f3b 0%, #081a31 100%); border-radius: 0 0 12px 12px; z-index: -1; }
+        .hero-inner { max-width: var(--container-max); margin: 0 auto; position: relative; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2.5rem; font-family: var(--font-body); font-size: 0.75rem; font-weight: 500; letter-spacing: -0.025em; color: var(--text-muted); text-transform: uppercase; }
+        .back-link:hover { color: var(--accent-ice); }
+        .kicker { font-family: var(--font-body); font-size: 0.75rem; font-weight: 500; letter-spacing: -0.025em; text-transform: uppercase; color: var(--accent-ice); margin-bottom: 1.5rem; }
+        .hero h1 { font-family: var(--font-heading); font-size: clamp(2.5rem, 5.5vw, 5.875rem); font-weight: 400; line-height: 0.92; letter-spacing: -0.02em; color: var(--text-primary); max-width: 900px; margin-bottom: 2rem; text-wrap: balance; }
+        .hero h1 em { font-style: italic; color: var(--accent-ice); display: inline-block; margin-right: 0.15em; }
+        .hero-meta { font-family: var(--font-body); font-size: 0.75rem; font-weight: 400; letter-spacing: -0.025em; color: var(--text-muted); margin-bottom: 3rem; }
+        .hero-meta span { margin: 0 0.75rem; opacity: 0.4; }
+        .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 2rem; }
+        .hero-stat { background: var(--surface-2); border-radius: 8px; padding: 1.25rem 1rem; border: 1px solid var(--border-subtle); }
+        .hero-stat-number { font-family: var(--font-heading); font-size: 2.5rem; font-weight: 700; color: var(--accent-ice); line-height: 1; margin-bottom: 0.5rem; }
+        .hero-stat-label { font-size: 0.72rem; font-weight: 500; line-height: 1.5; color: var(--text-secondary); letter-spacing: -0.01em; }
+        @media (max-width: 700px) { .hero-stats { grid-template-columns: repeat(2, 1fr); } }
+
+        /* MAIN CONTENT */
+        main { position: relative; z-index: 2; background: radial-gradient(120% 90% at 88% -5%, rgba(30, 80, 144, 0.24), transparent 58%), radial-gradient(90% 80% at 5% 14%, rgba(22, 61, 110, 0.34), transparent 52%), linear-gradient(180deg, #061425 0%, #081a31 48%, #050f1f 100%); }
+        main.has-footer-reveal { margin-bottom: 100vh; }
+        .content { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--padding-h); }
+
+        .answer-box { margin-top: calc(var(--padding-v) * 1); padding: 2rem 2.5rem; background: var(--surface-2); border-radius: 12px; border-left: 3px solid var(--accent-ice); }
+        .answer-box strong { font-family: var(--font-body); font-size: 0.6875rem; font-weight: 500; letter-spacing: -0.025em; text-transform: uppercase; color: var(--accent-ice); }
+        .answer-box p, .answer-box { font-size: 1rem; line-height: 1.8; color: var(--text-secondary); }
+
+        .content > section, .content > nav, .content > h2, .content > p, .content > div { margin: 0; }
+        .content h2 { font-family: var(--font-heading); font-size: clamp(1.75rem, 3.5vw, 2.625rem); font-weight: 400; line-height: 1.08; letter-spacing: -0.02em; color: var(--text-primary); margin-top: 150px; margin-bottom: 1.5rem; text-wrap: balance; }
+        .content h2 .word { display: inline-block; color: rgba(255, 255, 255, 0.2); transition: color 0.3s cubic-bezier(0.23, 1, 0.32, 1); }
+        .content h2 .word.active { color: var(--text-primary); }
+        .content h3 { font-family: var(--font-body); font-size: 1.125rem; font-weight: 600; color: var(--text-primary); margin-top: 2.5rem; margin-bottom: 0.75rem; line-height: 1.4; }
+        .content p { font-size: 1.125rem; line-height: 1.85; color: var(--text-secondary); margin: 1rem 0; font-weight: 300; }
+        .content p strong { color: var(--text-primary); font-weight: 600; }
+        ul, ol { margin: 0.75rem 0 1rem 1.5rem; padding: 0; }
+        li { font-size: 1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 0.5rem; font-weight: 300; }
+        li strong { color: var(--text-primary); font-weight: 600; }
+
+        /* TAKEAWAYS & SNAPSHOT */
+        .takeaways, .snapshot { margin-top: 3.5rem; padding: 2rem 2.5rem; background: var(--surface-2); border-radius: 12px; border: 1px solid var(--border-subtle); }
+        .takeaways h2, .snapshot h2 { font-family: var(--font-body); font-size: 0.6875rem; font-weight: 500; letter-spacing: -0.025em; text-transform: uppercase; color: var(--accent-ice); margin-top: 0; margin-bottom: 1rem; }
+        .takeaways ul, .takeaways ol { margin-top: 0; }
+        .snapshot p { margin: 0; }
+
+        /* TOC */
+        .toc { margin-top: 3rem; padding: 2rem 2.5rem; background: var(--surface-2); border-radius: 12px; border: 1px solid var(--border-subtle); }
+        .toc-label { font-family: var(--font-body); font-size: 0.6875rem; font-weight: 500; letter-spacing: -0.025em; text-transform: uppercase; color: var(--accent-ice); display: block; margin-bottom: 1rem; }
+        .toc ul { list-style: none; margin: 0; padding: 0; }
+        .toc li { margin-bottom: 0.5rem; font-size: 0.9375rem; }
+        .toc a { color: var(--text-secondary); }
+        .toc a:hover { color: var(--accent-ice); }
+
+        /* ENTITY BLOCK */
+        .entity-block { margin-top: 2rem; padding: 1.5rem 2rem; background: rgba(168, 212, 240, 0.04); border-radius: 8px; border: 1px solid var(--border-subtle); }
+        .entity-block h3 { margin-top: 0; }
+
+        /* DATA CALLOUT */
+        .data-callout { display: flex; align-items: flex-start; gap: 1.5rem; margin: 2.5rem 0; padding: 2rem; background: var(--surface-2); border-radius: 12px; border: 1px solid var(--border-subtle); }
+        .data-callout-number { font-family: var(--font-heading); font-size: 3.5rem; font-weight: 700; color: var(--accent-ice); line-height: 1; flex: 0 0 auto; }
+        .data-callout-text { font-size: 1rem; line-height: 1.8; color: var(--text-secondary); padding-top: 0.5rem; }
+
+        /* PULL QUOTE */
+        .pull-quote { margin: 4rem 0; text-align: center; }
+        .pull-quote blockquote { font-family: var(--font-heading); font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 400; font-style: italic; color: var(--accent-ice); line-height: 1.3; max-width: 700px; margin: 0 auto; }
+        .pull-quote cite { display: block; margin-top: 1rem; font-family: var(--font-body); font-size: 0.75rem; font-weight: 500; color: var(--text-muted); font-style: normal; letter-spacing: -0.025em; }
+
+        /* BEFORE/AFTER */
+        .before-after { margin: 2.5rem 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-subtle); }
+        .before-after-header { display: grid; grid-template-columns: 1fr 1fr; background: var(--surface-3); }
+        .before-after-header span { padding: 1rem 1.5rem; font-size: 0.6875rem; font-weight: 600; letter-spacing: -0.025em; text-transform: uppercase; color: var(--accent-ice); }
+        .before-after-row { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--border-subtle); }
+        .before-after-row div { padding: 1rem 1.5rem; font-size: 0.9375rem; line-height: 1.7; color: var(--text-secondary); }
+        .before-after-row div:first-child { background: rgba(255, 255, 255, 0.02); }
+        .before-after-row div:last-child { background: rgba(168, 212, 240, 0.04); }
+
+        /* CHECKLIST */
+        .checklist { margin: 2.5rem 0; padding: 2rem 2.5rem; background: var(--surface-2); border-radius: 12px; border: 1px solid var(--border-subtle); }
+        .checklist h3 { margin-top: 0; }
+
+        /* TIMELINE */
+        .timeline { margin: 2.5rem 0; padding: 0 0 0 2rem; border-left: 2px solid var(--border-medium); }
+        .timeline-phase { position: relative; padding: 0 0 2.5rem 2rem; }
+        .timeline-phase:last-child { padding-bottom: 0; }
+        .timeline-dot { position: absolute; left: -2.55rem; top: 0.25rem; width: 10px; height: 10px; border-radius: 50%; background: var(--accent-ice); }
+        .timeline-phase-label { font-size: 0.6875rem; font-weight: 500; letter-spacing: -0.025em; text-transform: uppercase; color: var(--accent-ice); margin-bottom: 0.25rem; }
+        .timeline-phase-title { font-family: var(--font-body); font-size: 1.125rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; }
+        .timeline-phase-desc { font-size: 0.9375rem; line-height: 1.8; color: var(--text-secondary); }
+
+        /* PITFALLS */
+        .pitfalls { margin-top: 3rem; padding: 2rem 2.5rem; background: rgba(200, 169, 110, 0.06); border-radius: 12px; border: 1px solid rgba(200, 169, 110, 0.15); }
+        .pitfalls h2 { font-family: var(--font-body); font-size: 0.6875rem; font-weight: 500; letter-spacing: -0.025em; text-transform: uppercase; color: var(--gold); margin-top: 0; margin-bottom: 1rem; }
+        .pitfalls ul { list-style: disc; margin-top: 0; }
+        .pitfalls li { color: var(--text-secondary); }
+
+        /* CTA */
+        .cta-block { margin-top: 4rem; padding: 2.5rem; background: var(--surface-2); border-radius: 12px; border: 1px solid var(--border-medium); text-align: center; }
+        .cta-block strong { font-size: 0.6875rem; font-weight: 500; letter-spacing: -0.025em; text-transform: uppercase; color: var(--accent-ice); }
+        .cta-block p { font-size: 1rem; line-height: 1.8; color: var(--text-secondary); max-width: 600px; margin: 0.75rem auto; }
+        .cta-subtext { font-size: 0.875rem !important; color: var(--text-muted) !important; font-style: italic; }
+        .cta-link { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; font-size: 0.8125rem; font-weight: 500; color: var(--accent-ice); border: 1px solid rgba(168, 212, 240, 0.4); border-radius: 2px; padding: 0.6rem 1.5rem; transition: all 0.15s ease; }
+        .cta-link:hover { background: var(--accent-ice); color: var(--navy-darkest); }
+
+        /* EMAIL CAPTURE */
+        .email-capture { margin-top: 3rem; padding: 2rem 2.5rem; background: var(--surface-2); border-radius: 12px; border: 1px solid var(--border-subtle); text-align: center; }
+        .email-capture h3 { margin-top: 0; font-size: 1rem; }
+        .email-capture p { font-size: 0.9375rem; color: var(--text-secondary); margin-bottom: 1.25rem; }
+        .email-form { display: flex; gap: 0.5rem; max-width: 400px; margin: 0 auto; }
+        .email-form input { flex: 1; padding: 0.6rem 1rem; background: var(--surface-1); border: 1px solid var(--border-medium); border-radius: 2px; color: var(--text-primary); font-family: var(--font-body); font-size: 0.875rem; }
+        .email-form input::placeholder { color: var(--text-muted); }
+        .email-form button { padding: 0.6rem 1.25rem; background: var(--accent-ice); color: var(--navy-darkest); border: none; border-radius: 2px; font-family: var(--font-body); font-size: 0.8125rem; font-weight: 600; cursor: pointer; transition: opacity 0.15s ease; }
+        .email-form button:hover { opacity: 0.85; }
+
+        /* FAQ */
+        .faq { margin-top: 4rem; padding-bottom: 4rem; }
+        .faq h2 { margin-top: 0; }
+        .faq h3 { cursor: default; }
+        .faq-list { margin-top: 1rem; }
+        .faq-item { border-bottom: 1px solid var(--border-subtle); }
+        .faq-trigger { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 1.25rem 0; background: none; border: none; cursor: pointer; text-align: left; }
+        .faq-trigger span:first-child { font-family: var(--font-body); font-size: 1rem; font-weight: 500; color: var(--text-primary); line-height: 1.5; }
+        .faq-icon { font-size: 1.5rem; color: var(--accent-ice); flex: 0 0 auto; margin-left: 1.5rem; }
+        .faq-panel { overflow: hidden; }
+        .faq-panel p { font-size: 0.9375rem; line-height: 1.8; color: var(--text-secondary); padding-bottom: 1.25rem; margin: 0; }
+        .faq-item[data-state="open"] .faq-panel { animation: faqOpen 0.3s ease forwards; }
+        .faq-item[data-state="closed"] .faq-panel { animation: faqClose 0.3s ease forwards; }
+        @keyframes faqOpen { from { max-height: 0; opacity: 0; } to { max-height: var(--accordion-content-height, 500px); opacity: 1; } }
+        @keyframes faqClose { from { max-height: var(--accordion-content-height, 500px); opacity: 1; } to { max-height: 0; opacity: 0; } }
+
+        /* AUTHOR */
+        .author-section { max-width: var(--container-max); margin: 0 auto; padding: 4rem var(--padding-h) 6rem; }
+        .author-inner { display: flex; align-items: flex-start; gap: 2rem; padding: 2rem; background: var(--surface-2); border-radius: 12px; border: 1px solid var(--border-subtle); }
+        .author-photo { width: 80px; height: 80px; border-radius: 50%; overflow: hidden; flex: 0 0 auto; }
+        .author-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .author-label { font-size: 0.6875rem; font-weight: 500; letter-spacing: -0.025em; text-transform: uppercase; color: var(--accent-ice); margin-bottom: 0.25rem; }
+        .author-name { font-family: var(--font-body); font-size: 1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; }
+        .author-bio { font-size: 0.875rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 0.75rem; }
+        .author-link { font-size: 0.75rem; font-weight: 500; color: var(--accent-ice); }
+        .author-link:hover { text-decoration: underline; }
+
+        /* FOOTER */
+        .footer-reveal { position: fixed; bottom: 0; left: 0; right: 0; z-index: 1; background: var(--surface-footer); padding: 3rem var(--padding-h); }
+        .footer-inner { max-width: var(--container-max); margin: 0 auto; }
+        .footer-brand-mark { margin-bottom: 2rem; }
+        .footer-brand-logo .nav-logo-mark { width: 40px; height: 40px; }
+        .footer-rule { border: none; border-top: 1px solid var(--border-subtle); margin-bottom: 1.5rem; }
+        .footer-meta { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; font-size: 0.75rem; color: var(--text-muted); }
+        .footer-meta a { color: var(--text-muted); }
+        .footer-meta a:hover { color: var(--accent-ice); }
+
+        @media (max-width: 700px) {
+            :root { --padding-h: 24px; }
+            .nav-actions a:not(.nav-cta-btn) { display: none; }
+            .hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
+            .content h2 { margin-top: 80px; }
+            .before-after-header, .before-after-row { grid-template-columns: 1fr; }
+            .before-after-row div:first-child { border-bottom: 1px solid var(--border-subtle); }
+            .data-callout { flex-direction: column; gap: 0.75rem; }
+            .author-inner { flex-direction: column; align-items: center; text-align: center; }
+            .email-form { flex-direction: column; }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "The Roles You Can't Afford to Lose: Why Critical-Role Turnover Is the Hidden Cost of Scaling in Manufacturing",
+      "description": "Critical-role turnover is the most expensive, least-tracked problem in scaling manufacturing. Learn why general retention programs miss it and what to measure instead.",
+      "datePublished": "2026-04-01",
+      "dateModified": "2026-04-01",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://hmpinnacleconsulting.com/blog/critical-role-turnover-hidden-cost-of-scaling-manufacturing.html"
+      },
+      "image": "https://hmpinnacleconsulting.com/images/blog-thumbnail-people-ops-blueprint.jpg",
+      "author": {
+        "@type": "Person",
+        "name": "Heather MacKay-Mencheski",
+        "jobTitle": "Founder and CEO",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "HM Pinnacle Consulting"
+        }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HM Pinnacle Consulting",
+        "url": "https://hmpinnacleconsulting.com/"
+      },
+      "keywords": [
+        "critical role turnover",
+        "manufacturing turnover cost",
+        "scaling manufacturing",
+        "employee retention manufacturing",
+        "workforce stability",
+        "people operations manufacturing",
+        "supervisor retention",
+        "tribal knowledge loss"
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is critical-role turnover in manufacturing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Critical-role turnover is the loss of employees in positions your operation can least afford to lose: shift leads, senior operators, maintenance techs, quality leads, and production supervisors. These roles hold tribal knowledge, train new employees, and keep output consistent. Their departure creates disproportionate operational damage compared to general turnover."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does turnover spike when manufacturers scale past 100 employees?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "At that size, the informal systems that held the operation together start breaking. Supervisors get stretched thinner, communication becomes inconsistent, onboarding becomes ad hoc, and the people who used to personally train every new hire can no longer keep up. The strain concentrates in your most capable people first."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does it really cost to lose a critical-role employee in manufacturing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The true cost goes far beyond the standard 1.5x salary estimate. It includes overtime coverage for 3-6 months, quality rejects during the replacement's learning curve, delayed shipments, increased safety incidents from inexperienced workers, and the 6-12 month ramp time before a replacement reaches full productivity. For senior operators and supervisors, the total cost can reach $150,000 to $250,000 per departure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why don't general retention programs work for critical roles?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "General retention programs spread resources evenly across all employees. Critical-role employees leave for different reasons than general turnover: lack of leadership support, no career visibility, being overloaded as the de facto trainer for every new hire, and watching the operation grow past the systems that used to work. These problems require targeted infrastructure, not company-wide perks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What should manufacturers track instead of overall turnover rate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Track critical-role turnover separately: the annualized departure rate of your operationally essential positions. Also track 90-day retention rate for new hires, tenure distribution in critical roles, and internal promotion rate into those roles. These metrics predict operational stability far more accurately than a single company-wide turnover number."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav class="site-nav" id="siteNav">
+        <a class="nav-logo" href="../index.html#hero" aria-label="HM Pinnacle Consulting">
+            <span class="nav-logo-mark" aria-hidden="true">
+                <img src="../images/hmp-logo.png" alt="HM Pinnacle Logo" style="width:100%;height:100%;object-fit:contain;">
+            </span>
+            <span class="nav-logo-wordmark">
+                <span class="nav-logo-name">HM Pinnacle</span>
+                <span class="nav-logo-tag">Consulting</span>
+            </span>
+        </a>
+        <div class="nav-actions">
+            <a href="index.html">Insights</a>
+            <a href="../index.html#services">Services</a>
+            <a href="../index.html#contact" class="nav-cta-btn">Schedule a Conversation</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-inner">
+            <a class="back-link" href="index.html">&larr; Back to Insights</a>
+            <p class="kicker">Workforce Stability &amp; Scaling</p>
+            <h1>The Roles You Can&rsquo;t Afford to Lose: Why Critical-Role Turnover Is the Hidden Cost of Scaling in <em>Manufacturing</em></h1>
+            <p class="hero-meta">Heather MacKay-Mencheski<span>|</span>April 1, 2026<span>|</span>8 min read</p>
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number">6&ndash;12</div>
+                    <div class="hero-stat-label">Months to Rebuild After Losing One Critical-Role Employee</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">5</div>
+                    <div class="hero-stat-label">Hidden Cost Categories Beyond Recruiting Fees</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">75</div>
+                    <div class="hero-stat-label">Employee Threshold Where Informal Systems Start Breaking</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">1</div>
+                    <div class="hero-stat-label">Metric Most Manufacturers Are Not Tracking: Critical-Role Turnover</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+        <article class="content">
+
+            <section class="answer-box" aria-label="Executive summary">
+                <strong>Executive Summary</strong>
+                <p>When manufacturers grow past 75 to 100 employees, turnover does not spread evenly. It concentrates in the roles that matter most: shift leads, senior operators, maintenance techs, quality leads, and production supervisors. These are the people who hold tribal knowledge, train every new hire, and keep output consistent across shifts. Losing them costs far more than a recruiting fee. Most companies track overall turnover rate. Almost none track critical-role turnover separately. That is the number that actually predicts whether growth will hold.</p>
+            </section>
+
+            <section class="takeaways" aria-label="Executive summary takeaways">
+                <h2>Executive Summary</h2>
+                <ul>
+                    <li><strong>Turnover concentrates in the roles that hurt the most.</strong> Growth does not cause even attrition. It puts disproportionate strain on your most operationally critical people.</li>
+                    <li><strong>The real cost is not replacement. It is rebuilding.</strong> Overtime, quality rejects, delayed shipments, safety exposure, and a 6-to-12-month productivity ramp that never shows up on a P&amp;L line.</li>
+                    <li><strong>General retention programs miss the problem.</strong> Critical-role employees leave for different reasons than general turnover. They need targeted infrastructure, not company-wide perks.</li>
+                </ul>
+            </section>
+
+            <section class="snapshot" aria-label="Audience snapshot">
+                <h2>Who This Is For</h2>
+                <p>CEOs, COOs, plant managers, and operations leaders at manufacturing companies between 75 and 500 employees who are growing, adding shifts, opening sites, or navigating leadership transitions&mdash;and starting to feel the strain in the roles they can least afford to lose.</p>
+            </section>
+
+            <section class="takeaways" aria-label="Top leverage points">
+                <h2>Top 3 Leverage Points</h2>
+                <ol>
+                    <li><strong>Identify your critical roles by name.</strong> Not by title. By operational dependency. Which 15 to 20 people, if they left tomorrow, would cause the most damage?</li>
+                    <li><strong>Track critical-role turnover separately.</strong> One number. Reviewed quarterly. This is the metric that tells you whether your growth is sustainable or borrowed.</li>
+                    <li><strong>Build retention infrastructure around those roles.</strong> Not pizza parties. Systems: manager expectations, career visibility, workload protection, and stay-factor analysis.</li>
+                </ol>
+            </section>
+
+            <nav class="toc" aria-label="Table of contents">
+                <span class="toc-label">In this article</span>
+                <ul>
+                    <li><a href="#what-critical-roles-are">What critical roles are (and are not)</a></li>
+                    <li><a href="#why-they-leave-first">Why they are the first to leave during scaling</a></li>
+                    <li><a href="#real-cost">The real cost most companies are not calculating</a></li>
+                    <li><a href="#general-retention-fails">Why general retention programs miss them</a></li>
+                    <li><a href="#what-to-measure">What to measure instead</a></li>
+                    <li><a href="#faq">Frequently asked questions</a></li>
+                </ul>
+            </nav>
+
+            <h2 id="what-critical-roles-are">Critical Roles Are Not What Most Leaders Think They Are</h2>
+            <p>When I say &ldquo;critical roles,&rdquo; most leaders immediately think of their executive team. The VP of operations. The plant manager. The CFO.</p>
+            <p>That is not what I am talking about.</p>
+            <p>The roles that quietly hold a manufacturing operation together are one or two layers below that. They are the shift lead who has been running second shift for eight years and knows every machine&rsquo;s quirks. The senior CNC operator who trains every new hire because nobody else can. The maintenance tech who keeps aging equipment running because they understand the problems the manual does not cover. The quality lead who catches issues before they reach the customer.</p>
+            <p>These people are not in your succession plan. They are usually not in your leadership development pipeline. But they are the ones your operation depends on every single day.</p>
+
+            <div class="entity-block">
+                <h3>How to identify them</h3>
+                <p>Ask yourself one question: if this person gave notice on Friday, what would break by Monday? If the answer involves production delays, quality risk, safety exposure, or the loss of institutional knowledge that no one else carries, that is a critical role. Most manufacturers have 15 to 25 of them. Almost none have identified them formally.</p>
+            </div>
+
+            <div class="data-callout">
+                <div class="data-callout-number">15&ndash;25</div>
+                <div class="data-callout-text">The typical number of operationally critical roles in a mid-market manufacturer. These are the positions where a single departure creates disproportionate disruption to output, quality, safety, and team stability.</div>
+            </div>
+
+            <h2 id="why-they-leave-first">Why Critical-Role Employees Are the First to Leave During Scaling</h2>
+            <p>Here is the pattern I see over and over again.</p>
+            <p>A manufacturer hits a growth inflection. New contracts, new shifts, a second site, maybe an acquisition. Headcount jumps. New people flood in. And the burden of absorbing that growth falls disproportionately on the people who are already the most capable.</p>
+            <p>Your best shift lead is now training three new supervisors while still running their own shift. Your senior operator is covering for positions that have not been filled yet. Your maintenance tech is stretched across more equipment with the same number of hours. Your quality lead is drowning in deviations because new employees do not know the standards yet.</p>
+            <p>None of this shows up on a dashboard. But these people feel it every day. And at some point, they do the math.</p>
+
+            <div class="pull-quote">
+                <blockquote>&ldquo;Your most critical people do not leave because they found a better offer. They leave because the operation grew past the systems that used to support them.&rdquo;</blockquote>
+                <cite>&mdash; Heather MacKay-Mencheski</cite>
+            </div>
+
+            <p>They are not leaving for a competitor who pays ten percent more. They are leaving because the work got harder, the support did not keep up, nobody acknowledged the shift in their workload, and they started to feel like the company they helped build has outgrown them.</p>
+            <p>That is not a compensation problem. That is an infrastructure problem.</p>
+
+            <section class="checklist">
+                <h3>Warning Signs to Watch For</h3>
+                <ol>
+                    <li><strong>Your best people are training everyone else</strong> but no one is developing them.</li>
+                    <li><strong>Overtime is concentrating</strong> in a small group of the same employees, month after month.</li>
+                    <li><strong>Institutional knowledge lives in people&rsquo;s heads,</strong> not in documented systems or standardized processes.</li>
+                    <li><strong>You have open positions that keep recycling</strong> because replacements do not stick past 90 days.</li>
+                    <li><strong>Your critical-role employees have stopped suggesting improvements.</strong> Disengagement precedes departure.</li>
+                </ol>
+            </section>
+
+            <h2 id="real-cost">The Real Cost Most Companies Are Not Calculating</h2>
+            <p>The standard number you will hear is that it costs 1.5 times an employee&rsquo;s salary to replace them. In manufacturing, that number is almost meaningless for critical roles because it only captures recruiting and onboarding. It misses everything that actually hurts.</p>
+
+            <div class="before-after">
+                <div class="before-after-header">
+                    <span>What Companies Track</span>
+                    <span>What Actually Happens</span>
+                </div>
+                <div class="before-after-row">
+                    <div>Recruiting fee and job board cost.</div>
+                    <div>Three to six months of overtime coverage while the position sits open or the replacement ramps up.</div>
+                </div>
+                <div class="before-after-row">
+                    <div>New hire onboarding hours.</div>
+                    <div>Quality rejects and rework during the learning curve that the previous employee would have caught.</div>
+                </div>
+                <div class="before-after-row">
+                    <div>Time to fill the position.</div>
+                    <div>Delayed shipments and missed delivery commitments while the team absorbs the gap.</div>
+                </div>
+                <div class="before-after-row">
+                    <div>Training cost for the replacement.</div>
+                    <div>Increased safety incidents from less experienced workers covering unfamiliar tasks.</div>
+                </div>
+                <div class="before-after-row">
+                    <div>Nothing else.</div>
+                    <div>Six to twelve months before the replacement reaches the productivity level of the person who left.</div>
+                </div>
+            </div>
+
+            <p>For a senior operator, quality lead, or production supervisor, the total operational cost of one departure can reach <strong>$150,000 to $250,000</strong> when you account for all five categories: coverage, quality, delivery, safety, and ramp time.</p>
+            <p>Now multiply that by the five to eight critical-role departures a mid-market manufacturer typically experiences per year. You are looking at <strong>$750,000 to $2 million in annual operational drag</strong> that never appears as a line item. It hides inside overtime budgets, scrap rates, missed-delivery penalties, and the vague sense that &ldquo;we just cannot seem to keep good people.&rdquo;</p>
+
+            <div class="data-callout">
+                <div class="data-callout-number">$150K&ndash;$250K</div>
+                <div class="data-callout-text">Estimated total operational cost of one critical-role departure in manufacturing, including overtime coverage, quality rejects, delivery delays, safety exposure, and the 6-to-12-month productivity ramp for a replacement.</div>
+            </div>
+
+            <h2 id="general-retention-fails">Why General Retention Programs Miss Critical Roles Entirely</h2>
+            <p>Most retention efforts in manufacturing look the same. An annual engagement survey. A company barbecue. A retention bonus that kicks in after a year. Maybe a referral program.</p>
+            <p>These programs are designed to reduce overall turnover. They spread resources evenly across every employee. And they are almost completely irrelevant to the people you most need to keep.</p>
+            <p>Critical-role employees do not leave because they wanted a better break room. They leave because of specific, diagnosable infrastructure gaps:</p>
+
+            <div class="timeline">
+                <div class="timeline-phase">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-phase-label">Gap 1</div>
+                    <div class="timeline-phase-title">No Leadership Support System</div>
+                    <div class="timeline-phase-desc">They were promoted because they were great operators. They were handed a team and given zero leadership infrastructure: no shared expectations, no cadence, no tools, no development path.</div>
+                </div>
+                <div class="timeline-phase">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-phase-label">Gap 2</div>
+                    <div class="timeline-phase-title">No Career Visibility</div>
+                    <div class="timeline-phase-desc">They have maxed out their current role. There is no clear next step. No one has had a conversation about where they go from here. So they look outside.</div>
+                </div>
+                <div class="timeline-phase">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-phase-label">Gap 3</div>
+                    <div class="timeline-phase-title">Workload Concentration</div>
+                    <div class="timeline-phase-desc">They absorb a disproportionate share of training, coverage, and problem-solving because no system distributes that load. They burn out quietly.</div>
+                </div>
+                <div class="timeline-phase">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-phase-label">Gap 4</div>
+                    <div class="timeline-phase-title">No Stay-Factor Analysis</div>
+                    <div class="timeline-phase-desc">No one has asked them what keeps them here, what is getting harder, or what would need to change for them to stay another three years. Exit interviews happen after the damage is done.</div>
+                </div>
+            </div>
+
+            <p>These are not engagement problems. They are systems problems. And they require systems solutions.</p>
+
+            <section class="pitfalls">
+                <h2>Pitfalls to Avoid</h2>
+                <ul>
+                    <li>Tracking only overall turnover rate and assuming a &ldquo;healthy&rdquo; number means your critical roles are stable.</li>
+                    <li>Responding to critical-role departures with counter-offers instead of diagnosing why they were ready to leave.</li>
+                    <li>Assuming compensation is the primary driver. In most cases, it is not even in the top three.</li>
+                    <li>Waiting until someone gives notice to have a retention conversation.</li>
+                    <li>Treating all roles as equally replaceable when building retention budgets.</li>
+                    <li>Running an engagement survey and believing the scores represent your most critical people. They often do not even complete it.</li>
+                </ul>
+            </section>
+
+            <h2 id="what-to-measure">What to Measure Instead</h2>
+            <p>If you are running a manufacturing operation between 75 and 500 employees and you are tracking one retention number, it is probably the wrong one.</p>
+            <p>Overall turnover rate tells you how many people left. It does not tell you which people left, what it cost you operationally, or whether your growth trajectory is at risk.</p>
+            <p>Here is what I tell every operator I work with to start measuring:</p>
+
+            <section class="checklist">
+                <h3>The Four Metrics That Actually Predict Workforce Stability</h3>
+                <ol>
+                    <li><strong>Critical-role turnover rate.</strong> The annualized departure rate of your operationally essential positions. Track it separately. Review it quarterly. This is the number.</li>
+                    <li><strong>90-day retention rate for new hires.</strong> If people are leaving in the first three months, your onboarding system is broken and your critical-role employees are absorbing the churn.</li>
+                    <li><strong>Tenure distribution in critical roles.</strong> Are your most essential people concentrated in one tenure band? If half your shift leads have been here less than a year, you have a stability problem that is about to compound.</li>
+                    <li><strong>Internal promotion rate into critical roles.</strong> Are you developing people into these positions, or are you recruiting externally every time one opens? External hires take longer to reach full productivity and are more likely to leave within the first year.</li>
+                </ol>
+            </section>
+
+            <p>None of these require software. They require discipline. A spreadsheet, a quarterly review, and a leader who is willing to look at the numbers honestly.</p>
+
+            <div class="pull-quote">
+                <blockquote>&ldquo;Most companies track overall turnover rate. Almost none track critical-role turnover separately. That is the number that actually predicts whether growth will hold.&rdquo;</blockquote>
+                <cite>&mdash; Heather MacKay-Mencheski</cite>
+            </div>
+
+            <section class="cta-block">
+                <strong>Next Step</strong>
+                <p>If your organization is scaling and you are starting to feel the strain in the roles that hold your operation together, that is the moment to build retention infrastructure around them&mdash;before the next departure forces you into damage control.</p>
+                <p class="cta-subtext">The cost of one critical-role departure is almost always higher than the cost of preventing it.</p>
+                <a href="../index.html#contact" class="cta-link">Schedule a Conversation &rarr;</a>
+            </section>
+
+            <section class="email-capture">
+                <h3>Stay ahead</h3>
+                <p>Get practical frameworks for workforce stability, people operations, and leadership systems during growth.</p>
+                <form class="email-form" onsubmit="return false;">
+                    <input type="email" placeholder="you@company.com" aria-label="Email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </section>
+
+            <section class="faq" id="faq">
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>What is critical-role turnover in manufacturing?</h3>
+                <p>Critical-role turnover is the loss of employees in positions your operation can least afford to lose: shift leads, senior operators, maintenance techs, quality leads, and production supervisors. These roles hold tribal knowledge, train new employees, and keep output consistent. Their departure creates disproportionate operational damage compared to general turnover.</p>
+
+                <h3>Why does turnover spike when manufacturers scale past 100 employees?</h3>
+                <p>At that size, the informal systems that held the operation together start breaking. Supervisors get stretched thinner, communication becomes inconsistent, onboarding becomes ad hoc, and the people who used to personally train every new hire can no longer keep up. The strain concentrates in your most capable people first.</p>
+
+                <h3>How much does it really cost to lose a critical-role employee in manufacturing?</h3>
+                <p>The true cost goes far beyond the standard 1.5x salary estimate. It includes overtime coverage for three to six months, quality rejects during the replacement&rsquo;s learning curve, delayed shipments, increased safety incidents from inexperienced workers, and the six-to-twelve-month ramp time before a replacement reaches full productivity. For senior operators and supervisors, the total cost can reach $150,000 to $250,000 per departure.</p>
+
+                <h3>Why do general retention programs not work for critical roles?</h3>
+                <p>General retention programs spread resources evenly across all employees. Critical-role employees leave for different reasons than general turnover: lack of leadership support, no career visibility, being overloaded as the de facto trainer for every new hire, and watching the operation grow past the systems that used to work. These problems require targeted infrastructure, not company-wide perks.</p>
+
+                <h3>What should manufacturers track instead of overall turnover rate?</h3>
+                <p>Track critical-role turnover separately: the annualized departure rate of your operationally essential positions. Also track 90-day retention rate for new hires, tenure distribution in critical roles, and internal promotion rate into those roles. These metrics predict operational stability far more accurately than a single company-wide turnover number.</p>
+            </section>
+        </article>
+
+        <aside class="author-section" aria-label="Author">
+            <div class="author-inner">
+                <div class="author-photo">
+                    <img src="../images/heather.jpg" alt="Heather MacKay-Mencheski" loading="lazy">
+                </div>
+                <div>
+                    <p class="author-label">About the Author</p>
+                    <p class="author-name">Heather MacKay-Mencheski</p>
+                    <p class="author-bio">Founder and CEO of HM Pinnacle Consulting. She advises manufacturing, aerospace, and industrial organizations on workforce stability systems, leadership infrastructure, and scalable people operations that protect critical roles during growth.</p>
+                    <a class="author-link" href="https://www.linkedin.com/company/hm-pinnacle-consulting-people-hr-solutions" target="_blank" rel="noopener noreferrer">HM Pinnacle on LinkedIn &rarr;</a>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <script>
+    (function() {
+        var root = document.documentElement;
+        root.classList.add('lenis', 'lenis-smooth');
+
+        function initLenis() {
+            if (!window.Lenis) return;
+            var lenis = new window.Lenis({ duration: 1.15, smoothWheel: true, smoothTouch: false, lerp: 0.08 });
+            function raf(time) { lenis.raf(time); window.requestAnimationFrame(raf); }
+            window.requestAnimationFrame(raf);
+        }
+
+        function loadLenis() {
+            if (window.Lenis) { initLenis(); return; }
+            var script = document.createElement('script');
+            script.src = 'lenis.min.js';
+            script.async = true;
+            script.onload = initLenis;
+            script.onerror = function() { root.classList.remove('lenis', 'lenis-smooth'); };
+            document.head.appendChild(script);
+        }
+
+        var nav = document.getElementById('siteNav');
+        if (nav) {
+            var scrolled = false;
+            window.addEventListener('scroll', function() {
+                var y = window.scrollY || window.pageYOffset;
+                if (y > 50 && !scrolled) { nav.classList.add('scrolled'); scrolled = true; }
+                else if (y <= 50 && scrolled) { nav.classList.remove('scrolled'); scrolled = false; }
+            }, { passive: true });
+        }
+
+        function initWordFade() {
+            var headings = document.querySelectorAll('.content h2');
+            headings.forEach(function(h2) {
+                var text = h2.textContent.trim();
+                var words = text.split(/\s+/);
+                h2.innerHTML = words.map(function(word) {
+                    return '<span class="word">' + word + '</span>';
+                }).join(' ');
+            });
+            function checkWords() {
+                var viewportCenter = window.innerHeight * 0.65;
+                document.querySelectorAll('.content h2 .word').forEach(function(word) {
+                    var rect = word.getBoundingClientRect();
+                    if (rect.top < viewportCenter) { word.classList.add('active'); }
+                });
+            }
+            checkWords();
+            window.addEventListener('scroll', checkWords, { passive: true });
+        }
+
+        function toFaqAccordion(section) {
+            if (!section || section.querySelector('.faq-list')) return;
+            var heading = section.querySelector('h2');
+            var pairs = [];
+            var node = heading ? heading.nextElementSibling : section.firstElementChild;
+            while (node) {
+                if (node.tagName === 'H3') {
+                    var answerNode = node.nextElementSibling;
+                    if (answerNode && answerNode.tagName === 'P') {
+                        pairs.push({ q: node.textContent.trim(), a: answerNode.innerHTML });
+                        node = answerNode;
+                    }
+                }
+                node = node.nextElementSibling;
+            }
+            if (!pairs.length) return;
+            section.querySelectorAll(':scope > h3, :scope > p').forEach(function(el) { el.remove(); });
+            var list = document.createElement('div');
+            list.className = 'faq-list';
+            pairs.forEach(function(item) {
+                var row = document.createElement('div');
+                row.className = 'faq-item';
+                row.dataset.state = 'closed';
+                var trigger = document.createElement('button');
+                trigger.type = 'button';
+                trigger.className = 'faq-trigger';
+                trigger.setAttribute('aria-expanded', 'false');
+                trigger.innerHTML = '<span>' + item.q + '</span><span class="faq-icon">+</span>';
+                var panel = document.createElement('div');
+                panel.className = 'faq-panel';
+                panel.hidden = true;
+                panel.innerHTML = '<p>' + item.a + '</p>';
+                row.appendChild(trigger);
+                row.appendChild(panel);
+                list.appendChild(row);
+            });
+            section.appendChild(list);
+        }
+
+        function initAccordion() {
+            document.querySelectorAll('.faq').forEach(toFaqAccordion);
+            document.querySelectorAll('.faq-item').forEach(function(item) {
+                var trigger = item.querySelector('.faq-trigger');
+                var panel = item.querySelector('.faq-panel');
+                var icon = item.querySelector('.faq-icon');
+                if (!trigger || !panel || !icon) return;
+                trigger.addEventListener('click', function() {
+                    var open = item.dataset.state === 'open';
+                    if (open) {
+                        panel.style.setProperty('--accordion-content-height', panel.scrollHeight + 'px');
+                        item.dataset.state = 'closed';
+                        trigger.setAttribute('aria-expanded', 'false');
+                        icon.textContent = '+';
+                        panel.addEventListener('animationend', function handleClose() {
+                            panel.hidden = true;
+                            panel.removeEventListener('animationend', handleClose);
+                        });
+                        return;
+                    }
+                    panel.hidden = false;
+                    panel.style.setProperty('--accordion-content-height', panel.scrollHeight + 'px');
+                    item.dataset.state = 'open';
+                    trigger.setAttribute('aria-expanded', 'true');
+                    icon.textContent = '\u2212';
+                });
+            });
+        }
+
+        function injectFooter() {
+            if (document.querySelector('.footer-reveal')) return;
+            var footer = document.createElement('footer');
+            footer.className = 'footer-reveal';
+            footer.innerHTML = [
+                '<div class="footer-inner">',
+                '  <div class="footer-brand-mark">',
+                '    <a class="nav-logo footer-brand-logo" href="../index.html#hero" aria-label="HM Pinnacle Consulting">',
+                '      <span class="nav-logo-mark" aria-hidden="true">',
+                '        <img src="../images/hmp-logo.png" alt="HM Pinnacle Logo" style="width:100%;height:100%;object-fit:contain;">',
+                '      </span>',
+                '      <span class="nav-logo-wordmark">',
+                '        <span class="nav-logo-name">HM Pinnacle</span>',
+                '        <span class="nav-logo-tag">Consulting</span>',
+                '      </span>',
+                '    </a>',
+                '  </div>',
+                '  <hr class="footer-rule">',
+                '  <div class="footer-meta">',
+                '    <span>&copy; 2026 HM Pinnacle Consulting</span>',
+                '    <a href="../index.html#contact">Contact</a>',
+                '    <a href="index.html">Insights</a>',
+                '    <a href="https://www.linkedin.com/company/hm-pinnacle-consulting-people-hr-solutions" target="_blank" rel="noopener noreferrer">LinkedIn</a>',
+                '  </div>',
+                '</div>'
+            ].join('');
+            document.body.appendChild(footer);
+            var main = document.querySelector('main');
+            if (main) main.classList.add('has-footer-reveal');
+        }
+
+        function init() {
+            loadLenis();
+            initWordFade();
+            initAccordion();
+            injectFooter();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    })();
+    </script>
+</body>
+</html>
