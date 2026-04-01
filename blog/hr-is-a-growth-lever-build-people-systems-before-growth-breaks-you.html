@@ -126,13 +126,18 @@
             gap: 0.85rem;
         }
         .nav-logo-mark {
-            width: 50px;
-            height: 50px;
+            width: auto;
+            height: 48px;
             flex: 0 0 auto;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--text-primary);
+        }
+        .nav-logo-mark img {
+            height: 100%;
+            width: auto;
+            display: block;
         }
         .nav-logo-mark svg {
             width: 100%;
@@ -140,31 +145,13 @@
             display: block;
         }
         .nav-logo-wordmark {
-            display: flex;
-            flex-direction: column;
-            gap: 0.18rem;
-            min-width: 0;
+            display: none;
         }
         .nav-logo-name {
-            font-family: var(--font-body);
-            font-weight: 700;
-            font-size: 0.94rem;
-            color: var(--text-primary);
-            letter-spacing: 0.24rem;
-            text-transform: uppercase;
-            line-height: 1;
-            white-space: nowrap;
+            display: none;
         }
         .nav-logo-tag {
-            display: block;
-            font-family: var(--font-body);
-            font-weight: 500;
-            font-size: 0.54rem;
-            letter-spacing: 0.42rem;
-            color: var(--accent-ice);
-            text-transform: uppercase;
-            line-height: 1;
-            white-space: nowrap;
+            display: none;
         }
         .nav-actions {
             display: flex;
@@ -862,23 +849,23 @@
             animation: none;
         }
         .footer-brand-mark .nav-logo-mark {
-            width: 72px;
-            height: 72px;
+            width: auto;
+            height: 48px;
             color: rgba(255, 255, 255, 0.95);
+        }
+        .footer-brand-mark .nav-logo-mark img {
+            height: 100%;
+            width: auto;
+            display: block;
         }
         .footer-brand-mark .nav-logo-wordmark {
-            align-items: flex-start;
-            gap: 0.22rem;
+            display: none;
         }
         .footer-brand-mark .nav-logo-name {
-            font-size: clamp(1rem, 2.1vw, 1.25rem);
-            letter-spacing: 0.26rem;
-            color: rgba(255, 255, 255, 0.95);
+            display: none;
         }
         .footer-brand-mark .nav-logo-tag {
-            font-size: 0.6rem;
-            letter-spacing: 0.36rem;
-            color: var(--accent-ice);
+            display: none;
         }
         .footer-rule {
             width: 100%;
@@ -1252,9 +1239,7 @@
         @media (max-width: 768px) {
             .site-nav { padding: 0 24px; height: 60px; }
             .nav-logo { gap: 0.65rem; }
-            .nav-logo-mark { width: 42px; height: 42px; }
-            .nav-logo-name { font-size: 0.74rem; letter-spacing: 0.16rem; }
-            .nav-logo-tag { font-size: 0.46rem; letter-spacing: 0.28rem; }
+            .nav-logo-mark { width: auto; height: 40px; }
             .nav-actions a:not(.nav-cta-btn) { display: none; }
             .hero h1 { font-size: clamp(2rem, 7vw, 3.5rem); line-height: 1.04; }
             .content h2 { margin-top: 100px; font-size: clamp(1.5rem, 4vw, 2rem); }
@@ -1286,7 +1271,7 @@
                 gap: 0.9rem;
             }
             .footer-brand-mark .nav-logo-wordmark {
-                align-items: center;
+                display: none;
             }
         }
         @media (max-width: 480px) {
@@ -1812,11 +1797,7 @@
                 '  <div class="footer-brand-mark">',
                 '    <a class="nav-logo footer-brand-logo" href="../index.html#hero" aria-label="HM Pinnacle Consulting">',
                 '      <span class="nav-logo-mark" aria-hidden="true">',
-                '        <img src="../images/hmp-logo.png" alt="HM Pinnacle Logo" style="width:100%;height:100%;object-fit:contain;">',
-                '      </span>',
-                '      <span class="nav-logo-wordmark">',
-                '        <span class="nav-logo-name">HM Pinnacle</span>',
-                '        <span class="nav-logo-tag">Consulting</span>',
+                '        <img src="../images/hmp-logo.png" alt="HM Pinnacle Logo" style="height:48px;width:auto;display:block;">',
                 '      </span>',
                 '    </a>',
                 '  </div>',

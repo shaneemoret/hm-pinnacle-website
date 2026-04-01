@@ -78,13 +78,19 @@ img {
 }
 
 .nav-logo-mark {
-    width: 48px;
+    width: auto;
     height: 48px;
     flex: 0 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--white);
+}
+
+.nav-logo-mark img {
+    height: 100%;
+    width: auto;
+    display: block;
 }
 
 .nav-logo-mark svg {
@@ -94,29 +100,15 @@ img {
 }
 
 .nav-logo-wordmark {
-    display: flex;
-    flex-direction: column;
-    gap: 0.18rem;
+    display: none;
 }
 
 .nav-logo-name {
-    font-weight: 700;
-    font-size: 0.9rem;
-    color: var(--white);
-    letter-spacing: 0.24rem;
-    text-transform: uppercase;
-    line-height: 1;
-    white-space: nowrap;
+    display: none;
 }
 
 .nav-logo-tag {
-    font-weight: 500;
-    font-size: 0.54rem;
-    letter-spacing: 0.38rem;
-    color: var(--accent-ice);
-    text-transform: uppercase;
-    line-height: 1;
-    white-space: nowrap;
+    display: none;
 }
 
 .nav-links {
@@ -544,18 +536,8 @@ img {
     }
 
     .nav-logo-mark {
-        width: 42px;
-        height: 42px;
-    }
-
-    .nav-logo-name {
-        font-size: 0.74rem;
-        letter-spacing: 0.16rem;
-    }
-
-    .nav-logo-tag {
-        font-size: 0.46rem;
-        letter-spacing: 0.28rem;
+        width: auto;
+        height: 40px;
     }
 
     .hero {
