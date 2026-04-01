@@ -1030,60 +1030,6 @@
             width: 100%;
             max-width: 1200px;
         }
-        .services-spotlight {
-            position: relative;
-            display: grid;
-            grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.88fr);
-            gap: clamp(2rem, 3.8vw, 4.5rem);
-            align-items: stretch;
-            margin-bottom: 1.85rem;
-        }
-        .services-spotlight-media {
-            position: relative;
-            width: 100%;
-            max-width: none;
-            min-height: 100%;
-            justify-self: end;
-            border-radius: 28px;
-            overflow: hidden;
-            aspect-ratio: 0.92 / 1;
-            background: var(--navy);
-            border: 1px solid rgba(168,212,240,0.18);
-            box-shadow: 0 30px 80px rgba(0,0,0,0.28);
-        }
-        .services-spotlight-media::before {
-            content: '';
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            width: 120px;
-            height: 120px;
-            border-top: 1px solid rgba(168,212,240,0.35);
-            border-right: 1px solid rgba(168,212,240,0.35);
-            border-radius: 0 26px 0 0;
-            z-index: 2;
-            pointer-events: none;
-        }
-        .services-spotlight-media::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(6, 20, 37, 0.02) 0%, rgba(6, 20, 37, 0.28) 100%);
-            pointer-events: none;
-        }
-        .services-spotlight-media img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: 42% center;
-        }
-        .services-spotlight-copy {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-width: 0;
-            padding: clamp(0.75rem, 1.5vw, 1.5rem) 0;
-        }
         .services-kicker {
             font-family: var(--font-body);
             font-size: 0.72rem;
@@ -1093,94 +1039,19 @@
             color: var(--gray);
             margin-bottom: 1rem;
         }
-        .services-spotlight-title {
-            font-family: var(--font-heading);
-            font-size: clamp(2.8rem, 5.5vw, 4.5rem);
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            line-height: 1.05;
-            color: var(--white);
-            margin-bottom: 1.5rem;
-            max-width: 11.4ch;
-        }
-        .services-spotlight-title-line {
-            display: block;
-        }
-        .services-spotlight-text {
-            font-size: clamp(1.02rem, 1.45vw, 1.16rem);
-            color: rgba(255,255,255,0.68);
-            line-height: 1.8;
-            max-width: 46ch;
-            margin-bottom: 0;
-        }
-        .services-engagement-board {
-            display: grid;
-            grid-template-columns: minmax(250px, 0.44fr) minmax(0, 1fr);
-            gap: clamp(1.5rem, 2.5vw, 2.5rem);
-            align-items: start;
-            padding: clamp(1.6rem, 2.6vw, 2.5rem);
-            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(168,212,240,0.08) 100%);
-            border: 1px solid rgba(168,212,240,0.14);
-            border-radius: 28px;
-            box-shadow: 0 24px 60px rgba(0,0,0,0.18);
-            margin-bottom: 0;
-        }
-        .services-engagement-copy {
-            min-width: 0;
-        }
-        .services-chip-meta {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
-        .services-chip-question {
-            font-family: var(--font-heading);
-            font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+        .tier-label {
+            font-size: 0.7rem;
             font-weight: 600;
-            color: var(--white);
-            line-height: 1.05;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-ice);
+            margin-bottom: 0.85rem;
         }
-        .services-chip-step {
-            font-size: 0.98rem;
-            line-height: 1.75;
-            color: rgba(255,255,255,0.62);
-            max-width: 28ch;
-        }
-        .services-pill-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.85rem;
-            margin-bottom: 0;
-            align-content: start;
-        }
-        .services-pill {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.95rem 1.15rem;
-            border-radius: 0;
-            border: 1px solid rgba(255,255,255,0.1);
-            background: rgba(6,20,37,0.46);
-            color: var(--white);
-            font-size: 0.92rem;
-            font-weight: 600;
-            line-height: 1.35;
-            box-shadow: none;
-            transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
-        }
-        .services-pill:hover {
-            transform: translateY(-2px);
-            background: rgba(168,212,240,0.12);
-            border-color: rgba(168,212,240,0.35);
-            box-shadow: 0 16px 30px rgba(0,0,0,0.16);
-        }
-        .services-spotlight-note {
-            font-size: 0.96rem;
-            color: rgba(255,255,255,0.65);
-            line-height: 1.8;
-            max-width: 34ch;
+        .tier-includes {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--accent-ice);
+            opacity: 0.7;
         }
         .services-detail-header {
             max-width: 760px;
@@ -1213,9 +1084,7 @@
         .faq-section .section-title {
             color: var(--white);
         }
-        #partner-model {
-            background: var(--navy-dark) !important;
-        }
+        /* partner-model is now inside #services */
         .team .section-container > div > p,
         .blog .section-container > div > p {
             color: rgba(255,255,255,0.68) !important;
@@ -1313,34 +1182,6 @@
         @media (max-width: 900px) {
             #services .section-container {
                 width: 100%;
-            }
-            .services-spotlight {
-                grid-template-columns: 1fr;
-                gap: 1.75rem;
-                margin-bottom: 1.5rem;
-            }
-            .services-spotlight-copy {
-                padding: 0;
-            }
-            .services-spotlight-title {
-                max-width: 12ch;
-            }
-            .services-spotlight-media {
-                justify-self: stretch;
-                aspect-ratio: 1.06 / 1;
-                border-radius: 20px;
-            }
-            .services-engagement-board {
-                grid-template-columns: 1fr;
-                border-radius: 20px;
-                margin-bottom: 3rem;
-            }
-            .services-chip-question {
-                font-size: 1.08rem;
-            }
-            .services-chip-step,
-            .services-spotlight-note {
-                max-width: none;
             }
             .services-grid { grid-template-columns: 1fr; }
         }
@@ -5361,75 +5202,41 @@
     <!-- WHAT WE DO / SERVICES -->
     <section class="section services" id="services">
         <div class="section-container">
-            <div class="services-spotlight">
-                <div class="services-spotlight-copy">
-                    <p class="services-kicker reveal stagger-1">Integrated Leadership + People System</p>
-                    <h2 class="services-spotlight-title reveal stagger-2"><span class="services-spotlight-title-line">People-Centered Systems</span><span class="services-spotlight-title-line">That Drive Performance</span></h2>
-                    <div class="section-divider reveal stagger-3 visible"></div>
-                    <p class="services-spotlight-text reveal stagger-4">HMP is not just consulting or training. We build the integrated leadership and people operations system that supports execution through consulting engagements, project-based implementation, HR Box, and the Leadership Toolbox.</p>
-                </div>
-                <div class="services-spotlight-media reveal reveal-right">
-                    <img src="images/svc-leadership.jpg" alt="Leadership and operations team walking together on a manufacturing floor" width="1280" height="698" loading="lazy" decoding="async">
-                </div>
+            <div class="services-header" style="text-align:center; max-width:760px; margin:0 auto 3.5rem;">
+                <p class="services-kicker reveal stagger-1">Integrated Leadership + People System</p>
+                <h2 class="section-title reveal stagger-2" style="color:var(--white);">People-Centered Systems<br>That Drive Performance</h2>
+                <div class="section-divider center reveal stagger-3"></div>
+                <p class="reveal stagger-4" style="font-size:1.05rem; color:rgba(255,255,255,0.68); line-height:1.8;">We can engage through consulting, project-based implementation, or as a layered system. Smaller organizations often start with the foundation. More complex operations expand into the full ecosystem as they scale.</p>
             </div>
-            <div class="services-engagement-board">
-                <div class="services-engagement-copy reveal stagger-4">
-                    <div class="services-chip-meta">
-                        <span class="services-chip-question">How organizations engage</span>
-                        <span class="services-chip-step">Built to work together or stand alone.</span>
-                    </div>
-                    <p class="services-spotlight-note">Start with the entry point your organization needs now, then layer in the rest as the operating system matures. Every part of the system is designed to strengthen leadership behavior, people execution, and day-to-day accountability.</p>
-                </div>
-                <div class="services-pill-grid reveal stagger-5">
-                    <a class="services-pill" href="services/consulting-engagements.html">Consulting Engagements</a>
-                    <a class="services-pill" href="services/project-based-implementation.html">Project-Based Implementation</a>
-                    <a class="services-pill" href="services/leadership-operating-system.html">Leadership Operating System</a>
-                    <a class="services-pill" href="services/hr-box-infrastructure.html">HR Box Infrastructure</a>
-                    <a class="services-pill" href="services/leadership-toolbox.html">Leadership Toolbox</a>
-                    <a class="services-pill" href="services/cross-border-support.html">Cross-Border Support</a>
-                    <a class="services-pill" href="services/workforce-stability-systems.html">Workforce Stability Systems</a>
-                    <a class="services-pill" href="services/modern-hr-infrastructure.html">Modern HR Infrastructure</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section services" id="partner-model" style="background:var(--off-white);">
-        <div class="section-container">
-            <div class="services-header">
-                <h2 class="section-title reveal stagger-1">How Organizations<br>Partner With HMP</h2>
-                <div class="section-divider center reveal stagger-2"></div>
-                <p class="reveal stagger-3">We can engage through consulting, project-based implementation, or as a layered system. Smaller organizations often start with the foundation. More complex operations expand into the full ecosystem as they scale.</p>
-            </div>
-            <div class="services-grid">
+            <div class="services-grid" id="partner-model">
                 <div class="service-card reveal stagger-1">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
-                    <div style="font-size:0.7rem; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--navy-light); margin-bottom:0.85rem;">Tier 1</div>
+                    <div class="tier-label">Tier 1</div>
                     <h3>Leadership Foundation</h3>
                     <p>Build the HMP Leadership System, Leadership Toolbox, and core leadership resources that create one shared language across the company. Ideal for organizations that need the leadership foundation in place before scaling.</p>
-                    <p style="margin-top:1rem; font-size:0.8rem; color:var(--navy-light);">Includes: Leadership System, Leadership Toolbox, core leadership resources</p>
+                    <p class="tier-includes">Includes: Leadership System, Leadership Toolbox, core leadership resources</p>
                     <a class="tier-link" href="services/leadership-foundation.html">View Service Page <span>&rarr;</span></a>
                 </div>
                 <div class="service-card reveal stagger-2">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
                     </div>
-                    <div style="font-size:0.7rem; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--navy-light); margin-bottom:0.85rem;">Tier 2</div>
+                    <div class="tier-label">Tier 2</div>
                     <h3>Leadership + HR Box</h3>
                     <p>Add HR Box to connect leadership expectations with hiring, onboarding, accountability, and people development systems. Best for organizations stabilizing growth, improving manager consistency, or formalizing people operations.</p>
-                    <p style="margin-top:1rem; font-size:0.8rem; color:var(--navy-light);">Includes: Leadership System, Leadership Toolbox, HR Box</p>
+                    <p class="tier-includes">Includes: Leadership System, Leadership Toolbox, HR Box</p>
                     <a class="tier-link" href="services/leadership-plus-hr-box.html">View Service Page <span>&rarr;</span></a>
                 </div>
                 <div class="service-card reveal stagger-3">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
                     </div>
-                    <div style="font-size:0.7rem; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--navy-light); margin-bottom:0.85rem;">Tier 3</div>
+                    <div class="tier-label">Tier 3</div>
                     <h3>Full HMP Leadership Ecosystem</h3>
                     <p>Deploy the full ecosystem: leadership system, HR Box, Leadership Toolbox, and We Leadership Academy pathways that develop leaders at multiple levels of the organization. Built for multi-site growth, succession, and long-range culture sustainability.</p>
-                    <p style="margin-top:1rem; font-size:0.8rem; color:var(--navy-light);">Includes: Leadership System, Leadership Toolbox, HR Box, We Leadership Academy</p>
+                    <p class="tier-includes">Includes: Leadership System, Leadership Toolbox, HR Box, We Leadership Academy</p>
                     <a class="tier-link" href="services/full-hmp-leadership-ecosystem.html">View Service Page <span>&rarr;</span></a>
                 </div>
             </div>
@@ -5513,22 +5320,7 @@
             <p class="ch-intro">
                 Frontline leadership development, organizational architecture, retention infrastructure, and scalable people systems built for production environments where <strong>supervisor capability directly determines throughput, margin, and safety.</strong>
             </p>
-            <div class="ch-tags">
-                <span class="ch-tag">Shift Operations</span>
-                <span class="ch-tag">Skilled Trades Retention</span>
-                <span class="ch-tag">Supervisor-to-Leader Development</span>
-                <span class="ch-tag">Multi-Site Scaling</span>
-                <span class="ch-tag">M&amp;A Integration</span>
-            </div>
             <div class="mfg-spacer"></div>
-            <!-- CHAPTER 2: THE PROBLEM -->
-            <div class="problem-lead">
-                <p class="problem-lead-text">
-                    In U.S. industrial manufacturing, turnover is not a people problem.<br>
-                    It is an operational crisis hiding in plain sight.
-                </p>
-            </div>
-            <p style="text-align:center; font-size:0.75rem; color:rgba(255,255,255,0.25); margin-bottom:3rem; font-weight:300;">Based on your workforce of <strong style="color:rgba(168,212,240,0.6); font-weight:600;" id="headcountEcho">200</strong> employees at 38% turnover</p>
             <div class="big-stat-stack">
                 <div class="big-stat">
                     <div class="big-stat-number"><span class="ice">38</span>%</div>
