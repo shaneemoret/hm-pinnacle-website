@@ -12,11 +12,11 @@
     <meta property="og:title" content="People Operations Consulting for Manufacturing &amp; Aerospace | HM Pinnacle Consulting">
     <meta property="og:description" content="People operations consulting, HR infrastructure, and leadership systems for manufacturers, aerospace teams, and growth-stage operators.">
     <meta property="og:url" content="https://hmpinnacleconsulting.com/">
-    <meta property="og:image" content="https://hmpinnacleconsulting.com/images/partnership-strategy-room.png">
+    <meta property="og:image" content="https://hmpinnacleconsulting.com/images/blog-thumbnail-people-ops-blueprint.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="People Operations Consulting for Manufacturing &amp; Aerospace | HM Pinnacle Consulting">
     <meta name="twitter:description" content="People operations consulting, HR infrastructure, and leadership systems for manufacturers, aerospace teams, and growth-stage operators.">
-    <meta name="twitter:image" content="https://hmpinnacleconsulting.com/images/partnership-strategy-room.png">
+    <meta name="twitter:image" content="https://hmpinnacleconsulting.com/images/blog-thumbnail-people-ops-blueprint.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -2176,6 +2176,23 @@
             background: #90c6e8;
             transform: translateY(-2px);
         }
+        .form-submit:disabled {
+            cursor: wait;
+            opacity: 0.82;
+            transform: none;
+        }
+        .form-status {
+            min-height: 1.4rem;
+            margin-top: 0.85rem;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.72);
+        }
+        .form-status.is-success {
+            color: #96e2af;
+        }
+        .form-status.is-error {
+            color: #ffb3b3;
+        }
         .form-group input::placeholder,
         .form-group textarea::placeholder {
             color: rgba(255,255,255,0.42);
@@ -2208,19 +2225,34 @@
             align-items: center;
             justify-content: space-between;
             padding: 1.5rem 0;
-            cursor: pointer;
             gap: 1rem;
             transition: color 0.3s var(--ease-out);
+            width: 100%;
+            border: 0;
+            background: transparent;
+            cursor: pointer;
+            text-align: left;
+            color: inherit;
+            font: inherit;
         }
         .faq-question:hover {
             color: var(--accent-ice);
         }
-        .faq-question h4 {
+        .faq-question:focus-visible {
+            outline: 2px solid var(--accent-ice);
+            outline-offset: 6px;
+            color: var(--accent-ice);
+        }
+        .faq-question-text {
             font-family: var(--font-heading);
             font-size: 1.15rem;
             font-weight: 600;
             line-height: 1.4;
             color: var(--white);
+        }
+        .faq-question:hover .faq-question-text,
+        .faq-question:focus-visible .faq-question-text {
+            color: var(--accent-ice);
         }
         .faq-toggle {
             flex-shrink: 0;
@@ -2253,7 +2285,7 @@
             transition: max-height 0.4s var(--ease-out), padding 0.4s var(--ease-out);
         }
         .faq-item.active .faq-answer {
-            max-height: 300px;
+            max-height: var(--faq-answer-height, 300px);
         }
         .faq-answer p {
             padding-bottom: 1.5rem;
@@ -5906,6 +5938,7 @@
                     <button type="submit" class="form-submit">
                         Schedule a Strategic Conversation <span>&rarr;</span>
                     </button>
+                    <p id="consultationFormStatus" class="form-status" role="status" aria-live="polite"></p>
                 </form>
             </div>
         </div>
@@ -5919,65 +5952,65 @@
                 <div class="section-divider center reveal stagger-2"></div>
             </div>
             <div class="faq-item reveal stagger-1">
-                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
-                    <h4>What size organizations do you work with?</h4>
-                    <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-                </div>
-                <div class="faq-answer">
+                <button type="button" class="faq-question" id="faq-question-1" aria-expanded="false" aria-controls="faq-answer-1">
+                    <span class="faq-question-text">What size organizations do you work with?</span>
+                    <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+                </button>
+                <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1" aria-hidden="true">
                     <p>We most often support manufacturing, aerospace, construction, and other industrial organizations from roughly 25 to 500 employees. Smaller organizations usually start with leadership foundation or project-based work when they need structure before scaling. Larger multi-site teams engage us when growth, integration, or cross-border complexity starts straining execution.</p>
                 </div>
             </div>
             <div class="faq-item reveal stagger-2">
-                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
-                    <h4>How long does a typical engagement last?</h4>
-                    <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-                </div>
-                <div class="faq-answer">
+                <button type="button" class="faq-question" id="faq-question-2" aria-expanded="false" aria-controls="faq-answer-2">
+                    <span class="faq-question-text">How long does a typical engagement last?</span>
+                    <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+                </button>
+                <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2" aria-hidden="true">
                     <p>Project-based work can move faster. Full system engagements typically run six to twelve months depending on complexity. M&amp;A integrations and cross-border expansions may run on different timelines. Every engagement has a defined transition point where your team takes full ownership.</p>
                 </div>
             </div>
             <div class="faq-item reveal stagger-3">
-                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
-                    <h4>What makes HM Pinnacle different from other HR consultants?</h4>
-                    <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-                </div>
-                <div class="faq-answer">
+                <button type="button" class="faq-question" id="faq-question-3" aria-expanded="false" aria-controls="faq-answer-3">
+                    <span class="faq-question-text">What makes HM Pinnacle different from other HR consultants?</span>
+                    <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+                </button>
+                <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-question-3" aria-hidden="true">
                     <p>Most firms sell disconnected consulting or one-off training. We do the opposite. We build one integrated leadership and people operating system: leadership language through the HMP Leadership System, practical leader behaviors through the Leadership Toolbox, and HR Box infrastructure that supports hiring, onboarding, accountability, and employee development. We're not selling hours &mdash; we're building capability your team can run.</p>
                 </div>
             </div>
             <div class="faq-item reveal stagger-4">
-                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
-                    <h4>How do the HMP Leadership System and HR Box work together?</h4>
-                    <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-                </div>
-                <div class="faq-answer">
+                <button type="button" class="faq-question" id="faq-question-4" aria-expanded="false" aria-controls="faq-answer-4">
+                    <span class="faq-question-text">How do the HMP Leadership System and HR Box work together?</span>
+                    <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+                </button>
+                <div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-question-4" aria-hidden="true">
                     <p>The HMP Leadership System builds the leadership language and behavioral expectations. HR Box builds the people systems that support it &mdash; hiring, onboarding, accountability, and employee development. Together they create one integrated leadership and people operating system.</p>
                 </div>
             </div>
             <div class="faq-item reveal stagger-5">
-                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
-                    <h4>Do you work on-site or remotely?</h4>
-                    <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-                </div>
-                <div class="faq-answer">
+                <button type="button" class="faq-question" id="faq-question-5" aria-expanded="false" aria-controls="faq-answer-5">
+                    <span class="faq-question-text">Do you work on-site or remotely?</span>
+                    <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+                </button>
+                <div class="faq-answer" id="faq-answer-5" role="region" aria-labelledby="faq-question-5" aria-hidden="true">
                     <p>We start on-site. Always. You can't diagnose people system failures from a conference call. We spend time on your plant floor, with your supervisors, in your facilities. After the build and transition phases, ongoing growth partnership may operate remotely, but the foundational work happens where the work happens.</p>
                 </div>
             </div>
             <div class="faq-item reveal stagger-6">
-                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
-                    <h4>What does the initial consultation look like?</h4>
-                    <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-                </div>
-                <div class="faq-answer">
+                <button type="button" class="faq-question" id="faq-question-6" aria-expanded="false" aria-controls="faq-answer-6">
+                    <span class="faq-question-text">What does the initial consultation look like?</span>
+                    <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+                </button>
+                <div class="faq-answer" id="faq-answer-6" role="region" aria-labelledby="faq-question-6" aria-hidden="true">
                     <p>A focused 30-minute conversation with the CEO, founder, or operational leader. We learn where your business is headed, what's creating friction on the people side, and whether our model is the right fit. No pitch deck. No pressure. Just a direct conversation about what's ahead and what it would take to get the leadership and people system ready.</p>
                 </div>
             </div>
             <div class="faq-item reveal">
-                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
-                    <h4>What industries do you specialize in?</h4>
-                    <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-                </div>
-                <div class="faq-answer">
+                <button type="button" class="faq-question" id="faq-question-7" aria-expanded="false" aria-controls="faq-answer-7">
+                    <span class="faq-question-text">What industries do you specialize in?</span>
+                    <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+                </button>
+                <div class="faq-answer" id="faq-answer-7" role="region" aria-labelledby="faq-question-7" aria-hidden="true">
                     <p>Manufacturing, aerospace, construction, and other operationally intensive environments where frontline leadership, safety, compliance, and workforce stability directly impact output. We understand shift structures, skilled labor shortages, cross-functional coordination, and the leadership challenges of scaling real operations.</p>
                 </div>
             </div>
@@ -6670,29 +6703,103 @@
     })();
     </script>
 <script>
-document.getElementById('consultationForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    var form = this;
+(function() {
+    var form = document.getElementById('consultationForm');
+    if (!form) return;
+
     var btn = form.querySelector('button[type=submit]');
-    var origText = btn.innerHTML;
-    btn.innerHTML = 'Sending...';
-    btn.disabled = true;
-    var url = form.getAttribute('data-url');
-    var formData = new URLSearchParams(new FormData(form)).toString();
-    fetch(url + '?' + formData, { method: 'GET', mode: 'no-cors' })
-    .then(function() {
-        btn.innerHTML = 'Sent! We will be in touch.';
-        btn.style.background = '#4CAF50';
-        form.reset();
-        setTimeout(function() { btn.innerHTML = origText; btn.disabled = false; btn.style.background = ''; }, 5000);
-    })
-    .catch(function() {
-        btn.innerHTML = 'Sent! We will be in touch.';
-        btn.style.background = '#4CAF50';
-        form.reset();
-        setTimeout(function() { btn.innerHTML = origText; btn.disabled = false; btn.style.background = ''; }, 5000);
+    var statusEl = document.getElementById('consultationFormStatus');
+    var origText = btn ? btn.innerHTML : '';
+
+    function setStatus(message, type) {
+        if (!statusEl) return;
+        statusEl.textContent = message || '';
+        statusEl.className = 'form-status' + (type ? ' is-' + type : '');
+    }
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (!btn) return;
+
+        btn.innerHTML = 'Sending...';
+        btn.disabled = true;
+        form.setAttribute('aria-busy', 'true');
+        setStatus('Sending your request...', '');
+
+        var url = form.getAttribute('data-url');
+        var formData = new URLSearchParams(new FormData(form)).toString();
+
+        fetch(url, {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+                'Accept': 'text/plain'
+            },
+            body: formData
+        })
+        .then(function(response) {
+            if (!response.ok) {
+                throw new Error('Request failed with status ' + response.status);
+            }
+            return response.text();
+        })
+        .then(function(text) {
+            var trimmed = (text || '').trim();
+            if (trimmed && !/(ok|success|submitted|active)/i.test(trimmed)) {
+                throw new Error('Unexpected response: ' + trimmed);
+            }
+
+            btn.innerHTML = 'Sent! We will be in touch.';
+            btn.style.background = '#4CAF50';
+            setStatus('Thanks. Your request was sent successfully and we will be in touch soon.', 'success');
+            form.reset();
+
+            setTimeout(function() {
+                btn.innerHTML = origText;
+                btn.disabled = false;
+                btn.style.background = '';
+                form.removeAttribute('aria-busy');
+            }, 5000);
+        })
+        .catch(function(error) {
+            console.error('Consultation form submission failed:', error);
+            btn.innerHTML = origText;
+            btn.disabled = false;
+            btn.style.background = '';
+            form.removeAttribute('aria-busy');
+            setStatus('We could not send your request right now. Please email support@hmpinnacleconsulting.com or try again in a moment.', 'error');
+        });
     });
-});
+})();
+
+(function() {
+    var faqButtons = document.querySelectorAll('.faq-question');
+    if (!faqButtons.length) return;
+
+    faqButtons.forEach(function(button) {
+        var item = button.closest('.faq-item');
+        var answerId = button.getAttribute('aria-controls');
+        var answer = answerId ? document.getElementById(answerId) : null;
+
+        if (!item || !answer) return;
+
+        button.addEventListener('click', function() {
+            var isOpen = button.getAttribute('aria-expanded') === 'true';
+            var nextState = !isOpen;
+
+            button.setAttribute('aria-expanded', String(nextState));
+            answer.setAttribute('aria-hidden', String(!nextState));
+            item.classList.toggle('active', nextState);
+
+            if (nextState) {
+                item.style.setProperty('--faq-answer-height', answer.scrollHeight + 'px');
+            } else {
+                item.style.removeProperty('--faq-answer-height');
+            }
+        });
+    });
+})();
 
 /* ── Service Finder interactive logic ── */
 (function() {
