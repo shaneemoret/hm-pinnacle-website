@@ -227,6 +227,20 @@
         .related-reading ul, .source-notes ul { margin-left: 1.2rem; }
         .related-reading a { color: var(--accent-frost); text-decoration: underline; text-underline-offset: 0.16em; }
         .related-reading a:hover { color: var(--white); }
+        .framework-table {
+            width: 100%; border-collapse: collapse; min-width: 720px;
+        }
+        .framework-table th,
+        .framework-table td {
+            padding: 1rem 1.1rem; border: 1px solid var(--border-subtle);
+            text-align: left; vertical-align: top; color: var(--text-soft);
+            font-size: 0.96rem; line-height: 1.65;
+        }
+        .framework-table th {
+            color: var(--accent-ice); background: rgba(168, 212, 240, 0.05);
+            font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+        }
+        .framework-table-wrap { overflow-x: auto; }
         .faq-list { margin-top: 1rem; border-top: 1px solid var(--border-subtle); }
         .faq-item { padding: 1.2rem 0; border-bottom: 1px solid var(--border-subtle); }
         .faq-item h3 { margin-top: 0; margin-bottom: 0.5rem; font-size: 1.05rem; }
@@ -363,6 +377,46 @@
             <h2 id="youre-the-talent-brand">You Are the Talent Brand for the Plant</h2>
             <p>HR leaders spend so much time coaching others to polish their LinkedIn and strengthen the employer brand. Honestly, our own profiles are often the last to get attention. That gap matters more in manufacturing, where employer brand is rarely loud, candidates rely on signals that are easier to find, and the HR leader is often the most accessible representation of what working there feels like.</p>
             <p>When your profile is current, specific, and results-oriented, several things happen at once. Candidates feel more confident before they ever apply. Internal referrals get easier to make because employees can point friends and family to a credible profile. Operations leaders inside your own company quietly raise their estimate of HR's strategic value. And vendors, peers, and partners treat you as someone worth bringing into bigger conversations.</p>
+
+            <section class="framework-table-wrap" id="hr-leadership-presence-comparison" aria-label="HR leadership presence comparison for growing manufacturing companies">
+                <span class="section-label">Comparison Chart</span>
+                <table class="framework-table">
+                    <thead>
+                        <tr>
+                            <th>Profile area</th>
+                            <th>Generic HR profile</th>
+                            <th>People operations credibility signal</th>
+                            <th>Why it matters in manufacturing</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Headline</strong></td>
+                            <td>Lists only title and company.</td>
+                            <td>Names manufacturing, workforce stability, supervisor development, or growth-stage HR ownership.</td>
+                            <td>Candidates and executives understand the kind of people system the HR leader is building.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>About section</strong></td>
+                            <td>Reads like a resume summary.</td>
+                            <td>Explains the leader's point of view on hiring, retention, culture, and plant-floor leadership.</td>
+                            <td>The profile becomes evidence of how the company thinks about people, not just compliance.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Experience</strong></td>
+                            <td>Lists responsibilities such as employee relations, recruiting, and benefits.</td>
+                            <td>Shows outcomes: reduced turnover, faster onboarding, stronger supervisor rhythm, safer expansion.</td>
+                            <td>Results help candidates, referrals, and operators trust that HR is connected to real work.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Featured proof</strong></td>
+                            <td>No featured media or only generic company posts.</td>
+                            <td>Includes talks, articles, initiatives, case examples, or workforce stability resources.</td>
+                            <td>Manufacturing people work is often invisible until the leader makes it visible.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
 
             <h2 id="five-upgrades">Five Upgrades Manufacturing HR Leaders Can Make This Week</h2>
             <p>None of these require turning yourself into a content creator. They turn the profile into a working asset.</p>

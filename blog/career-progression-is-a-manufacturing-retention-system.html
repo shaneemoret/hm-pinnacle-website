@@ -266,6 +266,20 @@
         .related-reading ul, .source-notes ul { margin-left: 1.2rem; }
         .related-reading a { color: var(--accent-frost); text-decoration: underline; text-underline-offset: 0.16em; }
         .related-reading a:hover { color: var(--white); }
+        .framework-table {
+            width: 100%; border-collapse: collapse; min-width: 720px;
+        }
+        .framework-table th,
+        .framework-table td {
+            padding: 1rem 1.1rem; border: 1px solid var(--border-subtle);
+            text-align: left; vertical-align: top; color: var(--text-soft);
+            font-size: 0.96rem; line-height: 1.65;
+        }
+        .framework-table th {
+            color: var(--accent-ice); background: rgba(168, 212, 240, 0.05);
+            font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+        }
+        .framework-table-wrap { overflow-x: auto; }
         .faq-list { margin-top: 1rem; border-top: 1px solid var(--border-subtle); }
         .faq-item { padding: 1.2rem 0; border-bottom: 1px solid var(--border-subtle); }
         .faq-item h3 { margin-top: 0; margin-bottom: 0.5rem; font-size: 1.05rem; }
@@ -397,6 +411,46 @@
             </ul>
             <p>The candidates worth retaining are listening for those answers. If they do not hear them in the interview or in the first weeks on the floor, they read that silence as an answer. The honest version of the message they receive is, "we have not thought about it, and we may not."</p>
             <p>Manufacturers do not need to invent perfect career ladders to fix this. They need to be specific about what already exists. Most plants have more progression than they advertise. Lead operators, trainers, set-up technicians, planners, schedulers, quality, supervision, and project work are real paths. The retention move is putting those options on the table during hiring instead of leaving the candidate to guess.</p>
+
+            <section class="framework-table-wrap" id="career-progression-comparison" aria-label="Career progression comparison for growing manufacturing companies">
+                <span class="section-label">Comparison Chart</span>
+                <table class="framework-table">
+                    <thead>
+                        <tr>
+                            <th>People operations area</th>
+                            <th>Ad hoc manufacturing retention</th>
+                            <th>Career progression system</th>
+                            <th>Operational signal to watch</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Hiring</strong></td>
+                            <td>Role is sold as a job, shift, and pay rate.</td>
+                            <td>Candidate sees the next two possible paths before accepting.</td>
+                            <td>Early quits, offer declines, and candidates asking whether there is room to grow.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Onboarding</strong></td>
+                            <td>New hire learns the station but not the future.</td>
+                            <td>Ramp plan names skills, certifications, trainers, and realistic next steps.</td>
+                            <td>Time-to-productivity, training completion, and confidence after 30 to 90 days.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Supervisor one-on-ones</strong></td>
+                            <td>Supervisor runs status updates and correction conversations.</td>
+                            <td>Employee leads the growth conversation while the supervisor coaches and removes friction.</td>
+                            <td>Disengagement, transfer requests, and missed chances to stretch high-potential people.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Retention</strong></td>
+                            <td>Bonuses or counteroffers arrive after the employee has already detached.</td>
+                            <td>Progression, recognition, and challenge are visible before a resignation is forming.</td>
+                            <td>Critical-role turnover, trainer burnout, overtime, and institutional knowledge loss.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
 
             <h2 id="no-path-no-retention">If There Is No Path, There Is No Retention</h2>
             <p>People do not leave companies. They leave stagnation. When employees feel like there is no room to grow, or worse, no support from leadership to help them grow, disengagement happens fast. In manufacturing, that disengagement reads on the floor as quieter handoffs, slower training partners, fewer suggestions, and rising tolerance for shortcuts.</p>
