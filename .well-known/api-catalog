@@ -1,0 +1,26 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://hmpinnacleconsulting.com/",
+      "service-doc": [
+        {
+          "href": "https://hmpinnacleconsulting.com/llms.txt",
+          "type": "text/plain",
+          "title": "HM Pinnacle Consulting AI-readable site summary"
+        }
+      ],
+      "describedby": [
+        {
+          "href": "https://hmpinnacleconsulting.com/sitemap.xml",
+          "type": "application/xml",
+          "title": "HM Pinnacle Consulting sitemap"
+        },
+        {
+          "href": "https://hmpinnacleconsulting.com/robots.txt",
+          "type": "text/plain",
+          "title": "HM Pinnacle Consulting robots.txt"
+        }
+      ]
+    }
+  ]
+}
