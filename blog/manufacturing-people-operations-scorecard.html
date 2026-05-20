@@ -381,6 +381,26 @@
             margin-bottom: 0;
             font-size: 0.98rem;
         }
+        .author-profile {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        .author-profile img {
+            width: 96px;
+            height: 96px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid var(--border-subtle);
+            flex: 0 0 auto;
+        }
+        .author-profile h3 {
+            margin-top: 0;
+            margin-bottom: 0.45rem;
+        }
+        .author-profile p {
+            margin-bottom: 0;
+        }
         .pull-quote {
             margin: 3rem 0;
             padding: 2rem;
@@ -444,6 +464,9 @@
             .scorecard-strip,
             .metric-grid {
                 grid-template-columns: 1fr;
+            }
+            .author-profile {
+                flex-direction: column;
             }
             h1 {
                 font-size: clamp(2.4rem, 14vw, 4rem);
@@ -738,6 +761,17 @@
 
             <h3>Who should own the scorecard?</h3>
             <p>HR should not own it alone. A useful scorecard is shared by HR, operations, plant leadership, and executives. HR may maintain the data, but the decisions belong to the operating team.</p>
+        </section>
+
+        <section class="source-notes" aria-label="About the author">
+            <span class="section-label">About the Author</span>
+            <div class="author-profile">
+                <img src="../images/heather.jpg" alt="Heather MacKay-Mencheski, Founder and CEO of HM Pinnacle Consulting" loading="lazy">
+                <div>
+                    <h3>Heather MacKay-Mencheski</h3>
+                    <p>Heather MacKay-Mencheski is the Founder and CEO of HM Pinnacle Consulting. She works with growing manufacturing, aerospace, construction, and industrial organizations on people operations systems that protect workforce stability, supervisor capability, critical-role retention, HR infrastructure, compliance, and operational consistency.</p>
+                </div>
+            </div>
         </section>
 
         <section class="related-reading">
