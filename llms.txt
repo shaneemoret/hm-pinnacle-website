@@ -44,7 +44,7 @@ HM Pinnacle builds the operating layer between leadership decisions and workforc
 
 - Homepage: https://hmpinnacleconsulting.com/
 - About: https://hmpinnacleconsulting.com/about/
-- Services overview: https://hmpinnacleconsulting.com/#services
+- Services overview: https://hmpinnacleconsulting.com/services/
 - Insights and articles: https://hmpinnacleconsulting.com/blog/index.html
 - HR Talks podcast: https://hmpinnacleconsulting.com/podcasts/
 - Contact: https://hmpinnacleconsulting.com/#contact
@@ -63,6 +63,7 @@ HM Pinnacle builds the operating layer between leadership decisions and workforc
 - HR Is a Growth Lever: Build People Systems Before Growth Breaks You: https://hmpinnacleconsulting.com/blog/hr-is-a-growth-lever-build-people-systems-before-growth-breaks-you.html
 - Manufacturing CEOs: Get Out of the Office During Growth Transitions: https://hmpinnacleconsulting.com/blog/manufacturing-ceos-get-out-of-the-office.html
 - Ghosting in the Hiring Process: What It Says About Culture and Trust: https://hmpinnacleconsulting.com/blog/ghosting-in-the-hiring-process-what-it-says-about-culture-and-trust.html
+- Aerospace Turnover Transformation Case Study: https://hmpinnacleconsulting.com/blog/case-study-aerospace-turnover-transformation.html
 
 ## Contact
 
