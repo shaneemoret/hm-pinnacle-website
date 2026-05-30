@@ -1,6 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "verify:agent-readiness": "node scripts/verify-agent-readiness-middleware.mjs"
+    "verify:agent-readiness": "node scripts/verify-agent-readiness-middleware.mjs",
+    "verify:agent-skills": "node scripts/verify-agent-skills-index.mjs"
   }
 }

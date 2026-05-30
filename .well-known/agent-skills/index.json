@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "turnover-cost-calculator",
+      "type": "skill-md",
+      "description": "Estimate the operational cost of employee turnover for manufacturing, aerospace, construction, and industrial teams.",
+      "url": "/.well-known/agent-skills/turnover-cost-calculator/SKILL.md",
+      "digest": "sha256:bd4c2e730369c26db28491cbd3b675f1d8da97b6270ca4bd27adcda01808801e"
+    },
+    {
+      "name": "turnover-reduction-strategist",
+      "type": "skill-md",
+      "description": "Diagnose the most likely turnover pattern in a manufacturing operation and recommend the first practical people-system move.",
+      "url": "/.well-known/agent-skills/turnover-reduction-strategist/SKILL.md",
+      "digest": "sha256:9f671e839e8bbeddafef6b104068da479c2b6f4473f4aa316951fc354e2b1b0f"
+    }
+  ]
+}
