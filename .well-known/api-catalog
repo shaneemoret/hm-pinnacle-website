@@ -2,6 +2,13 @@
   "linkset": [
     {
       "anchor": "https://hmpinnacleconsulting.com/",
+      "api-catalog": [
+        {
+          "href": "https://hmpinnacleconsulting.com/.well-known/api-catalog",
+          "type": "application/linkset+json",
+          "title": "HM Pinnacle Consulting agent discovery catalog"
+        }
+      ],
       "service-doc": [
         {
           "href": "https://hmpinnacleconsulting.com/llms.txt",

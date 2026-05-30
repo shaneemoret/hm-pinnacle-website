@@ -1,2 +1,8 @@
 /
   Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json", </llms.txt>; rel="service-doc"; type="text/plain", </sitemap.xml>; rel="describedby"; type="application/xml"
+
+/index.html
+  Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json", </llms.txt>; rel="service-doc"; type="text/plain", </sitemap.xml>; rel="describedby"; type="application/xml"
+
+/.well-known/api-catalog
+  Content-Type: application/linkset+json; charset=utf-8
