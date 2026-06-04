@@ -275,6 +275,31 @@ li {
   margin-top: 0;
 }
 
+.video-embed {
+  margin: 3rem 0;
+}
+
+.video-embed-frame {
+  overflow: hidden;
+  border: 1px solid var(--border-medium);
+  border-radius: 8px;
+  background: var(--navy-darkest);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.22);
+}
+
+.video-embed-frame iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
+.video-embed-caption {
+  margin-top: 0.8rem;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+}
+
 .source-note,
 .related-posts,
 .cta-block {
