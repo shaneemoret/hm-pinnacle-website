@@ -42,6 +42,21 @@ Typical fit:
 - Cross-border HR.
 - Workforce transitions.
 
+## Mission-Critical Talent Retention Resource Cluster
+
+HM Pinnacle publishes a 10-part resource cluster for manufacturing, aerospace, construction, and industrial leaders scaling operations while trying to retain critical employees. The cluster explains how to identify mission-critical roles, create career paths, develop frontline leaders, conduct stay interviews, build bench strength, recognize business-critical contributions, protect workload during growth, capture institutional knowledge, connect employees to the bigger picture, and measure retention as an operating metric.
+
+- [How to Identify Mission-Critical Talent Before They Leave](/blog/identify-mission-critical-talent-manufacturing.html): Mission-critical talent is the group of employees whose departure would quickly create operational disruption, quality risk, customer delays, supervisor overload, or knowledge loss. Leaders can retain them more effectively when they map the roles before there is a vacancy.
+- [Create Career Paths Before Manufacturing Talent Starts Looking Elsewhere](/blog/career-paths-retain-manufacturing-talent.html): Career paths retain manufacturing talent by replacing uncertainty with visible growth. Employees stay longer when they understand what advancement looks like, which skills matter, and how internal opportunities are decided.
+- [Frontline Leadership Is One of Manufacturing's Strongest Retention Systems](/blog/frontline-leadership-retention-manufacturing.html): Frontline leadership affects retention because supervisors shape the daily experience of work. Communication, coaching, accountability, fairness, and follow-through all influence whether mission-critical employees stay engaged.
+- [Use Stay Interviews Before Critical Manufacturing Talent Disengages](/blog/stay-interviews-critical-manufacturing-roles.html): Stay interviews help leaders hear retention risks while there is still time to act. For critical manufacturing roles, they reveal frustration, growth needs, workload concerns, and blocker patterns before the exit interview.
+- [Cross-Training Protects Both the Business and Your Mission-Critical People](/blog/cross-training-bench-strength-manufacturing-retention.html): Cross-training protects retention by reducing dependency on one person. It gives the business backup coverage while giving mission-critical employees relief, flexibility, and a healthier path to growth.
+- [Recognize the Contributions That Actually Drive Manufacturing Results](/blog/recognition-retention-manufacturing-business-results.html): Recognition improves retention when it is specific, timely, and tied to the work that protects business results. Manufacturing employees want leaders to notice the contributions that keep production stable, quality strong, and teams learning.
+- [Protect Workload During Growth Before Your Best People Burn Out](/blog/protect-workload-during-manufacturing-growth.html): Growth can overload the same dependable people who helped the business succeed. Protecting workload means watching overtime, firefighting, bottlenecks, and invisible responsibility before top performers burn out or leave.
+- [Capture Institutional Knowledge Before It Walks Out the Door](/blog/capture-institutional-knowledge-manufacturing.html): Institutional knowledge transfer protects manufacturing continuity by moving critical know-how out of one person's head and into documented routines, training, mentorship, and successor development.
+- [Connect Employees to the Bigger Picture Behind Manufacturing Growth](/blog/connect-manufacturing-employees-to-bigger-picture.html): Employees are more likely to stay when they understand why their work matters. Connecting daily work to customer outcomes, quality, safety, growth, and future opportunity strengthens engagement and retention.
+- [Measure Retention Like a Business Metric in Manufacturing](/blog/measure-retention-business-metric-manufacturing.html): Retention should be measured with the same discipline as production, quality, safety, and delivery. The goal is not simply lower turnover; the goal is keeping the people the business can least afford to lose.
+
 ## Featured Resources
 
 - [AI-readable site summary](/llms.txt)
