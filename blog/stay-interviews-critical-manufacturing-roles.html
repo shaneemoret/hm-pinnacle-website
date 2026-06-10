@@ -22,6 +22,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="hmp-article.css">
+    <link rel="stylesheet" href="hmp-download-gate.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -255,6 +256,24 @@
 
             <div class="pull-quote"><blockquote>The best time to learn why a critical employee might leave is while they are still choosing to stay.</blockquote></div>
 
+            <section class="download-gate" aria-label="Download the executive briefing">
+                <span class="eyebrow">Executive Briefing &middot; Free Download</span>
+                <h2>The Mission-Critical Talent Retention System, in one briefing</h2>
+                <p>Ten levers, the critical-role priority matrix, a 90-day installation cadence, and a 12-point exposure diagnostic: the complete framework behind this series, formatted for your leadership team.</p>
+                <form class="download-gate-form" data-endpoint="https://script.google.com/macros/s/AKfycbydEA-j8V9jVlOO7r59t1NTb2vNPssGhrL78Tydg3Qn5gIxcA8XFYZyQrcPHEiN2T9S0A/exec" data-file="../downloads/hm-pinnacle-mission-critical-talent-retention-brief.pdf" novalidate>
+                    <div class="download-gate-fields">
+                        <label class="sr-only" for="dgFirstName">First name</label>
+                        <input type="text" id="dgFirstName" name="firstName" autocomplete="given-name" placeholder="First name" required>
+                        <label class="sr-only" for="dgEmail">Work email</label>
+                        <input type="email" id="dgEmail" name="email" autocomplete="email" placeholder="Work email" required>
+                        <input type="text" name="website" class="download-gate-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+                        <button type="submit">Get the Briefing</button>
+                    </div>
+                    <p class="download-gate-status" role="status" aria-live="polite"></p>
+                    <p class="download-gate-note">The PDF downloads instantly after you submit. Your email goes to HM Pinnacle only.</p>
+                </form>
+            </section>
+
             <section class="framework" aria-label="How this connects to the full retention system">
                 <span class="eyebrow">Part of the System</span>
                 <p>This article is one piece of a broader retention system for manufacturers: identify mission-critical roles, create career paths, develop frontline leaders, run stay interviews, cross-train backups, recognize meaningful contribution, protect workload, capture knowledge, connect people to the bigger picture, and measure retention like an operating metric.</p>
@@ -305,5 +324,6 @@
         </article>
     </main>
     <footer class="article-footer"><p>&copy; 2026 HM Pinnacle Consulting. People operations consulting for growing manufacturing, aerospace, and industrial companies.</p></footer>
+    <script src="hmp-download-gate.js" defer></script>
 </body>
 </html>

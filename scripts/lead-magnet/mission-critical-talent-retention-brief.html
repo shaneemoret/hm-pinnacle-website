@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Mission-Critical Talent Retention System | HM Pinnacle Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #061425;
+    --navy: #0a1f3b;
+    --body: #2c3a4d;
+    --muted: #5d6b7d;
+    --accent: #1e5090;
+    --accent-deep: #0f2d52;
+    --hairline: #ccd8e4;
+    --band: #f1f5fa;
+    --band-deep: #e6eef6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { margin: 0; padding: 0; background: #fff; }
+  body {
+    font-family: 'Montserrat', 'Segoe UI', sans-serif;
+    color: var(--body);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-size: 10.2pt;
+    line-height: 1.62;
+  }
+  @page { size: letter; margin: 0; }
+  .page {
+    width: 8.5in;
+    height: 11in;
+    padding: 0.82in 0.9in 0.95in;
+    position: relative;
+    page-break-after: always;
+    overflow: hidden;
+  }
+  .page:last-child { page-break-after: avoid; }
+
+  .pagefoot {
+    position: absolute;
+    left: 0.9in;
+    right: 0.9in;
+    bottom: 0.5in;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-top: 1px solid var(--hairline);
+    padding-top: 9px;
+    font-size: 7pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .kicker {
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; color: var(--ink); }
+  h2 { font-size: 21pt; font-weight: 600; line-height: 1.22; margin-bottom: 16px; }
+  h3 { font-size: 12.5pt; font-weight: 600; margin: 18px 0 8px; }
+  p { margin-bottom: 11px; }
+  p.lead { font-size: 11.4pt; line-height: 1.66; color: var(--navy); }
+  strong { color: var(--navy); }
+
+  /* ---------- cover ---------- */
+  .cover { background: #ffffff; }
+  .cover-mark {
+    font-size: 12.5pt;
+    font-weight: 800;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .cover-mark span { color: var(--accent); }
+  .cover-rule { border: none; border-top: 2px solid var(--ink); margin: 26px 0 0; width: 100%; }
+  .cover-type {
+    margin-top: 26px;
+    font-size: 8.5pt;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .cover h1 {
+    margin-top: 1.45in;
+    font-size: 41pt;
+    font-weight: 600;
+    line-height: 1.13;
+    color: var(--ink);
+    max-width: 6.2in;
+  }
+  .cover-standfirst {
+    margin-top: 30px;
+    font-size: 13pt;
+    line-height: 1.62;
+    color: var(--body);
+    max-width: 5.6in;
+    font-weight: 400;
+  }
+  .cover-author {
+    margin-top: 44px;
+    font-size: 9.5pt;
+    letter-spacing: 0.08em;
+    color: var(--navy);
+    font-weight: 600;
+  }
+  .cover-author small { display: block; margin-top: 3px; font-size: 8.5pt; font-weight: 500; color: var(--muted); letter-spacing: 0.06em; }
+  .cover-foot {
+    position: absolute;
+    left: 0.9in; right: 0.9in; bottom: 0.55in;
+    border-top: 1px solid var(--hairline);
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 7.5pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ---------- exhibits ---------- */
+  .exhibit { margin: 16px 0 12px; }
+  .exhibit-label {
+    border-top: 2px solid var(--ink);
+    padding-top: 8px;
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .exhibit-label em { font-style: normal; color: var(--accent); }
+  .exhibit-title { font-size: 10.5pt; font-weight: 600; color: var(--navy); margin-bottom: 14px; font-family: 'Montserrat', sans-serif; }
+  .exhibit-source {
+    border-top: 1px solid var(--hairline);
+    margin-top: 14px;
+    padding-top: 6px;
+    font-size: 7.4pt;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+  }
+
+  /* findings list */
+  .findings { list-style: none; margin: 18px 0 0; }
+  .findings li { display: flex; gap: 16px; padding: 11px 0; border-top: 1px solid var(--hairline); }
+  .findings li:last-child { border-bottom: 1px solid var(--hairline); }
+  .findings .num {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 15pt;
+    color: var(--accent);
+    font-weight: 500;
+    min-width: 30px;
+    line-height: 1.3;
+  }
+  .findings .body strong { display: block; color: var(--ink); margin-bottom: 2px; }
+
+  /* system columns */
+  .system { display: flex; gap: 14px; }
+  .system .col { flex: 1; border-top: 3px solid var(--accent); background: var(--band); padding: 14px 14px 12px; }
+  .system .col h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    margin-bottom: 4px;
+  }
+  .system .col p.role { font-size: 8.2pt; color: var(--muted); margin-bottom: 10px; line-height: 1.45; }
+  .system ol { list-style: none; counter-reset: lever; }
+  .system ol li {
+    counter-increment: lever;
+    font-size: 8.8pt;
+    line-height: 1.42;
+    padding: 7px 0;
+    border-top: 1px solid var(--hairline);
+    color: var(--navy);
+    font-weight: 500;
+    display: flex;
+    gap: 8px;
+  }
+  .system ol li::before {
+    content: counter(lever, decimal-leading-zero);
+    font-family: 'Playfair Display', Georgia, serif;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .system .col:nth-child(2) ol { counter-reset: lever 3; }
+  .system .col:nth-child(3) ol { counter-reset: lever 7; }
+
+  /* cost timeline */
+  .cost { }
+  .cost .row { display: flex; gap: 14px; border-top: 1px solid var(--hairline); padding: 8px 0; }
+  .cost .when {
+    min-width: 1.35in;
+    font-size: 8.4pt;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    padding-top: 2px;
+  }
+  .cost .what strong { display: block; color: var(--ink); font-size: 9.6pt; margin-bottom: 2px; }
+  .cost .what p { font-size: 8.8pt; line-height: 1.5; margin: 0; }
+  .cost .bar { height: 4px; margin-top: 6px; background: var(--band-deep); }
+  .cost .bar i { display: block; height: 100%; background: var(--accent); }
+
+  /* matrix */
+  .matrix-wrap { display: flex; gap: 10px; align-items: stretch; }
+  .matrix-ylab {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 7.6pt;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+  }
+  .matrix { flex: 1; }
+  .matrix .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .matrix .cell { padding: 10px 12px; min-height: 0.8in; }
+  .matrix .cell h5 { font-family: 'Montserrat', sans-serif; font-size: 8.6pt; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px; }
+  .matrix .cell p { font-size: 8.2pt; line-height: 1.42; margin: 0; }
+  .cell-act { background: var(--accent-deep); }
+  .cell-act h5, .cell-act p { color: #fff; }
+  .cell-act p { color: rgba(255,255,255,0.85); }
+  .cell-protect { background: var(--accent); }
+  .cell-protect h5, .cell-protect p { color: #fff; }
+  .cell-protect p { color: rgba(255,255,255,0.85); }
+  .cell-develop { background: var(--band-deep); }
+  .cell-develop h5 { color: var(--accent-deep); }
+  .cell-maintain { background: var(--band); }
+  .cell-maintain h5 { color: var(--muted); }
+  .matrix .xlab {
+    display: flex; justify-content: space-between;
+    font-size: 7.6pt; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted); margin-top: 7px;
+  }
+
+  /* roadmap */
+  .roadmap { display: flex; gap: 14px; }
+  .roadmap .phase { flex: 1; border-top: 3px solid var(--ink); padding-top: 10px; }
+  .roadmap .phase.p2 { border-top-color: var(--accent); }
+  .roadmap .phase.p3 { border-top-color: #7fa8d4; }
+  .roadmap .days { font-size: 8pt; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-deep); }
+  .roadmap h4 { font-family: 'Playfair Display', Georgia, serif; font-size: 12pt; color: var(--ink); margin: 4px 0 8px; font-weight: 600; }
+  .roadmap ul { list-style: none; }
+  .roadmap ul li { font-size: 8.7pt; line-height: 1.45; padding: 6px 0; border-top: 1px solid var(--hairline); }
+  .roadmap ul li strong { color: var(--navy); }
+
+  .pullquote {
+    margin: 22px 0;
+    padding: 4px 0 4px 22px;
+    border-left: 3px solid var(--accent);
+  }
+  .pullquote p {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 13.5pt;
+    line-height: 1.5;
+    color: var(--navy);
+    margin: 0;
+  }
+
+  /* diagnostic */
+  .diag { list-style: none; margin-top: 4px; }
+  .diag li { display: flex; gap: 12px; align-items: flex-start; padding: 6.5px 0; border-top: 1px solid var(--hairline); font-size: 9.4pt; line-height: 1.5; color: var(--navy); }
+  .diag li:last-child { border-bottom: 1px solid var(--hairline); }
+  .diag .box { width: 13px; height: 13px; border: 1.5px solid var(--accent); margin-top: 3px; flex-shrink: 0; }
+  .diag .dnum { font-family: 'Playfair Display', Georgia, serif; color: var(--accent); min-width: 22px; font-size: 10.5pt; }
+  .scorebands { margin-top: 12px; }
+  .scorebands .band-row { display: flex; gap: 14px; border-top: 1px solid var(--hairline); padding: 6.5px 0; }
+  .scorebands .score { min-width: 0.95in; font-weight: 700; color: var(--accent-deep); font-size: 9.2pt; letter-spacing: 0.04em; }
+  .scorebands p { font-size: 9.2pt; margin: 0; }
+
+  /* closing */
+  .start-list { list-style: none; margin: 14px 0 0; }
+  .start-list li { padding: 11px 0; border-top: 1px solid var(--hairline); font-size: 9.6pt; }
+  .start-list li strong { color: var(--ink); }
+  .about-band { background: var(--band); padding: 20px 22px; margin-top: 26px; border-top: 3px solid var(--ink); }
+  .about-band h3 { margin: 0 0 8px; font-size: 13pt; }
+  .about-band p { font-size: 9.3pt; margin-bottom: 8px; }
+  .cta-row { margin-top: 18px; border-top: 1px solid var(--hairline); padding-top: 14px; display: flex; justify-content: space-between; align-items: baseline; }
+  .cta-row .go { font-weight: 700; color: var(--accent-deep); font-size: 10.5pt; letter-spacing: 0.02em; border-bottom: 2px solid var(--accent); padding-bottom: 2px; }
+  .cta-row .site { font-size: 9pt; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<!-- ================= PAGE 1 : COVER ================= -->
+<section class="page cover">
+  <div class="cover-mark">HM&nbsp;Pinnacle <span>Consulting</span></div>
+  <hr class="cover-rule">
+  <div class="cover-type">Executive Briefing &middot; June 2026</div>
+  <h1>The Mission-Critical Talent Retention System</h1>
+  <p class="cover-standfirst">A practical operating framework for U.S. manufacturing leaders who cannot afford to lose the people that production, quality, and customers quietly depend on.</p>
+  <p class="cover-author">Heather MacKay-Mencheski<small>Founder and CEO, HM Pinnacle Consulting</small></p>
+  <div class="cover-foot">
+    <span>hmpinnacleconsulting.com</span>
+    <span>People Operations for Manufacturing</span>
+  </div>
+</section>
+
+<!-- ================= PAGE 2 : EXECUTIVE SUMMARY ================= -->
+<section class="page">
+  <div class="kicker">Executive Summary</div>
+  <h2>Your plant has single points of failure. Some of them drive home every night.</h2>
+  <p class="lead">Manufacturers are disciplined about constrained machines, fragile suppliers, and customers that require special handling. Few apply the same discipline to the people who create the same kind of operating dependency. When a mission-critical employee resigns, the company does not lose one job description. It loses judgment, informal coordination, decision memory, escalation paths, and practical know-how that may never have been written down.</p>
+  <p>This briefing condenses HM Pinnacle&rsquo;s ten-part retention series for manufacturing, aerospace, construction, and industrial operators into one operating system: how to find the dependency, strengthen the reasons to stay, and protect continuity if a key person leaves anyway.</p>
+  <ul class="findings">
+    <li><span class="num">01</span><span class="body"><strong>Dependency is invisible until it leaves.</strong> The most critical person is often not the highest-ranking one: the maintenance lead who diagnoses recurring downtime, the planner who knows every customer exception, the supervisor who keeps a difficult shift stable.</span></li>
+    <li><span class="num">02</span><span class="body"><strong>Exit interviews arrive too late.</strong> By the time a resignation is on the table, the decision is made. Stay interviews and supervisor routines surface risk while there is still time to act.</span></li>
+    <li><span class="num">03</span><span class="body"><strong>Retention is experienced through direct managers.</strong> People rarely leave the company in the abstract. They leave shifts, workloads, and supervisors. Frontline leadership is the strongest single lever.</span></li>
+    <li><span class="num">04</span><span class="body"><strong>Growth lands on your best people first.</strong> Concentrated overtime, unused vacation, and constant escalation to the same experts are measurable early warnings, not badges of commitment.</span></li>
+    <li><span class="num">05</span><span class="body"><strong>Retention must be measured like output or quality.</strong> Critical-role turnover, high-performer turnover, internal promotion rate, and time-to-fill belong in the monthly operating review, owned by department leaders.</span></li>
+  </ul>
+  <p style="margin-top:16px; font-size:9pt; color:var(--muted);"><strong style="color:var(--accent-deep); letter-spacing:0.1em; text-transform:uppercase; font-size:7.8pt;">Who this is for&nbsp;&nbsp;</strong> CEOs, COOs, plant managers, and HR leaders of growing manufacturing, aerospace, construction, and industrial operations.</p>
+  <div class="pagefoot"><span>HM Pinnacle Consulting</span><span>02</span></div>
+</section>
+
+<!-- ================= PAGE 3 : THE SYSTEM ================= -->
+<section class="page">
+  <div class="kicker">The Framework</div>
+  <h2>Ten levers, three jobs, one operating system</h2>
+  <p>Retention programs fail when they are run as disconnected HR initiatives. The levers below work because they form a loop: diagnosis tells you where to invest, the retention engine gives people reasons to stay, and continuity work protects the business while trust is being built. Every lever needs a named owner and a recurring slot on the operating calendar.</p>
+
+  <div class="exhibit">
+    <div class="exhibit-label">Exhibit 1 <em>&middot;</em> The Mission-Critical Talent Retention System</div>
+    <div class="exhibit-title">Ten levers organized by the job they do for the operation</div>
+    <div class="system">
+      <div class="col">
+        <h4>A &middot; Diagnose the Dependency</h4>
+        <p class="role">See the risk before a resignation forces the issue.</p>
+        <ol>
+          <li>Map mission-critical roles and single points of failure</li>
+          <li>Run stay interviews, starting with critical roles</li>
+          <li>Measure retention like a business metric</li>
+        </ol>
+      </div>
+      <div class="col">
+        <h4>B &middot; Strengthen Reasons to Stay</h4>
+        <p class="role">Make staying the obvious career decision.</p>
+        <ol>
+          <li>Create visible career paths and advancement criteria</li>
+          <li>Develop frontline leaders who coach, not just correct</li>
+          <li>Recognize the contributions that drive results</li>
+          <li>Connect people to the bigger picture behind growth</li>
+        </ol>
+      </div>
+      <div class="col">
+        <h4>C &middot; Protect Continuity</h4>
+        <p class="role">Reduce the damage any one departure can cause.</p>
+        <ol>
+          <li>Cross-train for real bench strength</li>
+          <li>Protect workload during growth</li>
+          <li>Capture institutional knowledge before it walks out</li>
+        </ol>
+      </div>
+    </div>
+    <div class="exhibit-source">Source: HM Pinnacle Consulting, Mission-Critical Talent Retention series for U.S. manufacturers, June 2026</div>
+  </div>
+
+  <p>Start with column A. A two-hour leadership session can produce the first critical-role map: the role, the person carrying the risk, the knowledge or relationships they hold, the disruption if they leave, the backup available today, and the first retention or knowledge-transfer action. The value is not the document. The value is the leadership conversation it forces.</p>
+  <div class="pullquote"><p>If your team cannot quickly name the people the business would struggle most to replace, start there.</p></div>
+  <div class="pagefoot"><span>HM Pinnacle Consulting</span><span>03</span></div>
+</section>
+
+<!-- ================= PAGE 4 : COST + MATRIX ================= -->
+<section class="page">
+  <div class="kicker">The Stakes</div>
+  <h2>Where the cost of a critical departure lands</h2>
+  <p>The cost of losing a single point of failure is rarely one line item, which is why it rarely appears in a budget review. It compounds in three waves, and the most expensive wave is the slowest to show up.</p>
+
+  <div class="exhibit">
+    <div class="exhibit-label">Exhibit 2 <em>&middot;</em> How the cost compounds after a critical resignation</div>
+    <div class="cost">
+      <div class="row">
+        <div class="when">First 30 days</div>
+        <div class="what" style="flex:1;">
+          <strong>The coverage scramble</strong>
+          <p>Overtime concentrates in the remaining experts, supervisors are pulled into firefighting, troubleshooting slows, and vacation requests start creating operational anxiety.</p>
+          <div class="bar"><i style="width:30%"></i></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">30 to 90 days</div>
+        <div class="what" style="flex:1;">
+          <strong>The capability gap</strong>
+          <p>Quality becomes less predictable, customer exceptions get mishandled, training stalls, and the workload shifted onto other key people raises the risk of a second departure.</p>
+          <div class="bar"><i style="width:62%"></i></div>
+        </div>
+      </div>
+      <div class="row" style="border-bottom:1px solid var(--hairline);">
+        <div class="when">Beyond 90 days</div>
+        <div class="what" style="flex:1;">
+          <strong>The institutional loss</strong>
+          <p>Undocumented workarounds are rediscovered the hard way, vendor and customer memory is rebuilt from scratch, and the promotion pipeline behind the role resets to zero.</p>
+          <div class="bar"><i style="width:92%"></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="exhibit-source">Bars indicate the relative weight of each cost wave as dependency deepens.</div>
+  </div>
+
+  <div class="exhibit">
+    <div class="exhibit-label">Exhibit 3 <em>&middot;</em> Prioritizing the critical-role map</div>
+    <div class="exhibit-title">Sort every mapped role by disruption and backup coverage</div>
+    <div class="matrix-wrap">
+      <div class="matrix-ylab">Disruption if vacant &rarr; high</div>
+      <div class="matrix">
+        <div class="grid">
+          <div class="cell cell-act"><h5>Act Now</h5><p>High disruption, no backup. Retention plan, knowledge capture, and a named successor this quarter.</p></div>
+          <div class="cell cell-protect"><h5>Protect</h5><p>High disruption, backup exists. Keep coverage real through practice and watch workload closely.</p></div>
+          <div class="cell cell-develop"><h5>Develop</h5><p>Lower disruption, no backup. Schedule cross-training inside normal cycles before it becomes urgent.</p></div>
+          <div class="cell cell-maintain"><h5>Maintain</h5><p>Lower disruption, backup ready. Monitor in the monthly review and keep documentation current.</p></div>
+        </div>
+        <div class="xlab"><span>No backup coverage today</span><span>Backup ready today</span></div>
+      </div>
+    </div>
+    <div class="exhibit-source">Source: HM Pinnacle Consulting critical-role mapping routine</div>
+  </div>
+  <div class="pagefoot"><span>HM Pinnacle Consulting</span><span>04</span></div>
+</section>
+
+<!-- ================= PAGE 5 : 90-DAY ROADMAP ================= -->
+<section class="page">
+  <div class="kicker">Implementation</div>
+  <h2>The first 90 days</h2>
+  <p>None of this requires new software or a reorganization. It requires a map, a handful of recurring conversations, and a monthly review with owners. The cadence below installs the system without pulling leaders away from running the operation.</p>
+
+  <div class="exhibit">
+    <div class="exhibit-label">Exhibit 4 <em>&middot;</em> A 90-day installation cadence</div>
+    <div class="roadmap">
+      <div class="phase">
+        <div class="days">Days 1&ndash;30</div>
+        <h4>Map the risk</h4>
+        <ul>
+          <li><strong>Build the critical-role map:</strong> role, person, knowledge carried, disruption if vacant, backup today, first action.</li>
+          <li><strong>Rate each role</strong> high, medium, or low disruption and sort it into the Exhibit 3 grid.</li>
+          <li><strong>Baseline the numbers:</strong> voluntary turnover by department, shift, and supervisor; critical-role turnover; time to fill.</li>
+          <li><strong>Align senior leaders, operations, and HR</strong> on the ten roles that matter most.</li>
+        </ul>
+      </div>
+      <div class="phase p2">
+        <div class="days">Days 31&ndash;60</div>
+        <h4>Install the routines</h4>
+        <ul>
+          <li><strong>Run stay interviews</strong> with critical roles first, using the same core questions across departments.</li>
+          <li><strong>Stand up supervisor routines:</strong> daily huddles for clarity, one-on-ones with key people, weekly review of employee-raised blockers.</li>
+          <li><strong>Open career-path conversations</strong> for high-risk roles: the next two steps, the skills attached, the timeline.</li>
+          <li><strong>Recognize behavior and business impact,</strong> reaching trades, trainers, and technical experts, not only managers.</li>
+        </ul>
+      </div>
+      <div class="phase p3">
+        <div class="days">Days 61&ndash;90</div>
+        <h4>Measure and close loops</h4>
+        <ul>
+          <li><strong>Hold the first monthly retention review</strong> with HR and operations, separating critical-role turnover from the average.</li>
+          <li><strong>Assign owners to fixable blockers</strong> raised in stay interviews, then report back on what changed.</li>
+          <li><strong>Start knowledge capture</strong> on the top ten undocumented critical processes, pairing experts with successors.</li>
+          <li><strong>Begin bench-strength pairings</strong> with protected practice time before an emergency makes practice impossible.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exhibit-source">Source: HM Pinnacle Consulting, practical routines from the Mission-Critical Talent Retention series</div>
+  </div>
+
+  <p style="margin-top:14px;">Two cautions from the field. First, do not tell people they are irreplaceable and then quietly hand them more invisible responsibility; the map should reduce load on your most dependable people, not add to it. Second, do not confuse performance ratings with operational dependency. A steady employee with deep equipment, customer, or process knowledge may matter more to continuity than a high-visibility manager.</p>
+  <div class="pagefoot"><span>HM Pinnacle Consulting</span><span>05</span></div>
+</section>
+
+<!-- ================= PAGE 6 : DIAGNOSTIC ================= -->
+<section class="page">
+  <div class="kicker">Self-Assessment</div>
+  <h2>How exposed is your operation?</h2>
+  <p>Score one point for every statement that is true today. Be strict: &ldquo;mostly&rdquo; and &ldquo;we plan to&rdquo; do not count. This works best when the executive team scores it independently and compares answers.</p>
+
+  <ul class="diag">
+    <li><span class="dnum">1</span><span class="box"></span>We can name the roles where a vacancy would disrupt output, quality, or customers within 90 days.</li>
+    <li><span class="dnum">2</span><span class="box"></span>Every mission-critical role has a backup who has actually practiced the work, not just a name on a chart.</li>
+    <li><span class="dnum">3</span><span class="box"></span>No critical process depends on knowledge that lives only in one person&rsquo;s head.</li>
+    <li><span class="dnum">4</span><span class="box"></span>Supervisors of critical teams hold regular one-on-ones with their key people.</li>
+    <li><span class="dnum">5</span><span class="box"></span>Every employee in a critical role has had a stay interview in the past six months.</li>
+    <li><span class="dnum">6</span><span class="box"></span>Critical-role employees can take real vacation without the operation holding its breath.</li>
+    <li><span class="dnum">7</span><span class="box"></span>Overtime is not repeatedly concentrated in the same few people.</li>
+    <li><span class="dnum">8</span><span class="box"></span>High-risk roles have visible next steps: levels, skill requirements, and advancement criteria.</li>
+    <li><span class="dnum">9</span><span class="box"></span>Recognition reaches skilled trades, trainers, and technical experts, not only managers.</li>
+    <li><span class="dnum">10</span><span class="box"></span>Employees can explain who uses what they make and why their standards matter.</li>
+    <li><span class="dnum">11</span><span class="box"></span>Monthly reviews separate critical-role turnover from overall turnover.</li>
+    <li><span class="dnum">12</span><span class="box"></span>Employee-raised blockers get a named owner, and employees hear back about what changed.</li>
+  </ul>
+
+  <div class="scorebands">
+    <div class="exhibit-label" style="margin-bottom:8px;">Scoring</div>
+    <div class="band-row"><span class="score">11&ndash;12</span><p><strong>Durable.</strong> Your retention system is operating infrastructure. Keep the monthly review honest and the bench practicing.</p></div>
+    <div class="band-row"><span class="score">8&ndash;10</span><p><strong>Functioning, with exposure.</strong> The unchecked statements are your priority list for the next quarter. Most operations land here.</p></div>
+    <div class="band-row"><span class="score">4&ndash;7</span><p><strong>Running on goodwill.</strong> Continuity currently depends on a few people choosing to stay. Start with the critical-role map and stay interviews this month.</p></div>
+    <div class="band-row" style="border-bottom:1px solid var(--hairline);"><span class="score">0&ndash;3</span><p><strong>Exposed.</strong> A single resignation can set the operation back a quarter. Treat this as operating risk, not an HR topic.</p></div>
+  </div>
+  <div class="pagefoot"><span>HM Pinnacle Consulting</span><span>06</span></div>
+</section>
+
+<!-- ================= PAGE 7 : PUTTING IT TO WORK ================= -->
+<section class="page">
+  <div class="kicker">Putting It to Work</div>
+  <h2>Where to start, based on where you are</h2>
+  <ul class="start-list">
+    <li><strong>If you are growing fast:</strong> protect workload first. Growth pressure lands on your best people before it shows up anywhere else, and the map will tell you exactly who is absorbing it.</li>
+    <li><strong>If a key departure just hurt you:</strong> run the critical-role map and start knowledge capture on the top ten undocumented processes before the next one. Do not wait for the exit interview to tell you who mattered.</li>
+    <li><strong>If turnover looks fine on paper:</strong> separate critical-role and high-performer turnover from the average, then run stay interviews. Averages hide exactly the departures that hurt most.</li>
+  </ul>
+
+  <p style="margin-top:16px;">The full ten-part series behind this briefing, including the practical routine for each lever, is published in the HM Pinnacle insights library at <strong>hmpinnacleconsulting.com/blog</strong>.</p>
+
+  <div class="about-band">
+    <h3>About HM Pinnacle Consulting</h3>
+    <p>HM Pinnacle Consulting helps growing manufacturing, aerospace, construction, and industrial organizations build the people operations systems, leadership routines, and HR infrastructure that protect workforce stability, critical-role retention, and supervisor capability.</p>
+    <p>Heather MacKay-Mencheski, the firm&rsquo;s founder and CEO, works directly with executive teams to turn people operations into an operating advantage: practical systems that hold up on the plant floor, not binders that sit on a shelf.</p>
+    <div class="cta-row">
+      <span class="go">Schedule a conversation with HM Pinnacle</span>
+      <span class="site">hmpinnacleconsulting.com</span>
+    </div>
+  </div>
+
+  <p style="margin-top:22px; font-size:8pt; color:var(--muted); line-height:1.55;">&copy; 2026 HM Pinnacle Consulting. This briefing is provided for the leadership team of the organization that requested it and may be shared internally. It is general guidance, not legal or employment advice for any specific situation.</p>
+  <div class="pagefoot"><span>HM Pinnacle Consulting</span><span>07</span></div>
+</section>
+
+</body>
+</html>

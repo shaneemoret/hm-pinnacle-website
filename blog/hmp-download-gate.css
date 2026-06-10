@@ -1,0 +1,142 @@
+/* Email-gated executive briefing download module */
+
+.download-gate {
+  margin: 3.25rem 0;
+  padding: 2.4rem 2.4rem 2.1rem;
+  border: 1px solid var(--border-medium);
+  border-left: 3px solid var(--accent-ice);
+  border-radius: 8px;
+  background:
+    radial-gradient(120% 140% at 100% 0%, rgba(30, 80, 144, 0.34), transparent 62%),
+    rgba(10, 31, 59, 0.78);
+}
+
+.download-gate h2 {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.45rem, 2.6vw, 1.95rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--white);
+}
+
+.download-gate > p {
+  margin: 0 0 1.6rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  max-width: 56ch;
+}
+
+.download-gate-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.download-gate-fields input[type="text"],
+.download-gate-fields input[type="email"] {
+  flex: 1 1 200px;
+  min-height: 48px;
+  padding: 0 1rem;
+  border: 1px solid var(--border-medium);
+  border-radius: 2px;
+  background: rgba(6, 20, 37, 0.65);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+}
+
+.download-gate-fields input::placeholder {
+  color: var(--text-muted);
+}
+
+.download-gate-fields input:focus {
+  outline: none;
+  border-color: rgba(168, 212, 240, 0.6);
+}
+
+.download-gate-fields button,
+.download-gate-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  min-height: 48px;
+  padding: 0 1.6rem;
+  border: 1px solid rgba(168, 212, 240, 0.46);
+  border-radius: 2px;
+  background: var(--accent-ice);
+  color: var(--navy-darkest);
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.download-gate-fields button:hover,
+.download-gate-link:hover {
+  background: transparent;
+  color: var(--accent-ice);
+}
+
+.download-gate-fields button[disabled] {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.download-gate-hp {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.download-gate-status {
+  margin: 0.85rem 0 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  min-height: 1.2em;
+}
+
+.download-gate-status.is-error {
+  color: #f0b9b9;
+}
+
+.download-gate-status.is-success {
+  color: var(--accent-frost);
+}
+
+.download-gate-note {
+  margin: 0.9rem 0 0;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.download-gate .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 640px) {
+  .download-gate {
+    padding: 1.8rem 1.4rem 1.6rem;
+  }
+
+  .download-gate-fields input[type="text"],
+  .download-gate-fields input[type="email"],
+  .download-gate-fields button,
+  .download-gate-link {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}

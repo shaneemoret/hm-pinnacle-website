@@ -1,23 +1,30 @@
 User-agent: *
 Allow: /
+Disallow: /downloads/
 
 User-agent: Googlebot
 Allow: /
+Disallow: /downloads/
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /downloads/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /downloads/
 
 User-agent: GPTBot
 Allow: /
+Disallow: /downloads/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /downloads/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /downloads/
 
 Content-Signal: search=yes, ai-train=yes, ai-input=yes
 
