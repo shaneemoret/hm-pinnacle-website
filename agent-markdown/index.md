@@ -42,6 +42,14 @@ Typical fit:
 - Cross-border HR.
 - Workforce transitions.
 
+## CEO People Operations Operating System Articles
+
+HM Pinnacle publishes CEO-level articles for manufacturing leaders building the people operations layer behind growth, leadership transition, supervisor decision rights, and AI readiness.
+
+- [The New Manufacturing CEO's First 90 Days: Audit the People System Before You Change the Strategy](/blog/new-ceo-people-operations-first-90-days-manufacturing.html): A first-90-days people-system diagnostic for manufacturing CEOs inheriting informal decision rights, critical-role risk, and undocumented leadership habits.
+- [When Every Decision Escalates, Your People System Is Too Fragile](/blog/supervisor-decision-rights-manufacturing-growth.html): If every important call climbs to the same few leaders, growth is exposing a permission system instead of a leadership system.
+- [AI Will Not Fix Broken People Operations in Manufacturing](/blog/ai-will-not-fix-broken-people-operations-manufacturing.html): AI can help document, summarize, and accelerate people operations, but it cannot replace leadership clarity or supervisor standards.
+
 ## Mission-Critical Talent Retention Resource Cluster
 
 HM Pinnacle publishes a 10-part resource cluster for manufacturing, aerospace, construction, and industrial leaders scaling operations while trying to retain critical employees. The cluster explains how to identify mission-critical roles, create career paths, develop frontline leaders, conduct stay interviews, build bench strength, recognize business-critical contributions, protect workload during growth, capture institutional knowledge, connect employees to the bigger picture, and measure retention as an operating metric.
