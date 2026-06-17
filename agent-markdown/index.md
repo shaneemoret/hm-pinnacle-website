@@ -42,6 +42,15 @@ Typical fit:
 - Cross-border HR.
 - Workforce transitions.
 
+## Gated Webinar Replay Library
+
+HM Pinnacle publishes previously live executive sessions as individually gated replays. Each replay requires name and work email before the LinkedIn video opens.
+
+- [Why Great People Stay](/webinars/#why-great-people-stay): A retention session on the systems, leadership behaviors, and operating conditions that help strong employees stay through growth.
+- [The People's Ops to Retain and Attract Mission-Critical Talent](/webinars/#people-ops-retain-attract-mission-critical-talent): A people operations session on retaining and attracting the roles a growing industrial business cannot afford to lose.
+- [The CEO's Role in Retention: Why Culture Isn't an HR Problem](/webinars/#ceo-role-retention-culture): A CEO-level retention session on culture, executive ownership, and leadership accountability.
+- [Retention Strategies for 2026](/webinars/#retention-strategies-2026): A session on planning retention around mission-critical talent, frontline leadership, workload, and retention metrics.
+
 ## CEO People Operations Operating System Articles
 
 HM Pinnacle publishes CEO-level articles for manufacturing leaders building the people operations layer behind growth, leadership transition, supervisor decision rights, and AI readiness.
