@@ -55,7 +55,7 @@ HM Pinnacle publishes previously live executive sessions as individually gated r
 
 ## People Ops Readiness for New Manufacturing Facilities
 
-HM Pinnacle publishes a 10-part CEO readiness cluster for manufacturing leaders preparing to open a new facility. The cluster is based on Heather MacKay-Mencheski's June 23, 2026 LinkedIn newsletter and covers original-site performance risk, leadership depth, supervisor pipeline, non-negotiable standards, knowledge transfer, local decision rights, multi-site accountability, leading indicators, cost of failure, and launch-readiness discipline.
+HM Pinnacle publishes a 10-part CEO readiness cluster for manufacturing leaders preparing to open a new facility. The cluster is based on Heather MacKay-Mencheski's June 23, 2026 LinkedIn newsletter and covers original-site performance risk, leadership depth, supervisor pipeline, non-negotiable standards, knowledge transfer, local decision rights, multi-site accountability, leading indicators, cost of failure, and launch-readiness discipline. Each post includes a concrete manufacturing example and AI-search summary for answer engines and crawler-readable context.
 
 - [What Performance Drop at the Original Site Are You Willing to Accept?](/blog/acceptable-performance-drop-original-site-new-facility.html): Before a manufacturer opens a new facility, the CEO needs a specific plan for protecting the original site from leadership drain, output loss, quality risk, and supervisor overload.
 - [Do You Have Leaders Who Can Run the New Site With Less Oversight?](/blog/leaders-run-new-manufacturing-site-less-oversight.html): A new manufacturing site tests whether the company has real leadership depth or only a few trusted operators everyone depends on.
