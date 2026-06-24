@@ -53,6 +53,21 @@ HM Pinnacle publishes previously live executive sessions as individually gated r
 
 ## CEO People Operations Operating System Articles
 
+## People Ops Readiness for New Manufacturing Facilities
+
+HM Pinnacle publishes a 10-part CEO readiness cluster for manufacturing leaders preparing to open a new facility. The cluster is based on Heather MacKay-Mencheski's June 23, 2026 LinkedIn newsletter and covers original-site performance risk, leadership depth, supervisor pipeline, non-negotiable standards, knowledge transfer, local decision rights, multi-site accountability, leading indicators, cost of failure, and launch-readiness discipline.
+
+- [What Performance Drop at the Original Site Are You Willing to Accept?](/blog/acceptable-performance-drop-original-site-new-facility.html): Before a manufacturer opens a new facility, the CEO needs a specific plan for protecting the original site from leadership drain, output loss, quality risk, and supervisor overload.
+- [Do You Have Leaders Who Can Run the New Site With Less Oversight?](/blog/leaders-run-new-manufacturing-site-less-oversight.html): A new manufacturing site tests whether the company has real leadership depth or only a few trusted operators everyone depends on.
+- [How Will You Build the Next Layer of Supervisors and Managers?](/blog/build-next-layer-supervisors-managers-new-facility.html): New facilities create immediate demand for supervisors, managers, trainers, leads, safety ownership, and quality ownership. External hiring alone will not carry the system.
+- [What Behaviors and Standards Are Non-Negotiable From Day One?](/blog/non-negotiable-standards-new-manufacturing-site.html): Before opening a new manufacturing site, leaders need to define the standards that cannot drift across safety, quality, attendance, communication, accountability, and shift handoffs.
+- [How Will Institutional Knowledge Transfer to the New Facility?](/blog/institutional-knowledge-transfer-new-manufacturing-facility.html): Documentation alone will not transfer the judgment, exceptions, troubleshooting habits, customer knowledge, and decision examples a new manufacturing facility needs.
+- [Which Decisions Will Be Owned Locally Versus Escalated?](/blog/local-vs-escalated-decisions-new-manufacturing-site.html): New manufacturing facilities need clear decision rights before opening so local leaders know what they can own, what must escalate, and where the thresholds are.
+- [How Will You Maintain Accountability Across Both Locations?](/blog/maintain-accountability-across-two-manufacturing-locations.html): When manufacturers add a second site, relationship-based accountability weakens. Leaders need a shared way to address standards, performance, safety, communication, and supervisor behavior.
+- [What Leading Indicators Will Tell You the Structure Is Working?](/blog/leading-indicators-people-ops-structure-working-new-site.html): Manufacturers should not wait for turnover, quality misses, overtime spikes, or supervisor conflict before realizing the new facility's People Ops structure is under strain.
+- [What Is the True Cost of Getting the People Ops Structure Wrong?](/blog/true-cost-wrong-people-ops-structure-new-site.html): A weak People Ops structure at a new manufacturing site creates costs far beyond HR, including production misses, quality problems, safety risk, customer friction, hiring churn, overtime, and leadership distraction.
+- [Are You Willing to Slow Down the People Design Until You Have Better Answers?](/blog/slow-down-people-design-before-new-facility-launch.html): Construction timelines and customer commitments can pressure manufacturers into locking People Ops decisions too early. The facility may be ready before the people system is ready.
+
 HM Pinnacle publishes CEO-level articles for manufacturing leaders building the people operations layer behind growth, leadership transition, supervisor decision rights, and AI readiness.
 
 - [The New Manufacturing CEO's First 90 Days: Audit the People System Before You Change the Strategy](/blog/new-ceo-people-operations-first-90-days-manufacturing.html): A first-90-days people-system diagnostic for manufacturing CEOs inheriting informal decision rights, critical-role risk, and undocumented leadership habits.
