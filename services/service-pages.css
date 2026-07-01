@@ -367,6 +367,76 @@ a { color: inherit; text-decoration: none; }
     line-height: 1.85;
 }
 
+.about-team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.about-team-card {
+    min-height: 100%;
+    padding: 1.5rem;
+    border: 1px solid rgba(168,212,240,0.14);
+    background: rgba(255,255,255,0.025);
+}
+
+.about-team-card-featured {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(220px, 0.38fr) 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.about-team-card img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid rgba(168,212,240,0.16);
+    margin-bottom: 1.35rem;
+}
+
+.about-team-card-featured img {
+    margin-bottom: 0;
+}
+
+.about-team-role {
+    color: var(--accent-ice);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    line-height: 1.5;
+    margin-bottom: 0.9rem;
+}
+
+.about-team-card h3 {
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    line-height: 1.05;
+    margin-bottom: 1rem;
+}
+
+.about-team-card p:not(.about-team-role) {
+    color: rgba(255,255,255,0.56);
+    font-size: 0.98rem;
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+.about-team-card a {
+    display: inline-flex;
+    margin-top: 1.25rem;
+    color: var(--accent-ice);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
 /* ========================================
    SPLIT PANELS — Who it's for / Not for
    Two columns, thin vertical divider, NO boxes
@@ -502,6 +572,17 @@ a { color: inherit; text-decoration: none; }
     .service-card:first-child { padding-top: 0; }
     .service-card:last-child { border-bottom: none; padding-bottom: 0; }
 
+    .about-team-grid {
+        grid-template-columns: 1fr;
+    }
+    .about-team-card-featured {
+        grid-template-columns: 1fr;
+        gap: 1.35rem;
+    }
+    .about-team-card-featured img {
+        margin-bottom: 0;
+    }
+
     .service-split {
         grid-template-columns: 1fr;
         padding-left: 2rem;
@@ -550,6 +631,7 @@ a { color: inherit; text-decoration: none; }
     .service-section-title { font-size: clamp(1.8rem, 7vw, 2.4rem); }
 
     .service-card { padding: 1.5rem 0; }
+    .about-team-card { padding: 1.15rem; }
     .service-panel { padding: 2rem 0; }
 
     .service-cta {
