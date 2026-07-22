@@ -74,6 +74,15 @@ HM Pinnacle publishes CEO-level articles for manufacturing leaders building the 
 - [When Every Decision Escalates, Your People System Is Too Fragile](/blog/supervisor-decision-rights-manufacturing-growth.html): If every important call climbs to the same few leaders, growth is exposing a permission system instead of a leadership system.
 - [AI Will Not Fix Broken People Operations in Manufacturing](/blog/ai-will-not-fix-broken-people-operations-manufacturing.html): AI can help document, summarize, and accelerate people operations, but it cannot replace leadership clarity or supervisor standards.
 
+## 2026 Workforce Readiness and Operating Cadence Articles
+
+- [Workplace Stress Is an Operating Signal, Not Just a Wellness Topic](/blog/workplace-stress-operating-signal-industrial-leaders.html): How leaders can read overtime, unclear priorities, weak handoffs, and inconsistent supervision as early operating signals.
+- [The First 90 Days After Promoting a Great Operator to Supervisor](/blog/first-90-days-new-manufacturing-supervisor.html): A practical 30-60-90 day system for role clarity, coaching, handoffs, and supported frontline leadership practice.
+- [Before You Automate the Plant: Is Your Workforce Ready to Work With AI?](/blog/ai-workforce-readiness-manufacturing.html): A manufacturing framework for workflows, roles, skills, decision rights, supervisors, trust, and human review.
+- [Aerospace Program Ramp-Up Is a Workforce Readiness Test](/blog/aerospace-program-ramp-workforce-readiness.html): A workforce-readiness map for qualified talent, training lead times, quality ownership, supervisor capacity, and program continuity.
+- [Your Skills Matrix Is Not Workforce Readiness](/blog/manufacturing-skills-matrix-workforce-readiness.html): A four-level competency model that distinguishes training completion from demonstrated capability and backup coverage.
+- [A 30-Minute Weekly HR-Operations Meeting for Manufacturers](/blog/weekly-hr-operations-meeting-manufacturing.html): A decision-focused cadence for acting on workforce signals before they become production problems.
+
 ## Mission-Critical Talent Retention Resource Cluster
 
 HM Pinnacle publishes a 10-part resource cluster for manufacturing, aerospace, construction, and industrial leaders scaling operations while trying to retain critical employees. The cluster explains how to identify mission-critical roles, create career paths, develop frontline leaders, conduct stay interviews, build bench strength, recognize business-critical contributions, protect workload during growth, capture institutional knowledge, connect employees to the bigger picture, and measure retention as an operating metric.

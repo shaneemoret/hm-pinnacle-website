@@ -1,0 +1,120 @@
+:root {
+  --ink: #061425;
+  --navy: #0a1f3b;
+  --navy-soft: #102f56;
+  --ice: #a8d4f0;
+  --frost: #dceefa;
+  --white: #ffffff;
+  --copy: rgba(255, 255, 255, 0.76);
+  --muted: rgba(255, 255, 255, 0.52);
+  --line: rgba(168, 212, 240, 0.16);
+  --heading: "Playfair Display", Georgia, serif;
+  --body: "Montserrat", "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--white);
+  background: var(--ink);
+  font-family: var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  min-height: 72px;
+  padding: 0 4vw;
+  border-bottom: 1px solid var(--line);
+  background: rgba(6, 20, 37, 0.95);
+  backdrop-filter: blur(16px);
+}
+.site-nav img { display: block; width: auto; height: 58px; }
+.nav-links { display: flex; align-items: center; gap: 1.4rem; }
+.nav-links a { color: var(--copy); font-size: 0.76rem; font-weight: 600; text-decoration: none; }
+.nav-links .nav-cta { padding: 0.68rem 1rem; border: 1px solid var(--ice); color: var(--ice); }
+
+.hero {
+  padding: clamp(5rem, 10vw, 8.5rem) 5vw clamp(4rem, 8vw, 6.5rem);
+  background:
+    radial-gradient(circle at 82% 2%, rgba(30, 80, 144, 0.34), transparent 42%),
+    linear-gradient(180deg, var(--navy) 0%, var(--ink) 100%);
+}
+.hero-inner, .article, .footer-inner { width: min(100%, 980px); margin: 0 auto; }
+.back-link, .kicker, .section-label {
+  color: var(--ice);
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.back-link { display: inline-block; margin-bottom: 2rem; text-decoration: none; }
+h1 {
+  max-width: 950px;
+  margin: 0;
+  font-family: var(--heading);
+  font-size: clamp(2.65rem, 6.4vw, 5.8rem);
+  font-weight: 400;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+.hero-sub { max-width: 840px; margin: 1.6rem 0 0; color: var(--copy); font-size: 1.12rem; line-height: 1.75; }
+.hero-meta { margin-top: 1.8rem; color: var(--muted); font-size: 0.78rem; }
+
+.article { padding: 4rem 24px 7rem; }
+.direct-answer, .related-reading, .source-notes, .cta-block {
+  margin: 0 0 3rem;
+  padding: 1.8rem 2rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(10, 31, 59, 0.72);
+}
+.direct-answer { border-left: 3px solid var(--ice); }
+.article h2 {
+  margin: 4.5rem 0 1rem;
+  font-family: var(--heading);
+  font-size: clamp(2rem, 4.5vw, 3.1rem);
+  font-weight: 400;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+.article h3 { margin: 2.2rem 0 0.7rem; font-size: 1.1rem; line-height: 1.45; }
+.article p, .article li { color: var(--copy); font-size: 1.03rem; line-height: 1.9; }
+.article p { margin: 1rem 0; }
+.article li { margin-bottom: 0.55rem; }
+.article a { color: var(--frost); text-underline-offset: 0.18em; }
+.article strong { color: var(--white); }
+.article ol, .article ul { padding-left: 1.5rem; }
+.related-reading h2, .source-notes h2, .cta-block h2 { margin-top: 0; }
+.source-notes p, .source-notes li { font-size: 0.9rem; }
+.cta-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.2rem; }
+.cta-actions a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  padding: 0 1.15rem;
+  border: 1px solid var(--ice);
+  color: var(--ice);
+  text-decoration: none;
+}
+.faq-item { padding: 0.4rem 0 1rem; border-bottom: 1px solid var(--line); }
+.author-card { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+.author-card p { font-size: 0.95rem; }
+.site-footer { border-top: 1px solid var(--line); background: #040b16; }
+.footer-inner { display: flex; justify-content: space-between; gap: 1rem; padding: 1.4rem 24px; color: var(--muted); font-size: 0.8rem; }
+
+@media (max-width: 720px) {
+  .site-nav { padding: 0 20px; }
+  .nav-links a:not(.nav-cta) { display: none; }
+  .hero { padding-inline: 22px; }
+  .article { padding-inline: 22px; }
+  .direct-answer, .related-reading, .source-notes, .cta-block { padding: 1.35rem; }
+  .footer-inner { flex-direction: column; }
+}
