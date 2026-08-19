@@ -14,11 +14,11 @@ HM Pinnacle builds the operating layer between leadership decisions and workforc
 
 - Consulting Engagements: Strategic advisory for leadership and people-system decisions that need clarity before implementation.
 - Leadership Operating System: Creates one shared leadership language across supervisors, managers, and executives.
-- HR Box Infrastructure: The people operations system behind hiring, onboarding, accountability, development, and documentation.
-- Leadership Foundation: Builds the HMP Leadership System, Leadership Toolbox, and core leadership resources.
-- Leadership Toolbox: Practical tools, frameworks, and resources leaders can use immediately in daily execution.
+- The HR Box: The people operations system behind hiring, onboarding, accountability, development, and documentation.
+- Leadership Foundation: Builds the HMP Leadership System, The Leadership Toolkit, and core leadership resources.
+- The Leadership Toolkit: Practical tools, frameworks, and resources leaders can use immediately in daily execution.
 - Leadership + HR Box: Combines leadership development with people operations systems.
-- Full HMP Leadership Ecosystem: The complete system integrating leadership, HR Box, Toolbox, and development pathways.
+- Full HMP Leadership Ecosystem: The complete system integrating leadership, The HR Box, Toolbox, and development pathways.
 - Modern HR Infrastructure: Replaces patchwork HR processes with scalable workflows, documentation, and manager support.
 - Workforce Stability Systems: Retention systems designed around the roles an organization can least afford to lose.
 - Project-Based Implementation: Focused builds for specific leadership or people-system projects.
