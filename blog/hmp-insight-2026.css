@@ -118,6 +118,15 @@ h1 {
   min-height: 520px;
   border: 0;
 }
+.video-embed-frame.youtube-video-embed-frame {
+  width: 100%;
+  max-width: 960px;
+}
+.video-embed-frame.youtube-video-embed-frame iframe {
+  aspect-ratio: 16 / 9;
+  height: auto;
+  min-height: 0;
+}
 .video-embed-caption { margin: 1rem 0 0; color: var(--muted); font-size: 0.88rem; }
 .article-cta {
   margin-top: 3rem;
@@ -164,5 +173,6 @@ h1 {
   .direct-answer, .related-reading, .source-notes, .cta-block { padding: 1.35rem; }
   .video-embed { padding: 1rem; }
   .video-embed-frame iframe { min-height: 480px; }
+  .video-embed-frame.youtube-video-embed-frame iframe { min-height: 0; }
   .footer-inner { flex-direction: column; }
 }

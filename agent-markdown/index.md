@@ -44,12 +44,23 @@ Typical fit:
 
 ## Gated Webinar Replay Library
 
-HM Pinnacle publishes previously live executive sessions as individually gated replays. Each replay requires name and work email before the LinkedIn video opens.
+HM Pinnacle publishes previously live executive sessions as individually gated replays. Each replay requires name and work email before the embedded YouTube or LinkedIn video opens.
 
+- [Is Clarity Creating Confusion?](/webinars/#clarity-creating-confusion): A leadership communication session on turning polished language into decisions, ownership, deadlines, and usable next steps.
+- [The Power of Seeing Potential](/webinars/#power-seeing-potential): An emerging-leader session on recognizing capability, choosing where to invest development time, and creating supported opportunities to grow.
+- [Great Operator. Struggling Manager. Exceptional Leader.](/webinars/#great-operator-struggling-manager): A frontline leadership session on why technical excellence does not automatically become management capability.
+- [Don't Ask Who Might Retire Next. Ask What Breaks If They Do.](/webinars/#what-breaks-when-employees-retire): A business continuity session on mapping retirement-related knowledge, judgment, customer, and process risk.
 - [Why Great People Stay](/webinars/#why-great-people-stay): A retention session on the systems, leadership behaviors, and operating conditions that help strong employees stay through growth.
 - [The People's Ops to Retain and Attract Mission-Critical Talent](/webinars/#people-ops-retain-attract-mission-critical-talent): A people operations session on retaining and attracting the roles a growing industrial business cannot afford to lose.
 - [The CEO's Role in Retention: Why Culture Isn't an HR Problem](/webinars/#ceo-role-retention-culture): A CEO-level retention session on culture, executive ownership, and leadership accountability.
 - [Retention Strategies for 2026](/webinars/#retention-strategies-2026): A session on planning retention around mission-critical talent, frontline leadership, workload, and retention metrics.
+
+## Webinar Blog Clusters
+
+- [Leadership clarity and communication working agreements](/blog/communication-working-agreements-manufacturing-leaders.html): Includes the full Clarity Live plus supporting articles on after-hours communication, HR-operations decisions, supervisor decision rights, and people-centered leadership.
+- [Emerging leader development and stretch assignments](/blog/stretch-assignments-manufacturing-bench-strength.html): Includes the full Seeing Potential Live plus supporting articles on supervisor ramp, career paths, cross-training, and leadership bench strength.
+- [New manufacturing supervisor development](/blog/first-90-days-new-manufacturing-supervisor.html): Includes the full Great Operator Live plus a practical 30-60-90 plan and supporting frontline leadership resources.
+- [Retirement knowledge continuity](/blog/capture-institutional-knowledge-manufacturing.html): Includes the full retirement-risk Live plus supporting articles on mission-critical talent, knowledge transfer, cross-training, and workforce readiness.
 
 ## CEO People Operations Operating System Articles
 
