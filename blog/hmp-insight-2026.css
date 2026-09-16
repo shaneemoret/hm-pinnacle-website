@@ -234,3 +234,35 @@ h1 {
   .author-inner { gap: 1rem; }
   .author-photo { width: 64px; height: 64px; }
 }
+
+/* LINKEDIN POST EMBED */
+.linkedin-embed { margin: 2.5rem 0; }
+.linkedin-embed .section-label {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ice);
+  margin-bottom: 1rem;
+}
+.linkedin-embed-frame {
+  max-width: 504px;
+  margin: 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--white);
+}
+.linkedin-embed-frame iframe {
+  display: block;
+  width: 100%;
+  max-width: 504px;
+  border: 0;
+}
+.linkedin-embed-caption {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 0.85rem;
+}
+
